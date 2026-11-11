@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_dashboard" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=JetBrains+Mono:wght@100..900&family=Space+Grotesk:wght@100..900&display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{colors:{"surface-container-lowest":"#0a0e18","surface":"#0f131d","surface-dim":"#0f131d","secondary-fixed":"#e1e0ff","error-container":"#93000a","on-background":"#dfe2f1","surface-bright":"#353944","inverse-on-surface":"#2c303b","on-secondary-fixed-variant":"#2f2ebe","on-secondary-container":"#b0b2ff","tertiary":"#4cd7f6","surface-container-highest":"#313540","on-primary":"#3c0091","tertiary-fixed":"#acedff","on-tertiary-fixed-variant":"#004e5c","primary":"#d0bcff","primary-fixed-dim":"#d0bcff","tertiary-container":"#009eb9","inverse-surface":"#dfe2f1","on-tertiary-container":"#002f38","on-error":"#690005","outline-variant":"#494454","surface-tint":"#d0bcff","tertiary-fixed-dim":"#4cd7f6","error":"#ffb4ab","surface-container-high":"#262a35","on-surface":"#dfe2f1","secondary-fixed-dim":"#c0c1ff","on-secondary-fixed":"#07006c","on-surface-variant":"#cbc3d7","secondary-container":"#3131c0","primary-fixed":"#e9ddff","secondary":"#c0c1ff","inverse-primary":"#6d3bd7","on-primary-container":"#340080","outline":"#958ea0","on-primary-fixed":"#23005c","on-secondary":"#1000a9","surface-container":"#1c1f2a","on-error-container":"#ffdad6","background":"#0f131d","on-primary-fixed-variant":"#5516be","surface-container-low":"#171b26","on-tertiary-fixed":"#001f26","primary-container":"#a078ff","on-tertiary":"#003640","surface-variant":"#313540"},borderRadius:{"DEFAULT":"0.125rem","lg":"0.25rem","xl":"0.5rem","full":"0.75rem"},spacing:{"space-md":"0.75rem","gutter-sm":"0.5rem","space-xs":"0.25rem","margin":"1.5rem","space-xl":"2rem","gutter":"1rem","gutter-lg":"1.5rem","margin-mobile":"1rem","space-lg":"1.25rem","space-sm":"0.5rem"},fontFamily:{"label-sm":["JetBrains Mono"],"body-sm":["Inter"],"code-sm":["JetBrains Mono"],"headline-lg":["Space Grotesk"],"headline-xl":["Space Grotesk"],"headline-xl-mobile":["Space Grotesk"],"headline-lg-mobile":["Space Grotesk"],"body-lg":["Inter"],"code-lg":["JetBrains Mono"],"body-md":["Inter"],"headline-sm":["Space Grotesk"],"label-md":["JetBrains Mono"],"headline-md":["Space Grotesk"]},fontSize:{"label-sm":["10px",{lineHeight:"14px",letterSpacing:"0.06em",fontWeight:"500"}],"body-sm":["12px",{lineHeight:"16px",fontWeight:"400"}],"code-sm":["12px",{lineHeight:"18px",fontWeight:"400"}],"headline-lg":["32px",{lineHeight:"40px",letterSpacing:"-0.015em",fontWeight:"600"}],"headline-xl":["40px",{lineHeight:"48px",letterSpacing:"-0.02em",fontWeight:"600"}],"headline-xl-mobile":["30px",{lineHeight:"38px",letterSpacing:"-0.02em",fontWeight:"600"}],"headline-lg-mobile":["24px",{lineHeight:"32px",letterSpacing:"-0.015em",fontWeight:"600"}],"body-lg":["16px",{lineHeight:"24px",fontWeight:"400"}],"code-lg":["14px",{lineHeight:"22px",fontWeight:"400"}],"body-md":["14px",{lineHeight:"20px",fontWeight:"400"}],"headline-sm":["18px",{lineHeight:"24px",fontWeight:"500"}],"label-md":["12px",{lineHeight:"16px",letterSpacing:"0.04em",fontWeight:"500"}],"headline-md":["22px",{lineHeight:"28px",letterSpacing:"-0.01em",fontWeight:"500"}]}}}}</script></head><body class="bg-surface-container-lowest font-body-md text-body-md text-on-surface antialiased"><aside class="fixed left-0 top-0 h-full w-[260px] bg-surface-container-lowest z-50 flex flex-col justify-between shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="flex flex-col"><div class="h-16 px-space-md flex items-center justify-between bg-surface-container-lowest"><div class="flex items-center gap-space-sm"><img alt="NEXORA Code Logo" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDuQGUIoHGHOLy3UpduhnPYlgGoraklfUpkYnU4fuZgnLQ76MbCUK5vyuXJ0rFxuqmMX_E14cxMXy5gMZIcZLzrSOu95Zumwmw8UePMe9nyUn416w-bnp3ijUPAIp7xRZwjx7lh-OUOyWfL39CrKlJDRKldl4uxe1jEsRo4vavnW54HhWSFoVLBIkZvudhjaYhavQ44ZWaeQtHt_3rwgmIxywowojrkXhfNyVIqeQ"/><span class="font-headline-sm text-headline-sm text-on-surface tracking-tight font-semibold">NEXORA</span></div><span class="font-label-sm text-label-sm uppercase px-1.5 py-0.5 rounded bg-surface-container-high text-tertiary">v2.4 Pro</span></div><div class="px-space-md py-space-sm overflow-y-auto max-h-[calc(100vh-160px)]"><div class="mb-space-lg"><p class="font-label-sm text-label-sm uppercase text-outline px-space-sm mb-space-xs">Main</p><nav class="flex flex-col gap-0.5" data-active-classes="bg-surface-container-high text-primary font-medium rounded-lg"><a class="flex items-center gap-space-sm px-space-sm py-2 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors font-body-sm text-body-sm" data-path="dashboard" href="#"><span class="material-symbols-outlined text-lg">dashboard</span><span>Overview / Dashboard</span></a><a class="flex items-center gap-space-sm px-space-sm py-2 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors font-body-sm text-body-sm" data-path="ai-coding-workspace" href="#"><span class="material-symbols-outlined text-lg">terminal</span><span>AI Coding Workspace</span></a><a aria-current="page" class="flex items-center gap-space-sm px-space-sm py-2 transition-colors bg-surface-container-high text-primary font-medium rounded-lg" data-path="repositories" href="#"><span class="material-symbols-outlined text-lg">emoji_symbols</span><span>Repositories</span></a><a class="flex items-center gap-space-sm px-space-sm py-2 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors font-body-sm text-body-sm" data-path="task-history" href="#"><span class="material-symbols-outlined text-lg">history</span><span>Task History</span></a></nav></div><div class="mb-space-lg"><p class="font-label-sm text-label-sm uppercase text-outline px-space-sm mb-space-xs">Intelligence & Tokens</p><nav class="flex flex-col gap-0.5" data-active-classes="bg-surface-container-high text-primary font-medium rounded-lg"><a class="flex items-center gap-space-sm px-space-sm py-2 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors font-body-sm text-body-sm" data-path="token-analytics" href="#"><span class="material-symbols-outlined text-lg">bar_chart</span><span>Token Analytics</span></a><a class="flex items-center gap-space-sm px-space-sm py-2 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors font-body-sm text-body-sm" data-path="model-router" href="#"><span class="material-symbols-outlined text-lg">alt_route</span><span>Model Router</span></a><a class="flex items-center gap-space-sm px-space-sm py-2 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors font-body-sm text-body-sm" data-path="budget-manager" href="#"><span class="material-symbols-outlined text-lg">account_balance_wallet</span><span>Budget Manager</span></a></nav></div><div class="mb-space-md"><p class="font-label-sm text-label-sm uppercase text-outline px-space-sm mb-space-xs">Governance</p><nav class="flex flex-col gap-0.5" data-active-classes="bg-surface-container-high text-primary font-medium rounded-lg"><a class="flex items-center gap-space-sm px-space-sm py-2 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors font-body-sm text-body-sm" data-path="security-center" href="#"><span class="material-symbols-outlined text-lg">shield</span><span>Security Center</span></a><a class="flex items-center gap-space-sm px-space-sm py-2 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors font-body-sm text-body-sm" data-path="settings" href="#"><span class="material-symbols-outlined text-lg">settings</span><span>Settings</span></a></nav></div></div></div><div class="p-space-md bg-surface-container-low"><div class="flex items-center justify-between mb-space-xs"><div class="flex items-center gap-space-sm"><img alt="Profile" class="w-8 h-8 rounded-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBCnjXww_8t8PPzSkEl28FtDAk0EN2xz06LpYsR2tuCpePURwKpUikW-S0HjSpVJ1RJVKwFab-kyaEtbe0vebuvSu0YQLL531sROadBtVCSfqelwen1J3tV-3jvSsPZJRRXlqW_Ja_VcvFTp0A_DANJWBIUrSw55O2A7eWqZfm5LCO7KuKtjfW8HC4zaaCmHl4wSf9JUmPEJ3hjphBVAcOchQ0E-UlCd2MpaIY3Cg"/><div class="flex flex-col"><span class="font-body-sm text-body-sm text-on-surface font-medium leading-none">Elena Rostova</span><span class="font-label-sm text-label-sm text-outline leading-tight mt-1">Principal Architect</span></div></div><button class="text-on-surface-variant hover:text-on-surface transition-colors"><span class="material-symbols-outlined text-base">more_vert</span></button></div><div class="mt-space-sm pt-space-xs"><div class="flex items-center justify-between text-outline font-label-sm text-label-sm"><span>Efficiency</span><span class="text-tertiary font-semibold">94.2%</span></div><div class="w-full h-1 bg-surface-container-highest rounded-full mt-1 overflow-hidden"><div class="h-full bg-tertiary w-[94.2%]"></div></div></div></div></aside><div class="pl-[260px]"><header class="fixed top-0 left-[260px] right-0 h-16 z-40 bg-surface/80 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="h-16 w-full px-space-lg flex items-center justify-between gap-space-md"><div class="flex items-center gap-space-md"><div class="flex items-center gap-2 px-space-sm py-1 rounded bg-surface-container-low"><span class="w-2 h-2 rounded-full bg-tertiary"></span><span class="font-code-sm text-code-sm text-on-surface">prod-core-monorepo / main</span><span class="material-symbols-outlined text-sm text-on-surface-variant">expand_more</span></div><div class="hidden xl:flex items-center gap-2 px-space-sm py-1 rounded bg-surface-container-low font-label-sm text-label-sm text-on-surface-variant"><span class="w-1.5 h-1.5 rounded-full bg-primary"></span><span>Claude 3.7 + DeepSeek V3 (142ms)</span></div><div class="hidden 2xl:flex items-center gap-1.5 px-space-sm py-1 rounded bg-surface-container-low font-label-sm text-label-sm text-tertiary"><span class="material-symbols-outlined text-sm">bolt</span><span>4.2M saved (68%)</span></div></div><div class="flex items-center gap-space-md"><div class="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-surface-container-low text-on-surface-variant w-48 lg:w-64"><span class="material-symbols-outlined text-sm">search</span><span class="font-body-sm text-body-sm text-outline flex-1">Command Palette</span><kbd class="font-label-sm text-label-sm px-1.5 py-0.5 rounded bg-surface-container-highest text-outline">⌘K</kbd></div><a class="relative p-1.5 rounded text-on-surface-variant hover:text-on-surface transition-colors" href="#"><span class="material-symbols-outlined text-xl">notifications</span><span class="absolute top-1 right-1 w-2 h-2 rounded-full bg-error"></span></a><nav class="flex items-center gap-space-md font-body-sm text-body-sm" data-active-classes="text-primary font-medium"><a class="text-on-surface-variant hover:text-on-surface transition-colors" data-path="documentation" href="#">Docs</a><a class="text-on-surface-variant hover:text-on-surface transition-colors" data-path="api-status" href="#">API</a></nav><img alt="Profile" class="w-8 h-8 rounded-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBCnjXww_8t8PPzSkEl28FtDAk0EN2xz06LpYsR2tuCpePURwKpUikW-S0HjSpVJ1RJVKwFab-kyaEtbe0vebuvSu0YQLL531sROadBtVCSfqelwen1J3tV-3jvSsPZJRRXlqW_Ja_VcvFTp0A_DANJWBIUrSw55O2A7eWqZfm5LCO7KuKtjfW8HC4zaaCmHl4wSf9JUmPEJ3hjphBVAcOchQ0E-UlCd2MpaIY3Cg"/></div></div></header><main class="w-full pt-16 bg-surface-container-lowest min-h-screen"><div class="flex flex-col w-full">
+<!-- Top Command & Action Bar -->
+<section class="w-full bg-surface-container-low px-margin py-space-md shadow-sm">
+<div class="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-space-md">
+<!-- Breadcrumb / Scope Context -->
+<div class="flex items-center gap-space-md min-w-0">
+<div class="w-10 h-10 rounded-lg bg-surface-container-high flex items-center justify-center text-primary shadow-inner">
+<span class="material-symbols-outlined text-xl">emoji_symbols</span>
+</div>
+<div class="flex flex-col min-w-0">
+<div class="flex items-center gap-2">
+<span class="font-headline-sm text-headline-sm text-on-surface tracking-tight font-semibold">Repository Explorer</span>
+<span class="font-label-sm text-label-sm uppercase px-2 py-0.5 rounded bg-tertiary-container/30 text-tertiary">AST Engine v3</span>
+</div>
+<p class="font-body-sm text-body-sm text-outline truncate">Multi-repo deterministic semantic graph & local-first token caching telemetry</p>
+</div>
+</div>
+<!-- Toolbar Inputs & Actions -->
+<div class="flex flex-wrap items-center gap-space-sm">
+<!-- Branch Switcher -->
+<div class="relative group">
+<button class="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-surface-container-high text-on-surface hover:bg-surface-bright transition-colors font-code-sm text-code-sm shadow-sm" id="branchDropdownBtn">
+<span class="material-symbols-outlined text-sm text-secondary">alt_route</span>
+<span class="font-medium" id="currentBranchLabel">feat/ast-token-compress</span>
+<span class="material-symbols-outlined text-xs text-outline">expand_more</span>
+</button>
+<div class="hidden absolute left-0 mt-1.5 w-60 rounded-xl bg-surface-container-highest shadow-xl p-1.5 z-50" id="branchDropdownMenu">
+<p class="font-label-sm text-label-sm text-outline uppercase px-2 py-1">Active Branches</p>
+<button class="w-full text-left px-2 py-1.5 rounded hover:bg-surface-container-high text-on-surface font-code-sm text-code-sm flex items-center justify-between" onclick="switchBranch('feat/ast-token-compress')">
+<span>feat/ast-token-compress</span>
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary"></span>
+</button>
+<button class="w-full text-left px-2 py-1.5 rounded hover:bg-surface-container-high text-on-surface-variant font-code-sm text-code-sm flex items-center justify-between" onclick="switchBranch('main')">
+<span>main (protected)</span>
+<span class="material-symbols-outlined text-xs">lock</span>
+</button>
+<button class="w-full text-left px-2 py-1.5 rounded hover:bg-surface-container-high text-on-surface-variant font-code-sm text-code-sm" onclick="switchBranch('staging-v2.4')">
+<span>staging-v2.4</span>
+</button>
+</div>
+</div>
+<!-- Quick Repository Search -->
+<div class="relative flex items-center">
+<span class="material-symbols-outlined absolute left-2.5 text-sm text-outline pointer-events-none">filter_alt</span>
+<input class="w-56 xl:w-72 pl-8 pr-12 py-1.5 rounded-lg bg-surface-container-lowest text-on-surface placeholder:text-outline font-body-sm text-body-sm focus:outline-none focus:bg-surface-container shadow-inner" id="repoFileFilter" placeholder="Filter files (e.g. *.go, token>1k)..." type="text"/>
+<kbd class="absolute right-2 font-label-sm text-label-sm px-1.5 py-0.5 rounded bg-surface-container-high text-outline">ESC</kbd>
+</div>
+<!-- Connect Repo Dropdown/Modal Trigger -->
+<div class="relative">
+<button class="flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg bg-primary text-on-primary font-body-sm text-body-sm font-medium hover:bg-primary-fixed hover:text-on-primary-fixed shadow-md transition-all" id="connectRepoBtn">
+<span class="material-symbols-outlined text-base">add_circle</span>
+<span>Connect Repository</span>
+<span class="material-symbols-outlined text-xs">arrow_drop_down</span>
+</button>
+<div class="hidden absolute right-0 mt-1.5 w-64 rounded-xl bg-surface-container-highest shadow-xl p-2 z-50" id="connectRepoMenu">
+<div class="font-label-sm text-label-sm uppercase text-outline px-2 py-1">Direct Provider Link</div>
+<button class="w-full flex items-center gap-2 px-2 py-1.5 rounded hover:bg-surface-container-high text-on-surface font-body-sm text-body-sm transition-colors">
+<span class="material-symbols-outlined text-secondary text-base">cloud_sync</span>
+<span>GitHub Enterprise / Cloud</span>
+</button>
+<button class="w-full flex items-center gap-2 px-2 py-1.5 rounded hover:bg-surface-container-high text-on-surface font-body-sm text-body-sm transition-colors">
+<span class="material-symbols-outlined text-tertiary text-base">merge</span>
+<span>GitLab Self-Hosted</span>
+</button>
+<button class="w-full flex items-center gap-2 px-2 py-1.5 rounded hover:bg-surface-container-high text-on-surface font-body-sm text-body-sm transition-colors">
+<span class="material-symbols-outlined text-on-surface-variant text-base">data_object</span>
+<span>Bitbucket Data Center</span>
+</button>
+<div class="my-1.5 h-px bg-surface-container-high"></div>
+<button class="w-full flex items-center gap-2 px-2 py-1.5 rounded bg-surface-container text-tertiary font-body-sm text-body-sm hover:bg-surface-container-high transition-colors">
+<span class="material-symbols-outlined text-base">folder_open</span>
+<span>Attach Local Git Working Copy</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Workspace Grid: Left Column 28%, Right Column 72% -->
+<div class="w-full grid grid-cols-1 lg:grid-cols-12 min-h-[calc(100vh-8rem)]">
+<!-- Left Column (Repository Selector & File Tree Navigator) -->
+<aside class="lg:col-span-3 xl:col-span-3 bg-surface-container-low flex flex-col justify-between shadow-sm">
+<div class="flex flex-col h-full overflow-hidden">
+<!-- Section 1: Active Repositories List -->
+<div class="p-space-md">
+<div class="flex items-center justify-between mb-space-sm">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-outline">Target Workspaces (4)</span>
+<span class="font-label-sm text-label-sm text-tertiary font-mono">AST Realtime</span>
+</div>
+<div class="flex flex-col gap-1.5">
+<!-- Repo 1: Core Engine (Active, Primary) -->
+<div class="repo-card cursor-pointer p-space-sm rounded-xl bg-surface-container text-on-surface hover:bg-surface-container-high transition-all shadow-sm" onclick="selectRepo(this, 'nexora-cloud/core-engine')">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2 min-w-0">
+<span class="w-2 h-2 rounded-full bg-tertiary animate-pulse"></span>
+<span class="font-code-sm text-code-sm font-semibold truncate">nexora-cloud/core-engine</span>
+</div>
+<span class="font-label-sm text-label-sm px-1.5 py-0.5 rounded bg-primary-container text-on-primary-container">Primary</span>
+</div>
+<div class="flex items-center justify-between mt-1 text-on-surface-variant font-label-sm text-label-sm">
+<span class="flex items-center gap-1">
+<span class="material-symbols-outlined text-xs">group</span> 42 contributors
+                </span>
+<span class="text-tertiary font-mono">99.8% AST indexed</span>
+</div>
+</div>
+<!-- Repo 2: Auth Service (Confidential Shield) -->
+<div class="repo-card cursor-pointer p-space-sm rounded-xl bg-surface-container-lowest text-on-surface hover:bg-surface-container-high transition-all shadow-sm" onclick="selectRepo(this, 'nexora-cloud/auth-service')">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2 min-w-0">
+<span class="w-2 h-2 rounded-full bg-secondary"></span>
+<span class="font-code-sm text-code-sm font-semibold truncate">nexora-cloud/auth-service</span>
+</div>
+<span class="material-symbols-outlined text-sm text-tertiary" title="Confidential Protection Active">shield_lock</span>
+</div>
+<!-- Confidential Shield Badge Callout -->
+<div class="mt-1.5 p-1 rounded bg-surface-container flex items-center gap-1.5 text-tertiary">
+<span class="material-symbols-outlined text-xs">lock</span>
+<span class="font-label-sm text-label-sm font-medium tracking-tight">Zero 3rd-Party Training • Local AST Only</span>
+</div>
+</div>
+<!-- Repo 3: Frontend Monorepo -->
+<div class="repo-card cursor-pointer p-space-sm rounded-xl bg-surface-container-lowest text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-all" onclick="selectRepo(this, 'nexora-cloud/frontend-monorepo')">
+<div class="flex items-center justify-between">
+<span class="font-code-sm text-code-sm font-medium truncate">nexora-cloud/frontend-monorepo</span>
+<span class="font-label-sm text-label-sm px-1.5 py-0.2 rounded bg-surface-container-highest text-outline">Active</span>
+</div>
+<div class="flex items-center justify-between mt-1 text-outline font-label-sm text-label-sm">
+<span>18 contributors</span>
+<span class="font-mono">React 19 / Vite</span>
+</div>
+</div>
+<!-- Repo 4: Data Pipeline (Idle) -->
+<div class="repo-card cursor-pointer p-space-sm rounded-xl bg-surface-container-lowest text-outline hover:bg-surface-container hover:text-on-surface transition-all" onclick="selectRepo(this, 'nexora-cloud/data-pipeline')">
+<div class="flex items-center justify-between">
+<span class="font-code-sm text-code-sm truncate">nexora-cloud/data-pipeline</span>
+<span class="font-label-sm text-label-sm px-1.5 py-0.2 rounded bg-surface-container-high text-outline">Idle</span>
+</div>
+<div class="flex items-center justify-between mt-1 text-outline font-label-sm text-label-sm">
+<span>Sync paused 4d ago</span>
+<span class="font-mono">Rust / Arrow</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Section 2: Interactive Directory & File Tree -->
+<div class="flex-1 flex flex-col p-space-md pt-0 overflow-y-auto">
+<div class="flex items-center justify-between py-space-xs text-outline font-label-sm text-label-sm uppercase">
+<span class="flex items-center gap-1">
+<span class="material-symbols-outlined text-xs">account_tree</span>
+              File Matrix
+            </span>
+<span class="text-tertiary">Token Footprint</span>
+</div>
+<div class="mt-2 space-y-0.5 font-code-sm text-code-sm">
+<!-- Root Folder: cmd -->
+<div class="tree-node flex items-center justify-between py-1 px-1.5 rounded hover:bg-surface-container text-on-surface-variant cursor-pointer">
+<div class="flex items-center gap-1.5 min-w-0">
+<span class="material-symbols-outlined text-sm text-outline">chevron_right</span>
+<span class="material-symbols-outlined text-base text-secondary">folder</span>
+<span class="truncate">cmd/</span>
+</div>
+<span class="font-label-sm text-label-sm text-outline">3.1k tokens</span>
+</div>
+<!-- Folder: internal (Open) -->
+<div class="tree-node flex items-center justify-between py-1 px-1.5 rounded bg-surface-container-highest/20 text-on-surface cursor-pointer">
+<div class="flex items-center gap-1.5 min-w-0">
+<span class="material-symbols-outlined text-sm text-tertiary">expand_more</span>
+<span class="material-symbols-outlined text-base text-tertiary">folder_open</span>
+<span class="font-medium truncate">internal/</span>
+</div>
+<span class="font-label-sm text-label-sm text-tertiary font-mono">18.4k</span>
+</div>
+<!-- Nested Folder: services (Open) -->
+<div class="pl-4 space-y-0.5">
+<div class="tree-node flex items-center justify-between py-1 px-1.5 rounded hover:bg-surface-container text-on-surface cursor-pointer">
+<div class="flex items-center gap-1.5 min-w-0">
+<span class="material-symbols-outlined text-sm text-tertiary">expand_more</span>
+<span class="material-symbols-outlined text-base text-secondary">folder_open</span>
+<span class="font-medium truncate">services/</span>
+</div>
+<span class="font-label-sm text-label-sm text-outline">9.2k</span>
+</div>
+<!-- Files inside services -->
+<div class="pl-4 space-y-0.5">
+<!-- Selected File: jwt_validator.go -->
+<div class="file-item flex items-center justify-between py-1.5 px-2 rounded-lg bg-primary-container text-on-primary-container cursor-pointer shadow-sm">
+<div class="flex items-center gap-2 min-w-0">
+<span class="font-label-sm text-label-sm px-1 py-0.2 rounded bg-surface-container-lowest text-tertiary font-bold">.go</span>
+<span class="font-medium truncate">jwt_validator.go</span>
+</div>
+<span class="font-label-sm text-label-sm px-1.5 py-0.5 rounded bg-on-primary-container/20 text-on-primary-container font-mono">210 tokens</span>
+</div>
+<!-- File: auth.ts -->
+<div class="file-item flex items-center justify-between py-1 px-2 rounded hover:bg-surface-container text-on-surface-variant cursor-pointer transition-colors">
+<div class="flex items-center gap-2 min-w-0">
+<span class="font-label-sm text-label-sm px-1 py-0.2 rounded bg-surface-container-high text-secondary font-bold">.ts</span>
+<span class="truncate">auth.ts</span>
+</div>
+<span class="font-label-sm text-label-sm text-outline">2.4k cached</span>
+</div>
+<!-- File: session_cache.rs -->
+<div class="file-item flex items-center justify-between py-1 px-2 rounded hover:bg-surface-container text-on-surface-variant cursor-pointer transition-colors">
+<div class="flex items-center gap-2 min-w-0">
+<span class="font-label-sm text-label-sm px-1 py-0.2 rounded bg-surface-container-high text-error font-bold">.rs</span>
+<span class="truncate">session_cache.rs</span>
+</div>
+<span class="font-label-sm text-label-sm text-outline">4.1k cached</span>
+</div>
+<!-- File: telemetry_hook.py -->
+<div class="file-item flex items-center justify-between py-1 px-2 rounded hover:bg-surface-container text-on-surface-variant cursor-pointer transition-colors">
+<div class="flex items-center gap-2 min-w-0">
+<span class="font-label-sm text-label-sm px-1 py-0.2 rounded bg-surface-container-high text-tertiary font-bold">.py</span>
+<span class="truncate">telemetry_hook.py</span>
+</div>
+<span class="font-label-sm text-label-sm text-outline">890 cached</span>
+</div>
+</div>
+</div>
+<!-- Folder: pkg/ -->
+<div class="tree-node flex items-center justify-between py-1 px-1.5 rounded hover:bg-surface-container text-on-surface-variant cursor-pointer">
+<div class="flex items-center gap-1.5 min-w-0">
+<span class="material-symbols-outlined text-sm text-outline">chevron_right</span>
+<span class="material-symbols-outlined text-base text-secondary">folder</span>
+<span class="truncate">pkg/</span>
+</div>
+<span class="font-label-sm text-label-sm text-outline">12.0k tokens</span>
+</div>
+<!-- Root Files -->
+<div class="file-item flex items-center justify-between py-1 px-2 rounded hover:bg-surface-container text-on-surface-variant cursor-pointer">
+<div class="flex items-center gap-2 min-w-0">
+<span class="font-label-sm text-label-sm px-1 py-0.2 rounded bg-surface-container-high text-on-surface font-bold">.mod</span>
+<span class="truncate">go.mod</span>
+</div>
+<span class="font-label-sm text-label-sm text-outline">140 tokens</span>
+</div>
+<div class="file-item flex items-center justify-between py-1 px-2 rounded hover:bg-surface-container text-on-surface-variant cursor-pointer">
+<div class="flex items-center gap-2 min-w-0">
+<span class="font-label-sm text-label-sm px-1 py-0.2 rounded bg-surface-container-high text-primary font-bold">.json</span>
+<span class="truncate">ast.config.json</span>
+</div>
+<span class="font-label-sm text-label-sm text-outline">512 tokens</span>
+</div>
+</div>
+</div>
+<!-- Tree Status Footer Mini-Card -->
+<div class="p-space-md bg-surface-container-lowest">
+<div class="flex items-center justify-between text-outline font-label-sm text-label-sm">
+<span>AST Hot Memory</span>
+<span class="text-tertiary font-mono">1.2 GB / 4.0 GB</span>
+</div>
+<div class="w-full h-1 bg-surface-container-highest rounded-full mt-1.5 overflow-hidden">
+<div class="h-full bg-gradient-to-r from-secondary via-primary to-tertiary w-[30%]"></div>
+</div>
+</div>
+</div>
+</aside>
+<!-- Right Main Area (Repository Intelligence & File Analysis Panel) -->
+<main class="lg:col-span-9 xl:col-span-9 p-space-md lg:p-margin flex flex-col gap-space-md bg-surface-container-lowest">
+<!-- Top Intelligence Banner: Repository Health & Indexing Status -->
+<section class="rounded-xl bg-surface-container-low p-space-md shadow-md">
+<div class="flex flex-col xl:flex-row xl:items-center xl:justify-between gap-space-md">
+<!-- Live Graph Status Indicators -->
+<div class="flex flex-wrap items-center gap-space-lg">
+<div class="flex items-center gap-space-sm">
+<div class="w-3 h-3 rounded-full bg-tertiary shadow-[0_0_12px_rgba(76,215,246,0.6)]"></div>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm uppercase text-outline">AST Vector Graph</span>
+<span class="font-code-sm text-code-sm text-on-surface font-semibold">100% Synced & Validated</span>
+</div>
+</div>
+<div class="flex items-center gap-space-sm">
+<span class="material-symbols-outlined text-secondary text-xl">hub</span>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm uppercase text-outline">Semantic Scope</span>
+<span class="font-code-sm text-code-sm text-on-surface font-semibold">14,290 Symbols Indexed</span>
+</div>
+</div>
+<div class="flex items-center gap-space-sm">
+<span class="material-symbols-outlined text-primary text-xl">speed</span>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm uppercase text-outline">Cache Efficiency</span>
+<span class="font-code-sm text-code-sm text-tertiary font-bold">88.4% Hit Rate</span>
+</div>
+</div>
+</div>
+<!-- Sparkline / Mini Trend Visualization -->
+<div class="flex items-center gap-space-md bg-surface-container-lowest px-space-md py-2 rounded-lg">
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm uppercase text-outline">Token Delta</span>
+<span class="font-code-sm text-code-sm text-on-surface font-mono">-1.84M Saved</span>
+</div>
+<!-- Mini SVG Sparkline -->
+<svg class="w-28 h-8 text-tertiary" fill="none" viewbox="0 0 100 28">
+<path d="M0 24 L15 20 L30 22 L45 14 L60 16 L75 8 L90 10 L100 4" stroke="currentColor" stroke-linecap="round" stroke-width="2"></path>
+<path d="M0 24 L15 20 L30 22 L45 14 L60 16 L75 8 L90 10 L100 4 V28 H0 Z" fill="currentColor" fill-opacity="0.12"></path>
+</svg>
+</div>
+</div>
+</section>
+<!-- Main Inspector Grid: File Analysis Inspector for services/jwt_validator.go -->
+<section class="grid grid-cols-1 xl:grid-cols-12 gap-space-md">
+<!-- Left / Upper Inspector Area: File Metadata & Action Center (xl:col-span-8) -->
+<div class="xl:col-span-8 flex flex-col gap-space-md">
+<!-- File Focus Header Card -->
+<div class="p-space-lg rounded-xl bg-surface-container shadow-md">
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-space-sm pb-space-sm">
+<div class="flex items-center gap-space-sm">
+<span class="px-2 py-1 rounded bg-surface-container-high text-tertiary font-code-sm text-code-sm font-semibold">GO</span>
+<span class="font-headline-sm text-headline-sm text-on-surface font-semibold">services/jwt_validator.go</span>
+<span class="material-symbols-outlined text-outline text-base">lock</span>
+</div>
+<div class="flex items-center gap-2">
+<button class="px-2.5 py-1 rounded-lg bg-surface-container-high text-on-surface-variant hover:text-on-surface font-label-sm text-label-sm flex items-center gap-1 transition-colors">
+<span class="material-symbols-outlined text-xs">code</span> View Raw Diff
+                </button>
+<button class="px-2.5 py-1 rounded-lg bg-surface-container-high text-on-surface-variant hover:text-on-surface font-label-sm text-label-sm flex items-center gap-1 transition-colors">
+<span class="material-symbols-outlined text-xs">history</span> Commits (14)
+                </button>
+</div>
+</div>
+<!-- Token Compression Metric Hero Mosaic -->
+<div class="grid grid-cols-2 sm:grid-cols-4 gap-space-sm mt-space-sm pt-space-sm bg-surface-container-lowest p-space-md rounded-lg">
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-outline uppercase">File Size</span>
+<span class="font-code-lg text-code-lg text-on-surface font-semibold">14.8 KB</span>
+<span class="font-label-sm text-label-sm text-outline">428 raw lines</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-outline uppercase">Raw Tokens</span>
+<span class="font-code-lg text-code-lg text-on-surface font-semibold">1,840</span>
+<span class="font-label-sm text-label-sm text-outline">standard context</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-tertiary uppercase">AST Compressed</span>
+<span class="font-code-lg text-code-lg text-tertiary font-bold">210 tokens</span>
+<span class="font-label-sm text-label-sm text-tertiary">pruned tree node</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-primary uppercase">Efficiency</span>
+<span class="font-code-lg text-code-lg text-primary font-bold">88% reduction</span>
+<span class="font-label-sm text-label-sm text-secondary">1,630 delta</span>
+</div>
+</div>
+<!-- Micro Token Efficiency Bar -->
+<div class="mt-space-md">
+<div class="flex items-center justify-between text-outline font-label-sm text-label-sm mb-1">
+<span>Context Window Payload Reduction Ratio</span>
+<span class="text-tertiary font-mono">1:8.7 Compression</span>
+</div>
+<div class="w-full h-2 bg-surface-container-highest rounded-full overflow-hidden flex">
+<div class="h-full bg-tertiary w-[12%]" title="210 AST active tokens"></div>
+<div class="h-full bg-surface-bright w-[88%]" title="1,630 pruned / abstracted tokens"></div>
+</div>
+</div>
+</div>
+<!-- Quick Agent Action Triggers -->
+<div class="p-space-md rounded-xl bg-surface-container-low shadow-sm">
+<div class="flex items-center justify-between mb-space-sm">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-outline flex items-center gap-1.5">
+<span class="material-symbols-outlined text-sm text-primary">smart_toy</span>
+                Quick Agent Action Triggers
+              </span>
+<span class="font-label-sm text-label-sm text-outline">Claude 3.7 Sonnet Active</span>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-space-sm">
+<!-- Trigger 1: Analyze AST -->
+<button class="flex flex-col items-start p-space-sm rounded-lg bg-surface-container hover:bg-surface-bright transition-all group text-left shadow-sm" onclick="triggerAgentAction('AST Analysis')">
+<div class="w-8 h-8 rounded bg-primary-container text-on-primary-container flex items-center justify-center mb-2 group-hover:scale-105 transition-transform">
+<span class="material-symbols-outlined text-lg">schema</span>
+</div>
+<span class="font-body-sm text-body-sm font-semibold text-on-surface">Analyze AST with Agent</span>
+<p class="font-label-sm text-label-sm text-outline mt-1">Deep semantic graph validation and recursive struct check</p>
+<span class="mt-space-sm font-label-sm text-label-sm text-primary flex items-center gap-1">Execute ›</span>
+</button>
+<!-- Trigger 2: Unit Test Suite -->
+<button class="flex flex-col items-start p-space-sm rounded-lg bg-surface-container hover:bg-surface-bright transition-all group text-left shadow-sm" onclick="triggerAgentAction('Generate Unit Tests')">
+<div class="w-8 h-8 rounded bg-secondary-container text-on-secondary-container flex items-center justify-center mb-2 group-hover:scale-105 transition-transform">
+<span class="material-symbols-outlined text-lg">fact_check</span>
+</div>
+<span class="font-body-sm text-body-sm font-semibold text-on-surface">Generate Unit Test Suite</span>
+<p class="font-label-sm text-label-sm text-outline mt-1">Synthesizes table-driven Go benchmark & fuzz tests</p>
+<span class="mt-space-sm font-label-sm text-label-sm text-secondary flex items-center gap-1">Synthesize ›</span>
+</button>
+<!-- Trigger 3: Privacy Compliance -->
+<button class="flex flex-col items-start p-space-sm rounded-lg bg-surface-container hover:bg-surface-bright transition-all group text-left shadow-sm" onclick="triggerAgentAction('Privacy Compliance Audit')">
+<div class="w-8 h-8 rounded bg-tertiary-container text-on-tertiary-container flex items-center justify-center mb-2 group-hover:scale-105 transition-transform">
+<span class="material-symbols-outlined text-lg">gavel</span>
+</div>
+<span class="font-body-sm text-body-sm font-semibold text-on-surface">Check Privacy Compliance</span>
+<p class="font-label-sm text-label-sm text-outline mt-1">Verify zero PII leak in claims extraction pipeline</p>
+<span class="mt-space-sm font-label-sm text-label-sm text-tertiary flex items-center gap-1">Audit ›</span>
+</button>
+</div>
+</div>
+<!-- Code AST Preview Mock / Snippet Inspector -->
+<div class="rounded-xl bg-surface-container-lowest p-space-md shadow-inner">
+<div class="flex items-center justify-between mb-space-xs pb-space-xs text-outline font-label-sm text-label-sm">
+<span class="flex items-center gap-1 font-mono">
+<span class="material-symbols-outlined text-xs text-tertiary">code_blocks</span>
+                AST Representation: Struct Tokenization
+              </span>
+<span class="text-tertiary font-mono">L42-L78 active segment</span>
+</div>
+<pre class="font-code-sm text-code-sm text-on-surface overflow-x-auto p-space-sm bg-surface-container-low rounded-lg leading-relaxed"><code><span class="text-secondary">type</span> <span class="text-tertiary">JWTValidator</span> <span class="text-secondary">struct</span> {
+    publicKeyCache  *sync.Map      <span class="text-outline">// [AST-Cached: 18t]</span>
+    allowedIssuers  []<span class="text-secondary">string</span>     <span class="text-outline">// [AST-Cached: 12t]</span>
+    clockSkewLeeway time.Duration  <span class="text-outline">// [AST-Cached: 8t]</span>
+}
+
+<span class="text-secondary">func</span> (v *<span class="text-tertiary">JWTValidator</span>) <span class="text-primary">ValidateTokenClaims</span>(ctx context.Context, tokenStr <span class="text-secondary">string</span>) (*Claims, <span class="text-secondary">error</span>) {
+    <span class="text-outline">// Semantic pointer auto-linked to pkg/crypto/jwt_rsa.go:214</span>
+    <span class="text-secondary">return</span> v.parseAndVerify(ctx, tokenStr)
+}</code></pre>
+</div>
+</div>
+<!-- Right Inspector Area: Dependency Graph & Vulnerabilities (xl:col-span-4) -->
+<div class="xl:col-span-4 flex flex-col gap-space-md">
+<!-- Dependency Graph Preview Card -->
+<div class="p-space-md rounded-xl bg-surface-container shadow-md">
+<div class="flex items-center justify-between mb-space-sm">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-outline flex items-center gap-1">
+<span class="material-symbols-outlined text-sm text-secondary">device_hub</span>
+                Dependency Graph
+              </span>
+<span class="font-label-sm text-label-sm px-1.5 py-0.5 rounded bg-surface-container-highest text-tertiary font-mono">6 Nodes</span>
+</div>
+<!-- Graph Canvas Representation -->
+<div class="relative w-full h-48 bg-surface-container-lowest rounded-lg p-space-sm flex flex-col justify-between overflow-hidden shadow-inner">
+<!-- Top Hub: Current File -->
+<div class="flex justify-center">
+<div class="px-2.5 py-1 rounded bg-primary text-on-primary font-code-sm text-code-sm font-semibold shadow-md flex items-center gap-1">
+<span class="material-symbols-outlined text-xs">file_present</span>
+                  jwt_validator.go
+                </div>
+</div>
+<!-- Connecting Line SVG -->
+<div class="w-full flex justify-center py-1">
+<svg class="w-full h-12 text-outline-variant" fill="none" viewbox="0 0 200 48">
+<path d="M100 0 L40 48" stroke="currentColor" stroke-dasharray="3 3"></path>
+<path d="M100 0 L100 48" stroke="currentColor"></path>
+<path d="M100 0 L160 48" stroke="currentColor" stroke-dasharray="3 3"></path>
+</svg>
+</div>
+<!-- Dependent Nodes -->
+<div class="grid grid-cols-3 gap-1 text-center font-label-sm text-label-sm">
+<div class="p-1 rounded bg-surface-container-high text-on-surface truncate" title="pkg/crypto/rsa">
+                  crypto/rsa
+                </div>
+<div class="p-1 rounded bg-surface-container-high text-tertiary truncate" title="golang-jwt/v5">
+                  jwt/v5
+                </div>
+<div class="p-1 rounded bg-surface-container-high text-on-surface truncate" title="sync/atomic">
+                  sync/atomic
+                </div>
+</div>
+</div>
+<!-- Dependency Relationship List -->
+<div class="mt-space-sm space-y-1.5 font-label-sm text-label-sm">
+<div class="flex items-center justify-between p-1.5 rounded bg-surface-container-low">
+<span class="text-on-surface font-code-sm text-code-sm truncate">github.com/golang-jwt/jwt/v5</span>
+<span class="text-tertiary font-mono">Direct (v5.2.1)</span>
+</div>
+<div class="flex items-center justify-between p-1.5 rounded bg-surface-container-low">
+<span class="text-on-surface font-code-sm text-code-sm truncate">internal/crypto/keys</span>
+<span class="text-secondary font-mono">Local Monorepo</span>
+</div>
+</div>
+</div>
+<!-- Detected Vulnerabilities & Refactor Opportunities Card -->
+<div class="p-space-md rounded-xl bg-surface-container shadow-md flex-1 flex flex-col justify-between">
+<div>
+<div class="flex items-center justify-between mb-space-sm">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-outline flex items-center gap-1">
+<span class="material-symbols-outlined text-sm text-error">warning</span>
+                  Security & AST Findings
+                </span>
+<span class="font-label-sm text-label-sm px-1.5 py-0.5 rounded bg-error-container text-on-error-container font-medium">3 Alerts</span>
+</div>
+<div class="space-y-space-sm">
+<!-- Warning 1 -->
+<div class="p-space-sm rounded-lg bg-surface-container-low flex flex-col gap-1">
+<div class="flex items-center justify-between">
+<span class="font-body-sm text-body-sm text-error font-medium flex items-center gap-1">
+<span class="material-symbols-outlined text-sm">error</span> Clock Skew Drift
+                    </span>
+<span class="font-label-sm text-label-sm text-outline font-mono">Line 142</span>
+</div>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Default tolerance duration allows up to 5m drift; recommendation is strictly ≤ 60s for PCI-DSS compliance.</p>
+</div>
+<!-- Warning 2 -->
+<div class="p-space-sm rounded-lg bg-surface-container-low flex flex-col gap-1">
+<div class="flex items-center justify-between">
+<span class="font-body-sm text-body-sm text-error font-medium flex items-center gap-1">
+<span class="material-symbols-outlined text-sm">shield</span> Alg 'None' Bypass Vulnerability
+                    </span>
+<span class="font-label-sm text-label-sm text-outline font-mono">Line 88</span>
+</div>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Parser must strictly blacklist header algorithm parameter 'none' prior to signature validation invocation.</p>
+</div>
+<!-- Optimization Tip -->
+<div class="p-space-sm rounded-lg bg-surface-container-low flex flex-col gap-1">
+<div class="flex items-center justify-between">
+<span class="font-body-sm text-body-sm text-tertiary font-medium flex items-center gap-1">
+<span class="material-symbols-outlined text-sm">bolt</span> Token Optimization Tip
+                    </span>
+<span class="font-label-sm text-label-sm text-tertiary font-mono">AST Saver</span>
+</div>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Repeated struct declaration can be cached: hoisting `ClaimSet` definition reduces prompt context by ~340 tokens per query.</p>
+</div>
+</div>
+</div>
+<!-- Auto-Fix Action Callout -->
+<div class="mt-space-md pt-space-sm flex items-center justify-between bg-surface-container-lowest p-space-sm rounded-lg">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-tertiary text-base">auto_fix_high</span>
+<span class="font-body-sm text-body-sm text-on-surface font-medium">Apply AST Patches</span>
+</div>
+<button class="px-2.5 py-1 rounded bg-secondary-container text-on-secondary-container font-label-sm text-label-sm font-semibold hover:bg-secondary hover:text-on-secondary transition-colors" onclick="applyPatches()">
+                Resolve All (3)
+              </button>
+</div>
+</div>
+</div>
+</section>
+<!-- Terminal / Bottom Action Log Drawer -->
+<footer class="rounded-xl bg-surface-container-low p-space-md shadow-md">
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-space-sm pb-space-xs">
+<div class="flex items-center gap-2 font-code-sm text-code-sm text-on-surface">
+<span class="w-2 h-2 rounded-full bg-tertiary"></span>
+<span class="font-semibold">Local Git Indexer Daemon</span>
+<span class="text-outline font-normal">— rev 8ef24b1</span>
+</div>
+<div class="flex items-center gap-3 font-label-sm text-label-sm text-outline">
+<span>Branch: <span class="text-on-surface font-mono">feat/ast-token-compress</span></span>
+<span>Local Cache: <span class="text-tertiary font-mono">4.2M tokens</span></span>
+<kbd class="px-1.5 py-0.5 rounded bg-surface-container-high text-on-surface font-mono">⌘ + ↵ Commit</kbd>
+</div>
+</div>
+<div class="mt-2 font-code-sm text-code-sm text-on-surface-variant bg-surface-container-lowest p-space-sm rounded-lg font-mono">
+<span class="text-primary font-bold">›</span> nexora-daemon: AST tree sync finished for <span class="text-tertiary">services/jwt_validator.go</span> in 12ms (compression: 88.58%)
+        </div>
+</footer>
+</main>
+</div>
+</div>
+<script>
+  // Simple interactive interactions for the repository explorer
+  function switchBranch(branchName) {
+    const label = document.getElementById('currentBranchLabel');
+    if (label) label.textContent = branchName;
+    const menu = document.getElementById('branchDropdownMenu');
+    if (menu) menu.classList.add('hidden');
+  }
+
+  const branchBtn = document.getElementById('branchDropdownBtn');
+  const branchMenu = document.getElementById('branchDropdownMenu');
+  if (branchBtn && branchMenu) {
+    branchBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      branchMenu.classList.toggle('hidden');
+    });
+  }
+
+  const connectBtn = document.getElementById('connectRepoBtn');
+  const connectMenu = document.getElementById('connectRepoMenu');
+  if (connectBtn && connectMenu) {
+    connectBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      connectMenu.classList.toggle('hidden');
+    });
+  }
+
+  document.addEventListener('click', () => {
+    if (branchMenu) branchMenu.classList.add('hidden');
+    if (connectMenu) connectMenu.classList.add('hidden');
+  });
+
+  function selectRepo(element, repoName) {
+    document.querySelectorAll('.repo-card').forEach(card => {
+      card.classList.remove('bg-surface-container');
+      card.classList.add('bg-surface-container-lowest');
+    });
+    element.classList.remove('bg-surface-container-lowest');
+    element.classList.add('bg-surface-container');
+  }
+
+  function triggerAgentAction(actionType) {
+    alert('Dispatched Agent Execution: ' + actionType + ' on services/jwt_validator.go');
+  }
+
+  function applyPatches() {
+    alert('Applying automated AST refactor patches. Generated 1 PR and 2 security assertions.');
+  }
+
+  // Quick live filter mock
+  const filterInput = document.getElementById('repoFileFilter');
+  if (filterInput) {
+    filterInput.addEventListener('input', (e) => {
+      const term = e.target.value.toLowerCase();
+      document.querySelectorAll('.file-item, .tree-node').forEach(item => {
+        const text = item.textContent.toLowerCase();
+        item.style.display = text.includes(term) ? 'flex' : 'none';
+      });
+    });
+  }
+</script></main></div></body></html>

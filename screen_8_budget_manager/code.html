@@ -1,0 +1,868 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_dashboard" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&amp;family=JetBrains+Mono:wght@100..900&amp;family=Space+Grotesk:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{colors:{"surface-container-lowest":"#0a0e18","surface":"#0f131d","surface-dim":"#0f131d","secondary-fixed":"#e1e0ff","error-container":"#93000a","on-background":"#dfe2f1","surface-bright":"#353944","inverse-on-surface":"#2c303b","on-secondary-fixed-variant":"#2f2ebe","on-secondary-container":"#b0b2ff","tertiary":"#4cd7f6","surface-container-highest":"#313540","on-primary":"#3c0091","tertiary-fixed":"#acedff","on-tertiary-fixed-variant":"#004e5c","primary":"#d0bcff","primary-fixed-dim":"#d0bcff","tertiary-container":"#009eb9","inverse-surface":"#dfe2f1","on-tertiary-container":"#002f38","on-error":"#690005","outline-variant":"#494454","surface-tint":"#d0bcff","tertiary-fixed-dim":"#4cd7f6","error":"#ffb4ab","surface-container-high":"#262a35","on-surface":"#dfe2f1","secondary-fixed-dim":"#c0c1ff","on-secondary-fixed":"#07006c","on-surface-variant":"#cbc3d7","secondary-container":"#3131c0","primary-fixed":"#e9ddff","secondary":"#c0c1ff","inverse-primary":"#6d3bd7","on-primary-container":"#340080","outline":"#958ea0","on-primary-fixed":"#23005c","on-secondary":"#1000a9","surface-container":"#1c1f2a","on-error-container":"#ffdad6","background":"#0f131d","on-primary-fixed-variant":"#5516be","surface-container-low":"#171b26","on-tertiary-fixed":"#001f26","primary-container":"#a078ff","on-tertiary":"#003640","surface-variant":"#313540"},borderRadius:{"DEFAULT":"0.125rem","lg":"0.25rem","xl":"0.5rem","full":"0.75rem"},spacing:{"space-md":"0.75rem","gutter-sm":"0.5rem","space-xs":"0.25rem","margin":"1.5rem","space-xl":"2rem","gutter":"1rem","gutter-lg":"1.5rem","margin-mobile":"1rem","space-lg":"1.25rem","space-sm":"0.5rem"},fontFamily:{"label-sm":["JetBrains Mono"],"body-sm":["Inter"],"code-sm":["JetBrains Mono"],"headline-lg":["Space Grotesk"],"headline-xl":["Space Grotesk"],"headline-xl-mobile":["Space Grotesk"],"headline-lg-mobile":["Space Grotesk"],"body-lg":["Inter"],"code-lg":["JetBrains Mono"],"body-md":["Inter"],"headline-sm":["Space Grotesk"],"label-md":["JetBrains Mono"],"headline-md":["Space Grotesk"]},fontSize:{"label-sm":["10px",{lineHeight:"14px",letterSpacing:"0.06em",fontWeight:"500"}],"body-sm":["12px",{lineHeight:"16px",fontWeight:"400"}],"code-sm":["12px",{lineHeight:"18px",fontWeight:"400"}],"headline-lg":["32px",{lineHeight:"40px",letterSpacing:"-0.015em",fontWeight:"600"}],"headline-xl":["40px",{lineHeight:"48px",letterSpacing:"-0.02em",fontWeight:"600"}],"headline-xl-mobile":["30px",{lineHeight:"38px",letterSpacing:"-0.02em",fontWeight:"600"}],"headline-lg-mobile":["24px",{lineHeight:"32px",letterSpacing:"-0.015em",fontWeight:"600"}],"body-lg":["16px",{lineHeight:"24px",fontWeight:"400"}],"code-lg":["14px",{lineHeight:"22px",fontWeight:"400"}],"body-md":["14px",{lineHeight:"20px",fontWeight:"400"}],"headline-sm":["18px",{lineHeight:"24px",fontWeight:"500"}],"label-md":["12px",{lineHeight:"16px",letterSpacing:"0.04em",fontWeight:"500"}],"headline-md":["22px",{lineHeight:"28px",letterSpacing:"-0.01em",fontWeight:"500"}]}}}}</script></head><body class="bg-surface-container-lowest font-body-md text-body-md text-on-surface antialiased"><aside class="fixed left-0 top-0 h-full w-[260px] bg-surface-container-lowest z-50 flex flex-col justify-between shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="flex flex-col"><div class="h-16 px-space-md flex items-center justify-between bg-surface-container-lowest"><div class="flex items-center gap-space-sm"><img alt="NEXORA Code Logo" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDuQGUIoHGHOLy3UpduhnPYlgGoraklfUpkYnU4fuZgnLQ76MbCUK5vyuXJ0rFxuqmMX_E14cxMXy5gMZIcZLzrSOu95Zumwmw8UePMe9nyUn416w-bnp3ijUPAIp7xRZwjx7lh-OUOyWfL39CrKlJDRKldl4uxe1jEsRo4vavnW54HhWSFoVLBIkZvudhjaYhavQ44ZWaeQtHt_3rwgmIxywowojrkXhfNyVIqeQ"/><span class="font-headline-sm text-headline-sm text-on-surface tracking-tight font-semibold">NEXORA</span></div><span class="font-label-sm text-label-sm uppercase px-1.5 py-0.5 rounded bg-surface-container-high text-tertiary">v2.4 Pro</span></div><div class="px-space-md py-space-sm overflow-y-auto max-h-[calc(100vh-160px)]"><div class="mb-space-lg"><p class="font-label-sm text-label-sm uppercase text-outline px-space-sm mb-space-xs">Main</p><nav class="flex flex-col gap-0.5" data-active-classes="bg-surface-container-high text-primary font-medium rounded-lg"><a class="flex items-center gap-space-sm px-space-sm py-2 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors font-body-sm text-body-sm" data-path="dashboard" href="#"><span class="material-symbols-outlined text-lg">dashboard</span><span>Overview / Dashboard</span></a><a class="flex items-center gap-space-sm px-space-sm py-2 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors font-body-sm text-body-sm" data-path="ai-coding-workspace" href="#"><span class="material-symbols-outlined text-lg">terminal</span><span>AI Coding Workspace</span></a><a class="flex items-center gap-space-sm px-space-sm py-2 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors font-body-sm text-body-sm" data-path="repositories" href="#"><span class="material-symbols-outlined text-lg">emoji_symbols</span><span>Repositories</span></a><a class="flex items-center gap-space-sm px-space-sm py-2 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors font-body-sm text-body-sm" data-path="task-history" href="#"><span class="material-symbols-outlined text-lg">history</span><span>Task History</span></a></nav></div><div class="mb-space-lg"><p class="font-label-sm text-label-sm uppercase text-outline px-space-sm mb-space-xs">Intelligence &amp; Tokens</p><nav class="flex flex-col gap-0.5" data-active-classes="bg-surface-container-high text-primary font-medium rounded-lg"><a class="flex items-center gap-space-sm px-space-sm py-2 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors font-body-sm text-body-sm" data-path="token-analytics" href="#"><span class="material-symbols-outlined text-lg">bar_chart</span><span>Token Analytics</span></a><a class="flex items-center gap-space-sm px-space-sm py-2 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors font-body-sm text-body-sm" data-path="model-router" href="#"><span class="material-symbols-outlined text-lg">alt_route</span><span>Model Router</span></a><a class="flex items-center gap-space-sm px-space-sm py-2 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors font-body-sm text-body-sm" data-path="budget-manager" href="#"><span class="material-symbols-outlined text-lg">account_balance_wallet</span><span>Budget Manager</span></a></nav></div><div class="mb-space-md"><p class="font-label-sm text-label-sm uppercase text-outline px-space-sm mb-space-xs">Governance</p><nav class="flex flex-col gap-0.5" data-active-classes="bg-surface-container-high text-primary font-medium rounded-lg"><a class="flex items-center gap-space-sm px-space-sm py-2 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors font-body-sm text-body-sm" data-path="security-center" href="#"><span class="material-symbols-outlined text-lg">shield</span><span>Security Center</span></a><a class="flex items-center gap-space-sm px-space-sm py-2 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors font-body-sm text-body-sm" data-path="settings" href="#"><span class="material-symbols-outlined text-lg">settings</span><span>Settings</span></a></nav></div></div></div><div class="p-space-md bg-surface-container-low"><div class="flex items-center justify-between mb-space-xs"><div class="flex items-center gap-space-sm"><img alt="Profile" class="w-8 h-8 rounded-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBCnjXww_8t8PPzSkEl28FtDAk0EN2xz06LpYsR2tuCpePURwKpUikW-S0HjSpVJ1RJVKwFab-kyaEtbe0vebuvSu0YQLL531sROadBtVCSfqelwen1J3tV-3jvSsPZJRRXlqW_Ja_VcvFTp0A_DANJWBIUrSw55O2A7eWqZfm5LCO7KuKtjfW8HC4zaaCmHl4wSf9JUmPEJ3hjphBVAcOchQ0E-UlCd2MpaIY3Cg"/><div class="flex flex-col"><span class="font-body-sm text-body-sm text-on-surface font-medium leading-none">Elena Rostova</span><span class="font-label-sm text-label-sm text-outline leading-tight mt-1">Principal Architect</span></div></div><button class="text-on-surface-variant hover:text-on-surface transition-colors"><span class="material-symbols-outlined text-base">more_vert</span></button></div><div class="mt-space-sm pt-space-xs"><div class="flex items-center justify-between text-outline font-label-sm text-label-sm"><span>Efficiency</span><span class="text-tertiary font-semibold">94.2%</span></div><div class="w-full h-1 bg-surface-container-highest rounded-full mt-1 overflow-hidden"><div class="h-full bg-tertiary w-[94.2%]"></div></div></div></div></aside><div class="pl-[260px]"><header class="fixed top-0 left-[260px] right-0 h-16 z-40 bg-surface/80 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="h-16 w-full px-space-lg flex items-center justify-between gap-space-md"><div class="flex items-center gap-space-md"><div class="flex items-center gap-2 px-space-sm py-1 rounded bg-surface-container-low"><span class="w-2 h-2 rounded-full bg-tertiary"></span><span class="font-code-sm text-code-sm text-on-surface">prod-core-monorepo / main</span><span class="material-symbols-outlined text-sm text-on-surface-variant">expand_more</span></div><div class="hidden xl:flex items-center gap-2 px-space-sm py-1 rounded bg-surface-container-low font-label-sm text-label-sm text-on-surface-variant"><span class="w-1.5 h-1.5 rounded-full bg-primary"></span><span>Claude 3.7 + DeepSeek V3 (142ms)</span></div><div class="hidden 2xl:flex items-center gap-1.5 px-space-sm py-1 rounded bg-surface-container-low font-label-sm text-label-sm text-tertiary"><span class="material-symbols-outlined text-sm">bolt</span><span>4.2M saved (68%)</span></div></div><div class="flex items-center gap-space-md"><div class="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-surface-container-low text-on-surface-variant w-48 lg:w-64"><span class="material-symbols-outlined text-sm">search</span><span class="font-body-sm text-body-sm text-outline flex-1">Command Palette</span><kbd class="font-label-sm text-label-sm px-1.5 py-0.5 rounded bg-surface-container-highest text-outline">⌘K</kbd></div><a class="relative p-1.5 rounded text-on-surface-variant hover:text-on-surface transition-colors" href="#"><span class="material-symbols-outlined text-xl">notifications</span><span class="absolute top-1 right-1 w-2 h-2 rounded-full bg-error"></span></a><nav class="flex items-center gap-space-md font-body-sm text-body-sm" data-active-classes="text-primary font-medium"><a class="text-on-surface-variant hover:text-on-surface transition-colors" data-path="documentation" href="#">Docs</a><a class="text-on-surface-variant hover:text-on-surface transition-colors" data-path="api-status" href="#">API</a></nav><img alt="Profile" class="w-8 h-8 rounded-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBCnjXww_8t8PPzSkEl28FtDAk0EN2xz06LpYsR2tuCpePURwKpUikW-S0HjSpVJ1RJVKwFab-kyaEtbe0vebuvSu0YQLL531sROadBtVCSfqelwen1J3tV-3jvSsPZJRRXlqW_Ja_VcvFTp0A_DANJWBIUrSw55O2A7eWqZfm5LCO7KuKtjfW8HC4zaaCmHl4wSf9JUmPEJ3hjphBVAcOchQ0E-UlCd2MpaIY3Cg"/></div></div></header><main class="w-full pt-16 bg-surface-container-lowest min-h-screen"><div class="flex flex-col w-full">
+<!-- Interactive Script to highlight active navigation and manage modal toggles -->
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+      // Sync active state in sidebar
+      const navLinks = document.querySelectorAll("aside a[data-path]");
+      navLinks.forEach((link) => {
+        if (link.getAttribute("data-path") === "budget-manager") {
+          link.className =
+            "flex items-center gap-space-sm px-space-sm py-2 rounded-lg bg-surface-container-high text-primary font-medium transition-colors font-body-sm text-body-sm";
+          const icon = link.querySelector(".material-symbols-outlined");
+          if (icon)
+            icon.style.fontVariationSettings = "'FILL' 1, 'wght' 600";
+        } else {
+          link.classList.remove(
+            "bg-surface-container-high",
+            "text-primary",
+            "font-medium"
+          );
+          link.classList.add("text-on-surface-variant");
+        }
+      });
+    });
+
+    function toggleModal(id) {
+      const el = document.getElementById(id);
+      if (el) el.classList.toggle("hidden");
+    }
+
+    function switchChartTab(tab) {
+      const tabs = ["velocity", "cumulative", "savings"];
+      tabs.forEach((t) => {
+        const btn = document.getElementById("tab-btn-" + t);
+        if (btn) {
+          if (t === tab) {
+            btn.className =
+              "px-3 py-1 rounded font-label-sm text-label-sm bg-primary text-on-primary transition-all";
+          } else {
+            btn.className =
+              "px-3 py-1 rounded font-label-sm text-label-sm text-on-surface-variant hover:text-on-surface transition-all";
+          }
+        }
+      });
+    }
+  </script>
+<!-- Content Canvas Container -->
+<div class="p-space-lg space-y-space-lg max-w-[1680px] mx-auto w-full">
+<!-- Header & Global Actions Bar -->
+<div class="flex flex-col xl:flex-row xl:items-center justify-between gap-space-md pb-space-xs">
+<div class="flex flex-col gap-1">
+<div class="flex items-center gap-space-sm flex-wrap">
+<h1 class="font-headline-lg text-headline-lg text-on-surface tracking-tight">
+            Budget Manager &amp; Spend Guardrails
+          </h1>
+<div class="flex items-center gap-2 px-2.5 py-1 rounded-full bg-surface-container-high text-tertiary">
+<span class="relative flex h-2 w-2">
+<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-tertiary opacity-75"></span>
+<span class="relative inline-flex rounded-full h-2 w-2 bg-tertiary"></span>
+</span>
+<span class="font-label-sm text-label-sm font-semibold tracking-wider">AUTO-THROTTLE: ARMED</span>
+</div>
+<div class="px-2.5 py-1 rounded-full bg-surface-container font-label-sm text-label-sm text-on-surface-variant">
+            BUDGET POOL:
+            <span class="text-on-surface font-semibold">$1,250.00 / MO</span>
+</div>
+</div>
+<p class="font-body-md text-body-md text-outline max-w-3xl">
+          Real-time token financial controls, hard spending limits per
+          repository/team, and automated circuit-breaker throttling.
+        </p>
+</div>
+<!-- Action Button Group -->
+<div class="flex items-center gap-space-sm flex-wrap">
+<button class="flex items-center gap-2 px-3.5 py-2 rounded-lg bg-surface-container hover:bg-surface-container-high text-on-surface transition-colors font-body-sm text-body-sm shadow-sm" onclick="alert('Exporting verified cryptographic spend ledger (CSV + JSON-LD)...')">
+<span class="material-symbols-outlined text-base text-outline">download</span>
+<span>Export Financial Ledger</span>
+</button>
+<button class="flex items-center gap-2 px-3.5 py-2 rounded-lg bg-surface-container hover:bg-surface-container-high text-on-surface transition-colors font-body-sm text-body-sm shadow-sm" onclick="switchChartTab('savings')">
+<span class="material-symbols-outlined text-base text-tertiary">insights</span>
+<span>Simulate Cost Projection</span>
+</button>
+<button class="flex items-center gap-2 px-4 py-2 rounded-lg bg-primary hover:bg-primary-container text-on-primary transition-all font-body-sm text-body-sm font-medium shadow-md shadow-primary/20 active:scale-95" onclick="toggleModal('spend-limit-modal')">
+<span class="material-symbols-outlined text-base font-bold">add</span>
+<span>Configure Guardrails</span>
+</button>
+</div>
+</div>
+<!-- 4 KPI Telemetry Cards -->
+<div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-space-md">
+<!-- Card 1: Monthly Total Budget -->
+<div class="relative overflow-hidden p-space-md rounded-xl bg-surface-container-low flex flex-col justify-between shadow-sm hover:shadow-md transition-shadow group">
+<div class="flex items-start justify-between">
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm uppercase text-outline tracking-wider">Monthly Budget Run</span>
+<div class="flex items-baseline gap-2 mt-1">
+<span class="font-headline-md text-headline-md font-semibold text-on-surface">$482.40</span>
+<span class="font-code-sm text-code-sm text-outline">/ $1,200.00</span>
+</div>
+</div>
+<div class="w-8 h-8 rounded-lg bg-surface-container-high flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-lg">account_balance_wallet</span>
+</div>
+</div>
+<div class="mt-4 space-y-2">
+<div class="flex items-center justify-between font-label-sm text-label-sm">
+<span class="text-tertiary font-semibold">40.2% Utilized</span>
+<span class="text-outline">18 days remaining</span>
+</div>
+<!-- Dual gradient progress bar -->
+<div class="w-full h-1.5 rounded-full bg-surface-container-highest overflow-hidden">
+<div class="h-full rounded-full bg-gradient-to-r from-tertiary to-primary transition-all duration-1000" style="width: 40.2%"></div>
+</div>
+<div class="flex items-center gap-1.5 pt-1">
+<span class="material-symbols-outlined text-sm text-tertiary">check_circle</span>
+<span class="font-body-sm text-body-sm text-outline">Pacing: <strong class="text-on-surface">Healthy</strong> (Linear
+              forecast ~$498)</span>
+</div>
+</div>
+</div>
+<!-- Card 2: Current Spend Burn Rate -->
+<div class="relative overflow-hidden p-space-md rounded-xl bg-surface-container-low flex flex-col justify-between shadow-sm hover:shadow-md transition-shadow group">
+<div class="flex items-start justify-between">
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm uppercase text-outline tracking-wider">Current Burn Rate</span>
+<div class="flex items-baseline gap-2 mt-1">
+<span class="font-headline-md text-headline-md font-semibold text-on-surface">$16.08</span>
+<span class="font-code-sm text-code-sm text-outline">/ day</span>
+</div>
+</div>
+<div class="w-8 h-8 rounded-lg bg-surface-container-high flex items-center justify-center text-tertiary">
+<span class="material-symbols-outlined text-lg">trending_down</span>
+</div>
+</div>
+<div class="mt-4 space-y-2">
+<div class="flex items-center gap-1.5">
+<span class="px-1.5 py-0.5 rounded font-label-sm text-label-sm font-semibold bg-surface-container-high text-tertiary">↓ 14.2%</span>
+<span class="font-body-sm text-body-sm text-outline">vs previous cycle</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+            AST Pruning &amp; DeepSeek V3 routing cut daily execution load by
+            $3.90/dev seat.
+          </p>
+<div class="flex items-center justify-between font-label-sm text-label-sm text-outline pt-1">
+<span>Projected Mo. End</span>
+<span class="text-on-surface font-semibold">$498.50 max</span>
+</div>
+</div>
+</div>
+<!-- Card 3: Per-Query Average Cost -->
+<div class="relative overflow-hidden p-space-md rounded-xl bg-surface-container-low flex flex-col justify-between shadow-sm hover:shadow-md transition-shadow group">
+<div class="flex items-start justify-between">
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm uppercase text-outline tracking-wider">Per-Query Synthesizing Cost</span>
+<div class="flex items-baseline gap-2 mt-1">
+<span class="font-headline-md text-headline-md font-semibold text-on-surface">$0.0032</span>
+<span class="font-code-sm text-code-sm text-tertiary font-semibold">avg/prompt</span>
+</div>
+</div>
+<div class="w-8 h-8 rounded-lg bg-surface-container-high flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-lg">bolt</span>
+</div>
+</div>
+<div class="mt-4 space-y-2">
+<div class="flex items-center justify-between font-label-sm text-label-sm">
+<span class="text-on-surface font-medium">Model Routing Efficiency</span>
+<span class="text-tertiary font-semibold">92.4% Optimal</span>
+</div>
+<div class="w-full h-1.5 rounded-full bg-surface-container-highest overflow-hidden">
+<div class="h-full rounded-full bg-tertiary" style="width: 92.4%"></div>
+</div>
+<div class="flex items-center gap-1.5 pt-1">
+<span class="material-symbols-outlined text-sm text-tertiary">savings</span>
+<span class="font-body-sm text-body-sm text-outline">Saved <strong class="text-tertiary">$0.021</strong> per agent
+              run</span>
+</div>
+</div>
+</div>
+<!-- Card 4: Circuit Breaker Trips Prevented -->
+<div class="relative overflow-hidden p-space-md rounded-xl bg-surface-container-low flex flex-col justify-between shadow-sm hover:shadow-md transition-shadow group">
+<div class="flex items-start justify-between">
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm uppercase text-outline tracking-wider">Circuit Breaker Interceptions</span>
+<div class="flex items-baseline gap-2 mt-1">
+<span class="font-headline-md text-headline-md font-semibold text-tertiary">14 Blocked</span>
+<span class="font-code-sm text-code-sm text-outline">infinite loops</span>
+</div>
+</div>
+<div class="w-8 h-8 rounded-lg bg-surface-container-high flex items-center justify-center text-tertiary">
+<span class="material-symbols-outlined text-lg">shield</span>
+</div>
+</div>
+<div class="mt-4 space-y-2">
+<div class="flex items-center justify-between font-label-sm text-label-sm">
+<span class="text-on-surface font-medium">Surge Protection</span>
+<span class="text-tertiary font-semibold">Active Guard</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant truncate">
+            Averted $342.80 in runaway recursive agent calls.
+          </p>
+<div class="flex items-center gap-1.5 pt-1">
+<span class="material-symbols-outlined text-sm text-primary">verified_user</span>
+<span class="font-body-sm text-body-sm text-outline">Zero unmonitored overruns this billing month</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Main Section 1: Developer Seats & Quotas Allocation Table -->
+<div class="bg-surface-container-low rounded-xl p-space-md flex flex-col shadow-sm">
+<!-- Sub-header & Filtering Controls -->
+<div class="flex flex-col lg:flex-row lg:items-center justify-between gap-space-md pb-space-sm">
+<div class="flex items-center gap-space-xs overflow-x-auto pb-1">
+<button class="px-3.5 py-1.5 rounded-lg bg-surface-container-high text-primary font-body-sm text-body-sm font-medium flex items-center gap-2">
+<span>Developer Seats</span>
+<span class="px-1.5 py-0.2 rounded-full font-label-sm text-label-sm bg-surface text-primary">12</span>
+</button>
+<button class="px-3.5 py-1.5 rounded-lg text-on-surface-variant hover:bg-surface-container transition-colors font-body-sm text-body-sm flex items-center gap-2">
+<span>Service Accounts &amp; CI/CD</span>
+<span class="px-1.5 py-0.2 rounded-full font-label-sm text-label-sm bg-surface-container text-outline">5</span>
+</button>
+<button class="px-3.5 py-1.5 rounded-lg text-on-surface-variant hover:bg-surface-container transition-colors font-body-sm text-body-sm flex items-center gap-2">
+<span>Repository Quotas</span>
+<span class="px-1.5 py-0.2 rounded-full font-label-sm text-label-sm bg-surface-container text-outline">8</span>
+</button>
+</div>
+<div class="flex items-center gap-space-sm flex-wrap">
+<div class="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-surface text-on-surface-variant w-64 md:w-80 shadow-inner">
+<span class="material-symbols-outlined text-sm text-outline">search</span>
+<input class="bg-transparent border-none outline-none font-body-sm text-body-sm text-on-surface placeholder:text-outline w-full" placeholder="Filter developer by name, team, or email..." type="text"/>
+</div>
+<div class="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-surface text-on-surface-variant font-body-sm text-body-sm shadow-inner cursor-pointer">
+<span class="text-outline">Sort:</span>
+<span class="text-on-surface font-medium">Highest Utilization</span>
+<span class="material-symbols-outlined text-sm">expand_more</span>
+</div>
+</div>
+</div>
+<!-- Quota Table Matrix -->
+<div class="overflow-x-auto mt-2">
+<table class="w-full text-left font-body-sm text-body-sm border-collapse">
+<thead>
+<tr class="bg-surface font-label-sm text-label-sm uppercase text-outline">
+<th class="py-2.5 px-4 rounded-l-lg">Entity &amp; Team</th>
+<th class="py-2.5 px-4">Cap / Allocation</th>
+<th class="py-2.5 px-4">Current Consumption</th>
+<th class="py-2.5 px-4">Pacing &amp; Velocity</th>
+<th class="py-2.5 px-4">Automated Hard Cap Policy</th>
+<th class="py-2.5 px-4">Health</th>
+<th class="py-2.5 px-4 text-right rounded-r-lg">Actions</th>
+</tr>
+</thead>
+<tbody class="divide-y-0">
+<!-- Row 1: Elena Rostova -->
+<tr class="hover:bg-surface-container/60 transition-colors group">
+<td class="py-3 px-4">
+<div class="flex items-center gap-3">
+<div class="relative">
+<img alt="Elena" class="w-9 h-9 rounded-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBCnjXww_8t8PPzSkEl28FtDAk0EN2xz06LpYsR2tuCpePURwKpUikW-S0HjSpVJ1RJVKwFab-kyaEtbe0vebuvSu0YQLL531sROadBtVCSfqelwen1J3tV-3jvSsPZJRRXlqW_Ja_VcvFTp0A_DANJWBIUrSw55O2A7eWqZfm5LCO7KuKtjfW8HC4zaaCmHl4wSf9JUmPEJ3hjphBVAcOchQ0E-UlCd2MpaIY3Cg"/>
+<span class="absolute bottom-0 right-0 w-2.5 h-2.5 rounded-full bg-tertiary"></span>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-medium text-on-surface">Elena Rostova</span>
+<span class="font-code-sm text-code-sm text-outline">Principal Architect • Platform Core</span>
+</div>
+</div>
+</td>
+<td class="py-3 px-4 font-code-sm text-code-sm text-on-surface">
+                $250.00 / mo
+              </td>
+<td class="py-3 px-4 font-code-sm text-code-sm text-on-surface">
+<span class="font-semibold text-primary">$148.20</span>
+<span class="text-outline"> (59.3%)</span>
+</td>
+<td class="py-3 px-4 min-w-[160px]">
+<div class="w-full space-y-1">
+<div class="flex justify-between font-label-sm text-label-sm text-outline">
+<span>$4.94/day</span>
+<span class="text-tertiary">Safe Pace</span>
+</div>
+<div class="w-full h-1.5 rounded-full bg-surface-container-highest overflow-hidden">
+<div class="h-full rounded-full bg-primary" style="width: 59.3%"></div>
+</div>
+</div>
+</td>
+<td class="py-3 px-4">
+<span class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded font-label-sm text-label-sm bg-surface-container text-tertiary">
+<span class="material-symbols-outlined text-xs">auto_mode</span>
+                  Auto-downgrade to Tier 1 synthesis at 90%
+                </span>
+</td>
+<td class="py-3 px-4">
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded font-label-sm text-label-sm bg-tertiary/10 text-tertiary font-medium">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary"></span>
+                  Optimal
+                </span>
+</td>
+<td class="py-3 px-4 text-right">
+<div class="flex items-center justify-end gap-1.5 opacity-90 group-hover:opacity-100">
+<button class="px-2.5 py-1 rounded bg-surface hover:bg-surface-container-high text-on-surface transition-colors font-label-sm text-label-sm" onclick="toggleModal('spend-limit-modal')">
+                    Edit Limit
+                  </button>
+<button class="p-1 rounded text-outline hover:text-on-surface transition-colors" title="Audit Traces">
+<span class="material-symbols-outlined text-sm">monitoring</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 2: Marcus Vance (Warning state) -->
+<tr class="hover:bg-surface-container/60 transition-colors group bg-surface-container-highest/20">
+<td class="py-3 px-4">
+<div class="flex items-center gap-3">
+<div class="relative">
+<div class="w-9 h-9 rounded-full bg-surface-container flex items-center justify-center font-headline-sm text-headline-sm text-secondary">
+                      MV
+                    </div>
+<span class="absolute bottom-0 right-0 w-2.5 h-2.5 rounded-full bg-error"></span>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-medium text-on-surface">Marcus Vance</span>
+<span class="font-code-sm text-code-sm text-outline">Staff Backend Eng • Core Engine</span>
+</div>
+</div>
+</td>
+<td class="py-3 px-4 font-code-sm text-code-sm text-on-surface">
+                $180.00 / mo
+              </td>
+<td class="py-3 px-4 font-code-sm text-code-sm text-on-surface">
+<span class="font-semibold text-error">$142.10</span>
+<span class="text-error font-medium"> (78.9%)</span>
+</td>
+<td class="py-3 px-4 min-w-[160px]">
+<div class="w-full space-y-1">
+<div class="flex justify-between font-label-sm text-label-sm text-outline">
+<span class="text-error">$7.89/day</span>
+<span class="text-error">Accelerated</span>
+</div>
+<div class="w-full h-1.5 rounded-full bg-surface-container-highest overflow-hidden">
+<div class="h-full rounded-full bg-error" style="width: 78.9%"></div>
+</div>
+</div>
+</td>
+<td class="py-3 px-4">
+<span class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded font-label-sm text-label-sm bg-error/10 text-error">
+<span class="material-symbols-outlined text-xs">approval</span>
+                  Require Lead Approval on Tier 2 Frontier
+                </span>
+</td>
+<td class="py-3 px-4">
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded font-label-sm text-label-sm bg-error/10 text-error font-medium">
+<span class="w-1.5 h-1.5 rounded-full bg-error"></span>
+                  Warning (Cap Risk)
+                </span>
+</td>
+<td class="py-3 px-4 text-right">
+<div class="flex items-center justify-end gap-1.5 opacity-90 group-hover:opacity-100">
+<button class="px-2.5 py-1 rounded bg-surface hover:bg-surface-container-high text-on-surface transition-colors font-label-sm text-label-sm" onclick="toggleModal('spend-limit-modal')">
+                    Edit Limit
+                  </button>
+<button class="px-2.5 py-1 rounded bg-error-container text-on-error-container hover:opacity-90 transition-opacity font-label-sm text-label-sm">
+                    Throttle
+                  </button>
+</div>
+</td>
+</tr>
+<!-- Row 3: Dr. Aris Thorne -->
+<tr class="hover:bg-surface-container/60 transition-colors group">
+<td class="py-3 px-4">
+<div class="flex items-center gap-3">
+<div class="relative">
+<div class="w-9 h-9 rounded-full bg-surface-container flex items-center justify-center font-headline-sm text-headline-sm text-tertiary">
+                      AT
+                    </div>
+<span class="absolute bottom-0 right-0 w-2.5 h-2.5 rounded-full bg-tertiary"></span>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-medium text-on-surface">Dr. Aris Thorne</span>
+<span class="font-code-sm text-code-sm text-outline">Head of Applied ML • TensorLabs</span>
+</div>
+</div>
+</td>
+<td class="py-3 px-4 font-code-sm text-code-sm text-on-surface">
+                $300.00 / mo
+              </td>
+<td class="py-3 px-4 font-code-sm text-code-sm text-on-surface">
+<span class="font-semibold text-tertiary">$98.50</span>
+<span class="text-outline"> (32.8%)</span>
+</td>
+<td class="py-3 px-4 min-w-[160px]">
+<div class="w-full space-y-1">
+<div class="flex justify-between font-label-sm text-label-sm text-outline">
+<span>$3.28/day</span>
+<span class="text-tertiary">Low Burn</span>
+</div>
+<div class="w-full h-1.5 rounded-full bg-surface-container-highest overflow-hidden">
+<div class="h-full rounded-full bg-tertiary" style="width: 32.8%"></div>
+</div>
+</div>
+</td>
+<td class="py-3 px-4">
+<span class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded font-label-sm text-label-sm bg-surface-container text-on-surface-variant">
+<span class="material-symbols-outlined text-xs">lock</span>
+                  Hard stop on non-airgapped models
+                </span>
+</td>
+<td class="py-3 px-4">
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded font-label-sm text-label-sm bg-tertiary/10 text-tertiary font-medium">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary"></span>
+                  Optimal
+                </span>
+</td>
+<td class="py-3 px-4 text-right">
+<div class="flex items-center justify-end gap-1.5 opacity-90 group-hover:opacity-100">
+<button class="px-2.5 py-1 rounded bg-surface hover:bg-surface-container-high text-on-surface transition-colors font-label-sm text-label-sm" onclick="toggleModal('spend-limit-modal')">
+                    Edit Limit
+                  </button>
+<button class="p-1 rounded text-outline hover:text-on-surface transition-colors">
+<span class="material-symbols-outlined text-sm">monitoring</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 4: Alex Chen -->
+<tr class="hover:bg-surface-container/60 transition-colors group">
+<td class="py-3 px-4">
+<div class="flex items-center gap-3">
+<div class="relative">
+<div class="w-9 h-9 rounded-full bg-surface-container flex items-center justify-center font-headline-sm text-headline-sm text-primary">
+                      AC
+                    </div>
+<span class="absolute bottom-0 right-0 w-2.5 h-2.5 rounded-full bg-tertiary"></span>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-medium text-on-surface">Alex Chen</span>
+<span class="font-code-sm text-code-sm text-outline">Senior DevOps • Infra SRE</span>
+</div>
+</div>
+</td>
+<td class="py-3 px-4 font-code-sm text-code-sm text-on-surface">
+                $150.00 / mo
+              </td>
+<td class="py-3 px-4 font-code-sm text-code-sm text-on-surface">
+<span class="font-semibold text-tertiary">$42.30</span>
+<span class="text-outline"> (28.2%)</span>
+</td>
+<td class="py-3 px-4 min-w-[160px]">
+<div class="w-full space-y-1">
+<div class="flex justify-between font-label-sm text-label-sm text-outline">
+<span>$1.41/day</span>
+<span class="text-tertiary">Low Burn</span>
+</div>
+<div class="w-full h-1.5 rounded-full bg-surface-container-highest overflow-hidden">
+<div class="h-full rounded-full bg-tertiary" style="width: 28.2%"></div>
+</div>
+</div>
+</td>
+<td class="py-3 px-4">
+<span class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded font-label-sm text-label-sm bg-surface-container text-on-surface-variant">
+<span class="material-symbols-outlined text-xs">shield</span>
+                  Sandbox only, zero frontier access
+                </span>
+</td>
+<td class="py-3 px-4">
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded font-label-sm text-label-sm bg-tertiary/10 text-tertiary font-medium">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary"></span>
+                  Optimal
+                </span>
+</td>
+<td class="py-3 px-4 text-right">
+<div class="flex items-center justify-end gap-1.5 opacity-90 group-hover:opacity-100">
+<button class="px-2.5 py-1 rounded bg-surface hover:bg-surface-container-high text-on-surface transition-colors font-label-sm text-label-sm" onclick="toggleModal('spend-limit-modal')">
+                    Edit Limit
+                  </button>
+<button class="p-1 rounded text-outline hover:text-on-surface transition-colors">
+<span class="material-symbols-outlined text-sm">monitoring</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 5: CI/CD Automated Agent Fleet -->
+<tr class="hover:bg-surface-container/60 transition-colors group">
+<td class="py-3 px-4">
+<div class="flex items-center gap-3">
+<div class="relative">
+<div class="w-9 h-9 rounded-full bg-surface-container-highest flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-lg">smart_toy</span>
+</div>
+<span class="absolute bottom-0 right-0 w-2.5 h-2.5 rounded-full bg-tertiary"></span>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-medium text-on-surface">CI/CD Automated Agent Fleet</span>
+<span class="font-code-sm text-code-sm text-outline">Service Account • GitHub Actions Runner</span>
+</div>
+</div>
+</td>
+<td class="py-3 px-4 font-code-sm text-code-sm text-on-surface">
+                $200.00 / mo
+              </td>
+<td class="py-3 px-4 font-code-sm text-code-sm text-on-surface">
+<span class="font-semibold text-primary">$51.30</span>
+<span class="text-outline"> (25.6%)</span>
+</td>
+<td class="py-3 px-4 min-w-[160px]">
+<div class="w-full space-y-1">
+<div class="flex justify-between font-label-sm text-label-sm text-outline">
+<span>$1.71/day</span>
+<span class="text-tertiary">Safe Pace</span>
+</div>
+<div class="w-full h-1.5 rounded-full bg-surface-container-highest overflow-hidden">
+<div class="h-full rounded-full bg-primary" style="width: 25.6%"></div>
+</div>
+</div>
+</td>
+<td class="py-3 px-4">
+<span class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded font-label-sm text-label-sm bg-surface-container text-tertiary">
+<span class="material-symbols-outlined text-xs">memory</span>
+                  Strict 50k tokens/PR limit
+                </span>
+</td>
+<td class="py-3 px-4">
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded font-label-sm text-label-sm bg-tertiary/10 text-tertiary font-medium">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary"></span>
+                  Active
+                </span>
+</td>
+<td class="py-3 px-4 text-right">
+<div class="flex items-center justify-end gap-1.5 opacity-90 group-hover:opacity-100">
+<button class="px-2.5 py-1 rounded bg-surface hover:bg-surface-container-high text-on-surface transition-colors font-label-sm text-label-sm" onclick="toggleModal('spend-limit-modal')">
+                    Edit Limit
+                  </button>
+<button class="p-1 rounded text-outline hover:text-on-surface transition-colors">
+<span class="material-symbols-outlined text-sm">monitoring</span>
+</button>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<!-- Main Section 2: Two-Column Layout (Analytics + Circuit Breakers) -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-space-md items-start">
+<!-- Left Column (60%): Cost Burn Trajectory & Forecast Analytics -->
+<div class="lg:col-span-7 bg-surface-container-low rounded-xl p-space-md flex flex-col justify-between shadow-sm space-y-space-md">
+<div class="flex items-center justify-between flex-wrap gap-2">
+<div class="flex flex-col">
+<h2 class="font-headline-sm text-headline-sm text-on-surface">
+              Cost Burn Trajectory &amp; Forecast
+            </h2>
+<span class="font-body-sm text-body-sm text-outline">Real-time telemetry vs. $1,200 hard organization ceiling</span>
+</div>
+<!-- Toggle Segmented Controls -->
+<div class="flex items-center gap-1 bg-surface p-1 rounded-lg shadow-inner">
+<button class="px-3 py-1 rounded font-label-sm text-label-sm bg-primary text-on-primary transition-all" id="tab-btn-cumulative" onclick="switchChartTab('cumulative')">
+              Cumulative Burn
+            </button>
+<button class="px-3 py-1 rounded font-label-sm text-label-sm text-on-surface-variant hover:text-on-surface transition-all" id="tab-btn-velocity" onclick="switchChartTab('velocity')">
+              Daily Velocity
+            </button>
+<button class="px-3 py-1 rounded font-label-sm text-label-sm text-on-surface-variant hover:text-on-surface transition-all" id="tab-btn-savings" onclick="switchChartTab('savings')">
+              Projected Savings
+            </button>
+</div>
+</div>
+<!-- Inline High-Precision SVG Chart (Cumulative vs Hard Limit) -->
+<div class="relative w-full h-64 bg-surface rounded-lg p-3">
+<svg class="w-full h-full overflow-visible" preserveaspectratio="none" viewbox="0 0 700 240">
+<defs>
+<lineargradient id="burnGradient" x1="0%" x2="0%" y1="0%" y2="100%">
+<stop offset="0%" stop-color="#8b5cf6" stop-opacity="0.45"></stop>
+<stop offset="70%" stop-color="#4cd7f6" stop-opacity="0.1"></stop>
+<stop offset="100%" stop-color="#4cd7f6" stop-opacity="0.0"></stop>
+</lineargradient>
+</defs>
+<!-- Horizontal Gridlines -->
+<line stroke="#262a35" stroke-dasharray="3,3" x1="40" x2="680" y1="30" y2="30"></line>
+<text fill="#958ea0" font-size="10" text-anchor="end" x="35" y="34">
+              $1,200
+            </text>
+<line stroke="#262a35" stroke-dasharray="3,3" x1="40" x2="680" y1="85" y2="85"></line>
+<text fill="#958ea0" font-size="10" text-anchor="end" x="35" y="89">
+              $800
+            </text>
+<line stroke="#262a35" stroke-dasharray="3,3" x1="40" x2="680" y1="140" y2="140"></line>
+<text fill="#958ea0" font-size="10" text-anchor="end" x="35" y="144">
+              $400
+            </text>
+<line stroke="#313540" x1="40" x2="680" y1="200" y2="200"></line>
+<text fill="#958ea0" font-size="10" text-anchor="end" x="35" y="204">
+              $0
+            </text>
+<!-- Hard Budget Ceiling Limit Line ($1,200) in Amber-Red -->
+<line stroke="#ffb4ab" stroke-dasharray="6,4" stroke-width="1.5" x1="40" x2="680" y1="30" y2="30"></line>
+<rect fill="#93000a" fill-opacity="0.6" height="20" rx="4" width="105" x="570" y="18"></rect>
+<text fill="#ffdad6" font-size="9.5" font-weight="600" text-anchor="middle" x="622" y="32">
+              HARD CAP: $1,200
+            </text>
+<!-- Actual Spend Area (Up to Day 13 / $482.40) -->
+<path d="M 40,200 
+                     L 80,195 
+                     L 130,188 
+                     L 180,180 
+                     L 230,170 
+                     L 280,158 
+                     L 330,146 
+                     L 375,134 
+                     L 375,200 Z" fill="url(#burnGradient)"></path>
+<!-- Actual Spend Curve -->
+<path d="M 40,200 
+                     L 80,195 
+                     L 130,188 
+                     L 180,180 
+                     L 230,170 
+                     L 280,158 
+                     L 330,146 
+                     L 375,134" fill="none" stroke="#4cd7f6" stroke-linecap="round" stroke-width="2.5"></path>
+<!-- Current Marker Dot -->
+<circle cx="375" cy="134" fill="#d0bcff" r="5"></circle>
+<circle cx="375" cy="134" fill="none" opacity="0.6" r="8" stroke="#d0bcff" stroke-width="1.5"></circle>
+<!-- Projected Forecast Path to Day 31 ($498 projected) -->
+<path d="M 375,134 
+                     L 430,126 
+                     L 490,120 
+                     L 550,114 
+                     L 610,109 
+                     L 670,105" fill="none" stroke="#d0bcff" stroke-dasharray="4,4" stroke-width="2"></path>
+<!-- Uncontrolled Linear Trajectory without NEXORA Router (Dashed Error) -->
+<path d="M 375,134 
+                     L 430,110 
+                     L 490,82 
+                     L 550,56 
+                     L 610,32 
+                     L 640,16" fill="none" opacity="0.5" stroke="#958ea0" stroke-dasharray="2,3" stroke-width="1.5"></path>
+<text fill="#958ea0" font-size="9" text-anchor="end" x="635" y="12">
+              Without AST Pruning ($1,480)
+            </text>
+<!-- Forecast Marker Badge -->
+<rect fill="#1c1f2a" height="28" rx="4" stroke="#494454" stroke-width="1" width="120" x="390" y="110"></rect>
+<text fill="#dfe2f1" font-size="9.5" font-weight="600" text-anchor="middle" x="450" y="123">
+              Current: $482.40
+            </text>
+<text fill="#4cd7f6" font-size="8.5" text-anchor="middle" x="450" y="134">
+              Proj. EOM: $498.50
+            </text>
+<!-- Time Axis Labels -->
+<text fill="#958ea0" font-size="9" text-anchor="middle" x="40" y="218">
+              Day 1
+            </text>
+<text fill="#958ea0" font-size="9" text-anchor="middle" x="180" y="218">
+              Day 7
+            </text>
+<text fill="#d0bcff" font-size="9" font-weight="600" text-anchor="middle" x="375" y="218">
+              Day 13 (Today)
+            </text>
+<text fill="#958ea0" font-size="9" text-anchor="middle" x="530" y="218">
+              Day 21
+            </text>
+<text fill="#958ea0" font-size="9" text-anchor="middle" x="670" y="218">
+              Day 31
+            </text>
+</svg>
+</div>
+<!-- Savings Attribution Micro-Badges -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-space-sm pt-2">
+<div class="p-space-sm rounded-lg bg-surface flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-sm text-tertiary">difference</span>
+<div class="flex flex-col">
+<span class="font-body-sm text-body-sm text-on-surface font-medium">AST Syntax Pruning Offset</span>
+<span class="font-label-sm text-label-sm text-outline">Eliminates context bloat prior to inference</span>
+</div>
+</div>
+<span class="font-code-sm text-code-sm text-tertiary font-semibold">-$312.40</span>
+</div>
+<div class="p-space-sm rounded-lg bg-surface flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-sm text-primary">alt_route</span>
+<div class="flex flex-col">
+<span class="font-body-sm text-body-sm text-on-surface font-medium">Tier 0/1 Router Deflection</span>
+</div>
+</div>
+<span class="font-code-sm text-code-sm text-primary font-semibold">-$189.60</span>
+</div>
+</div>
+</div>
+<!-- Right Column (40%): Automated Spend Circuit Breakers & Alerts -->
+<div class="lg:col-span-5 bg-surface-container-low rounded-xl p-space-md flex flex-col justify-between shadow-sm space-y-space-md">
+<div class="flex items-center justify-between">
+<div class="flex flex-col">
+<h2 class="font-headline-sm text-headline-sm text-on-surface">
+              Automated Spend Circuit Breakers
+            </h2>
+<span class="font-body-sm text-body-sm text-outline">Deterministic runtime tripwires</span>
+</div>
+<span class="px-2 py-0.5 rounded font-label-sm text-label-sm bg-tertiary/10 text-tertiary font-semibold">3 ARMED</span>
+</div>
+<!-- Guardrail Rules List -->
+<div class="space-y-space-sm">
+<!-- Guardrail 1 -->
+<div class="p-3 rounded-lg bg-surface flex flex-col gap-2 hover:bg-surface-container/60 transition-colors">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-base text-tertiary">restart_alt</span>
+<span class="font-body-sm text-body-sm text-on-surface font-medium">Recursive Agent Loop Breaker</span>
+</div>
+<label class="relative inline-flex items-center cursor-pointer">
+<input checked="" class="sr-only peer" type="checkbox"/>
+<div class="w-8 h-4 bg-surface-container-highest peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-on-surface after:rounded-full after:h-3 after:w-3 after:transition-all peer-checked:bg-primary"></div>
+</label>
+</div>
+<p class="font-body-sm text-body-sm text-outline leading-relaxed">
+              If a single task runs &gt; 4 iterations without user review or
+              token spend exceeds $1.50 in continuous runtime, agent pauses for
+              human authorization.
+            </p>
+<div class="flex items-center gap-3 font-label-sm text-label-sm text-on-surface-variant pt-1">
+<span class="text-tertiary">9 Interceptions this month</span>
+<span>•</span>
+<span>Threshold: $1.50</span>
+</div>
+</div>
+<!-- Guardrail 2 -->
+<div class="p-3 rounded-lg bg-surface flex flex-col gap-2 hover:bg-surface-container/60 transition-colors">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-base text-primary">speed</span>
+<span class="font-body-sm text-body-sm text-on-surface font-medium">Frontier Tier Escalation Cap</span>
+</div>
+<label class="relative inline-flex items-center cursor-pointer">
+<input checked="" class="sr-only peer" type="checkbox"/>
+<div class="w-8 h-4 bg-surface-container-highest peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-on-surface after:rounded-full after:h-3 after:w-3 after:transition-all peer-checked:bg-primary"></div>
+</label>
+</div>
+<p class="font-body-sm text-body-sm text-outline leading-relaxed">
+              Enforce a strict $15.00/hour rate limit on Claude 3.7 Sonnet calls
+              across the monorepo to neutralize flash surge consumption.
+            </p>
+<div class="flex items-center gap-3 font-label-sm text-label-sm text-on-surface-variant pt-1">
+<span class="text-primary">Global Throttle: Active</span>
+<span>•</span>
+<span>Rate: $15.00/hr</span>
+</div>
+</div>
+<!-- Guardrail 3 -->
+<div class="p-3 rounded-lg bg-surface flex flex-col gap-2 hover:bg-surface-container/60 transition-colors">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-base text-tertiary">notifications_active</span>
+<span class="font-body-sm text-body-sm text-on-surface font-medium">Slack &amp; PagerDuty Alerts</span>
+</div>
+<label class="relative inline-flex items-center cursor-pointer">
+<input checked="" class="sr-only peer" type="checkbox"/>
+<div class="w-8 h-4 bg-surface-container-highest peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-on-surface after:rounded-full after:h-3 after:w-3 after:transition-all peer-checked:bg-primary"></div>
+</label>
+</div>
+<p class="font-body-sm text-body-sm text-outline leading-relaxed">
+              Dispatches webhooks to <span class="font-code-sm text-code-sm text-on-surface">#eng-ai-budgets</span> when any seat or service account touches
+              75%, 90%, and 100% of allocation.
+            </p>
+<div class="flex items-center gap-3 font-label-sm text-label-sm text-on-surface-variant pt-1">
+<span class="text-outline">Last ping: 2h ago (Marcus Vance)</span>
+</div>
+</div>
+</div>
+<button class="w-full py-2.5 rounded-lg bg-surface-container hover:bg-surface-container-high text-on-surface transition-colors font-body-sm text-body-sm font-medium flex items-center justify-center gap-2" onclick="toggleModal('spend-limit-modal')">
+<span class="material-symbols-outlined text-base">add_circle</span>
+<span>Add Custom Spend Policy</span>
+</button>
+</div>
+</div>
+<!-- Bottom System Status Ribbon -->
+<div class="bg-surface-container-low rounded-xl px-space-md py-space-sm flex flex-col md:flex-row md:items-center justify-between gap-space-sm font-label-sm text-label-sm text-outline shadow-sm">
+<div class="flex items-center gap-space-md flex-wrap">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-sm text-tertiary">calendar_month</span>
+<span>Budget Cycle:
+            <strong class="text-on-surface">Dec 1 - Dec 31 (18 days remaining)</strong></span>
+</div>
+<span class="hidden md:inline">•</span>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-sm text-primary">lock_clock</span>
+<span>Auto-recharge:
+            <strong class="text-on-surface">Disabled (Pre-approved PO #4928)</strong></span>
+</div>
+<span class="hidden md:inline">•</span>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-sm text-tertiary">energy_savings_leaf</span>
+<span>Zero-Waste AST Efficiency:
+            <strong class="text-tertiary">74.2%</strong></span>
+</div>
+</div>
+<div class="flex items-center gap-space-sm text-outline">
+<span class="material-symbols-outlined text-sm">mail</span>
+<span>Billing Contact:
+          <span class="text-on-surface underline decoration-dotted">billing@nexora.internal</span></span>
+</div>
+</div>
+</div>
+<!-- Configure Spend Limit & Guardrail Flyout Modal (Hidden by default) -->
+<div class="fixed inset-0 z-50 bg-black/70 backdrop-blur-md flex items-center justify-center p-4 hidden" id="spend-limit-modal">
+<div class="bg-surface-container-low w-full max-w-lg rounded-xl p-space-lg flex flex-col gap-space-md shadow-2xl relative">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-xl text-primary">tune</span>
+<h3 class="font-headline-sm text-headline-sm text-on-surface">
+            Configure Spending Policy
+          </h3>
+</div>
+<button class="text-outline hover:text-on-surface transition-colors" onclick="toggleModal('spend-limit-modal')">
+<span class="material-symbols-outlined text-xl">close</span>
+</button>
+</div>
+<p class="font-body-sm text-body-sm text-outline">
+        Adjust monetary ceilings, fallback models, and automatic throttle
+        tripwires for the selected developer seat or service runner.
+      </p>
+<div class="space-y-space-sm">
+<div>
+<label class="block font-label-sm text-label-sm uppercase text-outline mb-1">Target Entity</label>
+<select class="w-full bg-surface text-on-surface px-3 py-2 rounded-lg font-body-sm text-body-sm outline-none">
+<option>Elena Rostova (Platform Core)</option>
+<option>Marcus Vance (Core Engine)</option>
+<option>Dr. Aris Thorne (TensorLabs)</option>
+<option>Alex Chen (Infra SRE)</option>
+<option>CI/CD Automated Agent Fleet</option>
+</select>
+</div>
+<div>
+<label class="block font-label-sm text-label-sm uppercase text-outline mb-1">Monthly Allocation Hard Ceiling (USD)</label>
+<div class="flex items-center bg-surface px-3 py-2 rounded-lg font-body-sm text-body-sm text-on-surface">
+<span class="text-outline mr-2">$</span>
+<input class="bg-transparent border-none outline-none w-full font-code-sm text-code-sm text-on-surface" type="number" value="250.00"/>
+</div>
+</div>
+<div>
+<label class="block font-label-sm text-label-sm uppercase text-outline mb-1">Over-Quota Fallback Strategy</label>
+<select class="w-full bg-surface text-on-surface px-3 py-2 rounded-lg font-body-sm text-body-sm outline-none">
+<option>Auto-downgrade to Tier 1 (DeepSeek V3 / Mistral)</option>
+<option>Require Lead Architect 2FA Authorization</option>
+<option>Hard Stop (Block all autonomous agent requests)</option>
+<option>Sandbox only (Cached token memory only)</option>
+</select>
+</div>
+<div class="pt-2 flex items-center justify-between">
+<span class="font-body-sm text-body-sm text-on-surface">Automated Slack Alert on 80% Cap</span>
+<label class="relative inline-flex items-center cursor-pointer">
+<input checked="" class="sr-only peer" type="checkbox"/>
+<div class="w-8 h-4 bg-surface-container-highest rounded-full peer peer-checked:after:translate-x-full peer-checked:bg-primary after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-on-surface after:rounded-full after:h-3 after:w-3 after:transition-all"></div>
+</label>
+</div>
+</div>
+<div class="flex items-center justify-end gap-space-sm pt-2">
+<button class="px-4 py-2 rounded-lg bg-surface hover:bg-surface-container text-on-surface font-body-sm text-body-sm transition-colors" onclick="toggleModal('spend-limit-modal')">
+          Cancel
+        </button>
+<button class="px-4 py-2 rounded-lg bg-primary hover:bg-primary-container text-on-primary font-body-sm text-body-sm font-medium transition-colors" onclick="toggleModal('spend-limit-modal'); alert('Guardrail and budget policies applied instantly.');">
+          Apply Guardrail Policy
+        </button>
+</div>
+</div>
+</div>
+</div></main></div>
+</body></html>

@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_dashboard" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=JetBrains+Mono:wght@100..900&family=Space+Grotesk:wght@100..900&display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{colors:{"surface-container-lowest":"#0a0e18","surface":"#0f131d","surface-dim":"#0f131d","secondary-fixed":"#e1e0ff","error-container":"#93000a","on-background":"#dfe2f1","surface-bright":"#353944","inverse-on-surface":"#2c303b","on-secondary-fixed-variant":"#2f2ebe","on-secondary-container":"#b0b2ff","tertiary":"#4cd7f6","surface-container-highest":"#313540","on-primary":"#3c0091","tertiary-fixed":"#acedff","on-tertiary-fixed-variant":"#004e5c","primary":"#d0bcff","primary-fixed-dim":"#d0bcff","tertiary-container":"#009eb9","inverse-surface":"#dfe2f1","on-tertiary-container":"#002f38","on-error":"#690005","outline-variant":"#494454","surface-tint":"#d0bcff","tertiary-fixed-dim":"#4cd7f6","error":"#ffb4ab","surface-container-high":"#262a35","on-surface":"#dfe2f1","secondary-fixed-dim":"#c0c1ff","on-secondary-fixed":"#07006c","on-surface-variant":"#cbc3d7","secondary-container":"#3131c0","primary-fixed":"#e9ddff","secondary":"#c0c1ff","inverse-primary":"#6d3bd7","on-primary-container":"#340080","outline":"#958ea0","on-primary-fixed":"#23005c","on-secondary":"#1000a9","surface-container":"#1c1f2a","on-error-container":"#ffdad6","background":"#0f131d","on-primary-fixed-variant":"#5516be","surface-container-low":"#171b26","on-tertiary-fixed":"#001f26","primary-container":"#a078ff","on-tertiary":"#003640","surface-variant":"#313540"},borderRadius:{"DEFAULT":"0.125rem","lg":"0.25rem","xl":"0.5rem","full":"0.75rem"},spacing:{"space-md":"0.75rem","gutter-sm":"0.5rem","space-xs":"0.25rem","margin":"1.5rem","space-xl":"2rem","gutter":"1rem","gutter-lg":"1.5rem","margin-mobile":"1rem","space-lg":"1.25rem","space-sm":"0.5rem"},fontFamily:{"label-sm":["JetBrains Mono"],"body-sm":["Inter"],"code-sm":["JetBrains Mono"],"headline-lg":["Space Grotesk"],"headline-xl":["Space Grotesk"],"headline-xl-mobile":["Space Grotesk"],"headline-lg-mobile":["Space Grotesk"],"body-lg":["Inter"],"code-lg":["JetBrains Mono"],"body-md":["Inter"],"headline-sm":["Space Grotesk"],"label-md":["JetBrains Mono"],"headline-md":["Space Grotesk"]},fontSize:{"label-sm":["10px",{lineHeight:"14px",letterSpacing:"0.06em",fontWeight:"500"}],"body-sm":["12px",{lineHeight:"16px",fontWeight:"400"}],"code-sm":["12px",{lineHeight:"18px",fontWeight:"400"}],"headline-lg":["32px",{lineHeight:"40px",letterSpacing:"-0.015em",fontWeight:"600"}],"headline-xl":["40px",{lineHeight:"48px",letterSpacing:"-0.02em",fontWeight:"600"}],"headline-xl-mobile":["30px",{lineHeight:"38px",letterSpacing:"-0.02em",fontWeight:"600"}],"headline-lg-mobile":["24px",{lineHeight:"32px",letterSpacing:"-0.015em",fontWeight:"600"}],"body-lg":["16px",{lineHeight:"24px",fontWeight:"400"}],"code-lg":["14px",{lineHeight:"22px",fontWeight:"400"}],"body-md":["14px",{lineHeight:"20px",fontWeight:"400"}],"headline-sm":["18px",{lineHeight:"24px",fontWeight:"500"}],"label-md":["12px",{lineHeight:"16px",letterSpacing:"0.04em",fontWeight:"500"}],"headline-md":["22px",{lineHeight:"28px",letterSpacing:"-0.01em",fontWeight:"500"}]}}}}</script></head><body class="bg-surface-container-lowest font-body-md text-body-md text-on-surface antialiased"><aside class="fixed left-0 top-0 h-full w-[260px] bg-surface-container-lowest z-50 flex flex-col justify-between shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="flex flex-col"><div class="h-16 px-space-md flex items-center justify-between bg-surface-container-lowest"><div class="flex items-center gap-space-sm"><img alt="NEXORA Code Logo" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDuQGUIoHGHOLy3UpduhnPYlgGoraklfUpkYnU4fuZgnLQ76MbCUK5vyuXJ0rFxuqmMX_E14cxMXy5gMZIcZLzrSOu95Zumwmw8UePMe9nyUn416w-bnp3ijUPAIp7xRZwjx7lh-OUOyWfL39CrKlJDRKldl4uxe1jEsRo4vavnW54HhWSFoVLBIkZvudhjaYhavQ44ZWaeQtHt_3rwgmIxywowojrkXhfNyVIqeQ"/><span class="font-headline-sm text-headline-sm text-on-surface tracking-tight font-semibold">NEXORA</span></div><span class="font-label-sm text-label-sm uppercase px-1.5 py-0.5 rounded bg-surface-container-high text-tertiary">v2.4 Pro</span></div><div class="px-space-md py-space-sm overflow-y-auto max-h-[calc(100vh-160px)]"><div class="mb-space-lg"><p class="font-label-sm text-label-sm uppercase text-outline px-space-sm mb-space-xs">Main</p><nav class="flex flex-col gap-0.5" data-active-classes="bg-surface-container-high text-primary font-medium rounded-lg"><a class="flex items-center gap-space-sm px-space-sm py-2 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors font-body-sm text-body-sm" data-path="dashboard" href="#"><span class="material-symbols-outlined text-lg">dashboard</span><span>Overview / Dashboard</span></a><a aria-current="page" class="flex items-center gap-space-sm px-space-sm py-2 transition-colors bg-surface-container-high text-primary font-medium rounded-lg" data-path="ai-coding-workspace" href="#"><span class="material-symbols-outlined text-lg">terminal</span><span>AI Coding Workspace</span></a><a class="flex items-center gap-space-sm px-space-sm py-2 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors font-body-sm text-body-sm" data-path="repositories" href="#"><span class="material-symbols-outlined text-lg">emoji_symbols</span><span>Repositories</span></a><a class="flex items-center gap-space-sm px-space-sm py-2 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors font-body-sm text-body-sm" data-path="task-history" href="#"><span class="material-symbols-outlined text-lg">history</span><span>Task History</span></a></nav></div><div class="mb-space-lg"><p class="font-label-sm text-label-sm uppercase text-outline px-space-sm mb-space-xs">Intelligence & Tokens</p><nav class="flex flex-col gap-0.5" data-active-classes="bg-surface-container-high text-primary font-medium rounded-lg"><a class="flex items-center gap-space-sm px-space-sm py-2 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors font-body-sm text-body-sm" data-path="token-analytics" href="#"><span class="material-symbols-outlined text-lg">bar_chart</span><span>Token Analytics</span></a><a class="flex items-center gap-space-sm px-space-sm py-2 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors font-body-sm text-body-sm" data-path="model-router" href="#"><span class="material-symbols-outlined text-lg">alt_route</span><span>Model Router</span></a><a class="flex items-center gap-space-sm px-space-sm py-2 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors font-body-sm text-body-sm" data-path="budget-manager" href="#"><span class="material-symbols-outlined text-lg">account_balance_wallet</span><span>Budget Manager</span></a></nav></div><div class="mb-space-md"><p class="font-label-sm text-label-sm uppercase text-outline px-space-sm mb-space-xs">Governance</p><nav class="flex flex-col gap-0.5" data-active-classes="bg-surface-container-high text-primary font-medium rounded-lg"><a class="flex items-center gap-space-sm px-space-sm py-2 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors font-body-sm text-body-sm" data-path="security-center" href="#"><span class="material-symbols-outlined text-lg">shield</span><span>Security Center</span></a><a class="flex items-center gap-space-sm px-space-sm py-2 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors font-body-sm text-body-sm" data-path="settings" href="#"><span class="material-symbols-outlined text-lg">settings</span><span>Settings</span></a></nav></div></div></div><div class="p-space-md bg-surface-container-low"><div class="flex items-center justify-between mb-space-xs"><div class="flex items-center gap-space-sm"><img alt="Profile" class="w-8 h-8 rounded-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBCnjXww_8t8PPzSkEl28FtDAk0EN2xz06LpYsR2tuCpePURwKpUikW-S0HjSpVJ1RJVKwFab-kyaEtbe0vebuvSu0YQLL531sROadBtVCSfqelwen1J3tV-3jvSsPZJRRXlqW_Ja_VcvFTp0A_DANJWBIUrSw55O2A7eWqZfm5LCO7KuKtjfW8HC4zaaCmHl4wSf9JUmPEJ3hjphBVAcOchQ0E-UlCd2MpaIY3Cg"/><div class="flex flex-col"><span class="font-body-sm text-body-sm text-on-surface font-medium leading-none">Elena Rostova</span><span class="font-label-sm text-label-sm text-outline leading-tight mt-1">Principal Architect</span></div></div><button class="text-on-surface-variant hover:text-on-surface transition-colors"><span class="material-symbols-outlined text-base">more_vert</span></button></div><div class="mt-space-sm pt-space-xs"><div class="flex items-center justify-between text-outline font-label-sm text-label-sm"><span>Efficiency</span><span class="text-tertiary font-semibold">94.2%</span></div><div class="w-full h-1 bg-surface-container-highest rounded-full mt-1 overflow-hidden"><div class="h-full bg-tertiary w-[94.2%]"></div></div></div></div></aside><div class="pl-[260px]"><header class="fixed top-0 left-[260px] right-0 h-16 z-40 bg-surface/80 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="h-16 w-full px-space-lg flex items-center justify-between gap-space-md"><div class="flex items-center gap-space-md"><div class="flex items-center gap-2 px-space-sm py-1 rounded bg-surface-container-low"><span class="w-2 h-2 rounded-full bg-tertiary"></span><span class="font-code-sm text-code-sm text-on-surface">prod-core-monorepo / main</span><span class="material-symbols-outlined text-sm text-on-surface-variant">expand_more</span></div><div class="hidden xl:flex items-center gap-2 px-space-sm py-1 rounded bg-surface-container-low font-label-sm text-label-sm text-on-surface-variant"><span class="w-1.5 h-1.5 rounded-full bg-primary"></span><span>Claude 3.7 + DeepSeek V3 (142ms)</span></div><div class="hidden 2xl:flex items-center gap-1.5 px-space-sm py-1 rounded bg-surface-container-low font-label-sm text-label-sm text-tertiary"><span class="material-symbols-outlined text-sm">bolt</span><span>4.2M saved (68%)</span></div></div><div class="flex items-center gap-space-md"><div class="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-surface-container-low text-on-surface-variant w-48 lg:w-64"><span class="material-symbols-outlined text-sm">search</span><span class="font-body-sm text-body-sm text-outline flex-1">Command Palette</span><kbd class="font-label-sm text-label-sm px-1.5 py-0.5 rounded bg-surface-container-highest text-outline">⌘K</kbd></div><a class="relative p-1.5 rounded text-on-surface-variant hover:text-on-surface transition-colors" href="#"><span class="material-symbols-outlined text-xl">notifications</span><span class="absolute top-1 right-1 w-2 h-2 rounded-full bg-error"></span></a><nav class="flex items-center gap-space-md font-body-sm text-body-sm" data-active-classes="text-primary font-medium"><a class="text-on-surface-variant hover:text-on-surface transition-colors" data-path="documentation" href="#">Docs</a><a class="text-on-surface-variant hover:text-on-surface transition-colors" data-path="api-status" href="#">API</a></nav><img alt="Profile" class="w-8 h-8 rounded-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBCnjXww_8t8PPzSkEl28FtDAk0EN2xz06LpYsR2tuCpePURwKpUikW-S0HjSpVJ1RJVKwFab-kyaEtbe0vebuvSu0YQLL531sROadBtVCSfqelwen1J3tV-3jvSsPZJRRXlqW_Ja_VcvFTp0A_DANJWBIUrSw55O2A7eWqZfm5LCO7KuKtjfW8HC4zaaCmHl4wSf9JUmPEJ3hjphBVAcOchQ0E-UlCd2MpaIY3Cg"/></div></div></header><main class="w-full pt-16 bg-surface-container-lowest min-h-screen"><div class="flex flex-col w-full h-[calc(100vh-4rem)] overflow-hidden bg-surface-container-lowest">
+<!-- Top Operational Sub-bar: Real-time Telemetry & Execution State -->
+<div class="h-10 px-space-md bg-surface-container-low flex items-center justify-between shrink-0 select-none">
+<div class="flex items-center gap-space-md">
+<div class="flex items-center gap-2">
+<span class="relative flex h-2 w-2">
+<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-tertiary opacity-75"></span>
+<span class="relative inline-flex rounded-full h-2 w-2 bg-tertiary"></span>
+</span>
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-on-surface">Agent Session Active</span>
+<span class="font-code-sm text-code-sm text-outline">#NX-RUN-8941</span>
+</div>
+<div class="h-3 w-px bg-surface-container-highest"></div>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-sm text-tertiary">memory</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">AST Pruning Factor:</span>
+<span class="font-code-sm text-code-sm text-tertiary font-semibold">96.0% (8,420 → 340 tok)</span>
+</div>
+<div class="hidden lg:flex items-center gap-2">
+<span class="material-symbols-outlined text-sm text-primary">currency_exchange</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Cascade Delta:</span>
+<span class="font-code-sm text-code-sm text-primary font-semibold">-$0.184 (vs GPT-4o-Raw)</span>
+</div>
+</div>
+<div class="flex items-center gap-space-sm">
+<div class="flex items-center gap-1.5 px-2 py-0.5 rounded bg-surface-container-highest font-code-sm text-code-sm text-on-surface-variant">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary"></span>
+<span>docker://nx-sandbox:849</span>
+</div>
+<button class="px-2 py-1 rounded bg-surface-container hover:bg-surface-bright text-on-surface transition-colors flex items-center gap-1 font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-sm">tune</span>
+<span>Config</span>
+</button>
+<button class="px-2.5 py-1 rounded bg-surface-container hover:bg-surface-bright text-on-surface transition-colors flex items-center gap-1 font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-sm">fullscreen</span>
+</button>
+</div>
+</div>
+<!-- Primary 3-Pane Modular Grid -->
+<div class="flex-1 grid grid-cols-12 min-h-0 w-full overflow-hidden">
+<!-- PANE 1: Left Pane (25% -> 3 cols) - Context & Agent Task Config -->
+<section class="col-span-3 h-full flex flex-col bg-surface-container-low overflow-hidden">
+<!-- Section Header -->
+<div class="h-10 px-space-md bg-surface-container flex items-center justify-between shrink-0">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-base text-primary">rule_folder</span>
+<span class="font-label-sm text-label-sm uppercase font-semibold text-on-surface tracking-wider">Context & Spec</span>
+</div>
+<span class="font-label-sm text-label-sm px-1.5 py-0.5 rounded bg-surface-container-high text-tertiary">Isolated Scope</span>
+</div>
+<!-- Scrollable Configuration Body -->
+<div class="flex-1 overflow-y-auto p-space-md space-y-space-md text-on-surface">
+<!-- Active Repository & Branch Selector -->
+<div class="space-y-1.5">
+<label class="font-label-sm text-label-sm uppercase text-outline flex items-center justify-between">
+<span>Repository Target</span>
+<span class="text-tertiary">SSH Connected</span>
+</label>
+<div class="p-2.5 rounded-lg bg-surface-container-lowest hover:bg-surface-container transition-colors cursor-pointer space-y-1">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2 min-w-0">
+<span class="material-symbols-outlined text-sm text-on-surface-variant">emoji_symbols</span>
+<span class="font-code-sm text-code-sm font-medium text-on-surface truncate">nexora-cloud/core-engine</span>
+</div>
+<span class="material-symbols-outlined text-sm text-outline">unfold_more</span>
+</div>
+<div class="flex items-center gap-1.5 pt-0.5">
+<span class="material-symbols-outlined text-xs text-primary">fork_right</span>
+<span class="font-code-sm text-code-sm text-primary">feat/distributed-cache</span>
+<span class="font-label-sm text-label-sm text-outline ml-auto">HEAD @ e89ab3</span>
+</div>
+</div>
+</div>
+<!-- Model Router Selection -->
+<div class="space-y-1.5">
+<div class="flex items-center justify-between">
+<label class="font-label-sm text-label-sm uppercase text-outline">Model Execution Strategy</label>
+<span class="font-label-sm text-label-sm text-tertiary font-semibold flex items-center gap-0.5">
+<span class="material-symbols-outlined text-xs">savings</span> 65% Token Save
+            </span>
+</div>
+<div class="p-2.5 rounded-lg bg-surface-container-lowest space-y-2">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-base text-primary">alt_route</span>
+<div>
+<div class="font-body-sm text-body-sm font-medium text-on-surface">Auto-Routing Cascade</div>
+<div class="font-label-sm text-label-sm text-outline">DeepSeek V3 (Draft) + Claude 3.7 (Audit)</div>
+</div>
+</div>
+<span class="w-2 h-2 rounded-full bg-tertiary"></span>
+</div>
+<!-- Cascade Speed/Cost Bar -->
+<div class="pt-1.5">
+<div class="flex justify-between font-label-sm text-label-sm text-outline mb-1">
+<span>Speed: 142 tok/s</span>
+<span>Est. Cost: $0.0028/k</span>
+</div>
+<div class="h-1.5 w-full bg-surface-container rounded-full overflow-hidden flex">
+<div class="bg-tertiary h-full w-[65%]" title="DeepSeek Execution"></div>
+<div class="bg-primary h-full w-[35%]" title="Claude Verification"></div>
+</div>
+</div>
+</div>
+</div>
+<!-- Context Slicing AST Scope -->
+<div class="space-y-2">
+<div class="flex items-center justify-between">
+<label class="font-label-sm text-label-sm uppercase text-outline">AST Slicing Window</label>
+<button class="font-label-sm text-label-sm text-primary hover:underline">Re-index</button>
+</div>
+<div class="p-2.5 rounded-lg bg-surface-container-lowest space-y-2">
+<div class="flex items-center justify-between text-body-sm font-body-sm">
+<span class="text-on-surface">Pruned Context Weight</span>
+<span class="font-code-sm text-code-sm text-tertiary">340 tokens</span>
+</div>
+<div class="text-label-sm font-label-sm text-outline">Pruned from 8,420 total LOC across 4 targeted files:</div>
+<div class="space-y-1 pt-1">
+<div class="flex items-center justify-between p-1.5 rounded bg-surface-container font-code-sm text-code-sm">
+<div class="flex items-center gap-1.5 truncate">
+<span class="material-symbols-outlined text-xs text-tertiary">description</span>
+<span class="text-on-surface truncate">cache_manager.go</span>
+</div>
+<span class="font-label-sm text-label-sm text-tertiary px-1 rounded bg-surface-container-high">AST Focus</span>
+</div>
+<div class="flex items-center justify-between p-1.5 rounded bg-surface-container font-code-sm text-code-sm">
+<div class="flex items-center gap-1.5 truncate">
+<span class="material-symbols-outlined text-xs text-on-surface-variant">description</span>
+<span class="text-on-surface truncate">cache_test.go</span>
+</div>
+<span class="font-label-sm text-label-sm text-outline px-1 rounded bg-surface-container-high">Full</span>
+</div>
+<div class="flex items-center justify-between p-1.5 rounded bg-surface-container font-code-sm text-code-sm">
+<div class="flex items-center gap-1.5 truncate">
+<span class="material-symbols-outlined text-xs text-on-surface-variant">description</span>
+<span class="text-on-surface truncate">config.yaml</span>
+</div>
+<span class="font-label-sm text-label-sm text-outline px-1 rounded bg-surface-container-high">KV Scope</span>
+</div>
+<div class="flex items-center justify-between p-1.5 rounded bg-surface-container font-code-sm text-code-sm opacity-60">
+<div class="flex items-center gap-1.5 truncate">
+<span class="material-symbols-outlined text-xs text-outline">description</span>
+<span class="text-on-surface truncate">redis_adapter.go</span>
+</div>
+<span class="font-label-sm text-label-sm text-outline px-1 rounded bg-surface-container-high">Header Only</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Execution Authorization Mode -->
+<div class="space-y-1.5">
+<label class="font-label-sm text-label-sm uppercase text-outline">Agent Execution Guardrails</label>
+<div class="grid grid-cols-2 gap-1.5 p-1 rounded-lg bg-surface-container-lowest">
+<button class="py-1.5 px-2 rounded-md bg-surface-container text-on-surface font-label-sm text-label-sm font-semibold flex items-center justify-center gap-1.5 shadow-sm">
+<span class="material-symbols-outlined text-sm text-tertiary">lock</span>
+<span>Safe Mode</span>
+</button>
+<button class="py-1.5 px-2 rounded-md hover:bg-surface-container text-outline hover:text-on-surface font-label-sm text-label-sm flex items-center justify-center gap-1.5 transition-colors">
+<span class="material-symbols-outlined text-sm">bolt</span>
+<span>Autonomous</span>
+</button>
+</div>
+<p class="font-label-sm text-label-sm text-outline px-1">Write operations & shell executions require approval.</p>
+</div>
+<!-- Quick Task Actions -->
+<div class="space-y-2 pt-1">
+<label class="font-label-sm text-label-sm uppercase text-outline">Quick Diagnostic Invocations</label>
+<div class="grid grid-cols-2 gap-1.5">
+<button class="p-2 rounded bg-surface-container hover:bg-surface-container-high text-left transition-colors">
+<div class="font-code-sm text-code-sm text-primary font-medium">Refactor Leak</div>
+<div class="font-label-sm text-label-sm text-outline">SyncPool optimization</div>
+</button>
+<button class="p-2 rounded bg-surface-container hover:bg-surface-container-high text-left transition-colors">
+<div class="font-code-sm text-code-sm text-tertiary font-medium">Add Unit Tests</div>
+<div class="font-label-sm text-label-sm text-outline">Edge case coverage</div>
+</button>
+<button class="p-2 rounded bg-surface-container hover:bg-surface-container-high text-left transition-colors">
+<div class="font-code-sm text-code-sm text-on-surface font-medium">Fix CORS Regr.</div>
+<div class="font-label-sm text-label-sm text-outline">Preflight headers</div>
+</button>
+<button class="p-2 rounded bg-surface-container hover:bg-surface-container-high text-left transition-colors">
+<div class="font-code-sm text-code-sm text-on-surface font-medium">Optimize Indices</div>
+<div class="font-label-sm text-label-sm text-outline">Compound keys</div>
+</button>
+</div>
+</div>
+</div>
+<!-- Task History Quick Feed Footer -->
+<div class="p-space-sm bg-surface-container shrink-0 flex items-center justify-between font-label-sm text-label-sm text-outline">
+<span class="flex items-center gap-1">
+<span class="material-symbols-outlined text-xs">history</span>
+<span>4 Previous Tasks Today</span>
+</span>
+<button class="text-tertiary hover:underline">View Log</button>
+</div>
+</section>
+<!-- PANE 2: Middle Pane (45% -> 5.5 cols approx, here 5 cols) - Agent Execution Console & Chat Feed -->
+<section class="col-span-5 h-full flex flex-col bg-surface-container overflow-hidden">
+<!-- Section Header -->
+<div class="h-10 px-space-md bg-surface-container-low flex items-center justify-between shrink-0">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-base text-tertiary">terminal</span>
+<span class="font-label-sm text-label-sm uppercase font-semibold text-on-surface tracking-wider">Agent Execution Stream</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="font-label-sm text-label-sm px-2 py-0.5 rounded bg-surface-container-highest text-on-surface-variant font-code-sm">
+            DeepSeek-V3 · 24ms ping
+          </span>
+<button class="p-1 text-outline hover:text-on-surface transition-colors" title="Clear console">
+<span class="material-symbols-outlined text-sm">delete_sweep</span>
+</button>
+</div>
+</div>
+<!-- Agent Reasoning Step Progression Box -->
+<div class="p-space-md bg-surface-container-lowest shrink-0 space-y-2">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm uppercase text-outline tracking-wider flex items-center gap-1.5">
+<span class="material-symbols-outlined text-sm text-tertiary">account_tree</span>
+<span>Reasoning Pipeline Steps</span>
+</span>
+<span class="font-label-sm text-label-sm text-tertiary font-semibold">4/4 Complete</span>
+</div>
+<div class="space-y-1.5">
+<!-- Step 1 -->
+<div class="flex items-start gap-2 text-code-sm font-code-sm p-1.5 rounded bg-surface-container-low">
+<span class="material-symbols-outlined text-sm text-tertiary shrink-0 mt-0.5">check_circle</span>
+<div class="flex-1 truncate">
+<span class="text-on-surface">Step 1: Indexed repository AST symbols</span>
+<span class="font-label-sm text-label-sm text-outline block truncate">Cached in vector memory · 0 tokens billed</span>
+</div>
+<span class="font-label-sm text-label-sm text-tertiary shrink-0">0.12s</span>
+</div>
+<!-- Step 2 -->
+<div class="flex items-start gap-2 text-code-sm font-code-sm p-1.5 rounded bg-surface-container-low">
+<span class="material-symbols-outlined text-sm text-tertiary shrink-0 mt-0.5">check_circle</span>
+<div class="flex-1 truncate">
+<span class="text-on-surface">Step 2: Identified memory allocation bottleneck</span>
+<span class="font-label-sm text-label-sm text-primary block truncate">Target locus: <code class="text-on-surface">cache_manager.go:142</code> (Unbounded slice grow)</span>
+</div>
+<span class="font-label-sm text-label-sm text-tertiary shrink-0">0.34s</span>
+</div>
+<!-- Step 3 -->
+<div class="flex items-start gap-2 text-code-sm font-code-sm p-1.5 rounded bg-surface-container-low">
+<span class="material-symbols-outlined text-sm text-tertiary shrink-0 mt-0.5">check_circle</span>
+<div class="flex-1 truncate">
+<span class="text-on-surface">Step 3: Routed AST snippet to DeepSeek V3 for draft</span>
+<span class="font-label-sm text-label-sm text-tertiary block truncate">Saved 12,400 tokens via partial tree context substitution</span>
+</div>
+<span class="font-label-sm text-label-sm text-tertiary shrink-0">1.08s</span>
+</div>
+<!-- Step 4 -->
+<div class="flex items-start gap-2 text-code-sm font-code-sm p-1.5 rounded bg-surface-container-low">
+<span class="material-symbols-outlined text-sm text-tertiary shrink-0 mt-0.5">verified</span>
+<div class="flex-1 truncate">
+<span class="text-on-surface">Step 4: Verification test run passed</span>
+<span class="font-label-sm text-label-sm text-tertiary block truncate">24/24 unit tests OK in isolated sandbox (#nx-849)</span>
+</div>
+<span class="font-label-sm text-label-sm text-tertiary shrink-0">0.82s</span>
+</div>
+</div>
+</div>
+<!-- Execution Stream & Conversation Log -->
+<div class="flex-1 overflow-y-auto p-space-md space-y-space-md">
+<!-- User Request Bubble -->
+<div class="flex items-start gap-3 justify-end">
+<div class="max-w-[85%] space-y-1">
+<div class="p-3 rounded-xl rounded-tr-none bg-surface-container-highest text-on-surface">
+<p class="font-body-sm text-body-sm leading-relaxed">
+                Investigate the memory spike in <code class="px-1 py-0.5 rounded bg-surface-container-lowest font-code-sm text-code-sm text-primary">cache_manager.go</code> during high eviction rate. Refactor the inner byte buffer to use a pooled buffer (<code class="px-1 py-0.5 rounded bg-surface-container-lowest font-code-sm text-code-sm text-primary">sync.Pool</code>) and supply high-concurrency benchmarks.
+              </p>
+</div>
+<div class="flex items-center justify-end gap-2 text-outline font-label-sm text-label-sm">
+<span>Elena Rostova</span>
+<span>•</span>
+<span>10:42:15 AM</span>
+</div>
+</div>
+<img alt="Elena Rostova" class="w-7 h-7 rounded-full object-cover shrink-0 mt-0.5" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBCnjXww_8t8PPzSkEl28FtDAk0EN2xz06LpYsR2tuCpePURwKpUikW-S0HjSpVJ1RJVKwFab-kyaEtbe0vebuvSu0YQLL531sROadBtVCSfqelwen1J3tV-3jvSsPZJRRXlqW_Ja_VcvFTp0A_DANJWBIUrSw55O2A7eWqZfm5LCO7KuKtjfW8HC4zaaCmHl4wSf9JUmPEJ3hjphBVAcOchQ0E-UlCd2MpaIY3Cg"/>
+</div>
+<!-- Agent Response Bubble -->
+<div class="flex items-start gap-3">
+<div class="w-7 h-7 rounded-full bg-primary-container text-on-primary-container flex items-center justify-center shrink-0 mt-0.5">
+<span class="material-symbols-outlined text-sm">smart_toy</span>
+</div>
+<div class="flex-1 space-y-2">
+<div class="p-3.5 rounded-xl rounded-tl-none bg-surface-container-low text-on-surface space-y-3">
+<div class="flex items-center justify-between pb-2">
+<span class="font-label-sm text-label-sm uppercase text-primary font-semibold tracking-wider">Solution Synthesis & Benchmark</span>
+<span class="font-label-sm text-label-sm px-2 py-0.5 rounded bg-surface-container-highest text-tertiary">
+                  Spent 342 tokens · Saved 4,210 tokens
+                </span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
+                Found critical allocation trigger inside <code class="font-code-sm text-code-sm text-on-surface">EvictExpiredKeys()</code>. Dynamic reallocation caused ~48MB GC spikes under 10k QPS.
+              </p>
+<!-- Diagnostic Telemetry Card -->
+<div class="p-2.5 rounded bg-surface-container-lowest grid grid-cols-3 gap-2 text-center">
+<div>
+<div class="font-label-sm text-label-sm text-outline">Pre-fix Allocations</div>
+<div class="font-code-sm text-code-sm text-error font-semibold">1,240 B/op</div>
+</div>
+<div>
+<div class="font-label-sm text-label-sm text-outline">Pooled Buffers</div>
+<div class="font-code-sm text-code-sm text-tertiary font-semibold">48 B/op</div>
+</div>
+<div>
+<div class="font-label-sm text-label-sm text-outline">GC Pause Delta</div>
+<div class="font-code-sm text-code-sm text-tertiary font-semibold">-92.4%</div>
+</div>
+</div>
+<div class="space-y-1">
+<div class="font-label-sm text-label-sm uppercase text-outline">Synthetic Validation Output</div>
+<pre class="p-2.5 rounded bg-surface-container-lowest font-code-sm text-code-sm text-on-surface overflow-x-auto leading-relaxed"><code>BenchmarkEvictionThroughput/Baseline-16   100000   18420 ns/op
+BenchmarkEvictionThroughput/Pooled-16     940200    1410 ns/op  PASS
+--- PASS: TestConcurrentBufferPool (0.44s)
+ok  github.com/nexora-cloud/core-engine/cache  0.712s</code></pre>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+                I have prepared modifications in 3 files and executed the test matrix inside container <span class="font-code-sm text-code-sm text-tertiary">#nx-849</span>. All 24 assertions validated cleanly.
+              </p>
+</div>
+<!-- Agent Attribution Ribbon -->
+<div class="flex items-center gap-3 px-2 font-label-sm text-label-sm text-outline">
+<span class="flex items-center gap-1">
+<span class="material-symbols-outlined text-xs text-primary">verified_user</span>
+<span>Confidence: 99.4%</span>
+</span>
+<span>•</span>
+<span>Model Cascade: DeepSeek-V3 ➔ Claude-3.7-Auditor</span>
+<span>•</span>
+<button class="text-tertiary hover:underline">Inspect Raw AST Trace</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Agent Prompt Terminal Input Bar -->
+<div class="p-space-md bg-surface-container-low shrink-0 space-y-2">
+<div class="flex items-center justify-between text-outline font-label-sm text-label-sm px-1">
+<div class="flex items-center gap-2">
+<span class="text-tertiary">›</span>
+<span>Interactive Steering Prompt</span>
+</div>
+<div class="flex items-center gap-2">
+<span>Context: 340 tok</span>
+<kbd class="px-1 py-0.5 rounded bg-surface-container-highest text-outline font-code-sm">↵ send</kbd>
+<kbd class="px-1 py-0.5 rounded bg-surface-container-highest text-outline font-code-sm">⇧↵ newline</kbd>
+</div>
+</div>
+<div class="relative flex items-center">
+<input class="w-full bg-surface-container-lowest text-on-surface font-body-sm text-body-sm rounded-lg pl-3 pr-24 py-2.5 outline-none focus:ring-1 focus:ring-primary placeholder-outline transition-all" placeholder="Instruct agent (e.g. 'Add benchmark for TTL expiry edge cases' or 'Run go vet')..." type="text"/>
+<div class="absolute right-2 flex items-center gap-1.5">
+<button class="p-1 rounded hover:bg-surface-container text-outline hover:text-on-surface transition-colors" title="Attach file slice">
+<span class="material-symbols-outlined text-base">attach_file</span>
+</button>
+<button class="px-2.5 py-1 rounded bg-primary text-on-primary font-label-sm text-label-sm font-semibold flex items-center gap-1 hover:bg-opacity-90 transition-all">
+<span>Execute</span>
+<span class="material-symbols-outlined text-xs">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+</section>
+<!-- PANE 3: Right Pane (30% -> 4 cols) - File Change Summary & Review Action Panel -->
+<section class="col-span-4 h-full flex flex-col bg-surface-container-lowest overflow-hidden">
+<!-- Section Header -->
+<div class="h-10 px-space-md bg-surface-container flex items-center justify-between shrink-0">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-base text-tertiary">difference</span>
+<span class="font-label-sm text-label-sm uppercase font-semibold text-on-surface tracking-wider">Mutation Staging & Review</span>
+</div>
+<div class="flex items-center gap-1 font-label-sm text-label-sm">
+<span class="text-tertiary font-code-sm font-semibold">+95</span>
+<span class="text-error font-code-sm font-semibold">-15</span>
+</div>
+</div>
+<!-- File Mutation Tabs -->
+<div class="p-space-sm bg-surface-container-low shrink-0 flex items-center gap-1.5 overflow-x-auto">
+<button class="flex items-center gap-1.5 px-2.5 py-1 rounded bg-surface-container-highest text-on-surface font-code-sm text-code-sm shrink-0">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary"></span>
+<span>cache_manager.go</span>
+<span class="text-tertiary font-label-sm text-label-sm ml-1">+28</span>
+<span class="text-error font-label-sm text-label-sm">-14</span>
+</button>
+<button class="flex items-center gap-1.5 px-2 py-1 rounded hover:bg-surface-container text-outline hover:text-on-surface font-code-sm text-code-sm shrink-0 transition-colors">
+<span>cache_test.go</span>
+<span class="text-tertiary font-label-sm text-label-sm ml-1">+65</span>
+</button>
+<button class="flex items-center gap-1.5 px-2 py-1 rounded hover:bg-surface-container text-outline hover:text-on-surface font-code-sm text-code-sm shrink-0 transition-colors">
+<span>config.yaml</span>
+<span class="text-tertiary font-label-sm text-label-sm ml-1">+2</span>
+</button>
+</div>
+<!-- Unified Code Diff Viewer -->
+<div class="flex-1 overflow-y-auto bg-surface-container-lowest font-code-sm text-code-sm flex flex-col">
+<!-- Diff Breadcrumbs & Context Info -->
+<div class="px-space-md py-1.5 bg-surface-container-low flex items-center justify-between font-label-sm text-label-sm text-outline shrink-0">
+<span class="font-code-sm text-code-sm text-on-surface-variant">pkg/cache/cache_manager.go:138-164</span>
+<span class="px-1.5 py-0.2 rounded bg-surface-container-highest text-primary">Unified AST Patch</span>
+</div>
+<!-- Diff Code Lines -->
+<div class="divide-y-0 text-on-surface select-text overflow-x-auto flex-1 p-1">
+<!-- Line Context -->
+<div class="flex items-stretch hover:bg-surface-container/50">
+<span class="w-10 text-right pr-2 py-0.5 text-outline select-none opacity-40 font-code-sm">138</span>
+<span class="w-10 text-right pr-2 py-0.5 text-outline select-none opacity-40 font-code-sm">138</span>
+<span class="w-5 text-center text-outline select-none"> </span>
+<pre class="py-0.5 px-2 text-on-surface-variant"><code>func (cm *CacheManager) EvictExpiredKeys(ctx context.Context) {</code></pre>
+</div>
+<div class="flex items-stretch hover:bg-surface-container/50">
+<span class="w-10 text-right pr-2 py-0.5 text-outline select-none opacity-40 font-code-sm">139</span>
+<span class="w-10 text-right pr-2 py-0.5 text-outline select-none opacity-40 font-code-sm">139</span>
+<span class="w-5 text-center text-outline select-none"> </span>
+<pre class="py-0.5 px-2 text-on-surface-variant"><code>	cm.mu.Lock()</code></pre>
+</div>
+<div class="flex items-stretch hover:bg-surface-container/50">
+<span class="w-10 text-right pr-2 py-0.5 text-outline select-none opacity-40 font-code-sm">140</span>
+<span class="w-10 text-right pr-2 py-0.5 text-outline select-none opacity-40 font-code-sm">140</span>
+<span class="w-5 text-center text-outline select-none"> </span>
+<pre class="py-0.5 px-2 text-on-surface-variant"><code>	defer cm.mu.Unlock()</code></pre>
+</div>
+<!-- Line Deletions (Red) -->
+<div class="flex items-stretch bg-error-container/20">
+<span class="w-10 text-right pr-2 py-0.5 text-error select-none font-code-sm">141</span>
+<span class="w-10 text-right pr-2 py-0.5 text-outline select-none opacity-20 font-code-sm"> </span>
+<span class="w-5 text-center text-error select-none font-bold">-</span>
+<pre class="py-0.5 px-2 text-error"><code>	// Unbounded buffer instantiation on every eviction tick</code></pre>
+</div>
+<div class="flex items-stretch bg-error-container/20">
+<span class="w-10 text-right pr-2 py-0.5 text-error select-none font-code-sm">142</span>
+<span class="w-10 text-right pr-2 py-0.5 text-outline select-none opacity-20 font-code-sm"> </span>
+<span class="w-5 text-center text-error select-none font-bold">-</span>
+<pre class="py-0.5 px-2 text-error"><code>	rawBuffer := make([]byte, 0, 65536)</code></pre>
+</div>
+<div class="flex items-stretch bg-error-container/20">
+<span class="w-10 text-right pr-2 py-0.5 text-error select-none font-code-sm">143</span>
+<span class="w-10 text-right pr-2 py-0.5 text-outline select-none opacity-20 font-code-sm"> </span>
+<span class="w-5 text-center text-error select-none font-bold">-</span>
+<pre class="py-0.5 px-2 text-error"><code>	buf := bytes.NewBuffer(rawBuffer)</code></pre>
+</div>
+<!-- Line Additions (Green / Emerald) -->
+<div class="flex items-stretch bg-tertiary-container/30">
+<span class="w-10 text-right pr-2 py-0.5 text-outline select-none opacity-20 font-code-sm"> </span>
+<span class="w-10 text-right pr-2 py-0.5 text-tertiary select-none font-code-sm">141</span>
+<span class="w-5 text-center text-tertiary select-none font-bold">+</span>
+<pre class="py-0.5 px-2 text-tertiary"><code>	// Lease pre-allocated byte slice from sync.Pool</code></pre>
+</div>
+<div class="flex items-stretch bg-tertiary-container/30">
+<span class="w-10 text-right pr-2 py-0.5 text-outline select-none opacity-20 font-code-sm"> </span>
+<span class="w-10 text-right pr-2 py-0.5 text-tertiary select-none font-code-sm">142</span>
+<span class="w-5 text-center text-tertiary select-none font-bold">+</span>
+<pre class="py-0.5 px-2 text-tertiary"><code>	bufPtr := bufferPool.Get().(*bytes.Buffer)</code></pre>
+</div>
+<div class="flex items-stretch bg-tertiary-container/30">
+<span class="w-10 text-right pr-2 py-0.5 text-outline select-none opacity-20 font-code-sm"> </span>
+<span class="w-10 text-right pr-2 py-0.5 text-tertiary select-none font-code-sm">143</span>
+<span class="w-5 text-center text-tertiary select-none font-bold">+</span>
+<pre class="py-0.5 px-2 text-tertiary"><code>	bufPtr.Reset()</code></pre>
+</div>
+<div class="flex items-stretch bg-tertiary-container/30">
+<span class="w-10 text-right pr-2 py-0.5 text-outline select-none opacity-20 font-code-sm"> </span>
+<span class="w-10 text-right pr-2 py-0.5 text-tertiary select-none font-code-sm">144</span>
+<span class="w-5 text-center text-tertiary select-none font-bold">+</span>
+<pre class="py-0.5 px-2 text-tertiary"><code>	defer bufferPool.Put(bufPtr)</code></pre>
+</div>
+<!-- Context Retained -->
+<div class="flex items-stretch hover:bg-surface-container/50">
+<span class="w-10 text-right pr-2 py-0.5 text-outline select-none opacity-40 font-code-sm">144</span>
+<span class="w-10 text-right pr-2 py-0.5 text-outline select-none opacity-40 font-code-sm">145</span>
+<span class="w-5 text-center text-outline select-none"> </span>
+<pre class="py-0.5 px-2 text-on-surface-variant"><code>	for _, key := range cm.evictionQueue {</code></pre>
+</div>
+<div class="flex items-stretch hover:bg-surface-container/50">
+<span class="w-10 text-right pr-2 py-0.5 text-outline select-none opacity-40 font-code-sm">145</span>
+<span class="w-10 text-right pr-2 py-0.5 text-outline select-none opacity-40 font-code-sm">146</span>
+<span class="w-5 text-center text-outline select-none"> </span>
+<pre class="py-0.5 px-2 text-on-surface-variant"><code>		if cm.isExpired(key) {</code></pre>
+</div>
+<div class="flex items-stretch hover:bg-surface-container/50">
+<span class="w-10 text-right pr-2 py-0.5 text-outline select-none opacity-40 font-code-sm">146</span>
+<span class="w-10 text-right pr-2 py-0.5 text-outline select-none opacity-40 font-code-sm">147</span>
+<span class="w-5 text-center text-outline select-none"> </span>
+<pre class="py-0.5 px-2 text-on-surface-variant"><code>			bufPtr.WriteString(key)</code></pre>
+</div>
+<div class="flex items-stretch hover:bg-surface-container/50">
+<span class="w-10 text-right pr-2 py-0.5 text-outline select-none opacity-40 font-code-sm">147</span>
+<span class="w-10 text-right pr-2 py-0.5 text-outline select-none opacity-40 font-code-sm">148</span>
+<span class="w-5 text-center text-outline select-none"> </span>
+<pre class="py-0.5 px-2 text-on-surface-variant"><code>			delete(cm.table, key)</code></pre>
+</div>
+</div>
+</div>
+<!-- Live Sandbox Operational Status Block -->
+<div class="p-space-sm bg-surface-container-low shrink-0 flex items-center justify-between font-label-sm text-label-sm">
+<div class="flex items-center gap-2 truncate">
+<span class="w-2 h-2 rounded-full bg-tertiary"></span>
+<span class="text-on-surface font-code-sm truncate">Sandbox #nx-849: Active</span>
+<span class="text-outline truncate">CPU 1.2% · Mem 64MB</span>
+</div>
+<span class="text-tertiary font-code-sm shrink-0">Ports: 8080/tcp</span>
+</div>
+<!-- Action Approval Bar (Terminal Dock) -->
+<div class="p-space-md bg-surface-container shrink-0 space-y-space-sm">
+<!-- Main Approval CTAs -->
+<div class="flex flex-col gap-2">
+<!-- Emerald / Primary Action -->
+<button class="w-full py-2.5 px-4 rounded-lg bg-tertiary-container hover:bg-tertiary text-on-tertiary-container font-headline-sm text-headline-sm font-semibold flex items-center justify-center gap-2 transition-all shadow-md group">
+<span class="material-symbols-outlined text-lg group-hover:translate-x-0.5 transition-transform">merge</span>
+<span>Approve & Create Pull Request</span>
+<span class="font-code-sm text-code-sm opacity-80 ml-auto">⌘ + ↵</span>
+</button>
+<div class="grid grid-cols-2 gap-2">
+<!-- Revision Request -->
+<button class="py-2 px-3 rounded-lg bg-surface-container-high hover:bg-surface-bright text-secondary font-label-md text-label-md font-medium flex items-center justify-center gap-1.5 transition-colors">
+<span class="material-symbols-outlined text-sm">replay</span>
+<span>Request Revision</span>
+</button>
+<!-- Revert / Reject -->
+<button class="py-2 px-3 rounded-lg bg-error-container/40 hover:bg-error-container text-on-error-container font-label-md text-label-md font-medium flex items-center justify-center gap-1.5 transition-colors">
+<span class="material-symbols-outlined text-sm">block</span>
+<span>Reject & Revert</span>
+</button>
+</div>
+</div>
+<!-- Approval Micro-note -->
+<div class="flex items-center justify-between text-outline font-label-sm text-label-sm pt-0.5">
+<span>Signed with GPG key: <span class="text-on-surface-variant font-code-sm">ed25519/84F0D</span></span>
+<span class="text-tertiary flex items-center gap-0.5">
+<span class="material-symbols-outlined text-xs">shield</span> CI checks armed
+          </span>
+</div>
+</div>
+</section>
+</div>
+</div></main></div></body></html>

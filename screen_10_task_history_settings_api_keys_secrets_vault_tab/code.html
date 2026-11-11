@@ -1,0 +1,693 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_dashboard" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&amp;family=JetBrains+Mono:wght@100..900&amp;family=Space+Grotesk:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{colors:{"surface-variant":"#313540","background":"#0f131d","primary":"#d0bcff","error":"#ffb4ab","surface-container-lowest":"#0a0e18","primary-fixed-dim":"#d0bcff","on-background":"#dfe2f1","on-surface-variant":"#cbc3d7","on-secondary-fixed":"#07006c","on-secondary-container":"#b0b2ff","surface-dim":"#0f131d","on-tertiary-container":"#002f38","inverse-primary":"#6d3bd7","on-primary-fixed":"#23005c","on-secondary":"#1000a9","secondary-container":"#3131c0","secondary-fixed-dim":"#c0c1ff","on-error-container":"#ffdad6","on-surface":"#dfe2f1","surface":"#0f131d","outline":"#958ea0","outline-high":"#a39cb0","surface-container-high":"#262a35","primary-container":"#a078ff","tertiary":"#4cd7f6","outline-variant":"#494454","on-tertiary-fixed":"#001f26","inverse-surface":"#dfe2f1","primary-fixed":"#e9ddff","on-primary":"#3c0091","surface-container":"#1c1f2a","on-tertiary-fixed-variant":"#004e5c","surface-bright":"#353944","on-primary-container":"#340080","on-error":"#690005","surface-container-low":"#171b26","inverse-on-surface":"#2c303b","surface-container-highest":"#313540","error-container":"#93000a","on-secondary-fixed-variant":"#2f2ebe","tertiary-fixed":"#acedff","on-primary-fixed-variant":"#5516be","secondary-fixed":"#e1e0ff","secondary":"#c0c1ff","on-tertiary":"#003640","tertiary-container":"#009eb9","tertiary-fixed-dim":"#4cd7f6","surface-tint":"#d0bcff"},borderRadius:{"DEFAULT":"0.125rem","lg":"0.25rem","xl":"0.5rem","full":"0.75rem"},spacing:{"gutter-lg":"1.5rem","space-xs":"0.25rem","space-xl":"2rem","space-md":"0.75rem","gutter-sm":"0.5rem","gutter":"1rem","space-sm":"0.5rem","margin":"1.5rem","space-lg":"1.25rem","margin-mobile":"1rem"},fontFamily:{"body-md":["Inter"],"headline-md":["Space Grotesk"],"label-md":["JetBrains Mono"],"headline-sm":["Space Grotesk"],"label-sm":["JetBrains Mono"],"code-sm":["JetBrains Mono"],"body-sm":["Inter"],"headline-lg-mobile":["Space Grotesk"],"headline-xl-mobile":["Space Grotesk"],"body-lg":["Inter"],"code-lg":["JetBrains Mono"],"headline-lg":["Space Grotesk"],"headline-xl":["Space Grotesk"]},fontSize:{"body-md":["14px",{lineHeight:"20px",fontWeight:"400"}],"headline-md":["22px",{lineHeight:"28px",letterSpacing:"-0.01em",fontWeight:"500"}],"label-md":["12px",{lineHeight:"16px",letterSpacing:"0.04em",fontWeight:"500"}],"headline-sm":["18px",{lineHeight:"24px",fontWeight:"500"}],"label-sm":["10px",{lineHeight:"14px",letterSpacing:"0.06em",fontWeight:"500"}],"code-sm":["12px",{lineHeight:"18px",fontWeight:"400"}],"body-sm":["12px",{lineHeight:"16px",fontWeight:"400"}],"headline-lg-mobile":["24px",{lineHeight:"32px",letterSpacing:"-0.015em",fontWeight:"600"}],"headline-xl-mobile":["30px",{lineHeight:"38px",letterSpacing:"-0.02em",fontWeight:"600"}],"body-lg":["16px",{lineHeight:"24px",fontWeight:"400"}],"code-lg":["14px",{lineHeight:"22px",fontWeight:"400"}],"headline-lg":["32px",{lineHeight:"40px",letterSpacing:"-0.015em",fontWeight:"600"}],"headline-xl":["40px",{lineHeight:"48px",letterSpacing:"-0.02em",fontWeight:"600"}]}}}}</script></head><body class="bg-surface-container-lowest font-body-md text-body-md text-on-surface antialiased"><aside class="fixed left-0 top-0 h-full w-[260px] bg-surface-container-lowest z-50 flex flex-col justify-between shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="flex flex-col"><div class="h-16 px-space-md flex items-center justify-between bg-surface-container-lowest"><div class="flex items-center gap-space-sm"><img alt="NEXORA Code Logo" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDuQGUIoHGHOLy3UpduhnPYlgGoraklfUpkYnU4fuZgnLQ76MbCUK5vyuXJ0rFxuqmMX_E14cxMXy5gMZIcZLzrSOu95Zumwmw8UePMe9nyUn416w-bnp3ijUPAIp7xRZwjx7lh-OUOyWfL39CrKlJDRKldl4uxe1jEsRo4vavnW54HhWSFoVLBIkZvudhjaYhavQ44ZWaeQtHt_3rwgmIxywowojrkXhfNyVIqeQ"/><span class="font-headline-sm text-headline-sm text-on-surface tracking-tight font-semibold">NEXORA</span></div><span class="font-label-sm text-label-sm uppercase px-1.5 py-0.5 rounded bg-surface-container-high text-tertiary">v2.4 Pro</span></div><div class="px-space-md py-space-sm overflow-y-auto max-h-[calc(100vh-160px)]"><div class="mb-space-lg"><p class="font-label-sm text-label-sm uppercase text-slate-400 px-space-sm mb-space-xs">Main</p><nav class="flex flex-col gap-0.5" data-active-classes="bg-surface-container-high text-primary font-medium rounded-lg"><a class="flex items-center gap-space-sm px-space-sm py-2 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors font-body-sm text-body-sm" data-path="dashboard" href="#">Overview / Dashboard</a><a class="flex items-center gap-space-sm px-space-sm py-2 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors font-body-sm text-body-sm" data-path="ai-coding-workspace" href="#">AI Coding Workspace</a><a class="flex items-center gap-space-sm px-space-sm py-2 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors font-body-sm text-body-sm" data-path="repositories" href="#">Repositories</a><a class="flex items-center gap-space-sm px-space-sm py-2 rounded-lg bg-surface-container-high text-primary font-medium rounded-lg transition-colors font-body-sm text-body-sm" data-path="task-history" href="#">Task History &amp; Settings</a></nav></div><div class="mb-space-lg"><p class="font-label-sm text-label-sm uppercase text-slate-400 px-space-sm mb-space-xs">Intelligence &amp; Tokens</p><nav class="flex flex-col gap-0.5" data-active-classes="bg-surface-container-high text-primary font-medium rounded-lg"><a class="flex items-center gap-space-sm px-space-sm py-2 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors font-body-sm text-body-sm" data-path="token-analytics" href="#">Token Analytics</a><a class="flex items-center gap-space-sm px-space-sm py-2 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors font-body-sm text-body-sm" data-path="model-router" href="#">Model Router</a><a class="flex items-center gap-space-sm px-space-sm py-2 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors font-body-sm text-body-sm" data-path="budget-manager" href="#">Budget Manager</a></nav></div><div class="mb-space-md"><p class="font-label-sm text-label-sm uppercase text-slate-400 px-space-sm mb-space-xs">Governance</p><nav class="flex flex-col gap-0.5" data-active-classes="bg-surface-container-high text-primary font-medium rounded-lg"><a class="flex items-center gap-space-sm px-space-sm py-2 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors font-body-sm text-body-sm" data-path="security-center" href="#">Security and Approval Center</a><a class="flex items-center gap-space-sm px-space-sm py-2 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors font-body-sm text-body-sm" data-path="settings" href="#">Settings</a></nav></div></div></div><div class="p-space-md bg-surface-container-low"><div class="flex items-center justify-between mb-space-xs"><div class="flex items-center gap-space-sm"><img alt="Profile" class="w-8 h-8 rounded-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBCnjXww_8t8PPzSkEl28FtDAk0EN2xz06LpYsR2tuCpePURwKpUikW-S0HjSpVJ1RJVKwFab-kyaEtbe0vebuvSu0YQLL531sROadBtVCSfqelwen1J3tV-3jvSsPZJRRXlqW_Ja_VcvFTp0A_DANJWBIUrSw55O2A7eWqZfm5LCO7KuKtjfW8HC4zaaCmHl4wSf9JUmPEJ3hjphBVAcOchQ0E-UlCd2MpaIY3Cg"/><div class="flex flex-col"><span class="font-body-sm text-body-sm text-on-surface font-medium leading-none">Elena Rostova</span><span class="font-label-sm text-label-sm text-slate-400 leading-tight mt-1">Principal Architect</span></div></div><button class="text-on-surface-variant hover:text-on-surface transition-colors"><span class="material-symbols-outlined text-base">more_vert</span></button></div><div class="flex items-center justify-between text-slate-400 font-label-sm text-label-sm mb-1 px-1.5 py-1 rounded bg-surface-container-lowest/80 border border-surface-container-high/60"><span class="flex items-center gap-1.5 text-on-surface-variant"><span class="material-symbols-outlined text-[13px] text-primary">spatial_audio</span><span>Spatial Audio Profile</span></span><span class="text-tertiary font-code-sm text-[11px] font-medium flex items-center gap-1"><span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>880Hz • 7.1.4</span></div><div class="mt-space-sm pt-space-xs"><div class="flex items-center justify-between text-slate-400 font-label-sm text-label-sm"><span>Efficiency</span><span class="text-tertiary font-semibold">94.2%</span></div><div class="w-full h-1 bg-surface-container-highest rounded-full mt-1 overflow-hidden"><div class="h-full bg-tertiary w-[94.2%]"></div></div></div></div></aside><div class="pl-[260px]"><header class="fixed top-0 left-[260px] right-0 h-16 z-40 bg-surface/80 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="h-16 w-full px-space-lg flex items-center justify-between gap-space-md"><div class="flex items-center gap-space-md"><div class="flex items-center gap-2 px-space-sm py-1 rounded bg-surface-container-low"><span class="w-2 h-2 rounded-full bg-tertiary"></span><span class="font-code-sm text-code-sm text-on-surface">prod-core-monorepo / main</span><span class="material-symbols-outlined text-sm text-on-surface-variant">expand_more</span></div><div class="hidden xl:flex items-center gap-2 px-space-sm py-1 rounded bg-surface-container-low font-label-sm text-label-sm text-on-surface-variant"><span class="w-1.5 h-1.5 rounded-full bg-primary"></span><span>Claude 3.7 + DeepSeek V3 (142ms)</span></div><div class="hidden 2xl:flex items-center gap-1.5 px-space-sm py-1 rounded bg-surface-container-low font-label-sm text-label-sm text-tertiary"><span class="material-symbols-outlined text-sm">bolt</span><span>4.2M saved (68%)</span></div></div><div class="flex items-center gap-space-md"><div class="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-surface-container-low text-on-surface-variant w-48 lg:w-64"><span class="material-symbols-outlined text-sm">search</span><span class="font-body-sm text-body-sm text-slate-400 flex-1">Command Palette</span><kbd class="font-label-sm text-label-sm px-1.5 py-0.5 rounded bg-surface-container-highest text-slate-400">⌘K</kbd></div><a class="relative p-1.5 rounded text-on-surface-variant hover:text-on-surface transition-colors" href="#"><span class="material-symbols-outlined text-xl">notifications</span><span class="absolute top-1 right-1 w-2 h-2 rounded-full bg-error"></span></a><nav class="flex items-center gap-space-md font-body-sm text-body-sm" data-active-classes="text-primary font-medium"><a class="text-on-surface-variant hover:text-on-surface transition-colors" data-path="documentation" href="#">Docs</a><a class="text-on-surface-variant hover:text-on-surface transition-colors" data-path="api-status" href="#">API</a></nav><img alt="Profile" class="w-8 h-8 rounded-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBCnjXww_8t8PPzSkEl28FtDAk0EN2xz06LpYsR2tuCpePURwKpUikW-S0HjSpVJ1RJVKwFab-kyaEtbe0vebuvSu0YQLL531sROadBtVCSfqelwen1J3tV-3jvSsPZJRRXlqW_Ja_VcvFTp0A_DANJWBIUrSw55O2A7eWqZfm5LCO7KuKtjfW8HC4zaaCmHl4wSf9JUmPEJ3hjphBVAcOchQ0E-UlCd2MpaIY3Cg"/></div></div></header><main class="w-full pt-16 bg-surface-container-lowest min-h-screen"><div class="flex flex-col w-full">
+<!-- Page Context Sub-Navigation Header -->
+<div class="w-full bg-surface-container-low px-gutter-lg pt-space-lg pb-0">
+<div class="flex flex-col xl:flex-row xl:items-end justify-between gap-space-md mb-space-lg">
+<div class="flex flex-col">
+<div class="flex items-center gap-space-xs font-label-sm text-label-sm uppercase text-slate-400 mb-1">
+<span>Settings Hub</span>
+<span>/</span>
+<span class="text-tertiary">Cryptographic Enclave</span>
+</div>
+<h1 class="font-headline-lg text-headline-lg text-on-surface tracking-tight">Task History &amp; Settings</h1>
+</div>
+<div class="flex items-center gap-2 px-space-sm py-1 rounded bg-surface-container-lowest text-on-surface-variant font-label-sm text-label-sm self-start xl:self-auto shadow-sm">
+<span class="flex items-center gap-1.5 text-slate-300">
+<span class="w-2 h-2 rounded-full bg-tertiary"></span>
+<span>Elena's Profile: Synced (4 Workstations)</span>
+</span>
+<span class="text-slate-400">•</span>
+<span class="text-primary font-code-sm text-code-sm flex items-center gap-1">
+<span class="material-symbols-outlined text-[13px] text-primary">key</span>
+          Hardware YubiHSM2
+        </span>
+</div>
+</div>
+<!-- Tab Sub-Navigation Strip -->
+<div class="flex items-center gap-1 overflow-x-auto no-scrollbar pt-1">
+<button class="flex items-center gap-2 px-space-md py-3 text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-all font-body-sm text-body-sm whitespace-nowrap rounded-t-lg">
+<span class="material-symbols-outlined text-base">alt_route</span>
+<span>Task Execution &amp; Runs</span>
+<span class="px-1.5 py-0.5 rounded bg-surface-container-highest font-label-sm text-label-sm text-slate-400">4,892</span>
+</button>
+<button class="flex items-center gap-2 px-space-md py-3 text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-all font-body-sm text-body-sm whitespace-nowrap rounded-t-lg">
+<span class="material-symbols-outlined text-base">spatial_audio</span>
+<span>Sound &amp; Spatial Audio Studio</span>
+<span class="px-1.5 py-0.5 rounded bg-surface-container-high font-label-sm text-label-sm text-tertiary flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary"></span>
+          HRTF 3D Active • 880 Hz
+        </span>
+</button>
+<!-- Active Tab: API Keys & Secrets Vault -->
+<button class="relative flex items-center gap-2 px-space-md py-3 bg-surface text-primary font-medium font-body-sm text-body-sm whitespace-nowrap rounded-t-lg shadow-sm">
+<span class="material-symbols-outlined text-base text-primary">lock_clock</span>
+<span>API Keys &amp; Secrets Vault</span>
+<span class="px-1.5 py-0.5 rounded bg-primary/10 font-label-sm text-label-sm text-primary flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-primary animate-pulse"></span>
+          4 Healthy • HSM Protected
+        </span>
+<span class="absolute bottom-0 left-0 right-0 h-0.5 bg-primary shadow-[0_0_12px_rgba(208,188,255,0.8)]"></span>
+</button>
+<button class="flex items-center gap-2 px-space-md py-3 text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-all font-body-sm text-body-sm whitespace-nowrap rounded-t-lg">
+<span class="material-symbols-outlined text-base">account_tree</span>
+<span>Custom AST &amp; Pruning Rules</span>
+<span class="px-1.5 py-0.5 rounded bg-surface-container-highest font-label-sm text-label-sm text-slate-400">v3.4 Active</span>
+</button>
+<button class="flex items-center gap-2 px-space-md py-3 text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-all font-body-sm text-body-sm whitespace-nowrap rounded-t-lg">
+<span class="material-symbols-outlined text-base">terminal</span>
+<span>Agent Runtime &amp; Environment</span>
+<span class="px-1.5 py-0.5 rounded bg-surface-container-highest font-label-sm text-label-sm text-slate-400">Hardened Sandbox</span>
+</button>
+</div>
+</div>
+<!-- Vault Main Workstation Canvas -->
+<div class="px-gutter-lg py-space-xl flex flex-col gap-space-xl">
+<!-- Header Action Row -->
+<div class="flex flex-col 2xl:flex-row 2xl:items-center justify-between gap-space-lg bg-surface-container p-space-lg rounded-xl shadow-md">
+<div class="flex flex-col gap-1 max-w-4xl">
+<div class="flex items-center gap-2">
+<span class="px-2 py-0.5 rounded bg-primary/10 text-primary font-label-sm text-label-sm tracking-wider uppercase font-semibold">FIPS 140-2 L3</span>
+<h2 class="font-headline-md text-headline-md text-on-surface">Hardware-Isolated KMS Secrets Vault (v2.4-rev89)</h2>
+</div>
+<p class="font-body-md text-body-md text-slate-400">
+          AES-256-GCM enclave-encrypted credentials, zero browser-memory exposure, per-provider token spend limits, and auto-rotation guardrails.
+        </p>
+</div>
+<div class="flex flex-wrap items-center gap-space-sm">
+<button class="flex items-center gap-2 px-space-sm py-2 rounded-lg bg-surface-container-high text-on-surface-variant hover:text-on-surface hover:bg-surface-bright transition-colors font-label-md text-label-md">
+<span class="material-symbols-outlined text-base">history</span>
+<span>Audit Access Logs (Immutable)</span>
+</button>
+<button class="flex items-center gap-2 px-space-sm py-2 rounded-lg bg-surface-container-high text-on-surface hover:bg-surface-bright transition-colors font-label-md text-label-md">
+<span class="material-symbols-outlined text-base text-tertiary">sync</span>
+<span>Rotate All Ephemeral Keys</span>
+</button>
+<button class="flex items-center gap-2 px-space-md py-2 rounded-lg bg-primary-container text-on-primary-container hover:brightness-110 shadow-lg shadow-primary-container/20 transition-all font-label-md text-label-md font-semibold">
+<span class="material-symbols-outlined text-base">add</span>
+<span>+ Add LLM Provider / New Key</span>
+</button>
+</div>
+</div>
+<!-- Top Metric / Summary Cards -->
+<div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-space-md">
+<!-- Card 1 -->
+<div class="p-space-lg rounded-xl bg-surface-container-low flex flex-col justify-between gap-space-md shadow-sm">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-slate-400">TOTAL STORED SECRETS</span>
+<span class="px-2 py-0.5 rounded bg-surface-container-high text-tertiary font-label-sm text-label-sm font-semibold">+2 this month</span>
+</div>
+<div>
+<div class="flex items-baseline gap-2">
+<span class="font-headline-lg text-headline-lg font-semibold text-on-surface">14</span>
+<span class="font-headline-sm text-headline-sm text-slate-400">Keys</span>
+</div>
+<p class="font-body-sm text-body-sm text-slate-400 mt-1 flex items-center gap-1.5">
+<span class="material-symbols-outlined text-sm text-tertiary">verified_user</span>
+            Zero plaintext leaks recorded
+          </p>
+</div>
+<div class="w-full bg-surface-container-highest h-1 rounded-full overflow-hidden">
+<div class="bg-tertiary h-full w-full"></div>
+</div>
+</div>
+<!-- Card 2 -->
+<div class="p-space-lg rounded-xl bg-surface-container-low flex flex-col justify-between gap-space-md shadow-sm">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-slate-400">ENCLAVE HEALTH &amp; KMS</span>
+<span class="px-2 py-0.5 rounded bg-tertiary/15 text-tertiary font-label-sm text-label-sm font-semibold flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary animate-pulse"></span>
+            Active / 99.999%
+          </span>
+</div>
+<div>
+<div class="font-headline-md text-headline-md font-semibold text-on-surface truncate">YubiHSM2 Enclave</div>
+<p class="font-body-sm text-body-sm text-slate-400 mt-1 flex items-center gap-1.5">
+<span class="material-symbols-outlined text-sm text-primary">memory</span>
+            AES-256-GCM Hardware Signed
+          </p>
+</div>
+<div class="w-full bg-surface-container-highest h-1 rounded-full overflow-hidden">
+<div class="bg-primary h-full w-[99%]"></div>
+</div>
+</div>
+<!-- Card 3 -->
+<div class="p-space-lg rounded-xl bg-surface-container-low flex flex-col justify-between gap-space-md shadow-sm">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-slate-400">MONTHLY SPEND VIA VAULT</span>
+<span class="px-2 py-0.5 rounded bg-surface-container-high text-on-surface font-label-sm text-label-sm font-semibold">68% of $5,000 Cap</span>
+</div>
+<div>
+<div class="font-headline-lg text-headline-lg font-semibold text-on-surface">$3,482.10 <span class="font-body-sm text-body-sm text-slate-400 font-normal">USD</span></div>
+<p class="font-body-sm text-body-sm text-slate-400 mt-1 flex items-center gap-1.5">
+<span class="material-symbols-outlined text-sm text-tertiary">shield</span>
+            Hard ceiling breaker armed
+          </p>
+</div>
+<div class="w-full bg-surface-container-highest h-1 rounded-full overflow-hidden">
+<div class="bg-gradient-to-r from-tertiary to-primary h-full w-[68%]"></div>
+</div>
+</div>
+<!-- Card 4 -->
+<div class="p-space-lg rounded-xl bg-surface-container-low flex flex-col justify-between gap-space-md shadow-sm">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-slate-400">KEY ROTATION STATUS</span>
+<span class="px-2 py-0.5 rounded bg-primary/10 text-primary font-label-sm text-label-sm font-semibold">Auto-Rotated: 8 keys</span>
+</div>
+<div>
+<div class="font-headline-md text-headline-md font-semibold text-on-surface">Next in 4d 18h</div>
+<p class="font-body-sm text-body-sm text-slate-400 mt-1 flex items-center gap-1.5">
+<span class="material-symbols-outlined text-sm text-tertiary">check_circle</span>
+            0 keys overdue for rotation
+          </p>
+</div>
+<div class="w-full bg-surface-container-highest h-1 rounded-full overflow-hidden">
+<div class="bg-tertiary h-full w-[85%]"></div>
+</div>
+</div>
+</div>
+<!-- Main Content Section: Two Column Split -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-space-xl">
+<!-- Left/Center Broad Column (8 Cols) -->
+<div class="lg:col-span-8 flex flex-col gap-space-lg">
+<!-- Search, Filter & Environment Toolbar -->
+<div class="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-space-md bg-surface-container-low p-space-md rounded-xl">
+<div class="relative flex-1">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 text-sm">search</span>
+<input class="w-full bg-surface-container-lowest text-on-surface font-body-sm text-body-sm rounded-lg pl-9 pr-3 py-2 placeholder-slate-500 focus:outline-none focus:ring-1 focus:ring-primary shadow-inner" placeholder="Filter secrets by name, provider, or environment..." type="text"/>
+</div>
+<div class="flex items-center gap-space-sm flex-wrap">
+<div class="flex items-center gap-1.5 px-3 py-2 rounded-lg bg-surface-container text-on-surface-variant font-label-sm text-label-sm">
+<span class="text-slate-400 uppercase">Env:</span>
+<span class="text-on-surface font-medium">Production</span>
+<span class="material-symbols-outlined text-sm">expand_more</span>
+</div>
+<div class="flex items-center gap-1.5 px-3 py-2 rounded-lg bg-surface-container text-on-surface-variant font-label-sm text-label-sm">
+<span class="text-slate-400 uppercase">Status:</span>
+<span class="text-tertiary font-medium">Healthy (All)</span>
+<span class="material-symbols-outlined text-sm">tune</span>
+</div>
+<button class="p-2 rounded-lg bg-surface-container text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-colors" title="Refresh secrets status">
+<span class="material-symbols-outlined text-base">refresh</span>
+</button>
+</div>
+</div>
+<!-- Key Management Cards List -->
+<div class="flex flex-col gap-space-md">
+<!-- Card 1: Anthropic Claude 3.7 Sonnet & Opus -->
+<div class="p-space-lg rounded-xl bg-surface-container-low shadow-sm flex flex-col gap-space-md hover:bg-surface-container transition-all">
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-space-sm pb-space-sm">
+<div class="flex items-center gap-space-md">
+<div class="w-10 h-10 rounded-lg bg-surface-container-highest flex items-center justify-center text-primary font-headline-sm text-headline-sm font-semibold">
+                  A
+                </div>
+<div>
+<div class="flex items-center gap-2">
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Anthropic Claude 3.7 Sonnet &amp; Opus</h3>
+<span class="px-2 py-0.5 rounded bg-tertiary/10 text-tertiary font-label-sm text-label-sm font-semibold flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary"></span>
+                      Healthy
+                    </span>
+</div>
+<div class="flex items-center gap-2 mt-0.5 font-label-sm text-label-sm text-slate-400">
+<span class="text-primary font-code-sm text-code-sm">claude-prod-primary-v2</span>
+<span>•</span>
+<span>Production (Ensemble Master)</span>
+<span>•</span>
+<span class="px-1.5 py-0.2 rounded bg-surface-container-high text-on-surface-variant">Tier 4 Enterprise</span>
+</div>
+</div>
+</div>
+<div class="flex items-center gap-1 self-end sm:self-center">
+<button class="px-space-sm py-1.5 rounded-lg bg-surface-container-high text-on-surface-variant hover:text-on-surface hover:bg-surface-bright transition-colors font-label-sm text-label-sm">
+                  Edit Quota
+                </button>
+<button class="px-space-sm py-1.5 rounded-lg bg-primary-container/20 text-primary hover:bg-primary-container/30 transition-colors font-label-sm text-label-sm">
+                  Rotate Now
+                </button>
+<button class="p-1.5 rounded-lg text-slate-400 hover:text-on-surface hover:bg-surface-container-high transition-colors">
+<span class="material-symbols-outlined text-lg">more_vert</span>
+</button>
+</div>
+</div>
+<!-- Key Preview & Test Connectivity -->
+<div class="flex flex-col md:flex-row md:items-center justify-between gap-space-sm bg-surface-container-lowest p-space-sm rounded-lg">
+<div class="flex items-center gap-space-sm flex-wrap">
+<span class="material-symbols-outlined text-sm text-primary">vpn_key</span>
+<span class="font-code-sm text-code-sm text-slate-300">sk-ant-api03-••••••••••••••••98fe</span>
+<button class="flex items-center gap-1 text-slate-400 hover:text-primary font-label-sm text-label-sm transition-colors">
+<span class="material-symbols-outlined text-[13px]">content_copy</span>
+<span>Copy Masked</span>
+</button>
+<button class="flex items-center gap-1 text-slate-400 hover:text-tertiary font-label-sm text-label-sm transition-colors">
+<span class="material-symbols-outlined text-[13px]">fingerprint</span>
+<span>Reveal (TouchID / HSM verify)</span>
+</button>
+</div>
+<div class="flex items-center gap-2 self-start md:self-auto">
+<span class="px-2 py-0.5 rounded bg-surface-container font-label-sm text-label-sm text-tertiary flex items-center gap-1.5">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary"></span>
+                  84ms latency • 200 OK
+                </span>
+<button class="text-slate-400 hover:text-on-surface text-xs font-label-sm flex items-center gap-1">
+<span class="material-symbols-outlined text-[13px]">bolt</span>
+                  Ping
+                </button>
+</div>
+</div>
+<!-- Quota and Metadata Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-space-md pt-space-xs">
+<div class="flex flex-col gap-1.5">
+<div class="flex items-center justify-between font-label-sm text-label-sm">
+<span class="text-slate-400">Monthly Usage / Quota</span>
+<span class="text-on-surface font-code-sm text-code-sm font-semibold">$1,840.50 <span class="text-slate-400">/ $2,500.00</span></span>
+</div>
+<div class="w-full bg-surface-container-highest h-2 rounded-full overflow-hidden">
+<div class="bg-gradient-to-r from-tertiary to-primary h-full w-[73.6%]"></div>
+</div>
+<div class="flex items-center justify-between text-slate-500 font-label-sm text-label-sm">
+<span>73.6% Consumed</span>
+<span>Soft Alert at $2,125 (85%)</span>
+</div>
+</div>
+<div class="flex flex-col justify-between gap-2">
+<div class="flex items-center gap-1.5 flex-wrap">
+<span class="font-label-sm text-label-sm text-slate-400">Permissions:</span>
+<span class="px-1.5 py-0.5 rounded bg-surface-container font-code-sm text-[11px] text-slate-300">messages:write</span>
+<span class="px-1.5 py-0.5 rounded bg-surface-container font-code-sm text-[11px] text-slate-300">tokens:count</span>
+<span class="px-1.5 py-0.5 rounded bg-surface-container font-code-sm text-[11px] text-slate-300">cache:read-write</span>
+</div>
+<div class="flex items-center gap-2 font-label-sm text-label-sm text-slate-400">
+<span class="material-symbols-outlined text-[14px] text-slate-400">verified</span>
+<span>Rotated 12d ago by Elena Rostova</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Card 2: DeepSeek V3 & R1 (Reasoner) -->
+<div class="p-space-lg rounded-xl bg-surface-container-low shadow-sm flex flex-col gap-space-md hover:bg-surface-container transition-all">
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-space-sm pb-space-sm">
+<div class="flex items-center gap-space-md">
+<div class="w-10 h-10 rounded-lg bg-surface-container-highest flex items-center justify-center text-tertiary font-headline-sm text-headline-sm font-semibold">
+                  D
+                </div>
+<div>
+<div class="flex items-center gap-2">
+<h3 class="font-headline-sm text-headline-sm text-on-surface">DeepSeek V3 &amp; R1 (Reasoner)</h3>
+<span class="px-2 py-0.5 rounded bg-tertiary/10 text-tertiary font-label-sm text-label-sm font-semibold flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary"></span>
+                      Healthy
+                    </span>
+</div>
+<div class="flex items-center gap-2 mt-0.5 font-label-sm text-label-sm text-slate-400">
+<span class="text-primary font-code-sm text-code-sm">deepseek-reasoner-cluster</span>
+<span>•</span>
+<span>Production &amp; Code Synthesis</span>
+<span>•</span>
+<span class="px-1.5 py-0.2 rounded bg-surface-container-high text-on-surface-variant">Custom Dedicated</span>
+</div>
+</div>
+</div>
+<div class="flex items-center gap-1 self-end sm:self-center">
+<button class="px-space-sm py-1.5 rounded-lg bg-surface-container-high text-on-surface-variant hover:text-on-surface hover:bg-surface-bright transition-colors font-label-sm text-label-sm">
+                  Edit Quota
+                </button>
+<button class="px-space-sm py-1.5 rounded-lg bg-primary-container/20 text-primary hover:bg-primary-container/30 transition-colors font-label-sm text-label-sm">
+                  Rotate Now
+                </button>
+<button class="p-1.5 rounded-lg text-slate-400 hover:text-on-surface hover:bg-surface-container-high transition-colors">
+<span class="material-symbols-outlined text-lg">more_vert</span>
+</button>
+</div>
+</div>
+<!-- Key Preview & Test Connectivity -->
+<div class="flex flex-col md:flex-row md:items-center justify-between gap-space-sm bg-surface-container-lowest p-space-sm rounded-lg">
+<div class="flex items-center gap-space-sm flex-wrap">
+<span class="material-symbols-outlined text-sm text-primary">vpn_key</span>
+<span class="font-code-sm text-code-sm text-slate-300">sk-dseek-v3-••••••••••••••••a421</span>
+<button class="flex items-center gap-1 text-slate-400 hover:text-primary font-label-sm text-label-sm transition-colors">
+<span class="material-symbols-outlined text-[13px]">content_copy</span>
+<span>Copy Masked</span>
+</button>
+<button class="flex items-center gap-1 text-slate-400 hover:text-tertiary font-label-sm text-label-sm transition-colors">
+<span class="material-symbols-outlined text-[13px]">fingerprint</span>
+<span>Reveal (TouchID / HSM verify)</span>
+</button>
+</div>
+<div class="flex items-center gap-2 self-start md:self-auto">
+<span class="px-2 py-0.5 rounded bg-surface-container font-label-sm text-label-sm text-tertiary flex items-center gap-1.5">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary"></span>
+                  62ms latency • 200 OK
+                </span>
+<button class="text-slate-400 hover:text-on-surface text-xs font-label-sm flex items-center gap-1">
+<span class="material-symbols-outlined text-[13px]">bolt</span>
+                  Ping
+                </button>
+</div>
+</div>
+<!-- Quota and Metadata Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-space-md pt-space-xs">
+<div class="flex flex-col gap-1.5">
+<div class="flex items-center justify-between font-label-sm text-label-sm">
+<span class="text-slate-400">Monthly Usage / Quota</span>
+<span class="text-on-surface font-code-sm text-code-sm font-semibold">$642.80 <span class="text-slate-400">/ $1,200.00</span></span>
+</div>
+<div class="w-full bg-surface-container-highest h-2 rounded-full overflow-hidden">
+<div class="bg-gradient-to-r from-tertiary to-primary h-full w-[53.5%]"></div>
+</div>
+<div class="flex items-center justify-between text-slate-500 font-label-sm text-label-sm">
+<span>53.5% Consumed</span>
+<span>Predicted End-of-Month: $1,050</span>
+</div>
+</div>
+<div class="flex flex-col justify-between gap-2">
+<div class="flex items-center gap-1.5 flex-wrap">
+<span class="font-label-sm text-label-sm text-slate-400">Permissions:</span>
+<span class="px-1.5 py-0.5 rounded bg-surface-container font-code-sm text-[11px] text-slate-300">completions:stream</span>
+<span class="px-1.5 py-0.5 rounded bg-surface-container font-code-sm text-[11px] text-slate-300">ast-slice:inject</span>
+</div>
+<div class="flex items-center gap-2 font-label-sm text-label-sm text-slate-400">
+<span class="material-symbols-outlined text-[14px] text-tertiary">auto_mode</span>
+<span>Rotated 3d ago (Automated Pipeline)</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Card 3: OpenAI GPT-4o / o3-mini (Fallback & Gate Review) -->
+<div class="p-space-lg rounded-xl bg-surface-container-low shadow-sm flex flex-col gap-space-md hover:bg-surface-container transition-all">
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-space-sm pb-space-sm">
+<div class="flex items-center gap-space-md">
+<div class="w-10 h-10 rounded-lg bg-surface-container-highest flex items-center justify-center text-on-surface font-headline-sm text-headline-sm font-semibold">
+                  O
+                </div>
+<div>
+<div class="flex items-center gap-2">
+<h3 class="font-headline-sm text-headline-sm text-on-surface">OpenAI GPT-4o / o3-mini (Fallback &amp; Gate Review)</h3>
+<span class="px-2 py-0.5 rounded bg-amber-400/10 text-amber-300 font-label-sm text-label-sm font-semibold flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-amber-400"></span>
+                      Expiring Soon
+                    </span>
+</div>
+<div class="flex items-center gap-2 mt-0.5 font-label-sm text-label-sm text-slate-400">
+<span class="text-primary font-code-sm text-code-sm">openai-sec-gate-eval</span>
+<span>•</span>
+<span>Security Gate Intercept</span>
+<span>•</span>
+<span class="px-1.5 py-0.2 rounded bg-surface-container-high text-on-surface-variant">Usage Tier 5</span>
+</div>
+</div>
+</div>
+<div class="flex items-center gap-1 self-end sm:self-center">
+<button class="px-space-sm py-1.5 rounded-lg bg-surface-container-high text-on-surface-variant hover:text-on-surface hover:bg-surface-bright transition-colors font-label-sm text-label-sm">
+                  Edit Quota
+                </button>
+<button class="px-space-sm py-1.5 rounded-lg bg-amber-400/20 text-amber-300 hover:bg-amber-400/30 transition-colors font-label-sm text-label-sm">
+                  Rotate Now
+                </button>
+<button class="p-1.5 rounded-lg text-slate-400 hover:text-on-surface hover:bg-surface-container-high transition-colors">
+<span class="material-symbols-outlined text-lg">more_vert</span>
+</button>
+</div>
+</div>
+<!-- Key Preview & Test Connectivity -->
+<div class="flex flex-col md:flex-row md:items-center justify-between gap-space-sm bg-surface-container-lowest p-space-sm rounded-lg">
+<div class="flex items-center gap-space-sm flex-wrap">
+<span class="material-symbols-outlined text-sm text-primary">vpn_key</span>
+<span class="font-code-sm text-code-sm text-slate-300">sk-proj-9xP••••••••••••••••77bc</span>
+<button class="flex items-center gap-1 text-slate-400 hover:text-primary font-label-sm text-label-sm transition-colors">
+<span class="material-symbols-outlined text-[13px]">content_copy</span>
+<span>Copy Masked</span>
+</button>
+<button class="flex items-center gap-1 text-slate-400 hover:text-tertiary font-label-sm text-label-sm transition-colors">
+<span class="material-symbols-outlined text-[13px]">fingerprint</span>
+<span>Reveal (TouchID / HSM verify)</span>
+</button>
+</div>
+<div class="flex items-center gap-2 self-start md:self-auto">
+<span class="px-2 py-0.5 rounded bg-surface-container font-label-sm text-label-sm text-tertiary flex items-center gap-1.5">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary"></span>
+                  112ms • 200 OK
+                </span>
+<button class="text-slate-400 hover:text-on-surface text-xs font-label-sm flex items-center gap-1">
+<span class="material-symbols-outlined text-[13px]">bolt</span>
+                  Ping
+                </button>
+</div>
+</div>
+<!-- Quota and Metadata Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-space-md pt-space-xs">
+<div class="flex flex-col gap-1.5">
+<div class="flex items-center justify-between font-label-sm text-label-sm">
+<span class="text-slate-400">Monthly Usage / Quota</span>
+<span class="text-on-surface font-code-sm text-code-sm font-semibold">$418.20 <span class="text-slate-400">/ $800.00</span></span>
+</div>
+<div class="w-full bg-surface-container-highest h-2 rounded-full overflow-hidden">
+<div class="bg-gradient-to-r from-tertiary to-amber-300 h-full w-[52.2%]"></div>
+</div>
+<div class="flex items-center justify-between text-slate-500 font-label-sm text-label-sm">
+<span>52.2% Consumed</span>
+<span class="text-amber-300">Scheduled auto-rotation in 6 days</span>
+</div>
+</div>
+<div class="flex flex-col justify-between gap-2">
+<div class="flex items-center gap-1.5 flex-wrap">
+<span class="font-label-sm text-label-sm text-slate-400">Permissions:</span>
+<span class="px-1.5 py-0.5 rounded bg-surface-container font-code-sm text-[11px] text-slate-300">eval:write</span>
+<span class="px-1.5 py-0.5 rounded bg-surface-container font-code-sm text-[11px] text-slate-300">gate:inspect</span>
+</div>
+<div class="flex items-center gap-2 font-label-sm text-label-sm text-amber-300">
+<span class="material-symbols-outlined text-[14px]">schedule</span>
+<span>Expires in 6 days • Scheduled Auto-Rotate</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Card 4: Local vLLM / Llama 3.3 70B (Air-Gapped Enclave) -->
+<div class="p-space-lg rounded-xl bg-surface-container-low shadow-sm flex flex-col gap-space-md hover:bg-surface-container transition-all">
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-space-sm pb-space-sm">
+<div class="flex items-center gap-space-md">
+<div class="w-10 h-10 rounded-lg bg-surface-container-highest flex items-center justify-center text-emerald-400 font-headline-sm text-headline-sm font-semibold">
+<span class="material-symbols-outlined text-lg">lan</span>
+</div>
+<div>
+<div class="flex items-center gap-2">
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Local vLLM / Llama 3.3 70B (Air-Gapped Enclave)</h3>
+<span class="px-2 py-0.5 rounded bg-emerald-400/10 text-emerald-400 font-label-sm text-label-sm font-semibold flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
+                      Air-Gapped
+                    </span>
+</div>
+<div class="flex items-center gap-2 mt-0.5 font-label-sm text-label-sm text-slate-400">
+<span class="text-primary font-code-sm text-code-sm">vpc-local-llama-airgap</span>
+<span>•</span>
+<span>Internal VPC (Air-Gapped)</span>
+<span>•</span>
+<span class="px-1.5 py-0.2 rounded bg-surface-container-high text-on-surface-variant">Bare-Metal GPU Cluster</span>
+</div>
+</div>
+</div>
+<div class="flex items-center gap-1 self-end sm:self-center">
+<button class="px-space-sm py-1.5 rounded-lg bg-surface-container-high text-on-surface-variant hover:text-on-surface hover:bg-surface-bright transition-colors font-label-sm text-label-sm">
+                  Config Endpoint
+                </button>
+<button class="p-1.5 rounded-lg text-slate-400 hover:text-on-surface hover:bg-surface-container-high transition-colors">
+<span class="material-symbols-outlined text-lg">more_vert</span>
+</button>
+</div>
+</div>
+<!-- Key Preview & Test Connectivity -->
+<div class="flex flex-col md:flex-row md:items-center justify-between gap-space-sm bg-surface-container-lowest p-space-sm rounded-lg">
+<div class="flex items-center gap-space-sm flex-wrap">
+<span class="material-symbols-outlined text-sm text-emerald-400">lock</span>
+<span class="font-code-sm text-code-sm text-slate-300">https://enclave-cluster.internal:8443/v1</span>
+<span class="text-slate-500">•</span>
+<span class="font-code-sm text-[11px] text-slate-400">Bearer enclave-token-••••41e8</span>
+</div>
+<div class="flex items-center gap-2 self-start md:self-auto">
+<span class="px-2 py-0.5 rounded bg-emerald-400/10 font-label-sm text-label-sm text-emerald-400 flex items-center gap-1.5">
+<span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
+                  Active • Zero Egress Enforced
+                </span>
+</div>
+</div>
+<!-- Quota and Metadata Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-space-md pt-space-xs">
+<div class="flex flex-col gap-1.5">
+<div class="flex items-center justify-between font-label-sm text-label-sm">
+<span class="text-slate-400">Monthly Usage / Quota</span>
+<span class="text-emerald-400 font-code-sm text-code-sm font-semibold">$0.00 <span class="text-slate-400">(Self-Hosted GPU Cluster)</span></span>
+</div>
+<div class="w-full bg-surface-container-highest h-2 rounded-full overflow-hidden">
+<div class="bg-emerald-400 h-full w-[8%]"></div>
+</div>
+<div class="flex items-center justify-between text-slate-500 font-label-sm text-label-sm">
+<span>8 x H100 SXM5 Provisioned</span>
+<span>Unlimited Inference Throughput</span>
+</div>
+</div>
+<div class="flex flex-col justify-between gap-2">
+<div class="flex items-center gap-1.5 flex-wrap">
+<span class="font-label-sm text-label-sm text-slate-400">Permissions:</span>
+<span class="px-1.5 py-0.5 rounded bg-surface-container font-code-sm text-[11px] text-slate-300">local-infer:*</span>
+<span class="px-1.5 py-0.5 rounded bg-surface-container font-code-sm text-[11px] text-slate-300">embeddings:all</span>
+</div>
+<div class="flex items-center gap-2 font-label-sm text-label-sm text-slate-400">
+<span class="material-symbols-outlined text-[14px] text-emerald-400">shield_with_heart</span>
+<span>Strict loopback networking isolation verified</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Right Sidebar Column (4 Cols) -->
+<div class="lg:col-span-4 flex flex-col gap-space-lg">
+<!-- Panel 1: Hardware Security Module (HSM) Enclave -->
+<div class="p-space-lg rounded-xl bg-surface-container-low shadow-sm flex flex-col gap-space-md">
+<div class="flex items-center justify-between pb-2">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-xl">token</span>
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Hardware Security Module</h3>
+</div>
+<span class="w-2 h-2 rounded-full bg-tertiary animate-pulse"></span>
+</div>
+<div class="flex flex-col gap-space-sm bg-surface-container-lowest p-space-md rounded-lg font-label-sm text-label-sm">
+<div class="flex items-center justify-between text-slate-400">
+<span>Status</span>
+<span class="text-tertiary font-medium">Hardware Isolation Active</span>
+</div>
+<div class="flex items-center justify-between text-slate-400">
+<span>Compliance</span>
+<span class="text-on-surface font-code-sm text-[11px]">FIPS 140-2 Level 3</span>
+</div>
+<div class="flex items-center justify-between text-slate-400">
+<span>Microchip Serial</span>
+<span class="text-primary font-code-sm text-[11px]">YUBI-HSM2-09418241</span>
+</div>
+<div class="flex items-center justify-between text-slate-400">
+<span>Tamper Protection</span>
+<span class="text-emerald-400 font-medium">Zeroization: ENABLED</span>
+</div>
+<div class="flex items-center justify-between text-slate-400">
+<span>Enclave Firmware</span>
+<span class="text-slate-300 font-code-sm text-[11px]">v2.4.1-hardened</span>
+</div>
+</div>
+<a class="flex items-center justify-between text-primary hover:text-primary-fixed transition-colors font-label-sm text-label-sm font-semibold pt-1" href="#">
+<span>Configure Enclave Policies</span>
+<span class="material-symbols-outlined text-sm">arrow_forward</span>
+</a>
+</div>
+<!-- Panel 2: Automated Key Rotation Policy -->
+<div class="p-space-lg rounded-xl bg-surface-container-low shadow-sm flex flex-col gap-space-md">
+<div class="flex items-center gap-2 pb-1">
+<span class="material-symbols-outlined text-tertiary text-xl">published_with_changes</span>
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Automated Key Rotation Policy</h3>
+</div>
+<div class="flex flex-col gap-space-md">
+<!-- Toggle 1 -->
+<label class="flex items-center justify-between gap-3 cursor-pointer">
+<span class="font-body-sm text-body-sm text-slate-300">Auto-rotate ephemeral keys every 30 days</span>
+<input checked="" class="sr-only peer" type="checkbox"/>
+<div class="w-9 h-5 bg-surface-container-highest peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-primary relative"></div>
+</label>
+<!-- Toggle 2 -->
+<label class="flex items-center justify-between gap-3 cursor-pointer">
+<span class="font-body-sm text-body-sm text-slate-300">Immediate zero-downtime key swap via canary pool</span>
+<input checked="" class="sr-only peer" type="checkbox"/>
+<div class="w-9 h-5 bg-surface-container-highest peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-primary relative"></div>
+</label>
+<!-- Toggle 3 -->
+<label class="flex items-center justify-between gap-3 cursor-pointer">
+<span class="font-body-sm text-body-sm text-slate-300">Require biometric / hardware YubiKey approval for production key reveals</span>
+<input checked="" class="sr-only peer" type="checkbox"/>
+<div class="w-9 h-5 bg-surface-container-highest peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-primary relative"></div>
+</label>
+<!-- Toggle 4 -->
+<label class="flex items-center justify-between gap-3 cursor-pointer">
+<span class="font-body-sm text-body-sm text-slate-300">Notify Elena Rostova on spend limit breach (&gt;85%)</span>
+<input checked="" class="sr-only peer" type="checkbox"/>
+<div class="w-9 h-5 bg-surface-container-highest peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-primary relative"></div>
+</label>
+</div>
+</div>
+<!-- Panel 3: Recent Enclave Access & Audit Stream -->
+<div class="p-space-lg rounded-xl bg-surface-container-low shadow-sm flex flex-col gap-space-md">
+<div class="flex items-center justify-between pb-1">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-slate-400 text-xl">fact_check</span>
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Recent Enclave Audit Stream</h3>
+</div>
+<span class="font-label-sm text-label-sm text-tertiary">Live SIEM</span>
+</div>
+<div class="flex flex-col gap-space-sm font-label-sm text-label-sm">
+<!-- Stream Item 1 -->
+<div class="p-2.5 rounded-lg bg-surface-container-lowest flex items-start gap-2.5">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary mt-1.5 shrink-0"></span>
+<div class="flex flex-col gap-0.5">
+<div class="flex items-center gap-1.5">
+<span class="font-code-sm text-[11px] text-primary">NX-RUN-8954</span>
+<span class="text-slate-500">•</span>
+<span class="text-slate-400">14m ago</span>
+</div>
+<p class="text-slate-300 font-body-sm text-[12px] leading-tight">
+                  Acquired ephemeral token for Anthropic Claude 3.7
+                </p>
+</div>
+</div>
+<!-- Stream Item 2 -->
+<div class="p-2.5 rounded-lg bg-surface-container-lowest flex items-start gap-2.5">
+<span class="w-1.5 h-1.5 rounded-full bg-primary mt-1.5 shrink-0"></span>
+<div class="flex flex-col gap-0.5">
+<div class="flex items-center gap-1.5">
+<span class="font-code-sm text-[11px] text-primary">NX-RUN-8951</span>
+<span class="text-slate-500">•</span>
+<span class="text-slate-400">1h ago</span>
+</div>
+<p class="text-slate-300 font-body-sm text-[12px] leading-tight">
+                  Requested DeepSeek V3 synthesis token (AST verified)
+                </p>
+</div>
+</div>
+<!-- Stream Item 3 -->
+<div class="p-2.5 rounded-lg bg-surface-container-lowest flex items-start gap-2.5">
+<span class="w-1.5 h-1.5 rounded-full bg-amber-400 mt-1.5 shrink-0"></span>
+<div class="flex flex-col gap-0.5">
+<div class="flex items-center gap-1.5">
+<span class="font-code-sm text-[11px] text-amber-300">SEC-GATE</span>
+<span class="text-slate-500">•</span>
+<span class="text-slate-400">3h ago</span>
+</div>
+<p class="text-slate-300 font-body-sm text-[12px] leading-tight">
+                  Security Gate intercept invoked OpenAI o3-mini verification
+                </p>
+</div>
+</div>
+<!-- Stream Item 4 -->
+<div class="p-2.5 rounded-lg bg-surface-container-lowest flex items-start gap-2.5">
+<span class="w-1.5 h-1.5 rounded-full bg-emerald-400 mt-1.5 shrink-0"></span>
+<div class="flex flex-col gap-0.5">
+<div class="flex items-center gap-1.5">
+<span class="font-code-sm text-[11px] text-emerald-400">AUTO-AUDIT</span>
+<span class="text-slate-500">•</span>
+<span class="text-slate-400">Yesterday</span>
+</div>
+<p class="text-slate-300 font-body-sm text-[12px] leading-tight">
+                  Automated secret integrity audit passed (14/14 keys valid)
+                </p>
+</div>
+</div>
+</div>
+<a class="flex items-center justify-between text-tertiary hover:text-tertiary-fixed transition-colors font-label-sm text-label-sm font-semibold pt-1" href="#">
+<span>Export Audit Log (JSONL / SIEM)</span>
+<span class="material-symbols-outlined text-sm">download</span>
+</a>
+</div>
+</div>
+</div>
+</div>
+</div></main></div></body></html>

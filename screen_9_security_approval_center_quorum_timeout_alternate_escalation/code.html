@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_dashboard" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&amp;family=JetBrains+Mono:wght@100..900&amp;family=Space+Grotesk:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{colors:{"surface-variant":"#313540","background":"#0f131d","primary":"#d0bcff","error":"#ffb4ab","surface-container-lowest":"#0a0e18","primary-fixed-dim":"#d0bcff","on-background":"#dfe2f1","on-surface-variant":"#cbc3d7","on-secondary-fixed":"#07006c","on-secondary-container":"#b0b2ff","surface-dim":"#0f131d","on-tertiary-container":"#002f38","inverse-primary":"#6d3bd7","on-primary-fixed":"#23005c","on-secondary":"#1000a9","secondary-container":"#3131c0","secondary-fixed-dim":"#c0c1ff","on-error-container":"#ffdad6","on-surface":"#dfe2f1","surface":"#0f131d","outline":"#958ea0","surface-container-high":"#262a35","primary-container":"#a078ff","tertiary":"#4cd7f6","outline-variant":"#494454","on-tertiary-fixed":"#001f26","inverse-surface":"#dfe2f1","primary-fixed":"#e9ddff","on-primary":"#3c0091","surface-container":"#1c1f2a","on-tertiary-fixed-variant":"#004e5c","surface-bright":"#353944","on-primary-container":"#340080","on-error":"#690005","surface-container-low":"#171b26","inverse-on-surface":"#2c303b","surface-container-highest":"#313540","error-container":"#93000a","on-secondary-fixed-variant":"#2f2ebe","tertiary-fixed":"#acedff","on-primary-fixed-variant":"#5516be","secondary-fixed":"#e1e0ff","secondary":"#c0c1ff","on-tertiary":"#003640","tertiary-container":"#009eb9","tertiary-fixed-dim":"#4cd7f6","surface-tint":"#d0bcff"},borderRadius:{"DEFAULT":"0.125rem","lg":"0.25rem","xl":"0.5rem","full":"0.75rem"},spacing:{"gutter-lg":"1.5rem","space-xs":"0.25rem","space-xl":"2rem","space-md":"0.75rem","gutter-sm":"0.5rem","gutter":"1rem","space-sm":"0.5rem","margin":"1.5rem","space-lg":"1.25rem","margin-mobile":"1rem"},fontFamily:{"body-md":["Inter"],"headline-md":["Space Grotesk"],"label-md":["JetBrains Mono"],"headline-sm":["Space Grotesk"],"label-sm":["JetBrains Mono"],"code-sm":["JetBrains Mono"],"body-sm":["Inter"],"headline-lg-mobile":["Space Grotesk"],"headline-xl-mobile":["Space Grotesk"],"body-lg":["Inter"],"code-lg":["JetBrains Mono"],"headline-lg":["Space Grotesk"],"headline-xl":["Space Grotesk"]},fontSize:{"body-md":["14px",{lineHeight:"20px",fontWeight:"400"}],"headline-md":["22px",{lineHeight:"28px",letterSpacing:"-0.01em",fontWeight:"500"}],"label-md":["12px",{lineHeight:"16px",letterSpacing:"0.04em",fontWeight:"500"}],"headline-sm":["18px",{lineHeight:"24px",fontWeight:"500"}],"label-sm":["10px",{lineHeight:"14px",letterSpacing:"0.06em",fontWeight:"500"}],"code-sm":["12px",{lineHeight:"18px",fontWeight:"400"}],"body-sm":["12px",{lineHeight:"16px",fontWeight:"400"}],"headline-lg-mobile":["24px",{lineHeight:"32px",letterSpacing:"-0.015em",fontWeight:"600"}],"headline-xl-mobile":["30px",{lineHeight:"38px",letterSpacing:"-0.02em",fontWeight:"600"}],"body-lg":["16px",{lineHeight:"24px",fontWeight:"400"}],"code-lg":["14px",{lineHeight:"22px",fontWeight:"400"}],"headline-lg":["32px",{lineHeight:"40px",letterSpacing:"-0.015em",fontWeight:"600"}],"headline-xl":["40px",{lineHeight:"48px",letterSpacing:"-0.02em",fontWeight:"600"}]}}}}</script><title>Screen 9 – Security &amp; Approval Center (Quorum Timeout &amp; Alternate Escalation)</title></head><body class="bg-surface-container-lowest font-body-md text-body-md text-on-surface antialiased"><aside class="fixed left-0 top-0 h-full w-[260px] bg-surface-container-lowest z-50 flex flex-col justify-between shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="flex flex-col"><div class="h-16 px-space-md flex items-center justify-between bg-surface-container-lowest"><div class="flex items-center gap-space-sm"><img alt="NEXORA Code Logo" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDuQGUIoHGHOLy3UpduhnPYlgGoraklfUpkYnU4fuZgnLQ76MbCUK5vyuXJ0rFxuqmMX_E14cxMXy5gMZIcZLzrSOu95Zumwmw8UePMe9nyUn416w-bnp3ijUPAIp7xRZwjx7lh-OUOyWfL39CrKlJDRKldl4uxe1jEsRo4vavnW54HhWSFoVLBIkZvudhjaYhavQ44ZWaeQtHt_3rwgmIxywowojrkXhfNyVIqeQ"/><span class="font-headline-sm text-headline-sm text-on-surface tracking-tight font-semibold">NEXORA</span></div><span class="font-label-sm text-label-sm uppercase px-1.5 py-0.5 rounded bg-surface-container-high text-tertiary">v2.4 Pro</span></div><div class="px-space-md py-space-sm overflow-y-auto max-h-[calc(100vh-160px)]"><div class="mb-space-lg"><p class="font-label-sm text-label-sm uppercase text-outline px-space-sm mb-space-xs">Main</p><nav class="flex flex-col gap-0.5" data-active-classes="bg-surface-container-high text-primary font-medium rounded-lg"><a class="flex items-center gap-space-sm px-space-sm py-2 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors font-body-sm text-body-sm" data-path="dashboard" href="#">Overview / Dashboard</a><a class="flex items-center gap-space-sm px-space-sm py-2 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors font-body-sm text-body-sm" data-path="ai-coding-workspace" href="#">AI Coding Workspace</a><a class="flex items-center gap-space-sm px-space-sm py-2 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors font-body-sm text-body-sm" data-path="repositories" href="#">Repositories</a><a class="flex items-center gap-space-sm px-space-sm py-2 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors font-body-sm text-body-sm" data-path="task-history" href="#">Task History</a></nav></div><div class="mb-space-lg"><p class="font-label-sm text-label-sm uppercase text-outline px-space-sm mb-space-xs">Intelligence &amp; Tokens</p><nav class="flex flex-col gap-0.5" data-active-classes="bg-surface-container-high text-primary font-medium rounded-lg"><a class="flex items-center gap-space-sm px-space-sm py-2 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors font-body-sm text-body-sm" data-path="token-analytics" href="#">Token Analytics</a><a class="flex items-center gap-space-sm px-space-sm py-2 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors font-body-sm text-body-sm" data-path="model-router" href="#">Model Router</a><a class="flex items-center gap-space-sm px-space-sm py-2 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors font-body-sm text-body-sm" data-path="budget-manager" href="#">Budget Manager</a></nav></div><div class="mb-space-md"><p class="font-label-sm text-label-sm uppercase text-outline px-space-sm mb-space-xs">Governance</p><nav class="flex flex-col gap-0.5" data-active-classes="bg-surface-container-high text-primary font-medium rounded-lg"><a aria-current="page" class="flex items-center gap-space-sm px-space-sm py-2 transition-colors bg-surface-container-high text-primary font-medium rounded-lg" data-path="security-center" href="#">Security and Approval Center</a><a class="flex items-center gap-space-sm px-space-sm py-2 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors font-body-sm text-body-sm" data-path="settings" href="#">Settings</a></nav></div></div></div><div class="p-space-md bg-surface-container-low"><div class="flex items-center justify-between mb-space-xs"><div class="flex items-center gap-space-sm"><img alt="Profile" class="w-8 h-8 rounded-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBCnjXww_8t8PPzSkEl28FtDAk0EN2xz06LpYsR2tuCpePURwKpUikW-S0HjSpVJ1RJVKwFab-kyaEtbe0vebuvSu0YQLL531sROadBtVCSfqelwen1J3tV-3jvSsPZJRRXlqW_Ja_VcvFTp0A_DANJWBIUrSw55O2A7eWqZfm5LCO7KuKtjfW8HC4zaaCmHl4wSf9JUmPEJ3hjphBVAcOchQ0E-UlCd2MpaIY3Cg"/><div class="flex flex-col"><span class="font-body-sm text-body-sm text-on-surface font-medium leading-none">Elena Rostova</span><span class="font-label-sm text-label-sm text-outline leading-tight mt-1">Principal Architect</span></div></div><button class="text-on-surface-variant hover:text-on-surface transition-colors"><span class="material-symbols-outlined text-base">more_vert</span></button></div><div class="mt-space-sm pt-space-xs"><div class="flex items-center justify-between text-outline font-label-sm text-label-sm"><span>Efficiency</span><span class="text-tertiary font-semibold">94.2%</span></div><div class="w-full h-1 bg-surface-container-highest rounded-full mt-1 overflow-hidden"><div class="h-full bg-tertiary w-[94.2%]"></div></div></div></div></aside><div class="pl-[260px]"><header class="fixed top-0 left-[260px] right-0 h-16 z-40 bg-surface/80 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="h-16 w-full px-space-lg flex items-center justify-between gap-space-md"><div class="flex items-center gap-space-md"><div class="flex items-center gap-2 px-space-sm py-1 rounded bg-surface-container-low"><span class="w-2 h-2 rounded-full bg-tertiary"></span><span class="font-code-sm text-code-sm text-on-surface">prod-core-monorepo / main</span><span class="material-symbols-outlined text-sm text-on-surface-variant">expand_more</span></div><div class="hidden xl:flex items-center gap-2 px-space-sm py-1 rounded bg-surface-container-low font-label-sm text-label-sm text-on-surface-variant"><span class="w-1.5 h-1.5 rounded-full bg-primary"></span><span>Claude 3.7 + DeepSeek V3 (142ms)</span></div><div class="hidden 2xl:flex items-center gap-1.5 px-space-sm py-1 rounded bg-surface-container-low font-label-sm text-label-sm text-tertiary"><span class="material-symbols-outlined text-sm">bolt</span><span>4.2M saved (68%)</span></div></div><div class="flex items-center gap-space-md"><div class="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-surface-container-low text-on-surface-variant w-48 lg:w-64"><span class="material-symbols-outlined text-sm">search</span><span class="font-body-sm text-body-sm text-outline flex-1">Command Palette</span><kbd class="font-label-sm text-label-sm px-1.5 py-0.5 rounded bg-surface-container-highest text-outline">⌘K</kbd></div><a class="relative p-1.5 rounded text-on-surface-variant hover:text-on-surface transition-colors" href="#"><span class="material-symbols-outlined text-xl">notifications</span><span class="absolute top-1 right-1 w-2 h-2 rounded-full bg-error"></span></a><nav class="flex items-center gap-space-md font-body-sm text-body-sm" data-active-classes="text-primary font-medium"><a class="text-on-surface-variant hover:text-on-surface transition-colors" data-path="documentation" href="#">Docs</a><a class="text-on-surface-variant hover:text-on-surface transition-colors" data-path="api-status" href="#">API</a></nav><img alt="Profile" class="w-8 h-8 rounded-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBCnjXww_8t8PPzSkEl28FtDAk0EN2xz06LpYsR2tuCpePURwKpUikW-S0HjSpVJ1RJVKwFab-kyaEtbe0vebuvSu0YQLL531sROadBtVCSfqelwen1J3tV-3jvSsPZJRRXlqW_Ja_VcvFTp0A_DANJWBIUrSw55O2A7eWqZfm5LCO7KuKtjfW8HC4zaaCmHl4wSf9JUmPEJ3hjphBVAcOchQ0E-UlCd2MpaIY3Cg"/></div></div></header><main class="w-full pt-16 bg-surface-container-lowest min-h-screen"><div class="flex flex-col w-full">
+<!-- Top Command & Threat Posture Header -->
+<section class="px-gutter-lg pt-space-lg pb-space-md bg-surface-container-lowest">
+<div class="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-space-md">
+<div class="p-space-md rounded-xl bg-surface-container-low shadow-lg relative overflow-hidden flex flex-col gap-space-sm"><div class="flex flex-col lg:flex-row lg:items-center justify-between gap-space-sm pb-space-xs"><div class="flex items-center gap-space-sm flex-wrap"><span class="font-label-sm text-label-sm px-2 py-0.5 rounded bg-error-container text-on-error-container font-semibold tracking-wide flex items-center gap-1"><span class="material-symbols-outlined text-xs">pause_circle</span> FROZEN VIA KILL-SWITCH</span><span class="font-code-sm text-code-sm text-on-surface font-medium">SHELL COMMAND EXECUTION</span><span class="text-outline text-xs">•</span><span class="font-code-sm text-code-sm text-on-surface-variant">Task #NX-RUN-8941</span><span class="text-outline text-xs">•</span><span class="font-code-sm text-code-sm text-outline">ed25519:7f8a...92bc</span><span class="font-label-sm text-label-sm px-1.5 py-0.5 rounded bg-surface-container-high text-error">nx-sandbox-849 (FROZEN)</span></div><div class="flex items-center gap-2 font-label-sm text-label-sm text-error"><span class="w-2 h-2 rounded-full bg-error animate-ping"></span><span>Halted by <strong class="text-on-surface">Emergency Kill-Switch (10:46:05 UTC)</strong></span></div></div><div class="grid grid-cols-1 xl:grid-cols-12 gap-space-md items-start"><div class="xl:col-span-8 flex flex-col gap-2"><div class="flex items-center justify-between font-label-sm text-label-sm text-outline px-1"><span>TARGET REPOSITORY &amp; CONTAINER SANDBOX</span><span class="font-code-sm text-code-sm text-tertiary">prod-core-monorepo : feat/distributed-cache</span></div><div class="bg-surface-container-lowest p-space-sm rounded-lg font-code-sm text-code-sm text-on-surface flex flex-col gap-1.5 shadow-inner"><div class="flex items-center justify-between text-outline text-xs pb-1"><div class="flex items-center gap-1.5"><span class="w-2 h-2 rounded-full bg-error"></span><span class="w-2 h-2 rounded-full bg-surface-variant"></span><span class="w-2 h-2 rounded-full bg-surface-variant"></span><span class="ml-2 font-label-sm text-label-sm text-outline">SANDBOX RUNNER DAEMON [CONTAINER: nx-sandbox-849]</span></div><span class="font-label-sm text-label-sm text-error flex items-center gap-1"><span class="material-symbols-outlined text-xs">pause</span> Execution Paused (SIGSTOP)</span></div><div class="flex items-start gap-2 pt-1 overflow-x-auto text-on-surface-variant"><span class="text-error font-bold select-none">⏸</span><code class="text-on-surface-variant font-medium">docker exec -it nx-sandbox-849 sh -c "rm -rf /tmp/cache_build &amp;&amp; go test -tags=integration ./pkg/cache/..."</code></div></div><div class="p-2.5 rounded-lg bg-surface-container flex items-start gap-2.5"><span class="material-symbols-outlined text-base text-error shrink-0 mt-0.5">shield_locked</span><div class="flex flex-col text-body-sm font-body-sm text-on-surface-variant"><span class="font-semibold text-error">Kernel Freeze Tripwire Engaged:</span><span>Container paused via kernel freeze tripwire. Process PID 28419 suspended mid-execution. State snapshot preserved in volatile memory.</span></div></div></div><div class="xl:col-span-4 flex flex-col gap-2 p-space-sm rounded-lg bg-surface-container h-full justify-between"><div class="flex flex-col gap-1"><div class="flex items-center justify-between"><span class="font-label-sm text-label-sm uppercase text-outline">Execution Status</span><span class="font-label-sm text-label-sm text-error flex items-center gap-1 font-semibold"><span class="w-1.5 h-1.5 rounded-full bg-error animate-pulse"></span> ⏸ FROZEN (SIGSTOP 19)</span></div><span class="font-body-sm text-body-sm text-error font-medium flex items-center gap-1.5 mt-1"><span class="material-symbols-outlined text-sm text-error">stop_circle</span> Sandbox Suspended (nx-sandbox-849)</span><span class="font-label-sm text-label-sm text-outline">Paused at 10:46:05 UTC • Signed by Elena Rostova</span></div><div class="flex flex-col gap-2 pt-2"><div class="grid grid-cols-2 gap-2"><button class="py-2 px-2.5 rounded-lg bg-error-container hover:bg-error-container/80 text-on-error-container font-headline-sm text-body-sm font-semibold transition-all flex items-center justify-center gap-1 shadow-sm"><span class="material-symbols-outlined text-base">power_settings_new</span><span>Terminate</span></button><button class="py-2 px-2.5 rounded-lg bg-surface-container-high hover:bg-surface-bright text-on-surface font-body-sm text-body-sm transition-colors flex items-center justify-center gap-1"><span class="material-symbols-outlined text-base text-tertiary">memory</span><span>Inspect Memory</span></button></div><div class="flex items-center justify-between text-outline font-label-sm text-label-sm px-1"><span>Status: Suspended</span><span class="font-code-sm text-error">PID: 28419 (HALTED)</span></div></div></div></div></div>
+<!-- Action Toolbar -->
+<div class="flex items-center gap-space-sm shrink-0 flex-wrap">
+<button class="flex items-center gap-2 px-3.5 py-2 rounded-lg bg-error-container hover:bg-error-container/80 text-on-error-container font-headline-sm text-body-sm transition-all duration-150 group shadow-md animate-pulse" id="killSwitchBtn"><span class="material-symbols-outlined text-lg text-on-error-container animate-spin">emergency</span><span class="font-semibold tracking-tight uppercase">⚠ Kill-Switch Engaged (Frozen)</span></button>
+<button class="flex items-center gap-2 px-3.5 py-2 rounded-lg bg-surface-container hover:bg-surface-container-high text-on-surface transition-colors font-body-sm text-body-sm shadow-sm">
+<span class="material-symbols-outlined text-base text-tertiary">assignment_turned_in</span>
+<span>Compliance Audit (SOC2)</span>
+</button>
+<button class="flex items-center gap-1.5 px-3.5 py-2 rounded-lg bg-primary-container text-on-primary-container hover:bg-primary transition-all font-body-sm text-body-sm font-medium shadow-md shadow-primary-container/20">
+<span class="material-symbols-outlined text-base">add_moderator</span>
+<span>+ New Gate Policy</span>
+</button>
+</div>
+</div>
+</section><div class="mx-gutter-lg mb-space-md p-space-md rounded-xl bg-error-container/30 relative overflow-hidden flex flex-col md:flex-row md:items-center justify-between gap-space-md shadow-lg"><div class="p-space-md rounded-xl bg-surface-container-low shadow-lg relative overflow-hidden flex flex-col gap-space-sm"><div class="flex flex-col lg:flex-row lg:items-center justify-between gap-space-sm pb-space-xs"><div class="flex items-center gap-space-sm flex-wrap"><span class="font-label-sm text-label-sm px-2 py-0.5 rounded bg-error-container text-on-error-container font-semibold tracking-wide flex items-center gap-1"><span class="material-symbols-outlined text-xs">pause_circle</span> FROZEN VIA KILL-SWITCH</span><span class="font-code-sm text-code-sm text-on-surface font-medium">SHELL COMMAND EXECUTION</span><span class="text-outline text-xs">•</span><span class="font-code-sm text-code-sm text-on-surface-variant">Task #NX-RUN-8941</span><span class="text-outline text-xs">•</span><span class="font-code-sm text-code-sm text-outline">ed25519:7f8a...92bc</span><span class="font-label-sm text-label-sm px-1.5 py-0.5 rounded bg-surface-container-high text-error">nx-sandbox-849 (FROZEN)</span></div><div class="flex items-center gap-2 font-label-sm text-label-sm text-error"><span class="w-2 h-2 rounded-full bg-error animate-ping"></span><span>Halted by <strong class="text-on-surface">Emergency Kill-Switch (10:46:05 UTC)</strong></span></div></div><div class="grid grid-cols-1 xl:grid-cols-12 gap-space-md items-start"><div class="xl:col-span-8 flex flex-col gap-2"><div class="flex items-center justify-between font-label-sm text-label-sm text-outline px-1"><span>TARGET REPOSITORY &amp; CONTAINER SANDBOX</span><span class="font-code-sm text-code-sm text-tertiary">prod-core-monorepo : feat/distributed-cache</span></div><div class="bg-surface-container-lowest p-space-sm rounded-lg font-code-sm text-code-sm text-on-surface flex flex-col gap-1.5 shadow-inner"><div class="flex items-center justify-between text-outline text-xs pb-1"><div class="flex items-center gap-1.5"><span class="w-2 h-2 rounded-full bg-error"></span><span class="w-2 h-2 rounded-full bg-surface-variant"></span><span class="w-2 h-2 rounded-full bg-surface-variant"></span><span class="ml-2 font-label-sm text-label-sm text-outline">SANDBOX RUNNER DAEMON [CONTAINER: nx-sandbox-849]</span></div><span class="font-label-sm text-label-sm text-error flex items-center gap-1"><span class="material-symbols-outlined text-xs">pause</span> Execution Paused (SIGSTOP)</span></div><div class="flex items-start gap-2 pt-1 overflow-x-auto text-on-surface-variant"><span class="text-error font-bold select-none">⏸</span><code class="text-on-surface-variant font-medium">docker exec -it nx-sandbox-849 sh -c "rm -rf /tmp/cache_build &amp;&amp; go test -tags=integration ./pkg/cache/..."</code></div></div><div class="p-2.5 rounded-lg bg-surface-container flex items-start gap-2.5"><span class="material-symbols-outlined text-base text-error shrink-0 mt-0.5">shield_locked</span><div class="flex flex-col text-body-sm font-body-sm text-on-surface-variant"><span class="font-semibold text-error">Kernel Freeze Tripwire Engaged:</span><span>Container paused via kernel freeze tripwire. Process PID 28419 suspended mid-execution. State snapshot preserved in volatile memory.</span></div></div></div><div class="xl:col-span-4 flex flex-col gap-2 p-space-sm rounded-lg bg-surface-container h-full justify-between"><div class="flex flex-col gap-1"><div class="flex items-center justify-between"><span class="font-label-sm text-label-sm uppercase text-outline">Execution Status</span><span class="font-label-sm text-label-sm text-error flex items-center gap-1 font-semibold"><span class="w-1.5 h-1.5 rounded-full bg-error animate-pulse"></span> ⏸ FROZEN (SIGSTOP 19)</span></div><span class="font-body-sm text-body-sm text-error font-medium flex items-center gap-1.5 mt-1"><span class="material-symbols-outlined text-sm text-error">stop_circle</span> Sandbox Suspended (nx-sandbox-849)</span><span class="font-label-sm text-label-sm text-outline">Paused at 10:46:05 UTC • Signed by Elena Rostova</span></div><div class="flex flex-col gap-2 pt-2"><div class="grid grid-cols-2 gap-2"><button class="py-2 px-2.5 rounded-lg bg-error-container hover:bg-error-container/80 text-on-error-container font-headline-sm text-body-sm font-semibold transition-all flex items-center justify-center gap-1 shadow-sm"><span class="material-symbols-outlined text-base">power_settings_new</span><span>Terminate</span></button><button class="py-2 px-2.5 rounded-lg bg-surface-container-high hover:bg-surface-bright text-on-surface font-body-sm text-body-sm transition-colors flex items-center justify-center gap-1"><span class="material-symbols-outlined text-base text-tertiary">memory</span><span>Inspect Memory</span></button></div><div class="flex items-center justify-between text-outline font-label-sm text-label-sm px-1"><span>Status: Suspended</span><span class="font-code-sm text-error">PID: 28419 (HALTED)</span></div></div></div></div></div><div class="flex items-center gap-2 shrink-0 flex-wrap"><button class="px-3 py-2 rounded-lg bg-primary/20 text-primary border border-primary/40 font-label-sm text-label-sm flex items-center gap-1.5 shadow-sm animate-pulse"><span class="w-2 h-2 rounded-full bg-primary animate-ping"></span><span class="material-symbols-outlined text-sm text-primary">lock_open</span><span>Quorum in Progress (1/2 Signed)...</span></button><button class="px-3 py-2 rounded-lg bg-surface-container-high hover:bg-surface-bright text-on-surface font-label-sm text-label-sm transition-colors flex items-center gap-1.5"><span class="material-symbols-outlined text-sm text-tertiary">download</span><span>Export Enclave Memory Dump</span></button></div></div>
+<!-- Main Security Dashboard Body -->
+<div class="px-gutter-lg py-space-md flex flex-col gap-space-lg">
+<!-- KPI / Posture Metrics Grid -->
+<section class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-gutter">
+<!-- KPI 1 -->
+<div class="p-space-md rounded-xl bg-surface-container-low relative overflow-hidden flex flex-col justify-between shadow-sm"><div class="flex items-start justify-between"><div class="flex flex-col"><span class="font-label-sm text-label-sm uppercase text-error tracking-wider font-semibold">Pending Approvals</span><span class="font-headline-lg text-headline-lg text-error font-semibold mt-1">2 Blocked</span></div><div class="w-10 h-10 rounded-lg bg-error-container/40 flex items-center justify-center text-error relative"><span class="material-symbols-outlined text-xl">block</span><span class="absolute -top-1 -right-1 w-2.5 h-2.5 rounded-full bg-error animate-ping"></span></div></div><div class="mt-4 pt-3 flex items-center justify-between bg-surface-container-lowest/40 -mx-space-md -mb-space-md px-space-md py-2.5"><span class="font-body-sm text-body-sm text-error flex items-center gap-1"><span class="material-symbols-outlined text-sm">lock</span> Execution Blocked (Kill-Switch)</span><span class="font-label-sm text-label-sm text-error font-medium">Tripwire Locked</span></div></div>
+<!-- KPI 2 -->
+<div class="p-space-md rounded-xl bg-surface-container-low relative overflow-hidden flex flex-col justify-between shadow-sm">
+<div class="flex items-start justify-between">
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm uppercase text-outline tracking-wider">Intercepted Threats</span>
+<div class="flex items-baseline gap-2 mt-1">
+<span class="font-headline-lg text-headline-lg text-on-surface font-semibold">28 Blocked</span>
+<span class="font-label-sm text-label-sm px-1.5 py-0.5 rounded bg-surface-container text-tertiary">7 Days</span>
+</div>
+</div>
+<div class="w-10 h-10 rounded-lg bg-surface-container-high flex items-center justify-center text-tertiary">
+<span class="material-symbols-outlined text-xl">shield_locked</span>
+</div>
+</div>
+<div class="mt-4 pt-3 flex items-center justify-between bg-surface-container-lowest/40 -mx-space-md -mb-space-md px-space-md py-2.5">
+<span class="font-body-sm text-body-sm text-on-surface-variant truncate">19 Shell Injections, 9 Path Traversal</span>
+<span class="font-label-sm text-label-sm text-tertiary font-medium">100% Mitigated</span>
+</div>
+</div>
+<!-- KPI 3 -->
+<div class="p-space-md rounded-xl bg-surface-container-low relative overflow-hidden flex flex-col justify-between shadow-sm"><div class="flex items-start justify-between"><div class="flex flex-col"><span class="font-label-sm text-label-sm uppercase text-outline tracking-wider">Enclave Sandboxes</span><div class="flex items-baseline gap-2 mt-1"><span class="font-headline-lg text-headline-lg text-error font-semibold">4 Frozen</span><span class="font-label-sm text-label-sm px-1.5 py-0.5 rounded bg-error-container/40 text-error font-mono">SIGSTOP 19</span></div></div><div class="w-10 h-10 rounded-lg bg-error-container/30 flex items-center justify-center text-error"><span class="material-symbols-outlined text-xl">pause_circle</span></div></div><div class="mt-4 pt-3 flex items-center justify-between bg-surface-container-lowest/40 -mx-space-md -mb-space-md px-space-md py-2.5"><span class="font-body-sm text-body-sm text-error truncate">All active runners paused</span><span class="font-label-sm text-label-sm text-error font-medium">State Retained</span></div></div>
+<!-- KPI 4 -->
+<div class="p-space-md rounded-xl bg-surface-container-low relative overflow-hidden flex flex-col justify-between shadow-sm">
+<div class="flex items-start justify-between">
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm uppercase text-outline tracking-wider">Tamper-Proof Audit</span>
+<div class="flex items-baseline gap-2 mt-1">
+<span class="font-headline-lg text-headline-lg text-on-surface font-semibold">100% Signed</span>
+<span class="font-label-sm text-label-sm px-1.5 py-0.5 rounded bg-secondary-container/40 text-secondary">Merkle SHA256</span>
+</div>
+</div>
+<div class="w-10 h-10 rounded-lg bg-surface-container-high flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined text-xl">token</span>
+</div>
+</div>
+<div class="mt-4 pt-3 flex items-center justify-between bg-surface-container-lowest/40 -mx-space-md -mb-space-md px-space-md py-2.5">
+<span class="font-body-sm text-body-sm text-on-surface-variant truncate">ed25519 Hardware Attestation</span>
+<span class="font-label-sm text-label-sm text-on-secondary-container">Active</span>
+</div>
+</div>
+</section>
+<!-- SECTION: Pending Action Approval Queue -->
+<section class="flex flex-col gap-space-sm">
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-space-sm">
+<div class="flex items-center gap-space-sm">
+<div class="flex items-center gap-2">
+<span class="w-2.5 h-2.5 rounded-full bg-error animate-ping"></span>
+<h2 class="font-headline-sm text-headline-sm text-on-surface font-semibold tracking-tight">Pending Agent Action Queue</h2>
+</div>
+<span class="font-label-sm text-label-sm px-2 py-0.5 rounded-full bg-error-container text-on-error-container font-semibold">2 REQUIRES APPROVAL</span>
+</div>
+<!-- Filter tabs -->
+<div class="flex items-center gap-1 bg-surface-container-low p-1 rounded-lg"><button class="px-2.5 py-1 rounded bg-surface-container-high text-on-surface font-label-sm text-label-sm font-medium">All Pending (2)</button><button class="px-2.5 py-1 rounded hover:bg-surface-container-high text-on-surface-variant font-label-sm text-label-sm transition-colors">Shell Intercepts (0)</button><button class="px-2.5 py-1 rounded hover:bg-surface-container-high text-on-surface-variant font-label-sm text-label-sm transition-colors">File Mutations (1)</button><button class="px-2.5 py-1 rounded hover:bg-surface-container-high text-on-surface-variant font-label-sm text-label-sm transition-colors">Git Push (1)</button></div>
+</div>
+<!-- Queue Cards Stack -->
+<div class="flex flex-col gap-space-md">
+<!-- CARD 1: CRITICAL SHELL EXECUTION -->
+<div class="p-space-md rounded-xl bg-surface-container-low shadow-lg relative overflow-hidden flex flex-col gap-space-sm"><div class="flex flex-col lg:flex-row lg:items-center justify-between gap-space-sm pb-space-xs"><div class="flex items-center gap-space-sm flex-wrap"><span class="font-label-sm text-label-sm px-2 py-0.5 rounded bg-error-container text-on-error-container font-semibold tracking-wide flex items-center gap-1"><span class="material-symbols-outlined text-xs">pause_circle</span> FROZEN VIA KILL-SWITCH</span><span class="font-code-sm text-code-sm text-on-surface font-medium">SHELL COMMAND EXECUTION</span><span class="text-outline text-xs">•</span><span class="font-code-sm text-code-sm text-on-surface-variant">Task #NX-RUN-8941</span><span class="text-outline text-xs">•</span><span class="font-code-sm text-code-sm text-outline">ed25519:7f8a...92bc</span><span class="font-label-sm text-label-sm px-1.5 py-0.5 rounded bg-surface-container-high text-error">nx-sandbox-849 (FROZEN)</span></div><div class="flex items-center gap-2 font-label-sm text-label-sm text-error"><span class="w-2 h-2 rounded-full bg-error animate-ping"></span><span>Halted by <strong class="text-on-surface">Emergency Kill-Switch (10:46:05 UTC)</strong></span></div></div><div class="grid grid-cols-1 xl:grid-cols-12 gap-space-md items-start"><div class="xl:col-span-8 flex flex-col gap-2"><div class="flex items-center justify-between font-label-sm text-label-sm text-outline px-1"><span>TARGET REPOSITORY &amp; CONTAINER SANDBOX</span><span class="font-code-sm text-code-sm text-tertiary">prod-core-monorepo : feat/distributed-cache</span></div><div class="bg-surface-container-lowest p-space-sm rounded-lg font-code-sm text-code-sm text-on-surface flex flex-col gap-1.5 shadow-inner"><div class="flex items-center justify-between text-outline text-xs pb-1"><div class="flex items-center gap-1.5"><span class="w-2 h-2 rounded-full bg-error"></span><span class="w-2 h-2 rounded-full bg-surface-variant"></span><span class="w-2 h-2 rounded-full bg-surface-variant"></span><span class="ml-2 font-label-sm text-label-sm text-outline">SANDBOX RUNNER DAEMON [CONTAINER: nx-sandbox-849]</span></div><span class="font-label-sm text-label-sm text-error flex items-center gap-1"><span class="material-symbols-outlined text-xs">pause</span> Execution Paused (SIGSTOP)</span></div><div class="flex items-start gap-2 pt-1 overflow-x-auto text-on-surface-variant"><span class="text-error font-bold select-none">⏸</span><code class="text-on-surface-variant font-medium">docker exec -it nx-sandbox-849 sh -c "rm -rf /tmp/cache_build &amp;&amp; go test -tags=integration ./pkg/cache/..."</code></div></div><div class="p-2.5 rounded-lg bg-surface-container flex items-start gap-2.5"><span class="material-symbols-outlined text-base text-error shrink-0 mt-0.5">shield_locked</span><div class="flex flex-col text-body-sm font-body-sm text-on-surface-variant"><span class="font-semibold text-error">Kernel Freeze Tripwire Engaged:</span><span>Container paused via kernel freeze tripwire. Process PID 28419 suspended mid-execution. State snapshot preserved in volatile memory.</span></div></div></div><div class="xl:col-span-4 flex flex-col gap-2 p-space-sm rounded-lg bg-surface-container h-full justify-between"><div class="flex flex-col gap-1"><div class="flex items-center justify-between"><span class="font-label-sm text-label-sm uppercase text-outline">Execution Status</span><span class="font-label-sm text-label-sm text-error flex items-center gap-1 font-semibold"><span class="w-1.5 h-1.5 rounded-full bg-error animate-pulse"></span> ⏸ FROZEN (SIGSTOP 19)</span></div><span class="font-body-sm text-body-sm text-error font-medium flex items-center gap-1.5 mt-1"><span class="material-symbols-outlined text-sm text-error">stop_circle</span> Sandbox Suspended (nx-sandbox-849)</span><span class="font-label-sm text-label-sm text-outline">Paused at 10:46:05 UTC • Signed by Elena Rostova</span></div><div class="flex flex-col gap-2 pt-2"><div class="grid grid-cols-2 gap-2"><button class="py-2 px-2.5 rounded-lg bg-error-container hover:bg-error-container/80 text-on-error-container font-headline-sm text-body-sm font-semibold transition-all flex items-center justify-center gap-1 shadow-sm"><span class="material-symbols-outlined text-base">power_settings_new</span><span>Terminate</span></button><button class="py-2 px-2.5 rounded-lg bg-surface-container-high hover:bg-surface-bright text-on-surface font-body-sm text-body-sm transition-colors flex items-center justify-center gap-1"><span class="material-symbols-outlined text-base text-tertiary">memory</span><span>Inspect Memory</span></button></div><div class="flex items-center justify-between text-outline font-label-sm text-label-sm px-1"><span>Status: Suspended</span><span class="font-code-sm text-error">PID: 28419 (HALTED)</span></div></div></div></div></div>
+<!-- CARD 2: WRITE PERMISSION GATE (PROTECTED PATH) -->
+<div class="p-space-md rounded-xl bg-surface-container-low shadow-sm relative overflow-hidden flex flex-col gap-space-sm">
+<div class="flex flex-col lg:flex-row lg:items-center justify-between gap-space-sm pb-space-xs">
+<div class="flex items-center gap-space-sm flex-wrap">
+<span class="font-label-sm text-label-sm px-2 py-0.5 rounded bg-primary text-on-primary font-semibold tracking-wide">
+                HIGH GATE
+              </span>
+<span class="font-code-sm text-code-sm text-on-surface font-medium">PROTECTED FILE MUTATION LEASE</span>
+<span class="text-outline text-xs">•</span>
+<span class="font-code-sm text-code-sm text-on-surface-variant">Task #NX-RUN-8938</span>
+<span class="text-outline text-xs">•</span>
+<span class="font-body-sm text-body-sm text-outline">Agent: Claude 3.7 Sonnet</span>
+<span class="font-label-sm text-label-sm px-2 py-0.5 rounded bg-error-container/40 text-error font-semibold">DISPATCH LOCKED (Kill-Switch Active)</span></div>
+<div class="flex items-center gap-2 font-label-sm text-label-sm text-outline">
+<span class="material-symbols-outlined text-sm">schedule</span>
+<span>Triggered 12m ago</span>
+</div>
+</div>
+<div class="grid grid-cols-1 xl:grid-cols-12 gap-space-md items-start">
+<div class="xl:col-span-8 flex flex-col gap-2">
+<div class="flex items-center justify-between font-label-sm text-label-sm text-outline px-1">
+<span>TARGET FILE MUTATION &amp; SCOPE</span>
+<span class="font-code-sm text-code-sm text-primary">nexora-cloud/auth-service : services/jwt_validator.go</span>
+</div>
+<!-- Diff Preview Snippet -->
+<div class="bg-surface-container-lowest p-space-sm rounded-lg font-code-sm text-code-sm text-on-surface flex flex-col gap-1 shadow-inner">
+<div class="flex items-center justify-between text-outline text-xs pb-1">
+<span class="text-primary-fixed-dim">services/jwt_validator.go (Lines 142-168)</span>
+<span class="font-label-sm text-label-sm text-tertiary">Diff Signature: sha256:d84f...991a</span>
+</div>
+<div class="bg-error/10 text-error px-2 py-1 rounded flex items-center gap-2">
+<span>-</span>
+<code>return jwt.ParseWithClaims(tokenStr, &amp;claims, legacyKeyFunc)</code>
+</div>
+<div class="bg-tertiary/10 text-tertiary px-2 py-1 rounded flex items-center gap-2">
+<span>+</span>
+<code>return jwt.ParseWithClaims(tokenStr, &amp;claims, ed25519Verifier.GetSigningKey)</code>
+</div>
+</div>
+<!-- Analysis -->
+<div class="p-2.5 rounded-lg bg-surface-container flex items-start gap-2.5">
+<span class="material-symbols-outlined text-base text-tertiary shrink-0 mt-0.5">verified</span>
+<div class="flex flex-col text-body-sm font-body-sm text-on-surface-variant">
+<span class="font-semibold text-on-surface">Deterministic Policy Match:</span>
+<span>Target path <code class="text-primary font-code-sm">services/jwt_validator.go</code> is classified as <strong class="text-error">Tier-0 Cryptographic Core</strong>. Automated commit blocked. Requires 2-person sign-off or temporary elevated token authorization lease.</span>
+</div>
+</div>
+</div>
+<!-- Decision buttons -->
+<div class="xl:col-span-4 flex flex-col gap-2 p-space-sm rounded-lg bg-surface-container h-full justify-between">
+<div class="flex flex-col gap-1">
+<span class="font-label-sm text-label-sm uppercase text-outline">Tier-0 Gate Protocol</span>
+<span class="font-body-sm text-body-sm text-on-surface font-medium flex items-center gap-1.5">
+<span class="material-symbols-outlined text-sm text-primary">key</span> Grant Expiring Token Lease
+                </span>
+<span class="font-label-sm text-label-sm text-outline mt-1">Lease automatically expires after 15 minutes of inactivity.</span>
+</div>
+<div class="flex flex-col sm:flex-row xl:flex-col gap-2 pt-2">
+<button class="w-full py-2 px-3 rounded-lg bg-primary hover:bg-primary-container text-on-primary font-headline-sm text-body-sm font-semibold transition-all flex items-center justify-center gap-2 shadow-sm">
+<span class="material-symbols-outlined text-base">timer</span>
+<span>Grant Temporary Write Lease (15m)</span>
+</button>
+<div class="grid grid-cols-2 gap-2">
+<button class="py-1.5 px-2 rounded-lg bg-surface-container-high hover:bg-surface-bright text-on-surface font-body-sm text-body-sm transition-colors flex items-center justify-center gap-1">
+<span class="material-symbols-outlined text-sm">history_edu</span> Audit Diff
+                  </button>
+<button class="py-1.5 px-2 rounded-lg bg-error-container/40 hover:bg-error-container/80 text-error font-body-sm text-body-sm transition-colors flex items-center justify-center gap-1">
+<span class="material-symbols-outlined text-sm">close</span> Deny
+                  </button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- CARD 3: GIT PUSH TO REMOTE UPSTREAM -->
+<div class="p-space-md rounded-xl bg-surface-container-low shadow-sm relative overflow-hidden flex flex-col gap-space-sm">
+<div class="flex flex-col lg:flex-row lg:items-center justify-between gap-space-sm pb-space-xs">
+<div class="flex items-center gap-space-sm flex-wrap">
+<span class="font-label-sm text-label-sm px-2 py-0.5 rounded bg-tertiary-container text-on-tertiary font-semibold tracking-wide">
+                MEDIUM GATE
+              </span>
+<span class="font-code-sm text-code-sm text-on-surface font-medium">GIT REMOTE UPSTREAM PUSH</span>
+<span class="text-outline text-xs">•</span>
+<span class="font-code-sm text-code-sm text-on-surface-variant">Task #NX-RUN-8935</span>
+<span class="text-outline text-xs">•</span>
+<span class="font-body-sm text-body-sm text-outline">Agent: DeepSeek V3</span>
+<span class="font-label-sm text-label-sm px-2 py-0.5 rounded bg-error-container/40 text-error font-semibold">DISPATCH LOCKED (Kill-Switch Active)</span></div>
+<div class="flex items-center gap-2 font-label-sm text-label-sm text-outline">
+<span class="material-symbols-outlined text-sm">schedule</span>
+<span>Triggered 26m ago</span>
+</div>
+</div>
+<div class="grid grid-cols-1 xl:grid-cols-12 gap-space-md items-start">
+<div class="xl:col-span-8 flex flex-col gap-2">
+<div class="flex items-center justify-between font-label-sm text-label-sm text-outline px-1">
+<span>DESTINATION TARGET BRANCH</span>
+<span class="font-code-sm text-code-sm text-secondary">nexora-cloud/frontend-monorepo : origin/refactor/ast-token-compress</span>
+</div>
+<div class="p-2.5 rounded-lg bg-surface-container flex items-start gap-2.5">
+<span class="material-symbols-outlined text-base text-tertiary shrink-0 mt-0.5">check_circle</span>
+<div class="flex flex-col text-body-sm font-body-sm text-on-surface-variant">
+<span class="font-semibold text-on-surface">Secret &amp; Leakage Scanners Passed:</span>
+<span>TruffleHog AST entropy analyzer processed 14 mutated files across branch. <strong class="text-tertiary">Zero secrets detected</strong>, no private key patterns, no unmasked customer identifiers. Protected base branch (`main`) is untouched.</span>
+</div>
+</div>
+</div>
+<div class="xl:col-span-4 flex flex-col gap-2 p-space-sm rounded-lg bg-surface-container h-full justify-between">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm uppercase text-outline">Sanitization Audit</span>
+<span class="font-label-sm text-label-sm text-tertiary font-semibold">PASS (100%)</span>
+</div>
+<div class="flex items-center gap-2 pt-2">
+<button class="flex-1 py-2 px-3 rounded-lg bg-tertiary-container text-on-tertiary hover:bg-tertiary font-headline-sm text-body-sm font-semibold transition-all flex items-center justify-center gap-1.5 shadow-sm">
+<span class="material-symbols-outlined text-base">cloud_upload</span> Approve Push
+                </button>
+<button class="py-2 px-3 rounded-lg bg-surface-container-high hover:bg-error-container/40 hover:text-error text-on-surface font-body-sm text-body-sm transition-colors">
+                  Reject
+                </button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- SECTION: Granular Security Guardrails & Enclave Policies Split -->
+<section class="grid grid-cols-1 lg:grid-cols-2 gap-gutter">
+<!-- COLUMN 1: File Write Protection & Shell Safeguards -->
+<div class="p-space-md rounded-xl bg-surface-container-low relative overflow-hidden flex flex-col justify-between shadow-sm"><div class="flex items-start justify-between"><div class="flex flex-col"><span class="font-label-sm text-label-sm uppercase text-error tracking-wider font-semibold">Pending Approvals</span><span class="font-headline-lg text-headline-lg text-error font-semibold mt-1">2 Blocked</span></div><div class="w-10 h-10 rounded-lg bg-error-container/40 flex items-center justify-center text-error relative"><span class="material-symbols-outlined text-xl">block</span><span class="absolute -top-1 -right-1 w-2.5 h-2.5 rounded-full bg-error animate-ping"></span></div></div><div class="mt-4 pt-3 flex items-center justify-between bg-surface-container-lowest/40 -mx-space-md -mb-space-md px-space-md py-2.5"><span class="font-body-sm text-body-sm text-error flex items-center gap-1"><span class="material-symbols-outlined text-sm">lock</span> Execution Blocked (Kill-Switch)</span><span class="font-label-sm text-label-sm text-error font-medium">Tripwire Locked</span></div></div>
+<!-- COLUMN 2: Confidential Monorepos & Air-Gap Enclave Policies -->
+<div class="p-space-lg rounded-xl bg-surface-container-low flex flex-col gap-space-md shadow-sm">
+<div class="p-space-md rounded-xl bg-surface-container-low shadow-lg relative overflow-hidden flex flex-col gap-space-sm"><div class="flex flex-col lg:flex-row lg:items-center justify-between gap-space-sm pb-space-xs"><div class="flex items-center gap-space-sm flex-wrap"><span class="font-label-sm text-label-sm px-2 py-0.5 rounded bg-error-container text-on-error-container font-semibold tracking-wide flex items-center gap-1"><span class="material-symbols-outlined text-xs">pause_circle</span> FROZEN VIA KILL-SWITCH</span><span class="font-code-sm text-code-sm text-on-surface font-medium">SHELL COMMAND EXECUTION</span><span class="text-outline text-xs">•</span><span class="font-code-sm text-code-sm text-on-surface-variant">Task #NX-RUN-8941</span><span class="text-outline text-xs">•</span><span class="font-code-sm text-code-sm text-outline">ed25519:7f8a...92bc</span><span class="font-label-sm text-label-sm px-1.5 py-0.5 rounded bg-surface-container-high text-error">nx-sandbox-849 (FROZEN)</span></div><div class="flex items-center gap-2 font-label-sm text-label-sm text-error"><span class="w-2 h-2 rounded-full bg-error animate-ping"></span><span>Halted by <strong class="text-on-surface">Emergency Kill-Switch (10:46:05 UTC)</strong></span></div></div><div class="grid grid-cols-1 xl:grid-cols-12 gap-space-md items-start"><div class="xl:col-span-8 flex flex-col gap-2"><div class="flex items-center justify-between font-label-sm text-label-sm text-outline px-1"><span>TARGET REPOSITORY &amp; CONTAINER SANDBOX</span><span class="font-code-sm text-code-sm text-tertiary">prod-core-monorepo : feat/distributed-cache</span></div><div class="bg-surface-container-lowest p-space-sm rounded-lg font-code-sm text-code-sm text-on-surface flex flex-col gap-1.5 shadow-inner"><div class="flex items-center justify-between text-outline text-xs pb-1"><div class="flex items-center gap-1.5"><span class="w-2 h-2 rounded-full bg-error"></span><span class="w-2 h-2 rounded-full bg-surface-variant"></span><span class="w-2 h-2 rounded-full bg-surface-variant"></span><span class="ml-2 font-label-sm text-label-sm text-outline">SANDBOX RUNNER DAEMON [CONTAINER: nx-sandbox-849]</span></div><span class="font-label-sm text-label-sm text-error flex items-center gap-1"><span class="material-symbols-outlined text-xs">pause</span> Execution Paused (SIGSTOP)</span></div><div class="flex items-start gap-2 pt-1 overflow-x-auto text-on-surface-variant"><span class="text-error font-bold select-none">⏸</span><code class="text-on-surface-variant font-medium">docker exec -it nx-sandbox-849 sh -c "rm -rf /tmp/cache_build &amp;&amp; go test -tags=integration ./pkg/cache/..."</code></div></div><div class="p-2.5 rounded-lg bg-surface-container flex items-start gap-2.5"><span class="material-symbols-outlined text-base text-error shrink-0 mt-0.5">shield_locked</span><div class="flex flex-col text-body-sm font-body-sm text-on-surface-variant"><span class="font-semibold text-error">Kernel Freeze Tripwire Engaged:</span><span>Container paused via kernel freeze tripwire. Process PID 28419 suspended mid-execution. State snapshot preserved in volatile memory.</span></div></div></div><div class="xl:col-span-4 flex flex-col gap-2 p-space-sm rounded-lg bg-surface-container h-full justify-between"><div class="flex flex-col gap-1"><div class="flex items-center justify-between"><span class="font-label-sm text-label-sm uppercase text-outline">Execution Status</span><span class="font-label-sm text-label-sm text-error flex items-center gap-1 font-semibold"><span class="w-1.5 h-1.5 rounded-full bg-error animate-pulse"></span> ⏸ FROZEN (SIGSTOP 19)</span></div><span class="font-body-sm text-body-sm text-error font-medium flex items-center gap-1.5 mt-1"><span class="material-symbols-outlined text-sm text-error">stop_circle</span> Sandbox Suspended (nx-sandbox-849)</span><span class="font-label-sm text-label-sm text-outline">Paused at 10:46:05 UTC • Signed by Elena Rostova</span></div><div class="flex flex-col gap-2 pt-2"><div class="grid grid-cols-2 gap-2"><button class="py-2 px-2.5 rounded-lg bg-error-container hover:bg-error-container/80 text-on-error-container font-headline-sm text-body-sm font-semibold transition-all flex items-center justify-center gap-1 shadow-sm"><span class="material-symbols-outlined text-base">power_settings_new</span><span>Terminate</span></button><button class="py-2 px-2.5 rounded-lg bg-surface-container-high hover:bg-surface-bright text-on-surface font-body-sm text-body-sm transition-colors flex items-center justify-center gap-1"><span class="material-symbols-outlined text-base text-tertiary">memory</span><span>Inspect Memory</span></button></div><div class="flex items-center justify-between text-outline font-label-sm text-label-sm px-1"><span>Status: Suspended</span><span class="font-code-sm text-error">PID: 28419 (HALTED)</span></div></div></div></div></div>
+<!-- Monorepo Policy List -->
+<div class="flex flex-col gap-space-sm">
+<!-- Monorepo 1 -->
+<div class="p-space-sm rounded-lg bg-surface-container flex flex-col gap-1.5">
+<div class="flex items-center justify-between">
+<span class="font-code-sm text-code-sm text-on-surface font-semibold">nexora-cloud/auth-service</span>
+<span class="font-label-sm text-label-sm px-2 py-0.5 rounded bg-error-container text-on-error-container font-medium">STRICT ENCLAVE</span>
+</div>
+<div class="flex items-center justify-between text-body-sm font-body-sm text-on-surface-variant">
+<span>Zero Cloud Egress • On-Prem Llama 3.3 70B Engine Only</span>
+<span class="font-label-sm text-label-sm text-outline">Local Vector DB</span>
+</div>
+</div>
+<!-- Monorepo 2 -->
+<div class="p-space-sm rounded-lg bg-surface-container flex flex-col gap-1.5">
+<div class="flex items-center justify-between">
+<span class="font-code-sm text-code-sm text-on-surface font-semibold">nexora-cloud/core-engine</span>
+<span class="font-label-sm text-label-sm px-2 py-0.5 rounded bg-primary-container text-on-primary-container font-medium">HYBRID AST GUARD</span>
+</div>
+<div class="flex items-center justify-between text-body-sm font-body-sm text-on-surface-variant">
+<span>Hybrid Route • Cloud Frontier Allowed with AST Sanitization</span>
+<span class="font-label-sm text-label-sm text-outline">PII Strip 100%</span>
+</div>
+</div>
+<!-- Monorepo 3 -->
+<div class="p-space-sm rounded-lg bg-surface-container flex flex-col gap-1.5">
+<div class="flex items-center justify-between">
+<span class="font-code-sm text-code-sm text-on-surface font-semibold">prod-core-monorepo</span>
+<span class="font-label-sm text-label-sm px-2 py-0.5 rounded bg-tertiary-container text-on-tertiary font-medium">ACTIVE GUARD</span>
+</div>
+<div class="flex items-center justify-between text-body-sm font-body-sm text-on-surface-variant">
+<span>AST Semantic Slicing active • Zero Raw Code Upload</span>
+<span class="font-label-sm text-label-sm text-outline">Air-Gap Armed</span>
+</div>
+</div>
+</div>
+<!-- Privacy & Storage Guarantees -->
+<div class="pt-space-xs p-3 rounded-lg bg-surface-container-lowest flex flex-col gap-2">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-outline uppercase tracking-wider">Data Privacy Guarantees</span>
+<span class="font-label-sm text-label-sm text-tertiary font-mono">ED25519-ENFORCED</span>
+</div>
+<div class="grid grid-cols-2 gap-2 text-body-sm font-body-sm text-on-surface-variant">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-sm text-tertiary">check</span>
+<span>Zero-Day Retention SLA</span>
+</div>
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-sm text-tertiary">check</span>
+<span>In-Memory Scratchpad Scrub</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- SECTION: Real-Time Security Audit Trail & Incident Ledger -->
+<section class="p-space-lg rounded-xl bg-surface-container-low flex flex-col gap-space-md shadow-sm">
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-space-sm">
+<div class="flex items-center gap-space-sm">
+<span class="material-symbols-outlined text-xl text-secondary">history</span>
+<div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-semibold">Cryptographic Audit Trail &amp; Ledger</h3>
+<p class="font-label-sm text-label-sm text-outline">Real-time immutable event log signed by YubiHSM2 cluster</p>
+</div>
+</div>
+<!-- Search / Filter input -->
+<div class="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-surface-container text-on-surface-variant w-full sm:w-80">
+<span class="material-symbols-outlined text-sm">filter_list</span>
+<input class="bg-transparent border-0 outline-none text-body-sm font-body-sm text-on-surface placeholder:text-outline w-full" placeholder="Filter audit ledger by hash, actor, or target..." type="text"/>
+</div>
+</div>
+<!-- Ledger Table -->
+<div class="overflow-x-auto -mx-space-lg px-space-lg">
+<table class="w-full text-left font-body-sm text-body-sm">
+<thead>
+<tr class="bg-surface-container-lowest text-outline font-label-sm text-label-sm uppercase tracking-wider">
+<th class="py-2.5 px-3 rounded-l">TIMESTAMP</th>
+<th class="py-2.5 px-3">ACTOR / AGENT</th>
+<th class="py-2.5 px-3">EVENT TYPE</th>
+<th class="py-2.5 px-3">TARGET RESOURCE</th>
+<th class="py-2.5 px-3">HEURISTIC STATUS</th>
+<th class="py-2.5 px-3 font-mono">CRYPTO HASH</th>
+<th class="py-2.5 px-3 rounded-r text-right">ACTION</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-surface-container-high/40"><tr class="hover:bg-surface-container/60 transition-colors bg-error-container/20"><td class="py-3 px-3 font-code-sm text-code-sm text-error font-bold whitespace-nowrap">10:46:05 UTC</td><td class="py-3 px-3"><span class="font-body-sm text-body-sm font-medium text-on-surface">Elena Rostova</span><span class="text-xs text-error block font-code-sm">Principal Architect (Hardware MFA)</span></td><td class="py-3 px-3"><span class="px-2 py-0.5 rounded bg-error-container text-on-error-container font-label-sm text-label-sm font-bold flex items-center gap-1 w-fit"><span class="material-symbols-outlined text-xs">emergency</span> Emergency Kill-Switch Engaged</span></td><td class="py-3 px-3 font-code-sm text-code-sm text-error">cluster:all-sandboxes (<code class="text-error">SIGSTOP</code>)</td><td class="py-3 px-3"><span class="text-error font-medium flex items-center gap-1"><span class="w-1.5 h-1.5 rounded-full bg-error animate-ping"></span> System Freeze (Enforced)</span></td><td class="py-3 px-3 font-code-sm text-code-sm text-error font-mono">ed25519:e419...81ab</td><td class="py-3 px-3 text-right"><button class="px-2.5 py-1 rounded bg-error-container/40 hover:bg-error-container hover:text-on-error-container text-error font-body-sm text-body-sm transition-colors font-semibold">View Attestation ↗</button></td></tr><tr class="hover:bg-surface-container/60 transition-colors bg-surface-container-low/40"><td class="py-3 px-3 font-code-sm text-code-sm text-on-surface font-medium whitespace-nowrap">10:45:12 UTC</td><td class="py-3 px-3"><span class="font-body-sm text-body-sm font-medium text-on-surface">DeepSeek V3 / Elena Rostova</span><span class="text-xs text-outline block font-code-sm">Task #NX-RUN-8941</span></td><td class="py-3 px-3"><span class="px-2 py-0.5 rounded bg-surface-container-high text-on-surface font-label-sm text-label-sm font-medium">Shell Command Approved</span></td><td class="py-3 px-3 font-code-sm text-code-sm text-on-surface">nx-sandbox:849 (<code class="text-outline">docker exec</code>)</td><td class="py-3 px-3"><span class="text-error font-medium flex items-center gap-1"><span class="w-1.5 h-1.5 rounded-full bg-error"></span> Suspended (SIGSTOP)</span></td><td class="py-3 px-3 font-code-sm text-code-sm text-outline font-mono">ed25519:7f8a...92bc</td><td class="py-3 px-3 text-right"><button class="px-2.5 py-1 rounded bg-surface-container hover:bg-surface-container-high text-on-surface-variant font-body-sm text-body-sm transition-colors font-medium">Sandbox Frozen</button></td></tr>
+<!-- Row 1 -->
+<tr class="hover:bg-surface-container/60 transition-colors">
+<td class="py-3 px-3 font-code-sm text-code-sm text-on-surface-variant whitespace-nowrap">10:44:12 UTC</td>
+<td class="py-3 px-3">
+<span class="font-body-sm text-body-sm font-medium text-on-surface">Claude 3.7</span>
+<span class="text-xs text-outline block font-code-sm">Task #NX-RUN-8938</span>
+</td>
+<td class="py-3 px-3">
+<span class="px-2 py-0.5 rounded bg-error-container/30 text-error font-label-sm text-label-sm">Write Intercepted</span>
+</td>
+<td class="py-3 px-3 font-code-sm text-code-sm text-on-surface">auth-service/jwt_validator.go</td>
+<td class="py-3 px-3">
+<span class="text-error font-medium flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-error"></span> Blocked (Pending)
+                </span>
+</td>
+<td class="py-3 px-3 font-code-sm text-code-sm text-outline">ed25519:7f8a...c32d</td>
+<td class="py-3 px-3 text-right">
+<button class="px-2.5 py-1 rounded bg-surface-container hover:bg-surface-container-high text-on-surface font-body-sm text-body-sm transition-colors">Review</button>
+</td>
+</tr>
+<!-- Row 2 -->
+<tr class="hover:bg-surface-container/60 transition-colors">
+<td class="py-3 px-3 font-code-sm text-code-sm text-on-surface-variant whitespace-nowrap">10:41:05 UTC</td>
+<td class="py-3 px-3">
+<span class="font-body-sm text-body-sm font-medium text-on-surface">DeepSeek V3</span>
+<span class="text-xs text-outline block font-code-sm">Task #NX-RUN-8941</span>
+</td>
+<td class="py-3 px-3">
+<span class="px-2 py-0.5 rounded bg-surface-container-high text-primary font-label-sm text-label-sm">Shell Sandboxed</span>
+</td>
+<td class="py-3 px-3 font-code-sm text-code-sm text-on-surface">nx-sandbox:849 (<code class="text-tertiary">go test</code>)</td>
+<td class="py-3 px-3">
+<span class="text-tertiary font-medium flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary"></span> Allowed (Sandbox)
+                </span>
+</td>
+<td class="py-3 px-3 font-code-sm text-code-sm text-outline">ed25519:9e21...04b1</td>
+<td class="py-3 px-3 text-right">
+<button class="px-2.5 py-1 rounded bg-surface-container hover:bg-surface-container-high text-on-surface font-body-sm text-body-sm transition-colors">Verify</button>
+</td>
+</tr>
+<!-- Row 3 -->
+<tr class="hover:bg-surface-container/60 transition-colors">
+<td class="py-3 px-3 font-code-sm text-code-sm text-on-surface-variant whitespace-nowrap">10:38:22 UTC</td>
+<td class="py-3 px-3">
+<span class="font-body-sm text-body-sm font-medium text-on-surface">Elena Rostova</span>
+<span class="text-xs text-outline block font-code-sm">Role: Principal Architect</span>
+</td>
+<td class="py-3 px-3">
+<span class="px-2 py-0.5 rounded bg-surface-container-high text-on-surface font-label-sm text-label-sm">Gate Overridden</span>
+</td>
+<td class="py-3 px-3 font-code-sm text-code-sm text-on-surface">core-engine/cache_manager.go</td>
+<td class="py-3 px-3">
+<span class="text-on-surface font-medium flex items-center gap-1">
+<span class="material-symbols-outlined text-xs text-tertiary">verified_user</span> Approved (2FA Signed)
+                </span>
+</td>
+<td class="py-3 px-3 font-code-sm text-code-sm text-outline">ed25519:3b14...89ee</td>
+<td class="py-3 px-3 text-right">
+<button class="px-2.5 py-1 rounded bg-surface-container hover:bg-surface-container-high text-on-surface font-body-sm text-body-sm transition-colors">Details</button>
+</td>
+</tr>
+<!-- Row 4 -->
+<tr class="hover:bg-surface-container/60 transition-colors">
+<td class="py-3 px-3 font-code-sm text-code-sm text-on-surface-variant whitespace-nowrap">10:29:14 UTC</td>
+<td class="py-3 px-3">
+<span class="font-body-sm text-body-sm font-medium text-on-surface">Llama 3.3 (Local)</span>
+<span class="text-xs text-outline block font-code-sm">Air-Gapped Local</span>
+</td>
+<td class="py-3 px-3">
+<span class="px-2 py-0.5 rounded bg-tertiary-container/30 text-tertiary font-label-sm text-label-sm">PII Stripping</span>
+</td>
+<td class="py-3 px-3 font-code-sm text-code-sm text-on-surface">docs/user_identities.json</td>
+<td class="py-3 px-3">
+<span class="text-tertiary font-medium flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary"></span> Redacted (14 records)
+                </span>
+</td>
+<td class="py-3 px-3 font-code-sm text-code-sm text-outline">ed25519:1a4f...55bc</td>
+<td class="py-3 px-3 text-right">
+<button class="px-2.5 py-1 rounded bg-surface-container hover:bg-surface-container-high text-on-surface font-body-sm text-body-sm transition-colors">Log ↗</button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<!-- Bottom Status & Compliance Frameworks Footer Ribbon -->
+<section class="p-space-md rounded-xl bg-surface-container-lowest flex flex-col md:flex-row md:items-center justify-between gap-space-md text-outline font-label-sm text-label-sm mb-space-lg">
+<div class="flex items-center gap-space-md flex-wrap">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-sm text-tertiary">verified</span>
+<span class="text-on-surface-variant font-medium">Compliance Frameworks:</span>
+<span>SOC2 Type II Certified</span>
+<span>•</span>
+<span>ISO/IEC 27001</span>
+<span>•</span>
+<span>HIPAA BAA Compliant</span>
+</div>
+</div>
+<div class="flex items-center gap-space-md flex-wrap">
+<div class="flex items-center gap-1.5">
+<span class="w-2 h-2 rounded-full bg-primary"></span>
+<span>Hardware Security Module: <strong class="text-on-surface">YubiHSM2 Active</strong></span>
+</div>
+<div class="flex items-center gap-1.5">
+<span class="w-2 h-2 rounded-full bg-tertiary"></span>
+<span>Enclave Uptime: <strong class="text-tertiary">99.999%</strong></span>
+</div>
+</div>
+</section>
+</div>
+</div>
+<script>
+  // Simple micro-interaction for Emergency Kill Switch safety confirmation
+  document.getElementById('killSwitchBtn')?.addEventListener('click', function() {
+    const confirmed = confirm('CRITICAL CONFIRMATION:\nAre you sure you want to trigger the EMERGENCY KILL SWITCH?\nThis will immediately terminate all active agent containers and freeze external egress channels.');
+    if (confirmed) {
+      alert('EMERGENCY KILL SWITCH ENGAGED: All agent execution loops terminated. Hardware egress switches physically locked.');
+    }
+  });
+</script></main></div>
+<div class="fixed inset-0 z-50 flex items-center justify-center p-space-md sm:p-gutter-lg bg-surface-container-lowest/80 backdrop-blur-md overflow-y-auto" id="quorum-modal-overlay"><div class="relative w-full max-w-3xl my-auto rounded-xl bg-surface-container-low border border-primary/30 shadow-2xl flex flex-col overflow-hidden text-on-surface"><div class="p-space-md bg-surface-container-lowest/80 border-b border-surface-container-high flex flex-col gap-2"><div class="flex items-start justify-between gap-space-sm"><div class="flex flex-col gap-1"><div class="flex items-center gap-space-sm flex-wrap"><span class="font-label-sm text-label-sm px-2 py-0.5 rounded bg-primary/20 text-primary font-mono font-semibold tracking-wide flex items-center gap-1"><span class="material-symbols-outlined text-xs">verified_user</span> M-of-N Cryptographic Consensus: 2 of 3 Required</span><span class="font-label-sm text-label-sm px-2 py-0.5 rounded bg-error-container/40 text-error font-medium flex items-center gap-1"><span class="w-1.5 h-1.5 rounded-full bg-error animate-pulse"></span> SIGCONT Signal Release Gate</span></div><h2 class="font-headline-sm text-headline-sm font-semibold tracking-tight text-on-surface mt-1">Multi-Party Quorum Authorization (Resume Execution)</h2></div><button class="text-outline hover:text-on-surface transition-colors p-1.5 rounded-lg hover:bg-surface-container-high" onclick="document.getElementById('quorum-modal-overlay').remove()"><span class="material-symbols-outlined text-lg">close</span></button></div><p class="font-body-sm text-body-sm text-on-surface-variant">Authorizing SIGCONT signal release across 4 suspended enclave sandboxes and restoring outbound proxy egress.</p></div><div class="p-space-md flex flex-col gap-space-md"><div class="p-space-sm rounded-lg bg-error-container/20 border border-error/40 flex items-start gap-2.5"><span class="material-symbols-outlined text-base text-error shrink-0 mt-0.5">warning</span><div class="flex flex-col text-body-sm font-body-sm"><div class="flex items-center gap-2"><span class="font-semibold text-error">Quorum Signer Escalation Active</span><span class="font-label-sm text-label-sm px-1.5 py-0.2 rounded bg-error-container text-on-error-container font-mono">SEC-ESC-7701</span></div><span class="text-on-surface-variant text-xs mt-0.5">Marcus Vance session timed out after 120s inactivity. Signing authority automatically routed to alternate keyholder <strong class="text-primary">Sarah Chen</strong> per SecOps Protocol M-of-N §4.2.</span></div></div><div class="p-space-sm rounded-lg bg-surface-container flex flex-col gap-2"><div class="flex items-center justify-between text-body-sm font-body-sm"><span class="font-medium text-on-surface flex items-center gap-1.5"><span class="material-symbols-outlined text-base text-primary">fingerprint</span> Signatures Collected: <strong class="text-primary">1 / 2 Required</strong> (Quorum Pending)</span><span class="font-label-sm text-label-sm text-tertiary font-mono">50% Consensus</span></div><div class="w-full h-2 rounded-full bg-surface-container-highest overflow-hidden"><div class="h-full bg-gradient-to-r from-tertiary to-primary w-1/2 rounded-full shadow-sm"></div></div><div class="flex items-center justify-between font-label-sm text-label-sm text-outline"><span class="text-on-surface-variant">1 Approval Signed (Elena Rostova)</span><span class="text-primary font-medium flex items-center gap-1"><span class="w-1.5 h-1.5 rounded-full bg-primary animate-ping"></span> Sarah Chen sign-off pending for 2/2 consensus (SIGCONT release)</span></div></div><div class="flex flex-col gap-2.5"><span class="font-label-sm text-label-sm uppercase tracking-wider text-outline px-1">Designated Hardware Keyholders (Quorum Ring)</span><div class="p-space-sm rounded-lg bg-surface-container-lowest/90 border border-tertiary/40 flex items-center justify-between gap-space-sm"><div class="flex items-center gap-3"><div class="w-9 h-9 rounded-full bg-tertiary/10 flex items-center justify-center text-tertiary font-semibold text-sm border border-tertiary/30">ER</div><div class="flex flex-col"><div class="flex items-center gap-2"><span class="font-body-sm text-body-sm font-medium text-on-surface">Elena Rostova</span><span class="font-label-sm text-label-sm text-outline">(Principal Architect / Security Lead)</span></div><span class="font-label-sm text-label-sm text-tertiary flex items-center gap-1"><span class="material-symbols-outlined text-xs">check_circle</span> Signed &amp; Attested via YubiHSM2</span></div></div><div class="flex flex-col items-end"><span class="font-code-sm text-code-sm text-tertiary font-mono">ed25519:e419...81ab</span><span class="font-label-sm text-label-sm text-outline">10:48:12 UTC • Hardware MFA</span></div></div><div class="p-space-sm rounded-lg bg-surface-container-lowest/60 border border-error-container/40 flex flex-col md:flex-row md:items-center justify-between gap-space-sm"><div class="flex items-center gap-3"><div class="w-9 h-9 rounded-full bg-error-container/30 flex items-center justify-center text-error font-semibold text-sm border border-error-container/50">MV</div><div class="flex flex-col"><div class="flex items-center gap-2"><span class="font-body-sm text-body-sm font-medium text-on-surface-variant line-through opacity-75">Marcus Vance</span><span class="font-label-sm text-label-sm text-outline">(VP of Infrastructure &amp; SecOps)</span><span class="font-label-sm text-label-sm px-1.5 py-0.5 rounded bg-error-container/40 text-error font-mono font-medium">Timed Out (120s TTL Expired)</span></div><span class="font-label-sm text-label-sm text-error flex items-center gap-1 mt-0.5"><span class="material-symbols-outlined text-xs">timer_off</span> Session Expired · Escalated to Standby Alternate</span></div></div><div class="flex flex-col md:items-end gap-1"><span class="font-label-sm text-label-sm px-2 py-1 rounded bg-surface-container-high text-outline font-medium flex items-center gap-1"><span class="material-symbols-outlined text-xs text-outline">lock_clock</span> Key Slot Inactive</span><span class="font-label-sm text-label-sm text-outline font-mono">Expired at 10:50:12 UTC</span></div></div><div class="p-space-sm rounded-lg bg-surface-container border border-primary/40 flex flex-col md:flex-row md:items-center justify-between gap-space-sm shadow-md"><div class="flex items-center gap-3"><div class="w-9 h-9 rounded-full bg-primary/20 flex items-center justify-center text-primary font-semibold text-sm border border-primary/40 relative"><span class="absolute -top-1 -right-1 w-2.5 h-2.5 rounded-full bg-primary animate-ping"></span>SC</div><div class="flex flex-col"><div class="flex items-center gap-2"><span class="font-body-sm text-body-sm font-medium text-on-surface">Sarah Chen</span><span class="font-label-sm text-label-sm text-outline">(Lead Site Reliability Engineer)</span><span class="font-label-sm text-label-sm px-1.5 py-0.5 rounded bg-primary-container text-on-primary-container font-semibold">Active Escalation</span></div><div class="flex items-center gap-2 mt-0.5"><span class="font-label-sm text-label-sm text-primary flex items-center gap-1 font-medium"><span class="w-1.5 h-1.5 rounded-full bg-primary animate-ping"></span> Designated Alternate Keyholder (Active Escalation)</span><span class="text-outline text-xs">•</span><span class="font-label-sm text-label-sm text-tertiary flex items-center gap-1"><span class="material-symbols-outlined text-xs">fingerprint</span> Awaiting Hardware Attestation</span></div></div></div><div class="flex items-center gap-2"><button class="px-3.5 py-2 rounded-lg bg-primary hover:bg-primary-container text-on-primary font-body-sm text-body-sm font-semibold transition-all shadow-md shadow-primary-container/20 flex items-center gap-1.5 animate-pulse"><span class="material-symbols-outlined text-base">vpn_key</span><span>Sign with FIDO2 / YubiKey</span></button></div></div></div><div class="p-space-sm rounded-lg bg-surface-container-lowest flex flex-col gap-2"><span class="font-label-sm text-label-sm uppercase tracking-wider text-outline">Enclave Impact &amp; Safety Pre-Flight Verification</span><div class="flex flex-col gap-1.5 text-body-sm font-body-sm text-on-surface-variant"><div class="flex items-center gap-2"><span class="material-symbols-outlined text-sm text-tertiary">check</span><span><strong>Sandboxes to unfreeze:</strong> nx-sandbox-849 (Task #NX-RUN-8941), nx-worker-01, nx-worker-02, nx-worker-03</span></div><div class="flex items-center gap-2"><span class="material-symbols-outlined text-sm text-tertiary">check</span><span><strong>Memory state integrity check:</strong> <strong class="text-tertiary">PASSED</strong> (Zero corruption detected in SIGSTOP volatile buffer)</span></div><div class="flex items-center gap-2"><span class="material-symbols-outlined text-sm text-tertiary">check</span><span><strong>Egress firewall rules:</strong> Restricting all outbound network to air-gapped endpoints only</span></div></div></div></div><div class="p-space-md bg-surface-container-lowest/80 border-t border-surface-container-high flex flex-col sm:flex-row items-center justify-between gap-space-md"><div class="p-space-sm rounded-lg bg-error-container/20 border border-error/40 flex items-start gap-2.5"><span class="material-symbols-outlined text-base text-error shrink-0 mt-0.5">warning</span><div class="flex flex-col text-body-sm font-body-sm"><div class="flex items-center gap-2"><span class="font-semibold text-error">Quorum Signer Escalation Active</span><span class="font-label-sm text-label-sm px-1.5 py-0.2 rounded bg-error-container text-on-error-container font-mono">SEC-ESC-7701</span></div><span class="text-on-surface-variant text-xs mt-0.5">Marcus Vance session timed out after 120s inactivity. Signing authority automatically routed to alternate keyholder <strong class="text-primary">Sarah Chen</strong> per SecOps Protocol M-of-N §4.2.</span></div></div><div class="flex items-center gap-2 font-label-sm text-label-sm text-outline"><span class="material-symbols-outlined text-sm text-secondary">lock</span><span>Immutable event logged to YubiHSM2 Merkle audit ledger</span></div><div class="flex items-center gap-2 w-full sm:w-auto justify-end"><button class="px-3.5 py-2 rounded-lg bg-surface-container hover:bg-surface-container-high text-on-surface font-body-sm text-body-sm transition-colors" onclick="document.getElementById('quorum-modal-overlay').remove()">Cancel &amp; Retain Freeze</button><button class="px-4 py-2 rounded-lg bg-primary hover:bg-primary-container text-on-primary font-headline-sm text-body-sm font-semibold transition-all shadow-md flex items-center gap-2"><span class="material-symbols-outlined text-base">verified</span><span>Authorize &amp; Broadcast SIGCONT (Awaiting Sarah Chen's Sign-Off)</span></button></div></div></div></div></body></html>

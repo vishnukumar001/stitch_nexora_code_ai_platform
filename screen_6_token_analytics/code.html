@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_dashboard" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&amp;family=JetBrains+Mono:wght@100..900&amp;family=Space+Grotesk:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{colors:{"surface-container-lowest":"#0a0e18","surface":"#0f131d","surface-dim":"#0f131d","secondary-fixed":"#e1e0ff","error-container":"#93000a","on-background":"#dfe2f1","surface-bright":"#353944","inverse-on-surface":"#2c303b","on-secondary-fixed-variant":"#2f2ebe","on-secondary-container":"#b0b2ff","tertiary":"#4cd7f6","surface-container-highest":"#313540","on-primary":"#3c0091","tertiary-fixed":"#acedff","on-tertiary-fixed-variant":"#004e5c","primary":"#d0bcff","primary-fixed-dim":"#d0bcff","tertiary-container":"#009eb9","inverse-surface":"#dfe2f1","on-tertiary-container":"#002f38","on-error":"#690005","outline-variant":"#494454","surface-tint":"#d0bcff","tertiary-fixed-dim":"#4cd7f6","error":"#ffb4ab","surface-container-high":"#262a35","on-surface":"#dfe2f1","secondary-fixed-dim":"#c0c1ff","on-secondary-fixed":"#07006c","on-surface-variant":"#cbc3d7","secondary-container":"#3131c0","primary-fixed":"#e9ddff","secondary":"#c0c1ff","inverse-primary":"#6d3bd7","on-primary-container":"#340080","outline":"#958ea0","on-primary-fixed":"#23005c","on-secondary":"#1000a9","surface-container":"#1c1f2a","on-error-container":"#ffdad6","background":"#0f131d","on-primary-fixed-variant":"#5516be","surface-container-low":"#171b26","on-tertiary-fixed":"#001f26","primary-container":"#a078ff","on-tertiary":"#003640","surface-variant":"#313540"},borderRadius:{"DEFAULT":"0.125rem","lg":"0.25rem","xl":"0.5rem","full":"0.75rem"},spacing:{"space-md":"0.75rem","gutter-sm":"0.5rem","space-xs":"0.25rem","margin":"1.5rem","space-xl":"2rem","gutter":"1rem","gutter-lg":"1.5rem","margin-mobile":"1rem","space-lg":"1.25rem","space-sm":"0.5rem"},fontFamily:{"label-sm":["JetBrains Mono"],"body-sm":["Inter"],"code-sm":["JetBrains Mono"],"headline-lg":["Space Grotesk"],"headline-xl":["Space Grotesk"],"headline-xl-mobile":["Space Grotesk"],"headline-lg-mobile":["Space Grotesk"],"body-lg":["Inter"],"code-lg":["JetBrains Mono"],"body-md":["Inter"],"headline-sm":["Space Grotesk"],"label-md":["JetBrains Mono"],"headline-md":["Space Grotesk"]},fontSize:{"label-sm":["10px",{lineHeight:"14px",letterSpacing:"0.06em",fontWeight:"500"}],"body-sm":["12px",{lineHeight:"16px",fontWeight:"400"}],"code-sm":["12px",{lineHeight:"18px",fontWeight:"400"}],"headline-lg":["32px",{lineHeight:"40px",letterSpacing:"-0.015em",fontWeight:"600"}],"headline-xl":["40px",{lineHeight:"48px",letterSpacing:"-0.02em",fontWeight:"600"}],"headline-xl-mobile":["30px",{lineHeight:"38px",letterSpacing:"-0.02em",fontWeight:"600"}],"headline-lg-mobile":["24px",{lineHeight:"32px",letterSpacing:"-0.015em",fontWeight:"600"}],"body-lg":["16px",{lineHeight:"24px",fontWeight:"400"}],"code-lg":["14px",{lineHeight:"22px",fontWeight:"400"}],"body-md":["14px",{lineHeight:"20px",fontWeight:"400"}],"headline-sm":["18px",{lineHeight:"24px",fontWeight:"500"}],"label-md":["12px",{lineHeight:"16px",letterSpacing:"0.04em",fontWeight:"500"}],"headline-md":["22px",{lineHeight:"28px",letterSpacing:"-0.01em",fontWeight:"500"}]}}}}</script></head><body class="bg-surface-container-lowest font-body-md text-body-md text-on-surface antialiased"><aside class="fixed left-0 top-0 h-full w-[260px] bg-surface-container-lowest z-50 flex flex-col justify-between shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="flex flex-col"><div class="h-16 px-space-md flex items-center justify-between bg-surface-container-lowest"><div class="flex items-center gap-space-sm"><img alt="NEXORA Code Logo" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDuQGUIoHGHOLy3UpduhnPYlgGoraklfUpkYnU4fuZgnLQ76MbCUK5vyuXJ0rFxuqmMX_E14cxMXy5gMZIcZLzrSOu95Zumwmw8UePMe9nyUn416w-bnp3ijUPAIp7xRZwjx7lh-OUOyWfL39CrKlJDRKldl4uxe1jEsRo4vavnW54HhWSFoVLBIkZvudhjaYhavQ44ZWaeQtHt_3rwgmIxywowojrkXhfNyVIqeQ"/><span class="font-headline-sm text-headline-sm text-on-surface tracking-tight font-semibold">NEXORA</span></div><span class="font-label-sm text-label-sm uppercase px-1.5 py-0.5 rounded bg-surface-container-high text-tertiary">v2.4 Pro</span></div><div class="px-space-md py-space-sm overflow-y-auto max-h-[calc(100vh-160px)]"><div class="mb-space-lg"><p class="font-label-sm text-label-sm uppercase text-outline px-space-sm mb-space-xs">Main</p><nav class="flex flex-col gap-0.5" data-active-classes="bg-surface-container-high text-primary font-medium rounded-lg"><a class="flex items-center gap-space-sm px-space-sm py-2 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors font-body-sm text-body-sm" data-path="dashboard" href="#"><span class="material-symbols-outlined text-lg">dashboard</span><span>Overview / Dashboard</span></a><a class="flex items-center gap-space-sm px-space-sm py-2 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors font-body-sm text-body-sm" data-path="ai-coding-workspace" href="#"><span class="material-symbols-outlined text-lg">terminal</span><span>AI Coding Workspace</span></a><a class="flex items-center gap-space-sm px-space-sm py-2 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors font-body-sm text-body-sm" data-path="repositories" href="#"><span class="material-symbols-outlined text-lg">emoji_symbols</span><span>Repositories</span></a><a class="flex items-center gap-space-sm px-space-sm py-2 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors font-body-sm text-body-sm" data-path="task-history" href="#"><span class="material-symbols-outlined text-lg">history</span><span>Task History</span></a></nav></div><div class="mb-space-lg"><p class="font-label-sm text-label-sm uppercase text-outline px-space-sm mb-space-xs">Intelligence &amp; Tokens</p><nav class="flex flex-col gap-0.5" data-active-classes="bg-surface-container-high text-primary font-medium rounded-lg"><a class="flex items-center gap-space-sm px-space-sm py-2 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors font-body-sm text-body-sm" data-path="token-analytics" href="#"><span class="material-symbols-outlined text-lg">bar_chart</span><span>Token Analytics</span></a><a class="flex items-center gap-space-sm px-space-sm py-2 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors font-body-sm text-body-sm" data-path="model-router" href="#"><span class="material-symbols-outlined text-lg">alt_route</span><span>Model Router</span></a><a class="flex items-center gap-space-sm px-space-sm py-2 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors font-body-sm text-body-sm" data-path="budget-manager" href="#"><span class="material-symbols-outlined text-lg">account_balance_wallet</span><span>Budget Manager</span></a></nav></div><div class="mb-space-md"><p class="font-label-sm text-label-sm uppercase text-outline px-space-sm mb-space-xs">Governance</p><nav class="flex flex-col gap-0.5" data-active-classes="bg-surface-container-high text-primary font-medium rounded-lg"><a class="flex items-center gap-space-sm px-space-sm py-2 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors font-body-sm text-body-sm" data-path="security-center" href="#"><span class="material-symbols-outlined text-lg">shield</span><span>Security Center</span></a><a class="flex items-center gap-space-sm px-space-sm py-2 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors font-body-sm text-body-sm" data-path="settings" href="#"><span class="material-symbols-outlined text-lg">settings</span><span>Settings</span></a></nav></div></div></div><div class="p-space-md bg-surface-container-low"><div class="flex items-center justify-between mb-space-xs"><div class="flex items-center gap-space-sm"><img alt="Profile" class="w-8 h-8 rounded-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBCnjXww_8t8PPzSkEl28FtDAk0EN2xz06LpYsR2tuCpePURwKpUikW-S0HjSpVJ1RJVKwFab-kyaEtbe0vebuvSu0YQLL531sROadBtVCSfqelwen1J3tV-3jvSsPZJRRXlqW_Ja_VcvFTp0A_DANJWBIUrSw55O2A7eWqZfm5LCO7KuKtjfW8HC4zaaCmHl4wSf9JUmPEJ3hjphBVAcOchQ0E-UlCd2MpaIY3Cg"/><div class="flex flex-col"><span class="font-body-sm text-body-sm text-on-surface font-medium leading-none">Elena Rostova</span><span class="font-label-sm text-label-sm text-outline leading-tight mt-1">Principal Architect</span></div></div><button class="text-on-surface-variant hover:text-on-surface transition-colors"><span class="material-symbols-outlined text-base">more_vert</span></button></div><div class="mt-space-sm pt-space-xs"><div class="flex items-center justify-between text-outline font-label-sm text-label-sm"><span>Efficiency</span><span class="text-tertiary font-semibold">94.2%</span></div><div class="w-full h-1 bg-surface-container-highest rounded-full mt-1 overflow-hidden"><div class="h-full bg-tertiary w-[94.2%]"></div></div></div></div></aside><div class="pl-[260px]"><header class="fixed top-0 left-[260px] right-0 h-16 z-40 bg-surface/80 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="h-16 w-full px-space-lg flex items-center justify-between gap-space-md"><div class="flex items-center gap-space-md"><div class="flex items-center gap-2 px-space-sm py-1 rounded bg-surface-container-low"><span class="w-2 h-2 rounded-full bg-tertiary"></span><span class="font-code-sm text-code-sm text-on-surface">prod-core-monorepo / main</span><span class="material-symbols-outlined text-sm text-on-surface-variant">expand_more</span></div><div class="hidden xl:flex items-center gap-2 px-space-sm py-1 rounded bg-surface-container-low font-label-sm text-label-sm text-on-surface-variant"><span class="w-1.5 h-1.5 rounded-full bg-primary"></span><span>Claude 3.7 + DeepSeek V3 (142ms)</span></div><div class="hidden 2xl:flex items-center gap-1.5 px-space-sm py-1 rounded bg-surface-container-low font-label-sm text-label-sm text-tertiary"><span class="material-symbols-outlined text-sm">bolt</span><span>4.2M saved (68%)</span></div></div><div class="flex items-center gap-space-md"><div class="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-surface-container-low text-on-surface-variant w-48 lg:w-64"><span class="material-symbols-outlined text-sm">search</span><span class="font-body-sm text-body-sm text-outline flex-1">Command Palette</span><kbd class="font-label-sm text-label-sm px-1.5 py-0.5 rounded bg-surface-container-highest text-outline">⌘K</kbd></div><a class="relative p-1.5 rounded text-on-surface-variant hover:text-on-surface transition-colors" href="#"><span class="material-symbols-outlined text-xl">notifications</span><span class="absolute top-1 right-1 w-2 h-2 rounded-full bg-error"></span></a><nav class="flex items-center gap-space-md font-body-sm text-body-sm" data-active-classes="text-primary font-medium"><a class="text-on-surface-variant hover:text-on-surface transition-colors" data-path="documentation" href="#">Docs</a><a class="text-on-surface-variant hover:text-on-surface transition-colors" data-path="api-status" href="#">API</a></nav><img alt="Profile" class="w-8 h-8 rounded-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBCnjXww_8t8PPzSkEl28FtDAk0EN2xz06LpYsR2tuCpePURwKpUikW-S0HjSpVJ1RJVKwFab-kyaEtbe0vebuvSu0YQLL531sROadBtVCSfqelwen1J3tV-3jvSsPZJRRXlqW_Ja_VcvFTp0A_DANJWBIUrSw55O2A7eWqZfm5LCO7KuKtjfW8HC4zaaCmHl4wSf9JUmPEJ3hjphBVAcOchQ0E-UlCd2MpaIY3Cg"/></div></div></header><main class="w-full pt-16 bg-surface-container-lowest min-h-screen"><div class="flex flex-col w-full">
+<!-- Top Command & Header Zone -->
+<div class="p-space-lg flex flex-col gap-space-lg">
+<!-- Hero / Header Title + Global Filters -->
+<div class="flex flex-col xl:flex-row xl:items-center justify-between gap-space-md">
+<div class="flex flex-col gap-1">
+<div class="flex items-center gap-space-sm flex-wrap">
+<h1 class="font-headline-lg text-headline-lg text-on-surface tracking-tight font-semibold">
+            Token Analytics &amp; Cost Telemetry
+          </h1>
+<span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-surface-container-high text-tertiary font-label-sm text-label-sm uppercase tracking-wider shadow-sm">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary animate-pulse"></span>
+            Realtime AST Metering V3.8
+          </span>
+</div>
+<p class="font-body-md text-body-md text-outline">
+          Fine-grained visibility into AST context compaction, model cost efficiency, and token allocation across monorepo services.
+        </p>
+</div>
+<!-- Control / Action Strip -->
+<div class="flex items-center gap-space-sm flex-wrap">
+<!-- Date Range Filter Dropdown Mock -->
+<div class="relative group">
+<button class="flex items-center gap-2 px-3 py-1.5 rounded bg-surface-container-low text-on-surface font-label-md text-label-md hover:bg-surface-container-high transition-colors shadow-sm">
+<span class="material-symbols-outlined text-base text-tertiary">calendar_today</span>
+<span>Last 30 Days</span>
+<span class="material-symbols-outlined text-sm text-outline">expand_more</span>
+</button>
+</div>
+<!-- Monorepo Service Filter -->
+<div class="flex items-center gap-2 px-3 py-1.5 rounded bg-surface-container-low text-on-surface font-label-md text-label-md hover:bg-surface-container-high transition-colors shadow-sm">
+<span class="material-symbols-outlined text-base text-secondary">hub</span>
+<span>All Monorepo Services</span>
+<span class="material-symbols-outlined text-sm text-outline">expand_more</span>
+</div>
+<!-- Model Cascade Selector -->
+<div class="flex items-center gap-2 px-3 py-1.5 rounded bg-surface-container-low text-on-surface font-label-md text-label-md hover:bg-surface-container-high transition-colors shadow-sm">
+<span class="material-symbols-outlined text-base text-primary">alt_route</span>
+<span>All Models (4 active)</span>
+<span class="material-symbols-outlined text-sm text-outline">expand_more</span>
+</div>
+<!-- Export Action -->
+<button class="flex items-center gap-2 px-3.5 py-1.5 rounded bg-surface-container text-on-surface font-label-md text-label-md hover:bg-surface-bright hover:text-white transition-all shadow-sm">
+<span class="material-symbols-outlined text-base text-tertiary">download</span>
+<span>Export CSV / JSON</span>
+</button>
+</div>
+</div>
+<!-- 4-Column KPI Telemetry Tiles -->
+<div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-space-md">
+<!-- Card 1: Total Tokens -->
+<div class="p-space-md rounded-xl bg-surface-container-low flex flex-col justify-between gap-space-sm shadow-md relative overflow-hidden group">
+<div class="absolute -right-6 -top-6 w-24 h-24 rounded-full bg-primary/5 blur-2xl group-hover:bg-primary/10 transition-all"></div>
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-outline">Total Tokens Consumed</span>
+<span class="material-symbols-outlined text-lg text-primary">data_usage</span>
+</div>
+<div class="flex items-baseline gap-2 mt-1">
+<span class="font-headline-lg text-headline-lg font-bold text-on-surface">14.82M</span>
+<span class="font-label-sm text-label-sm text-tertiary flex items-center font-medium">
+<span class="material-symbols-outlined text-xs">arrow_upward</span> 12%
+          </span>
+</div>
+<div class="flex items-center justify-between text-outline font-label-sm text-label-sm pt-2">
+<span>Input: 11.2M</span>
+<span class="w-1 h-1 rounded-full bg-surface-container-highest"></span>
+<span>Output: 3.62M</span>
+<span class="px-1.5 py-0.5 rounded bg-surface-container-high text-on-surface-variant font-code-sm text-[10px]">3.1:1</span>
+</div>
+<!-- Sparkline indicator -->
+<div class="w-full h-1.5 bg-surface-container-high rounded-full overflow-hidden mt-1 flex">
+<div class="bg-primary h-full w-[76%]" title="Input 76%"></div>
+<div class="bg-tertiary h-full w-[24%]" title="Output 24%"></div>
+</div>
+</div>
+<!-- Card 2: AST Pruning & Token Savings -->
+<div class="p-space-md rounded-xl bg-surface-container-low flex flex-col justify-between gap-space-sm shadow-md relative overflow-hidden group">
+<div class="absolute -right-6 -top-6 w-24 h-24 rounded-full bg-tertiary/10 blur-2xl group-hover:bg-tertiary/20 transition-all"></div>
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-outline">AST Pruning &amp; Savings</span>
+<span class="material-symbols-outlined text-lg text-tertiary">compress</span>
+</div>
+<div class="flex items-baseline gap-2 mt-1">
+<span class="font-headline-lg text-headline-lg font-bold text-tertiary">38.64M</span>
+<span class="font-label-sm text-label-sm text-on-surface font-medium">Saved</span>
+</div>
+<div class="flex items-center justify-between pt-1">
+<span class="font-label-sm text-label-sm text-on-surface-variant">72.3% AST Compaction</span>
+<span class="px-2 py-0.5 rounded-full bg-surface-container-high text-tertiary font-label-sm text-label-sm font-semibold">
+            +$312.40 Saved
+          </span>
+</div>
+<div class="w-full h-1.5 bg-surface-container-high rounded-full overflow-hidden mt-1">
+<div class="bg-gradient-to-r from-tertiary to-primary h-full w-[72.3%]"></div>
+</div>
+</div>
+<!-- Card 3: Net API Spend -->
+<div class="p-space-md rounded-xl bg-surface-container-low flex flex-col justify-between gap-space-sm shadow-md relative overflow-hidden group">
+<div class="absolute -right-6 -top-6 w-24 h-24 rounded-full bg-secondary-container/10 blur-2xl"></div>
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-outline">Net Model API Spend</span>
+<span class="material-symbols-outlined text-lg text-secondary">payments</span>
+</div>
+<div class="flex items-baseline gap-2 mt-1">
+<span class="font-headline-lg text-headline-lg font-bold text-on-surface">$148.20</span>
+<span class="font-label-sm text-label-sm text-outline">/ $500 Cap</span>
+</div>
+<div class="flex items-center justify-between text-outline font-label-sm text-label-sm pt-1">
+<span>29.6% pacing utilized</span>
+<span class="text-tertiary font-medium">Healthy runway</span>
+</div>
+<div class="w-full h-1.5 bg-surface-container-high rounded-full overflow-hidden mt-1">
+<div class="bg-tertiary-container h-full w-[29.6%]"></div>
+</div>
+</div>
+<!-- Card 4: Avg Cost per 1k Executions -->
+<div class="p-space-md rounded-xl bg-surface-container-low flex flex-col justify-between gap-space-sm shadow-md relative overflow-hidden group">
+<div class="absolute -right-6 -top-6 w-24 h-24 rounded-full bg-primary-container/10 blur-2xl"></div>
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-outline">Cost / 1k Executions</span>
+<span class="material-symbols-outlined text-lg text-primary-fixed-dim">speed</span>
+</div>
+<div class="flex items-baseline gap-2 mt-1">
+<span class="font-headline-lg text-headline-lg font-bold text-on-surface">$0.100</span>
+<span class="font-label-sm text-label-sm text-tertiary flex items-center font-medium">
+<span class="material-symbols-outlined text-xs">arrow_downward</span> 48%
+          </span>
+</div>
+<div class="flex items-center justify-between text-outline font-label-sm text-label-sm pt-1">
+<span class="truncate">vs $0.192 raw baseline</span>
+<span class="px-1.5 py-0.5 rounded bg-surface-container-high text-primary font-code-sm text-[10px] font-semibold">
+            GRADE A+
+          </span>
+</div>
+<div class="w-full h-1.5 bg-surface-container-high rounded-full overflow-hidden mt-1">
+<div class="bg-primary h-full w-[88%]"></div>
+</div>
+</div>
+</div>
+<!-- Main Analytics Section (Two Column Bento Layout) -->
+<div class="grid grid-cols-1 xl:grid-cols-12 gap-space-md items-start">
+<!-- Primary Trajectory Chart (8 cols) -->
+<div class="xl:col-span-8 p-space-lg rounded-xl bg-surface-container-low flex flex-col gap-space-md shadow-lg relative">
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-space-sm">
+<div>
+<h2 class="font-headline-sm text-headline-sm text-on-surface font-semibold flex items-center gap-2">
+<span>Token Consumption &amp; Compression Trajectory</span>
+<span class="material-symbols-outlined text-outline text-base">info</span>
+</h2>
+<p class="font-body-sm text-body-sm text-outline mt-0.5">
+              Comparative volume: raw unoptimized monorepo AST vs context-compacted inference payloads
+            </p>
+</div>
+<!-- Time Granularity Selector -->
+<div class="flex items-center bg-surface-container-highest p-0.5 rounded-lg text-on-surface-variant font-label-sm text-label-sm">
+<button class="px-2.5 py-1 rounded hover:text-on-surface transition-colors">Hourly</button>
+<button class="px-2.5 py-1 rounded bg-surface-container-low text-primary font-semibold shadow-sm">Daily</button>
+<button class="px-2.5 py-1 rounded hover:text-on-surface transition-colors">Cumulative</button>
+</div>
+</div>
+<!-- Legend and Metrics Toggles -->
+<div class="flex items-center flex-wrap gap-4 text-outline font-label-sm text-label-sm pt-1">
+<div class="flex items-center gap-2 cursor-pointer hover:text-on-surface transition-colors">
+<span class="w-3 h-0.5 bg-outline border-b border-dashed border-outline"></span>
+<span>Raw Monorepo AST (Baseline Peak ~1.8M/d)</span>
+</div>
+<div class="flex items-center gap-2 cursor-pointer hover:text-on-surface transition-colors">
+<span class="w-3 h-1 rounded bg-tertiary shadow-[0_0_8px_rgba(76,215,246,0.6)]"></span>
+<span class="text-tertiary font-semibold">Pruned Prompt Context (~480k/d)</span>
+</div>
+<div class="flex items-center gap-2 cursor-pointer hover:text-on-surface transition-colors">
+<span class="w-3 h-1 rounded bg-primary"></span>
+<span class="text-primary font-medium">Generated Output Tokens (~120k/d)</span>
+</div>
+</div>
+<!-- Interactive Vector Chart SVG -->
+<div class="relative w-full h-[320px] bg-surface-container-lowest/80 rounded-lg p-space-md flex flex-col justify-between overflow-hidden">
+<!-- Ambient Glow for Data Line -->
+<div class="absolute inset-0 bg-gradient-to-t from-tertiary/5 via-transparent to-transparent pointer-events-none"></div>
+<!-- SVG Canvas Area with Visual Multi-Curves -->
+<svg class="w-full h-full overflow-visible" preserveaspectratio="none" viewbox="0 0 800 240">
+<defs>
+<lineargradient id="cyanFill" x1="0" x2="0" y1="0" y2="1">
+<stop offset="0%" stop-color="#4cd7f6" stop-opacity="0.25"></stop>
+<stop offset="100%" stop-color="#4cd7f6" stop-opacity="0.0"></stop>
+</lineargradient>
+<lineargradient id="purpleFill" x1="0" x2="0" y1="0" y2="1">
+<stop offset="0%" stop-color="#8b5cf6" stop-opacity="0.2"></stop>
+<stop offset="100%" stop-color="#8b5cf6" stop-opacity="0.0"></stop>
+</lineargradient>
+</defs>
+<!-- Gridlines -->
+<line opacity="0.4" stroke="#313540" stroke-dasharray="3,3" stroke-width="1" x1="0" x2="800" y1="40" y2="40"></line>
+<line opacity="0.4" stroke="#313540" stroke-dasharray="3,3" stroke-width="1" x1="0" x2="800" y1="90" y2="90"></line>
+<line opacity="0.4" stroke="#313540" stroke-dasharray="3,3" stroke-width="1" x1="0" x2="800" y1="140" y2="140"></line>
+<line opacity="0.4" stroke="#313540" stroke-dasharray="3,3" stroke-width="1" x1="0" x2="800" y1="190" y2="190"></line>
+<!-- Area 1: Pruned Stream Area -->
+<path d="M 0,160 Q 70,145 130,150 T 260,135 T 390,140 T 480,120 T 560,128 T 680,110 T 800,98 L 800,240 L 0,240 Z" fill="url(#cyanFill)"></path>
+<!-- Curve 1: Raw Baseline (Dashed Muted Line) -->
+<path d="M 0,60 C 60,35 120,40 180,25 C 240,10 320,55 380,30 C 440,20 520,45 600,15 C 680,-10 740,30 800,20" fill="none" opacity="0.6" stroke="#958ea0" stroke-dasharray="5,4" stroke-width="1.8"></path>
+<!-- Curve 2: Pruned Context Window (Sent to LLM) - Glowing Solid Cyan -->
+<path class="drop-shadow-[0_0_8px_rgba(76,215,246,0.8)]" d="M 0,160 Q 70,145 130,150 T 260,135 T 390,140 T 480,120 T 560,128 T 680,110 T 800,98" fill="none" stroke="#4cd7f6" stroke-width="2.5"></path>
+<!-- Curve 3: Generated Output Tokens (Purple/Violet Lower Trend) -->
+<path d="M 0,210 Q 80,205 160,208 T 320,200 T 480,195 T 640,190 T 800,185" fill="none" opacity="0.9" stroke="#d0bcff" stroke-width="2"></path>
+<!-- Tooltip Anchor Indicator on Day 18 (X=480, Y=120) -->
+<line opacity="0.7" stroke="#4cd7f6" stroke-dasharray="2,2" stroke-width="1.5" x1="480" x2="480" y1="0" y2="240"></line>
+<circle class="animate-pulse" cx="480" cy="120" fill="#4cd7f6" r="5"></circle>
+<circle cx="480" cy="120" fill="#0f131d" r="2"></circle>
+<circle cx="480" cy="22" fill="#958ea0" r="3.5"></circle>
+<circle cx="480" cy="195" fill="#d0bcff" r="3.5"></circle>
+</svg>
+<!-- Interactive Floating Tooltip Mock at Day 18 -->
+<div class="absolute left-[54%] top-6 bg-surface-container/95 backdrop-blur-md p-space-sm rounded-lg shadow-2xl pointer-events-none transform -translate-x-1/2 flex flex-col gap-1 z-20">
+<div class="flex items-center justify-between gap-4 border-b border-surface-container-highest pb-1">
+<span class="font-label-sm text-label-sm font-bold text-on-surface">DAY 18 (AST CYCLE)</span>
+<span class="font-code-sm text-[10px] text-tertiary">02:44:12 UTC</span>
+</div>
+<div class="flex flex-col gap-0.5 font-label-sm text-label-sm">
+<div class="flex justify-between gap-4">
+<span class="text-outline">Raw Monorepo Input:</span>
+<span class="text-on-surface font-code-sm">1.82M tok</span>
+</div>
+<div class="flex justify-between gap-4">
+<span class="text-tertiary font-medium">Context Sent (Pruned):</span>
+<span class="text-tertiary font-code-sm font-semibold">482k tok</span>
+</div>
+<div class="flex justify-between gap-4">
+<span class="text-primary">AST Compaction:</span>
+<span class="text-primary font-code-sm">-73.5% (1.34M saved)</span>
+</div>
+<div class="flex justify-between gap-4">
+<span class="text-outline">Output Gen:</span>
+<span class="text-on-surface font-code-sm">124k tok</span>
+</div>
+<div class="flex justify-between gap-4 pt-1 border-t border-surface-container-highest/60 font-semibold">
+<span class="text-on-surface">Day Net Cost:</span>
+<span class="text-tertiary font-code-sm">$4.91</span>
+</div>
+</div>
+</div>
+<!-- Horizontal Time Axis Labels -->
+<div class="flex justify-between font-label-sm text-label-sm text-outline px-1">
+<span>Day 01</span>
+<span>Day 06</span>
+<span>Day 12</span>
+<span class="text-tertiary font-semibold">Day 18 (Active)</span>
+<span>Day 24</span>
+<span>Day 30</span>
+</div>
+</div>
+</div>
+<!-- Secondary Breakdown: Model Cost & Volume Distribution (4 cols) -->
+<div class="xl:col-span-4 p-space-lg rounded-xl bg-surface-container-low flex flex-col gap-space-md shadow-lg">
+<div class="flex items-center justify-between">
+<div>
+<h2 class="font-headline-sm text-headline-sm text-on-surface font-semibold">
+              Model Allocation
+            </h2>
+<p class="font-body-sm text-body-sm text-outline mt-0.5">
+              Volume &amp; cost distribution across router cascades
+            </p>
+</div>
+<span class="px-2 py-0.5 rounded bg-surface-container-high font-label-sm text-label-sm text-tertiary">
+            88.4% Cache Hit
+          </span>
+</div>
+<!-- Horizontal Multi-Segment Volume Bar -->
+<div class="flex flex-col gap-1.5">
+<div class="flex items-center justify-between font-label-sm text-label-sm text-outline">
+<span>Volume Share</span>
+<span class="text-on-surface">14.82M Total Tokens</span>
+</div>
+<div class="w-full h-3 rounded-full bg-surface-container-highest flex overflow-hidden">
+<div class="bg-primary h-full w-[42%]" title="Claude 3.7: 42%"></div>
+<div class="bg-tertiary h-full w-[38%]" title="DeepSeek V3: 38%"></div>
+<div class="bg-secondary-container h-full w-[12%]" title="GPT-4o: 12%"></div>
+<div class="bg-outline h-full w-[8%]" title="Local Llama: 8%"></div>
+</div>
+</div>
+<!-- Detailed Model List Cards -->
+<div class="flex flex-col gap-2.5">
+<!-- Model 1: Claude 3.7 Sonnet -->
+<div class="p-space-sm rounded-lg bg-surface-container flex flex-col gap-1 hover:bg-surface-container-high transition-colors">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="w-2.5 h-2.5 rounded-full bg-primary shadow-sm"></span>
+<span class="font-body-sm text-body-sm text-on-surface font-semibold">Claude 3.7 Sonnet</span>
+</div>
+<span class="font-code-sm text-code-sm text-on-surface font-bold">$78.40</span>
+</div>
+<div class="flex items-center justify-between text-outline font-label-sm text-label-sm">
+<span>Reasoning, Security &amp; Auditing</span>
+<span class="text-on-surface-variant font-code-sm">6.2M tok (42%)</span>
+</div>
+<div class="flex items-center justify-between text-outline font-label-sm text-label-sm pt-0.5">
+<span>Avg $12.60 / 1M tok</span>
+<span class="text-tertiary">91.2% Cache Slicing</span>
+</div>
+</div>
+<!-- Model 2: DeepSeek V3 (Best Value) -->
+<div class="p-space-sm rounded-lg bg-surface-container flex flex-col gap-1 hover:bg-surface-container-high transition-colors relative overflow-hidden">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="w-2.5 h-2.5 rounded-full bg-tertiary shadow-sm"></span>
+<span class="font-body-sm text-body-sm text-on-surface font-semibold">DeepSeek V3</span>
+<span class="inline-flex items-center gap-0.5 px-1.5 py-0.2 rounded bg-tertiary-container/30 text-tertiary font-label-sm text-[10px] font-semibold">
+<span class="material-symbols-outlined text-xs">star</span> Best Value
+                </span>
+</div>
+<span class="font-code-sm text-code-sm text-on-surface font-bold">$22.40</span>
+</div>
+<div class="flex items-center justify-between text-outline font-label-sm text-label-sm">
+<span>Code Generation &amp; Test Drafts</span>
+<span class="text-on-surface-variant font-code-sm">5.6M tok (38%)</span>
+</div>
+<div class="flex items-center justify-between text-outline font-label-sm text-label-sm pt-0.5">
+<span class="text-tertiary font-semibold">Avg $4.00 / 1M tok</span>
+<span class="text-outline">86.8% Cache Slicing</span>
+</div>
+</div>
+<!-- Model 3: GPT-4o -->
+<div class="p-space-sm rounded-lg bg-surface-container flex flex-col gap-1 hover:bg-surface-container-high transition-colors">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="w-2.5 h-2.5 rounded-full bg-secondary-container shadow-sm"></span>
+<span class="font-body-sm text-body-sm text-on-surface font-semibold">GPT-4o</span>
+</div>
+<span class="font-code-sm text-code-sm text-on-surface font-bold">$39.60</span>
+</div>
+<div class="flex items-center justify-between text-outline font-label-sm text-label-sm">
+<span>Architectural Consensus &amp; Spec Sync</span>
+<span class="text-on-surface-variant font-code-sm">1.8M tok (12%)</span>
+</div>
+<div class="flex items-center justify-between text-outline font-label-sm text-label-sm pt-0.5">
+<span>Avg $22.00 / 1M tok</span>
+<span class="text-outline">78.0% Cache Slicing</span>
+</div>
+</div>
+<!-- Model 4: Local Llama 3.3 70B -->
+<div class="p-space-sm rounded-lg bg-surface-container flex flex-col gap-1 hover:bg-surface-container-high transition-colors">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="w-2.5 h-2.5 rounded-full bg-outline shadow-sm"></span>
+<span class="font-body-sm text-body-sm text-on-surface font-semibold">Llama 3.3 70B (Air-Gapped)</span>
+</div>
+<span class="font-code-sm text-code-sm text-on-surface font-bold">$7.80</span>
+</div>
+<div class="flex items-center justify-between text-outline font-label-sm text-label-sm">
+<span>AST Sanitization &amp; PII Stripping</span>
+<span class="text-on-surface-variant font-code-sm">1.2M tok (8%)</span>
+</div>
+<div class="flex items-center justify-between text-outline font-label-sm text-label-sm pt-0.5">
+<span>On-Prem Compute (Electricity amort.)</span>
+<span class="text-tertiary">Zero Cloud Egress</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Comparative Table: Task-wise & Service Token Footprint -->
+<div class="p-space-lg rounded-xl bg-surface-container-low flex flex-col gap-space-md shadow-lg">
+<div class="flex flex-col md:flex-row md:items-center justify-between gap-space-sm">
+<div>
+<h2 class="font-headline-sm text-headline-sm text-on-surface font-semibold flex items-center gap-2">
+<span>Task-wise &amp; Service Token Footprint</span>
+<span class="px-2 py-0.5 rounded-full bg-surface-container-highest text-outline font-label-sm text-label-sm">
+              Monitored Endpoints (52)
+            </span>
+</h2>
+<p class="font-body-sm text-body-sm text-outline mt-0.5">
+            AST pruning metrics and telemetry per execution pipeline
+          </p>
+</div>
+<!-- In-Table Search and Filters -->
+<div class="flex items-center gap-space-sm flex-wrap">
+<div class="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-surface-container text-on-surface-variant w-64">
+<span class="material-symbols-outlined text-sm">search</span>
+<input class="bg-transparent border-none outline-none font-body-sm text-body-sm text-on-surface placeholder:text-outline w-full" placeholder="Filter task or pipeline..." type="text"/>
+</div>
+<button class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-surface-container text-outline hover:text-on-surface transition-colors font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-sm">filter_list</span>
+<span>Pruned &gt; 70%</span>
+</button>
+</div>
+</div>
+<!-- High-Density Telemetry Table -->
+<div class="overflow-x-auto w-full">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-surface-container text-outline font-label-sm text-label-sm uppercase tracking-wider">
+<th class="py-2.5 px-space-md rounded-l">Task Category / Pipeline Target</th>
+<th class="py-2.5 px-space-md">Primary Engine</th>
+<th class="py-2.5 px-space-md">Raw AST</th>
+<th class="py-2.5 px-space-md">Pruned Context</th>
+<th class="py-2.5 px-space-md">AST Compaction</th>
+<th class="py-2.5 px-space-md">Cost</th>
+<th class="py-2.5 px-space-md">Cache Efficiency</th>
+<th class="py-2.5 px-space-md rounded-r text-right">Action</th>
+</tr>
+</thead>
+<tbody class="font-body-sm text-body-sm divide-y-0">
+<!-- Row 1 -->
+<tr class="hover:bg-surface-container transition-colors group">
+<td class="py-3 px-space-md font-medium text-on-surface flex items-center gap-2.5">
+<span class="material-symbols-outlined text-base text-tertiary">account_tree</span>
+<div class="flex flex-col">
+<span class="font-code-sm text-code-sm text-on-surface font-semibold">AST Semantic Slicing (pkg/cache)</span>
+<span class="font-label-sm text-label-sm text-outline">monorepo/packages/core-cache-v2</span>
+</div>
+</td>
+<td class="py-3 px-space-md">
+<span class="px-2 py-0.5 rounded bg-surface-container-high text-primary font-code-sm text-xs font-semibold inline-flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-primary"></span> Claude 3.7
+                </span>
+</td>
+<td class="py-3 px-space-md font-code-sm text-outline">184.2k</td>
+<td class="py-3 px-space-md font-code-sm text-on-surface font-semibold">24.8k</td>
+<td class="py-3 px-space-md">
+<span class="px-2 py-0.5 rounded-full bg-surface-container-high text-tertiary font-label-sm text-label-sm font-semibold">
+                  -86.5%
+                </span>
+</td>
+<td class="py-3 px-space-md font-code-sm text-on-surface">$0.038</td>
+<td class="py-3 px-space-md">
+<div class="flex items-center gap-2">
+<span class="font-label-sm text-label-sm text-on-surface">92.4%</span>
+<div class="w-16 h-1 bg-surface-container-highest rounded-full overflow-hidden">
+<div class="bg-tertiary h-full w-[92.4%]"></div>
+</div>
+</div>
+</td>
+<td class="py-3 px-space-md text-right">
+<button class="inline-flex items-center gap-1 px-2.5 py-1 rounded bg-surface-container-high text-outline group-hover:text-primary group-hover:bg-surface-bright transition-all font-label-sm text-label-sm">
+<span>Traces</span>
+<span class="material-symbols-outlined text-xs">open_in_new</span>
+</button>
+</td>
+</tr>
+<!-- Row 2 -->
+<tr class="hover:bg-surface-container transition-colors group">
+<td class="py-3 px-space-md font-medium text-on-surface flex items-center gap-2.5">
+<span class="material-symbols-outlined text-base text-primary">fact_check</span>
+<div class="flex flex-col">
+<span class="font-code-sm text-code-sm text-on-surface font-semibold">Unit Test Suite Synthesis</span>
+<span class="font-label-sm text-label-sm text-outline">services/auth-service/handlers</span>
+</div>
+</td>
+<td class="py-3 px-space-md">
+<span class="px-2 py-0.5 rounded bg-surface-container-high text-tertiary font-code-sm text-xs font-semibold inline-flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary"></span> DeepSeek V3
+                </span>
+</td>
+<td class="py-3 px-space-md font-code-sm text-outline">98.6k</td>
+<td class="py-3 px-space-md font-code-sm text-on-surface font-semibold">18.2k</td>
+<td class="py-3 px-space-md">
+<span class="px-2 py-0.5 rounded-full bg-surface-container-high text-tertiary font-label-sm text-label-sm font-semibold">
+                  -81.5%
+                </span>
+</td>
+<td class="py-3 px-space-md font-code-sm text-on-surface">$0.012</td>
+<td class="py-3 px-space-md">
+<div class="flex items-center gap-2">
+<span class="font-label-sm text-label-sm text-on-surface">88.0%</span>
+<div class="w-16 h-1 bg-surface-container-highest rounded-full overflow-hidden">
+<div class="bg-tertiary h-full w-[88%]"></div>
+</div>
+</div>
+</td>
+<td class="py-3 px-space-md text-right">
+<button class="inline-flex items-center gap-1 px-2.5 py-1 rounded bg-surface-container-high text-outline group-hover:text-primary group-hover:bg-surface-bright transition-all font-label-sm text-label-sm">
+<span>Traces</span>
+<span class="material-symbols-outlined text-xs">open_in_new</span>
+</button>
+</td>
+</tr>
+<!-- Row 3 -->
+<tr class="hover:bg-surface-container transition-colors group">
+<td class="py-3 px-space-md font-medium text-on-surface flex items-center gap-2.5">
+<span class="material-symbols-outlined text-base text-error">security</span>
+<div class="flex flex-col">
+<span class="font-code-sm text-code-sm text-on-surface font-semibold">CVE-2024-2141 Patch Generator</span>
+<span class="font-label-sm text-label-sm text-outline">gateway/proxy/http2_pipeline</span>
+</div>
+</td>
+<td class="py-3 px-space-md">
+<span class="px-2 py-0.5 rounded bg-surface-container-high text-primary font-code-sm text-xs font-semibold inline-flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-primary"></span> Claude 3.7
+                </span>
+</td>
+<td class="py-3 px-space-md font-code-sm text-outline">212.0k</td>
+<td class="py-3 px-space-md font-code-sm text-on-surface font-semibold">41.0k</td>
+<td class="py-3 px-space-md">
+<span class="px-2 py-0.5 rounded-full bg-surface-container-high text-tertiary font-label-sm text-label-sm font-semibold">
+                  -80.6%
+                </span>
+</td>
+<td class="py-3 px-space-md font-code-sm text-on-surface">$0.064</td>
+<td class="py-3 px-space-md">
+<div class="flex items-center gap-2">
+<span class="font-label-sm text-label-sm text-on-surface">94.8%</span>
+<div class="w-16 h-1 bg-surface-container-highest rounded-full overflow-hidden">
+<div class="bg-tertiary h-full w-[94.8%]"></div>
+</div>
+</div>
+</td>
+<td class="py-3 px-space-md text-right">
+<button class="inline-flex items-center gap-1 px-2.5 py-1 rounded bg-surface-container-high text-outline group-hover:text-primary group-hover:bg-surface-bright transition-all font-label-sm text-label-sm">
+<span>Traces</span>
+<span class="material-symbols-outlined text-xs">open_in_new</span>
+</button>
+</td>
+</tr>
+<!-- Row 4 -->
+<tr class="hover:bg-surface-container transition-colors group">
+<td class="py-3 px-space-md font-medium text-on-surface flex items-center gap-2.5">
+<span class="material-symbols-outlined text-base text-secondary">memory</span>
+<div class="flex flex-col">
+<span class="font-code-sm text-code-sm text-on-surface font-semibold">JWT Rust Migration Engine</span>
+<span class="font-label-sm text-label-sm text-outline">libs/crypto/token_verifier</span>
+</div>
+</td>
+<td class="py-3 px-space-md">
+<span class="px-2 py-0.5 rounded bg-surface-container-high text-secondary-fixed-dim font-code-sm text-xs font-semibold inline-flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary-container"></span> GPT-4o
+                </span>
+</td>
+<td class="py-3 px-space-md font-code-sm text-outline">146.5k</td>
+<td class="py-3 px-space-md font-code-sm text-on-surface font-semibold">32.1k</td>
+<td class="py-3 px-space-md">
+<span class="px-2 py-0.5 rounded-full bg-surface-container-high text-tertiary font-label-sm text-label-sm font-semibold">
+                  -78.1%
+                </span>
+</td>
+<td class="py-3 px-space-md font-code-sm text-on-surface">$0.071</td>
+<td class="py-3 px-space-md">
+<div class="flex items-center gap-2">
+<span class="font-label-sm text-label-sm text-on-surface">81.2%</span>
+<div class="w-16 h-1 bg-surface-container-highest rounded-full overflow-hidden">
+<div class="bg-tertiary h-full w-[81.2%]"></div>
+</div>
+</div>
+</td>
+<td class="py-3 px-space-md text-right">
+<button class="inline-flex items-center gap-1 px-2.5 py-1 rounded bg-surface-container-high text-outline group-hover:text-primary group-hover:bg-surface-bright transition-all font-label-sm text-label-sm">
+<span>Traces</span>
+<span class="material-symbols-outlined text-xs">open_in_new</span>
+</button>
+</td>
+</tr>
+<!-- Row 5 -->
+<tr class="hover:bg-surface-container transition-colors group">
+<td class="py-3 px-space-md font-medium text-on-surface flex items-center gap-2.5">
+<span class="material-symbols-outlined text-base text-tertiary">alt_route</span>
+<div class="flex flex-col">
+<span class="font-code-sm text-code-sm text-on-surface font-semibold">TypeGen Cross-Language Refactor</span>
+<span class="font-label-sm text-label-sm text-outline">clients/typescript/autogen</span>
+</div>
+</td>
+<td class="py-3 px-space-md">
+<span class="px-2 py-0.5 rounded bg-surface-container-high text-tertiary font-code-sm text-xs font-semibold inline-flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary"></span> DeepSeek V3
+                </span>
+</td>
+<td class="py-3 px-space-md font-code-sm text-outline">74.0k</td>
+<td class="py-3 px-space-md font-code-sm text-on-surface font-semibold">9.4k</td>
+<td class="py-3 px-space-md">
+<span class="px-2 py-0.5 rounded-full bg-surface-container-high text-tertiary font-label-sm text-label-sm font-semibold">
+                  -87.3%
+                </span>
+</td>
+<td class="py-3 px-space-md font-code-sm text-on-surface">$0.007</td>
+<td class="py-3 px-space-md">
+<div class="flex items-center gap-2">
+<span class="font-label-sm text-label-sm text-on-surface">96.1%</span>
+<div class="w-16 h-1 bg-surface-container-highest rounded-full overflow-hidden">
+<div class="bg-tertiary h-full w-[96.1%]"></div>
+</div>
+</div>
+</td>
+<td class="py-3 px-space-md text-right">
+<button class="inline-flex items-center gap-1 px-2.5 py-1 rounded bg-surface-container-high text-outline group-hover:text-primary group-hover:bg-surface-bright transition-all font-label-sm text-label-sm">
+<span>Traces</span>
+<span class="material-symbols-outlined text-xs">open_in_new</span>
+</button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<!-- Micro-Telemetry Sub-Bar -->
+<div class="px-space-md py-space-sm rounded-lg bg-surface-container-low flex flex-col md:flex-row md:items-center justify-between gap-space-sm text-outline font-label-sm text-label-sm shadow-sm">
+<div class="flex items-center gap-2 flex-wrap">
+<span class="flex items-center gap-1.5 text-on-surface font-medium">
+<span class="w-2 h-2 rounded-full bg-tertiary"></span>
+          AST In-Memory Cache:
+        </span>
+<span class="text-tertiary font-code-sm">1.2 GB / 4.0 GB (30% utilization)</span>
+<span class="text-surface-bright">•</span>
+<span>Token Rate Limit Headroom:</span>
+<span class="text-on-surface font-code-sm font-semibold">84% remaining</span>
+<span class="text-surface-bright">•</span>
+<span>Next billing cycle resets in 12 days</span>
+</div>
+<div class="flex items-center gap-space-md">
+<span class="text-outline">Sync Status: <span class="text-tertiary font-medium">Active Streaming</span></span>
+<button class="text-primary hover:text-on-surface transition-colors font-medium">
+          Manage Router Quotas →
+        </button>
+</div>
+</div>
+</div>
+</div>
+<script>
+  // Ensure the Sidebar highlights 'Token Analytics' as requested
+  document.addEventListener('DOMContentLoaded', () => {
+    const navLinks = document.querySelectorAll('aside nav a');
+    navLinks.forEach(link => {
+      if (link.getAttribute('data-path') === 'token-analytics') {
+        link.className = 'flex items-center gap-space-sm px-space-sm py-2 rounded-lg bg-surface-container-high text-primary font-medium shadow-sm transition-colors font-body-sm text-body-sm';
+      }
+    });
+  });
+</script></main></div>
+</body></html>
