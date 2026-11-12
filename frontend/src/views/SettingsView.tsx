@@ -110,14 +110,32 @@ export const SettingsView: React.FC<SettingsProps> = ({
               </p>
             </div>
 
-            <button
-              onClick={handleTestFailover}
-              disabled={isTestingFailover}
-              className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-surface-container-high border border-surface-container-highest text-xs font-medium text-tertiary hover:bg-surface-bright transition-colors"
-            >
-              <span className="material-symbols-outlined text-sm">alt_route</span>
-              <span>{isTestingFailover ? 'Simulating...' : 'Simulate Failover Test'}</span>
-            </button>
+            <div className="flex items-center gap-2">
+              <button
+                onClick={async () => {
+                  try {
+                    await fetch('/api/router/check-connectivity', { method: 'POST' });
+                    onRefreshProviders();
+                  } catch (e: any) {
+                    alert(`Probe error: ${e.message}`);
+                  }
+                }}
+                className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-surface-container-high border border-surface-container-highest text-xs font-medium text-on-surface hover:bg-surface-bright transition-colors"
+                title="Perform safe network probe on all configured endpoints"
+              >
+                <span className="material-symbols-outlined text-sm">wifi_find</span>
+                <span>Probe Connectivity</span>
+              </button>
+
+              <button
+                onClick={handleTestFailover}
+                disabled={isTestingFailover}
+                className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-surface-container-high border border-surface-container-highest text-xs font-medium text-tertiary hover:bg-surface-bright transition-colors"
+              >
+                <span className="material-symbols-outlined text-sm">alt_route</span>
+                <span>{isTestingFailover ? 'Simulating...' : 'Simulate Failover Test'}</span>
+              </button>
+            </div>
           </div>
 
           {failoverMsg && (
@@ -143,14 +161,18 @@ export const SettingsView: React.FC<SettingsProps> = ({
                   </div>
                   <span
                     className={`text-[10px] font-mono uppercase px-2 py-0.5 rounded font-medium ${
-                      p.is_local
-                        ? 'bg-primary-container/20 text-primary'
-                        : p.status === 'online'
-                        ? 'bg-tertiary/15 text-tertiary'
-                        : 'bg-surface-container text-outline'
+                      p.status === 'connected' || p.status === 'online'
+                        ? 'bg-tertiary/15 text-tertiary border border-tertiary/30'
+                        : p.status === 'degraded'
+                        ? 'bg-secondary/20 text-secondary border border-secondary/30'
+                        : p.status === 'disconnected'
+                        ? 'bg-error-container/30 text-error border border-error/30'
+                        : 'bg-surface-container text-outline border border-surface-container-highest/60'
                     }`}
                   >
-                    {p.is_local ? 'Offline Air-Gap' : p.status.toUpperCase()}
+                    {p.is_local && (p.status === 'connected' || p.status === 'online')
+                      ? 'Local Air-Gap'
+                      : p.status.replace('_', ' ').toUpperCase()}
                   </span>
                 </div>
 

@@ -128,10 +128,21 @@ export const TaskHistoryView: React.FC<TaskHistoryProps> = ({
                   <tr key={task.id} className="hover:bg-surface-container-high/40 transition-colors">
                     <td className="py-3.5 px-5">
                       <div className="flex flex-col min-w-0">
-                        <span className="font-semibold text-on-surface truncate max-w-sm">
-                          {task.title}
-                        </span>
-                        <span className="text-[11px] text-outline truncate max-w-xs">
+                        <div className="flex items-center gap-2">
+                          <span className="font-semibold text-on-surface truncate max-w-sm">
+                            {task.title}
+                          </span>
+                          <span
+                            className={`text-[9px] font-mono uppercase px-1.5 py-0.2 rounded shrink-0 border ${
+                              task.is_demo
+                                ? 'bg-surface-container text-outline border-surface-container-highest/60'
+                                : 'bg-tertiary/15 text-tertiary border-tertiary/30 font-semibold'
+                            }`}
+                          >
+                            {task.is_demo ? 'Demo Data' : 'Live'}
+                          </span>
+                        </div>
+                        <span className="text-[11px] text-outline truncate max-w-xs mt-0.5">
                           {task.diffs?.[0]?.filename || 'Modified files'}
                         </span>
                       </div>
@@ -246,3 +257,4 @@ export const TaskHistoryView: React.FC<TaskHistoryProps> = ({
     </div>
   );
 };
+

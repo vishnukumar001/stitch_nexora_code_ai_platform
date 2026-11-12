@@ -56,13 +56,13 @@ class TestNexoraCodeRequirements(unittest.TestCase):
 
     # Requirement C: Budget Management & Pre-Flight Limits
     def test_c_budget_management(self):
-        budget = BudgetService.get_budget_policy("usr_elena_01")
+        budget = BudgetService.get_budget_policy("usr_team_arise_01")
         self.assertIn("monthly_budget_usd", budget)
         self.assertIn("current_spend_usd", budget)
 
         # Pre-flight check should pass for normal request
         est_cost = BudgetService.validate_pre_flight_budget(
-            user_id="usr_elena_01",
+            user_id="usr_team_arise_01",
             target_model="deepseek-chat-v3",
             estimated_input_tokens=500,
             estimated_output_tokens=200
@@ -72,7 +72,7 @@ class TestNexoraCodeRequirements(unittest.TestCase):
         # Pre-flight check should block requests exceeding budget
         with self.assertRaises(Exception):
             BudgetService.validate_pre_flight_budget(
-                user_id="usr_elena_01",
+                user_id="usr_team_arise_01",
                 target_model="claude-3-7-sonnet",
                 estimated_input_tokens=100_000_000, # Massive token overload
                 estimated_output_tokens=10_000_000
@@ -93,7 +93,7 @@ class TestNexoraCodeRequirements(unittest.TestCase):
         self.assertEqual(gate.status, ApprovalStatus.PENDING)
 
         # Test approving the action
-        res = ApprovalGuard.resolve_approval(gate.id, ApprovalStatus.APPROVED, reviewer="Elena Rostova")
+        res = ApprovalGuard.resolve_approval(gate.id, ApprovalStatus.APPROVED, reviewer="TEAM ARISE")
         self.assertEqual(res["decision"], "approved")
 
         # Test Emergency Kill Switch

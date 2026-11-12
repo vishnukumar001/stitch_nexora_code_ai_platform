@@ -96,10 +96,10 @@ export const NavigationSidebar: React.FC<SidebarProps> = ({
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-2.5 min-w-0">
             <div className="w-8 h-8 rounded-full bg-primary/20 border border-primary/40 flex items-center justify-center text-primary font-bold text-xs shrink-0">
-              ER
+              TA
             </div>
             <div className="flex flex-col min-w-0">
-              <span className="text-xs font-medium text-on-surface truncate">Elena Rostova</span>
+              <span className="text-xs font-semibold text-on-surface truncate">TEAM ARISE</span>
               <span className="text-[11px] text-outline truncate">{activeRepoName}</span>
             </div>
           </div>

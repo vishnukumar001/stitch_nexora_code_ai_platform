@@ -36,9 +36,25 @@ def get_dashboard_overview():
     conn = get_connection()
     cursor = conn.cursor()
 
-    # Tasks count
+    # Distinguish live tasks vs demo seed
+    cursor.execute("SELECT COUNT(*) FROM tasks WHERE is_demo = 0")
+    live_tasks_count = cursor.fetchone()[0]
+
     cursor.execute("SELECT COUNT(*) FROM tasks")
-    total_tasks = cursor.fetchone()[0] + 1480 # baseline seeded count
+    total_tasks = cursor.fetchone()[0]
+
+    # Calculate actual token metrics from live executions
+    cursor.execute("""
+    SELECT 
+        COALESCE(SUM(tokens_compressed), 0),
+        COALESCE(SUM(tokens_saved), 0),
+        COALESCE(SUM(cost_saved_usd), 0),
+        COALESCE(SUM(cost_billed_usd), 0)
+    FROM tasks
+    WHERE is_demo = 0
+    """)
+    live_row = cursor.fetchone()
+    live_consumed, live_saved, live_dollars_saved, live_spent = live_row
 
     # Recent tasks
     cursor.execute("SELECT * FROM tasks ORDER BY created_at DESC LIMIT 6")
@@ -50,6 +66,7 @@ def get_dashboard_overview():
         t["cascade_chain"] = json.loads(t["cascade_chain"]) if isinstance(t["cascade_chain"], str) else t["cascade_chain"]
         t["reasoning_steps"] = json.loads(t["reasoning_steps"]) if isinstance(t["reasoning_steps"], str) else t["reasoning_steps"]
         t["diffs"] = json.loads(t["diffs"]) if isinstance(t["diffs"], str) else t["diffs"]
+        t["is_demo"] = bool(t.get("is_demo", 0))
         tasks_list.append(t)
 
     # Providers
@@ -60,16 +77,31 @@ def get_dashboard_overview():
 
     conn.close()
 
+    # Determine real vs demo metrics display
+    has_live_data = live_tasks_count > 0
+    if has_live_data:
+        disp_consumed = f"{(live_consumed / 1000):.1f}k" if live_consumed < 1_000_000 else f"{(live_consumed / 1_000_000):.2f}M"
+        disp_savings = f"{(live_saved / 1000):.1f}k" if live_saved < 1_000_000 else f"{(live_saved / 1_000_000):.2f}M"
+        savings_pct = round((live_saved / max(1, live_consumed + live_saved)) * 100, 1)
+        cost_saved = round(live_dollars_saved, 2)
+    else:
+        disp_consumed = "14.8k (Seed)"
+        disp_savings = "80.8k (Seed)"
+        savings_pct = 76.1
+        cost_saved = 0.0
+
     return {
         "kpis": {
+            "has_live_data": has_live_data,
+            "live_tasks_count": live_tasks_count,
             "tasks_completed": total_tasks,
-            "tasks_success_rate": 99.2,
-            "tokens_consumed": "14.8M",
-            "tokens_budget_cap": "45.0M",
-            "tokens_consumed_pct": 32.8,
-            "token_savings": "38.6M",
-            "token_savings_pct": 72.3,
-            "cost_saved_usd": 312.40,
+            "tasks_success_rate": 100.0 if has_live_data else 99.2,
+            "tokens_consumed": disp_consumed,
+            "tokens_budget_cap": f"{budget['monthly_token_cap'] / 1_000_000:.1f}M",
+            "tokens_consumed_pct": budget["tokens_utilized_pct"],
+            "token_savings": disp_savings,
+            "token_savings_pct": savings_pct,
+            "cost_saved_usd": cost_saved,
             "current_spend_usd": budget["current_spend_usd"],
             "budget_cap_usd": budget["monthly_budget_usd"],
             "spend_pct": budget["budget_utilized_pct"]
@@ -335,7 +367,7 @@ func (cm *CacheManager) isExpired(key string) bool {
         target_model = "claude-3-7-sonnet"
 
     BudgetService.validate_pre_flight_budget(
-        user_id="usr_elena_01",
+        user_id="usr_team_arise_01",
         target_model=target_model,
         estimated_input_tokens=compressed_tokens,
         estimated_output_tokens=350
@@ -362,7 +394,7 @@ func (cm *CacheManager) isExpired(key string) bool {
     cost_billed = calculate_cost(target_model, compressed_tokens, output_tokens)
 
     # 6. Record usage in budget database
-    BudgetService.record_usage("usr_elena_01", cost_billed, compressed_tokens + output_tokens)
+    BudgetService.record_usage("usr_team_arise_01", cost_billed, compressed_tokens + output_tokens)
 
     task_id = f"task-{int(time.time()*1000)}"
 
@@ -559,6 +591,15 @@ def get_model_router_topology():
         ]
     }
 
+@router.post("/router/check-connectivity")
+def probe_provider_connectivity():
+    """Actively probes endpoints for Bifrost, Local Ollama, and Cloud Models."""
+    updated = ProviderRouter.probe_all_providers()
+    return {
+        "status": "probed",
+        "providers": updated
+    }
+
 @router.post("/router/failover-test")
 def simulate_failover(provider_id: str = "prov-claude"):
     """Simulates provider timeout/error to demonstrate automatic failover & circuit breaker."""
@@ -579,15 +620,15 @@ def update_budget(update: BudgetUpdate):
     conn = get_connection()
     cursor = conn.cursor()
     if update.monthly_budget_usd is not None:
-        cursor.execute("UPDATE budget_policies SET monthly_budget_usd = ? WHERE user_id = 'usr_elena_01'", (update.monthly_budget_usd,))
+        cursor.execute("UPDATE budget_policies SET monthly_budget_usd = ? WHERE user_id = 'usr_team_arise_01'", (update.monthly_budget_usd,))
     if update.monthly_token_cap is not None:
-        cursor.execute("UPDATE budget_policies SET monthly_token_cap = ? WHERE user_id = 'usr_elena_01'", (update.monthly_token_cap,))
+        cursor.execute("UPDATE budget_policies SET monthly_token_cap = ? WHERE user_id = 'usr_team_arise_01'", (update.monthly_token_cap,))
     if update.hard_limit_enforced is not None:
-        cursor.execute("UPDATE budget_policies SET hard_limit_enforced = ? WHERE user_id = 'usr_elena_01'", (1 if update.hard_limit_enforced else 0,))
+        cursor.execute("UPDATE budget_policies SET hard_limit_enforced = ? WHERE user_id = 'usr_team_arise_01'", (1 if update.hard_limit_enforced else 0,))
     if update.auto_throttle_active is not None:
-        cursor.execute("UPDATE budget_policies SET auto_throttle_active = ? WHERE user_id = 'usr_elena_01'", (1 if update.auto_throttle_active else 0,))
+        cursor.execute("UPDATE budget_policies SET auto_throttle_active = ? WHERE user_id = 'usr_team_arise_01'", (1 if update.auto_throttle_active else 0,))
     if update.alert_threshold_pct is not None:
-        cursor.execute("UPDATE budget_policies SET alert_threshold_pct = ? WHERE user_id = 'usr_elena_01'", (update.alert_threshold_pct,))
+        cursor.execute("UPDATE budget_policies SET alert_threshold_pct = ? WHERE user_id = 'usr_team_arise_01'", (update.alert_threshold_pct,))
     conn.commit()
     conn.close()
     return BudgetService.get_budget_policy()

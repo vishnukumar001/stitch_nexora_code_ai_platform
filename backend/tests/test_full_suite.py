@@ -67,7 +67,7 @@ class TestFullNexoraSuite(unittest.TestCase):
         # Resolve approval
         res_approve = self.client.post(f'/api/approvals/{approval_id}/resolve', json={
             "decision": "approved",
-            "reviewer": "Elena Rostova"
+            "reviewer": "TEAM ARISE"
         })
         self.assertEqual(res_approve.status_code, 200)
         self.assertEqual(res_approve.json()["decision"], "approved")

@@ -51,7 +51,7 @@ class TestUsabilityWorkflows(unittest.TestCase):
         # 6. Approve the changes
         res_approve = self.client.post(f"/api/approvals/{task['approval_id']}/resolve", json={
             "decision": "approved",
-            "reviewer": "Elena Rostova",
+            "reviewer": "TEAM ARISE",
             "notes": "Verified sync.Pool buffer reuse benchmark"
         })
         self.assertEqual(res_approve.status_code, 200)

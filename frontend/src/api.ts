@@ -3,6 +3,8 @@
 const API_BASE = '/api';
 
 export interface KPIStats {
+  has_live_data?: boolean;
+  live_tasks_count?: number;
   tasks_completed: number;
   tasks_success_rate: number;
   tokens_consumed: string;
@@ -21,7 +23,7 @@ export interface Provider {
   name: string;
   tier: string;
   model_name: string;
-  status: 'online' | 'standby' | 'degraded' | 'offline';
+  status: 'online' | 'standby' | 'degraded' | 'offline' | 'connected' | 'disconnected' | 'not_configured' | 'testing';
   latency_ms: number;
   p95_latency_ms: number;
   uptime_pct: number;
@@ -68,6 +70,7 @@ export interface TaskRecord {
   }>;
   approval_id?: string;
   created_at: number;
+  is_demo?: boolean;
 }
 
 export interface Repository {
@@ -235,7 +238,7 @@ export async function resolveApproval(approvalId: string, decision: 'approved' |
   const res = await fetch(`${API_BASE}/approvals/${approvalId}/resolve`, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ decision, reviewer: 'Elena Rostova', notes })
+    body: JSON.stringify({ decision, reviewer: 'TEAM ARISE', notes })
   });
   return res.json();
 }

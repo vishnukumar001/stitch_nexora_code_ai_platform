@@ -92,7 +92,7 @@ class ApprovalGuard:
         cls,
         approval_id: str,
         decision: ApprovalStatus,
-        reviewer: str = "Elena Rostova",
+        reviewer: str = "TEAM ARISE",
         notes: Optional[str] = None
     ) -> Dict[str, Any]:
         """

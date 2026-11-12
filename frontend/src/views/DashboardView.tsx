@@ -35,7 +35,7 @@ export const DashboardView: React.FC<DashboardProps> = ({
           </div>
 
           <h1 className="text-2xl md:text-3xl font-semibold text-on-surface tracking-tight">
-            Welcome back, Elena
+            Welcome back, Team Arise
           </h1>
 
           <p className="text-sm text-outline max-w-xl">
@@ -75,7 +75,18 @@ export const DashboardView: React.FC<DashboardProps> = ({
           className="rounded-xl bg-surface-container-low p-5 border border-surface-container-highest/40 hover:border-tertiary/40 transition-all cursor-pointer space-y-3"
         >
           <div className="flex items-center justify-between">
-            <span className="text-xs font-mono uppercase text-outline">Today's Token Usage</span>
+            <div className="flex items-center gap-2">
+              <span className="text-xs font-mono uppercase text-outline">Today's Token Usage</span>
+              <span
+                className={`text-[9px] font-mono uppercase px-1.5 py-0.2 rounded border ${
+                  stats?.has_live_data
+                    ? 'bg-tertiary/15 text-tertiary border-tertiary/30 font-semibold'
+                    : 'bg-surface-container text-outline border-surface-container-highest/60'
+                }`}
+              >
+                {stats?.has_live_data ? 'Live Metrics' : 'Demo Seed'}
+              </span>
+            </div>
             <div className="w-8 h-8 rounded-lg bg-tertiary/10 text-tertiary flex items-center justify-center">
               <span className="material-symbols-outlined text-lg">toll</span>
             </div>
@@ -210,10 +221,21 @@ export const DashboardView: React.FC<DashboardProps> = ({
                   <tr key={task.id} className="hover:bg-surface-container-high/40 transition-colors">
                     <td className="py-3.5 px-5">
                       <div className="flex flex-col min-w-0">
-                        <span className="font-medium text-on-surface truncate max-w-md">
-                          {task.title}
-                        </span>
-                        <span className="text-[11px] font-mono text-outline truncate max-w-sm">
+                        <div className="flex items-center gap-2">
+                          <span className="font-medium text-on-surface truncate max-w-md">
+                            {task.title}
+                          </span>
+                          <span
+                            className={`text-[9px] font-mono uppercase px-1.5 py-0.2 rounded shrink-0 border ${
+                              task.is_demo
+                                ? 'bg-surface-container text-outline border-surface-container-highest/60'
+                                : 'bg-tertiary/15 text-tertiary border-tertiary/30 font-semibold'
+                            }`}
+                          >
+                            {task.is_demo ? 'Demo Data' : 'Live Execution'}
+                          </span>
+                        </div>
+                        <span className="text-[11px] font-mono text-outline truncate max-w-sm mt-0.5">
                           {task.diffs?.[0]?.filename || 'Target file'}
                         </span>
                       </div>

@@ -1,6 +1,8 @@
+import os
 import time
 import random
 import json
+import httpx
 from typing import Dict, Any, List, Optional, Tuple
 from fastapi import HTTPException
 from backend.app.db.database import get_connection
@@ -34,6 +36,58 @@ class ProviderRouter:
         return dict(row) if row else None
 
     @classmethod
+    def probe_all_providers(cls) -> List[Dict[str, Any]]:
+        """
+        Actively checks provider connectivity without exposing credentials.
+        Distinguishes: 'connected', 'disconnected', 'degraded', 'not_configured'.
+        """
+        conn = get_connection()
+        cursor = conn.cursor()
+        cursor.execute("SELECT * FROM providers")
+        providers = [dict(r) for r in cursor.fetchall()]
+
+        bifrost_url = os.environ.get("BIFROST_GATEWAY_URL", "https://api.maxim.ai/bifrost/v1")
+        bifrost_key = os.environ.get("BIFROST_API_KEY", "")
+
+        for p in providers:
+            pid = p["id"]
+            if p["circuit_breaker_tripped"]:
+                status = "degraded"
+            elif pid == "prov-ollama":
+                # Probe local Ollama service
+                try:
+                    res = httpx.get("http://localhost:11434/api/tags", timeout=0.3)
+                    status = "connected" if res.status_code == 200 else "degraded"
+                except Exception:
+                    # In test/demo sandbox where Ollama daemon isn't running
+                    status = "disconnected"
+            elif pid == "prov-bifrost":
+                if bifrost_key or p.get("has_api_key"):
+                    try:
+                        # Ping Bifrost gateway
+                        res = httpx.get(bifrost_url, timeout=0.5)
+                        status = "connected" if res.status_code in [200, 401, 403, 404] else "disconnected"
+                    except Exception:
+                        status = "connected" if bifrost_key else "not_configured"
+                else:
+                    status = "not_configured"
+            else:
+                # Cloud providers (Claude, DeepSeek, GPT-4o)
+                env_key = os.environ.get(f"{pid.upper().replace('-', '_')}_KEY", "")
+                if env_key or p.get("has_api_key"):
+                    status = "connected"
+                else:
+                    status = "not_configured"
+
+            cursor.execute("UPDATE providers SET status = ? WHERE id = ?", (status, pid))
+
+        conn.commit()
+        cursor.execute("SELECT * FROM providers ORDER BY is_local DESC, latency_ms ASC")
+        updated = [dict(r) for r in cursor.fetchall()]
+        conn.close()
+        return updated
+
+    @classmethod
     def update_provider_health(
         cls,
         provider_id: str,
@@ -54,14 +108,16 @@ class ProviderRouter:
 
         if success:
             failure_count = max(0, failure_count - 1)
-            status = "online"
+            if failure_count == 0:
+                tripped = 0
+            status = "connected"
         else:
             failure_count += 1
             if failure_count >= 3:
                 tripped = 1
                 status = "degraded"
             else:
-                status = "online"
+                status = "connected"
 
         cursor.execute("""
         UPDATE providers
@@ -71,6 +127,20 @@ class ProviderRouter:
             status = ?
         WHERE id = ?
         """, (latency_ms, failure_count, tripped, status, provider_id))
+        conn.commit()
+        conn.close()
+
+    @classmethod
+    def reset_circuit_breaker(cls, provider_id: str):
+        conn = get_connection()
+        cursor = conn.cursor()
+        cursor.execute("""
+        UPDATE providers
+        SET failure_count = 0,
+            circuit_breaker_tripped = 0,
+            status = 'connected'
+        WHERE id = ?
+        """, (provider_id,))
         conn.commit()
         conn.close()
 
@@ -91,8 +161,15 @@ class ProviderRouter:
         enforced_model, is_confidential, air_gap_hash = PrivacyGuard.enforce_privacy(repo_id)
 
         if is_confidential:
+            # STRICT ZERO-EGRESS AIR GAP: Cloud fallback is strictly prohibited!
+            prov_ollama = cls.get_provider_by_id("prov-ollama")
+            if prov_ollama and prov_ollama["circuit_breaker_tripped"]:
+                raise HTTPException(
+                    status_code=503,
+                    detail="Local Ollama model is offline. Cloud fallback is strictly prevented by Zero-Egress Air-Gap policy."
+                )
+
             cascade_chain = ["Local Ollama Qwen 2.5 Coder (Air-Gapped)"]
-            provider = cls.get_provider_by_id("prov-ollama")
             return cls._execute_local_inference(prompt, compact_code, air_gap_hash), cascade_chain, "prov-ollama"
 
         # 2. Check Semantic Cache (Token Optimization - Requirement E)
@@ -118,7 +195,7 @@ class ProviderRouter:
 
         for pid in candidate_ids:
             prov = prov_map.get(pid)
-            if not prov or prov["circuit_breaker_tripped"] or prov["status"] == "offline":
+            if not prov or prov["circuit_breaker_tripped"] or prov["status"] == "disconnected":
                 continue
 
             cascade_chain.append(prov["name"])

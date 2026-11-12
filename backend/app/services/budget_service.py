@@ -12,7 +12,7 @@ class BudgetService:
     """
 
     @staticmethod
-    def get_budget_policy(user_id: str = "usr_elena_01") -> Dict[str, Any]:
+    def get_budget_policy(user_id: str = "usr_team_arise_01") -> Dict[str, Any]:
         conn = get_connection()
         cursor = conn.cursor()
         cursor.execute("SELECT * FROM budget_policies WHERE user_id = ?", (user_id,))

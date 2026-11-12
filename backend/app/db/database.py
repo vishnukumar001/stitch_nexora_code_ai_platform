@@ -111,7 +111,8 @@ def init_db():
         reasoning_steps TEXT NOT NULL, -- JSON list
         diffs TEXT NOT NULL, -- JSON list
         approval_id TEXT,
-        created_at REAL NOT NULL
+        created_at REAL NOT NULL,
+        is_demo INTEGER NOT NULL DEFAULT 0
     );
     """)
 
@@ -166,7 +167,7 @@ def seed_data(conn):
     # 3. Budget Policy
     cursor.execute("""
     INSERT INTO budget_policies (id, user_id, monthly_budget_usd, current_spend_usd, monthly_token_cap, current_tokens_used, hard_limit_enforced, auto_throttle_active, alert_threshold_pct, runway_days)
-    VALUES ('bgt_elena', 'usr_elena_01', 1200.0, 482.40, 45000000, 14820000, 1, 1, 80.0, 18)
+    VALUES ('bgt_team_arise', 'usr_team_arise_01', 1200.0, 482.40, 45000000, 14820000, 1, 1, 80.0, 18)
     """)
 
     # 4. Pending Action Approvals (from Stitch screen 9)
@@ -333,8 +334,8 @@ def seed_data(conn):
         )
     ]
     cursor.executemany("""
-    INSERT INTO tasks (id, title, repo_id, branch, prompt, solution_summary, model_used, cascade_chain, is_confidential_routed, tokens_uncompressed, tokens_compressed, tokens_saved, compression_ratio, cost_billed_usd, cost_saved_usd, latency_ms, status, reasoning_steps, diffs, approval_id, created_at)
-    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+    INSERT INTO tasks (id, title, repo_id, branch, prompt, solution_summary, model_used, cascade_chain, is_confidential_routed, tokens_uncompressed, tokens_compressed, tokens_saved, compression_ratio, cost_billed_usd, cost_saved_usd, latency_ms, status, reasoning_steps, diffs, approval_id, created_at, is_demo)
+    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, 1)
     """, tasks)
 
     conn.commit()

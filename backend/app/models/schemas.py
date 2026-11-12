@@ -94,12 +94,12 @@ class ActionApproval(BaseModel):
 class ApprovalDecision(BaseModel):
     decision: ApprovalStatus # APPROVED or REJECTED or REVISION_REQUESTED
     notes: Optional[str] = None
-    reviewer: str = "Elena Rostova"
+    reviewer: str = "TEAM ARISE"
 
 # Budget Schema
 class BudgetPolicy(BaseModel):
     id: str
-    user_id: str = "usr_elena_01"
+    user_id: str = "usr_team_arise_01"
     monthly_budget_usd: float = 1200.0
     current_spend_usd: float = 482.40
     monthly_token_cap: int = 45_000_000
