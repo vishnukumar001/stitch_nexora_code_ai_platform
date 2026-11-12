@@ -134,6 +134,44 @@ export async function updateRepoPrivacy(repoId: string, isConfidential: boolean)
   return res.json();
 }
 
+export interface TaskAnalyzeResponse {
+  understood_task: string;
+  relevant_files: Array<{
+    name: string;
+    role: string;
+    loc: number;
+    ast_sliced: boolean;
+  }>;
+  estimated_tokens_raw: number;
+  estimated_tokens_compact: number;
+  token_savings_pct: number;
+  selected_provider: string;
+  is_confidential: boolean;
+  execution_plan: Array<{
+    step: number;
+    title: string;
+    detail: string;
+  }>;
+  requires_approval: boolean;
+}
+
+export async function analyzeAgentTask(params: {
+  prompt: string;
+  repo_id: string;
+  is_confidential?: boolean;
+}): Promise<TaskAnalyzeResponse> {
+  const res = await fetch(`${API_BASE}/tasks/analyze`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(params)
+  });
+  if (!res.ok) {
+    const err = await res.json();
+    throw new Error(err.detail?.message || err.detail || 'Analysis failed');
+  }
+  return res.json();
+}
+
 export async function executeAgentTask(params: {
   prompt: string;
   repo_id: string;
@@ -225,3 +263,4 @@ export async function addVaultSecret(providerId: string, apiKey: string) {
   });
   return res.json();
 }
+

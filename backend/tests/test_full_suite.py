@@ -111,5 +111,33 @@ class TestFullNexoraSuite(unittest.TestCase):
         self.assertEqual(res.status_code, 200)
         self.assertIn("Simulated timeout error", res.json()["message"])
 
+    def test_09_task_analysis_simplified_workflow(self):
+        # Test Step 4 of the simplified workflow: task analysis & token estimation
+        res = self.client.post('/api/tasks/analyze', json={
+            "prompt": "Find and fix memory leak in cache_manager.go",
+            "repo_id": "repo-core",
+            "is_confidential": False
+        })
+        self.assertEqual(res.status_code, 200)
+        data = res.json()
+        self.assertIn("understood_task", data)
+        self.assertGreater(len(data["relevant_files"]), 0)
+        self.assertGreater(data["estimated_tokens_raw"], data["estimated_tokens_compact"])
+        self.assertGreater(data["token_savings_pct"], 50.0)
+        self.assertTrue(data["requires_approval"])
+        self.assertIn("Claude", data["selected_provider"])
+
+        # Test with confidential repo
+        res_conf = self.client.post('/api/tasks/analyze', json={
+            "prompt": "Secure JWT tokens",
+            "repo_id": "repo-auth",
+            "is_confidential": True
+        })
+        self.assertEqual(res_conf.status_code, 200)
+        data_conf = res_conf.json()
+        self.assertTrue(data_conf["is_confidential"])
+        self.assertIn("Local Ollama", data_conf["selected_provider"])
+
 if __name__ == '__main__':
     unittest.main()
+

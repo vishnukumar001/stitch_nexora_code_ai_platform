@@ -334,3 +334,4 @@ export const SecurityCenterView: React.FC<SecurityCenterProps> = ({
     </div>
   );
 };
+

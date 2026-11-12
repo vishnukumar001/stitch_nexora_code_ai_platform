@@ -184,3 +184,4 @@ export const AuthView: React.FC<AuthProps> = ({ onSuccess, onBackToLanding }) =>
     </div>
   );
 };
+

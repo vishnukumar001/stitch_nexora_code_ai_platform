@@ -117,6 +117,22 @@ class BudgetUpdate(BaseModel):
     alert_threshold_pct: Optional[float] = None
 
 # Coding Agent Task Execution Schemas
+class TaskAnalyzeRequest(BaseModel):
+    prompt: str
+    repo_id: str
+    is_confidential: Optional[bool] = None
+
+class TaskAnalyzeResponse(BaseModel):
+    understood_task: str
+    relevant_files: List[Dict[str, Any]]
+    estimated_tokens_raw: int
+    estimated_tokens_compact: int
+    token_savings_pct: float
+    selected_provider: str
+    is_confidential: bool
+    execution_plan: List[Dict[str, Any]]
+    requires_approval: bool
+
 class AgentTaskRequest(BaseModel):
     prompt: str
     repo_id: str
@@ -158,6 +174,7 @@ class AgentTaskResponse(BaseModel):
     status: str # "completed", "pending_approval", "rejected", "failed"
     reasoning_steps: List[ReasoningStep]
     diffs: List[FileDiff]
+    approval_id: Optional[str] = None
     pending_approval: Optional[ActionApproval] = None
     created_at: float = Field(default_factory=time.time)
 
@@ -173,3 +190,4 @@ class TokenAnalyticsSummary(BaseModel):
     total_cost_saved_usd: float
     model_shares: Dict[str, float]
     history_trajectory: List[Dict[str, Any]]
+

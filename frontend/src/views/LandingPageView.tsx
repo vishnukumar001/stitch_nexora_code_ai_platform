@@ -218,3 +218,4 @@ export const LandingPageView: React.FC<LandingPageProps> = ({ onLaunchConsole, o
     </div>
   );
 };
+

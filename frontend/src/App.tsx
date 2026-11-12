@@ -9,17 +9,15 @@ import {
   Provider,
   TaskRecord,
   Repository,
-  ActionApproval
+  ActionApproval,
 } from './api';
 import { NavigationSidebar } from './components/NavigationSidebar';
 import { TopHeader } from './components/TopHeader';
 import { DashboardView } from './views/DashboardView';
 import { WorkspaceView } from './views/WorkspaceView';
-import { RepositoriesView } from './views/RepositoriesView';
-import { TokenAnalyticsView } from './views/TokenAnalyticsView';
-import { ModelRouterView } from './views/ModelRouterView';
-import { BudgetManagerView } from './views/BudgetManagerView';
-import { SecurityCenterView } from './views/SecurityCenterView';
+import { ProjectsView } from './views/ProjectsView';
+import { TaskHistoryView } from './views/TaskHistoryView';
+import { UsageTokensView } from './views/UsageTokensView';
 import { SettingsView } from './views/SettingsView';
 import { LandingPageView } from './views/LandingPageView';
 import { AuthView } from './views/AuthView';
@@ -76,7 +74,7 @@ export function App() {
 
   const handleInspectTask = (task: TaskRecord) => {
     setSelectedTask(task);
-    setCurrentView('ai-coding-workspace');
+    setCurrentView('new-task');
   };
 
   const activeRepo = repositories.find((r) => r.id === activeRepoId) || repositories[0];
@@ -102,15 +100,16 @@ export function App() {
 
   return (
     <div className="flex w-full min-h-screen bg-surface-container-lowest text-on-surface">
-      {/* Sidebar Navigation */}
+      {/* 1. Left Sidebar Navigation */}
       <NavigationSidebar
         currentView={currentView}
         onNavigate={setCurrentView}
         killSwitchActive={killSwitchActive}
+        activeRepoName={activeRepo?.name || 'prod-core-monorepo'}
       />
 
-      {/* Main Workspace Frame */}
-      <div className="pl-[260px] flex-1 flex flex-col min-w-0">
+      {/* 2. Main Content Frame */}
+      <div className="pl-[250px] flex-1 flex flex-col min-w-0">
         <TopHeader
           onNavigate={setCurrentView}
           pendingApprovalsCount={approvals.length}
@@ -125,12 +124,13 @@ export function App() {
               stats={stats}
               providers={providers}
               recentActivities={recentActivities}
+              activeRepoName={activeRepo?.name || 'prod-core-monorepo'}
               onNavigate={setCurrentView}
               onInspectTask={handleInspectTask}
             />
           )}
 
-          {currentView === 'ai-coding-workspace' && (
+          {(currentView === 'new-task' || currentView === 'ai-coding-workspace') && (
             <WorkspaceView
               repositories={repositories}
               activeRepoId={activeRepoId}
@@ -144,8 +144,8 @@ export function App() {
             />
           )}
 
-          {currentView === 'repositories' && (
-            <RepositoriesView
+          {(currentView === 'projects' || currentView === 'repositories') && (
+            <ProjectsView
               repositories={repositories}
               onRefresh={loadAllData}
               onSelectRepo={(id) => {
@@ -155,24 +155,24 @@ export function App() {
             />
           )}
 
-          {currentView === 'token-analytics' && <TokenAnalyticsView />}
-
-          {currentView === 'model-router' && <ModelRouterView />}
-
-          {currentView === 'budget-manager' && <BudgetManagerView />}
-
-          {currentView === 'security-center' && (
-            <SecurityCenterView
-              killSwitchActive={killSwitchActive}
-              onToggleKillSwitch={handleToggleKillSwitch}
+          {currentView === 'task-history' && (
+            <TaskHistoryView
+              tasks={recentActivities}
+              onInspectTask={handleInspectTask}
+              onNavigate={setCurrentView}
             />
           )}
 
-          {(currentView === 'settings' || currentView === 'task-history') && (
+          {(currentView === 'usage-tokens' || currentView === 'token-analytics' || currentView === 'budget-manager') && (
+            <UsageTokensView />
+          )}
+
+          {(currentView === 'settings' || currentView === 'model-router' || currentView === 'security-center') && (
             <SettingsView
               providers={providers}
               onRefreshProviders={loadAllData}
-              onInspectTask={handleInspectTask}
+              killSwitchActive={killSwitchActive}
+              onToggleKillSwitch={handleToggleKillSwitch}
             />
           )}
         </main>
@@ -180,4 +180,5 @@ export function App() {
     </div>
   );
 }
+
 export default App;

@@ -178,3 +178,4 @@ class ProviderRouter:
             "output_tokens": output_tokens,
             "latency_ms": provider["latency_ms"] + random.randint(-15, 25)
         }
+

@@ -24,3 +24,4 @@ echo "API Docs available at: http://localhost:8000/docs"
 echo "Press Ctrl+C to stop."
 
 PYTHONPATH=. python3 -m uvicorn backend.app.main:app --host 0.0.0.0 --port 8000 --reload
+

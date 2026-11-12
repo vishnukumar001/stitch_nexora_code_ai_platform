@@ -54,3 +54,4 @@ class SemanticCache:
 
 # Global singleton cache instance
 semantic_cache = SemanticCache()
+

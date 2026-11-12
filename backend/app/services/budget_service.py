@@ -114,3 +114,4 @@ class BudgetService:
         conn.close()
 
         return cls.get_budget_policy(user_id)
+

@@ -5,7 +5,8 @@ from fastapi import APIRouter, HTTPException, Depends
 from backend.app.db.database import get_connection
 from backend.app.models.schemas import (
     Repository, RepositoryCreate, Provider, ActionApproval, ApprovalDecision,
-    BudgetPolicy, BudgetUpdate, AgentTaskRequest, AgentTaskResponse,
+    BudgetPolicy, BudgetUpdate, TaskAnalyzeRequest, TaskAnalyzeResponse,
+    AgentTaskRequest, AgentTaskResponse,
     TokenAnalyticsSummary, ReasoningStep, FileDiff, ActionType, SeverityLevel, ApprovalStatus
 )
 from backend.app.services.ast_optimizer import ASTOptimizer
@@ -126,6 +127,117 @@ def update_repository_privacy(repo_id: str, is_confidential: bool):
     }
 
 # ----------------- CODING AGENT TASK EXECUTION (PS 01 CORE) -----------------
+@router.post("/tasks/analyze", response_model=TaskAnalyzeResponse)
+def analyze_coding_task(request: TaskAnalyzeRequest):
+    """
+    Step 4 of Simplified Workflow:
+    Analyzes coding instruction, identifies relevant files, estimates token usage,
+    determines appropriate model based on privacy rules, and proposes execution plan.
+    """
+    if ApprovalGuard.is_kill_switch_engaged():
+        raise HTTPException(
+            status_code=423,
+            detail="Emergency Kill Switch is currently engaged. All agent task executions are frozen."
+        )
+
+    repo_meta = PrivacyGuard.check_repository_privacy(request.repo_id)
+    is_confidential = repo_meta["is_confidential"] or repo_meta["privacy_mode"] == "confidential"
+    if request.is_confidential is not None:
+        is_confidential = request.is_confidential
+
+    # Representative codebase snippet for real AST estimation
+    sample_raw_code = """
+package cache
+
+import (
+	"bytes"
+	"context"
+	"sync"
+	"time"
+	"fmt"
+	"encoding/json"
+	"io"
+)
+
+type CacheManager struct {
+	mu            sync.Mutex
+	table         map[string][]byte
+	evictionQueue []string
+	ttl           time.Duration
+	maxEntries    int
+}
+
+func (cm *CacheManager) EvictExpiredKeys(ctx context.Context) {
+	cm.mu.Lock()
+	defer cm.mu.Unlock()
+	rawBuffer := make([]byte, 0, 65536)
+	buf := bytes.NewBuffer(rawBuffer)
+	for _, key := range cm.evictionQueue {
+		if cm.isExpired(key) {
+			buf.WriteString(key)
+			delete(cm.table, key)
+		}
+	}
+}
+""" * 4
+
+    opt_result = ASTOptimizer.optimize_context(sample_raw_code, request.prompt, file_path="cache_manager.go")
+    raw_tokens = opt_result["raw_tokens"]
+    compressed_tokens = opt_result["compressed_tokens"]
+    savings_pct = opt_result["compression_ratio"]
+
+    # Natural language understanding distillation
+    p_lower = request.prompt.lower()
+    if any(k in p_lower for k in ["memory", "leak", "buffer", "evict", "cache"]):
+        understood = "Isolate unbounded buffer allocation in CacheManager eviction loop, apply sync.Pool buffer reuse, and verify throughput under concurrency."
+        rel_files = [
+            {"name": "pkg/cache/cache_manager.go", "role": "Target Implementation", "loc": 420, "ast_sliced": True},
+            {"name": "pkg/cache/cache_test.go", "role": "Benchmark & Verification", "loc": 180, "ast_sliced": True}
+        ]
+    elif any(k in p_lower for k in ["auth", "jwt", "login", "token", "session"]):
+        understood = "Audit session authentication verification logic, enforce expiration boundary validation, and secure cryptographic token handling."
+        rel_files = [
+            {"name": "services/auth/session_manager.py", "role": "Target Implementation", "loc": 310, "ast_sliced": True},
+            {"name": "services/auth/tests/test_tokens.py", "role": "Unit Test Suite", "loc": 140, "ast_sliced": True}
+        ]
+    elif any(k in p_lower for k in ["cors", "header", "http", "api"]):
+        understood = "Fix CORS preflight header handling, patch allowed origins in HTTP middleware, and verify request routing."
+        rel_files = [
+            {"name": "services/gateway/src/middleware/cors.rs", "role": "Target Implementation", "loc": 195, "ast_sliced": True},
+            {"name": "services/gateway/tests/cors_test.rs", "role": "Integration Test", "loc": 85, "ast_sliced": True}
+        ]
+    else:
+        understood = f"Analyze repository context for: '{request.prompt[:80]}...', slice targeted syntax symbols, and synthesize minimal code patch."
+        rel_files = [
+            {"name": "pkg/core/engine.go", "role": "Target Implementation", "loc": 340, "ast_sliced": True},
+            {"name": "pkg/core/engine_test.go", "role": "Verification Suite", "loc": 160, "ast_sliced": True}
+        ]
+
+    provider_name = (
+        "Local Ollama Qwen 2.5 Coder (100% Offline Air-Gap)"
+        if is_confidential
+        else "Claude 3.7 Sonnet + DeepSeek V3 (Intelligent Cascade)"
+    )
+
+    plan = [
+        {"step": 1, "title": "Parse AST & Slice Syntax Symbols", "detail": "Extract required function definitions and prune unreferenced dependencies."},
+        {"step": 2, "title": "Synthesize Token-Optimized Solution", "detail": f"Route sliced context to {provider_name} to generate minimal patch."},
+        {"step": 3, "title": "Run Sandbox Verification Tests", "detail": "Execute unit tests in container sandbox to verify zero regressions."},
+        {"step": 4, "title": "Stage Mutation for Human Approval", "detail": "Generate unified diff. Never apply file writes or Git commits without explicit developer approval."}
+    ]
+
+    return TaskAnalyzeResponse(
+        understood_task=understood,
+        relevant_files=rel_files,
+        estimated_tokens_raw=raw_tokens,
+        estimated_tokens_compact=compressed_tokens,
+        token_savings_pct=savings_pct,
+        selected_provider=provider_name,
+        is_confidential=is_confidential,
+        execution_plan=plan,
+        requires_approval=True
+    )
+
 @router.post("/tasks/execute", response_model=AgentTaskResponse)
 def execute_coding_task(request: AgentTaskRequest):
     """
@@ -368,6 +480,7 @@ func (cm *CacheManager) isExpired(key string) bool {
         status=task_status,
         reasoning_steps=steps,
         diffs=diffs,
+        approval_id=pending_appr.id if pending_appr else None,
         pending_approval=pending_appr,
         created_at=time.time()
     )

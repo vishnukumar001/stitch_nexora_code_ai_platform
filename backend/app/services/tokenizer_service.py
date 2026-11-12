@@ -65,3 +65,4 @@ def calculate_savings(
     dollars_saved = round(max(0.0, baseline_cost - optimized_cost), 4)
 
     return tokens_saved, compression_ratio, baseline_cost, dollars_saved
+

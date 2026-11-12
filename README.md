@@ -180,3 +180,4 @@ python3 -m unittest backend/tests/test_full_suite.py
 <div align="center">
 Built with precision for <strong>Global AI Hackathon 2026</strong>.
 </div>
+
