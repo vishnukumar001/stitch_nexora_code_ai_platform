@@ -10,6 +10,11 @@ import {
   TaskRecord,
   Repository,
   ActionApproval,
+  DEFAULT_KPIS,
+  DEFAULT_PROVIDERS,
+  DEFAULT_REPOSITORIES,
+  DEFAULT_TASKS,
+  DEFAULT_APPROVALS,
 } from './api';
 import { NavigationSidebar } from './components/NavigationSidebar';
 import { TopHeader } from './components/TopHeader';
@@ -24,13 +29,19 @@ import { AuthView } from './views/AuthView';
 
 export function App() {
   const [currentView, setCurrentView] = useState<string>('dashboard');
-  const [stats, setStats] = useState<KPIStats | null>(null);
-  const [providers, setProviders] = useState<Provider[]>([]);
-  const [recentActivities, setRecentActivities] = useState<TaskRecord[]>([]);
-  const [repositories, setRepositories] = useState<Repository[]>([]);
+  const [stats, setStats] = useState<KPIStats | null>(DEFAULT_KPIS);
+  const [providers, setProviders] = useState<Provider[]>(DEFAULT_PROVIDERS);
+  const [recentActivities, setRecentActivities] = useState<TaskRecord[]>(DEFAULT_TASKS);
+  const [repositories, setRepositories] = useState<Repository[]>(DEFAULT_REPOSITORIES);
   const [activeRepoId, setActiveRepoId] = useState<string>('repo-core');
-  const [approvals, setApprovals] = useState<ActionApproval[]>([]);
-  const [killSwitchActive, setKillSwitchActive] = useState<boolean>(false);
+  const [approvals, setApprovals] = useState<ActionApproval[]>(DEFAULT_APPROVALS);
+  const [killSwitchActive, setKillSwitchActive] = useState<boolean>(() => {
+    try {
+      return localStorage.getItem('nexora_kill_switch') === '1';
+    } catch (_) {
+      return false;
+    }
+  });
   const [selectedTask, setSelectedTask] = useState<TaskRecord | null>(null);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState<boolean>(false);
 
@@ -49,14 +60,24 @@ export function App() {
         fetchHealth(),
       ]);
 
-      setStats(dash.kpis);
-      setProviders(dash.providers);
-      setRecentActivities(dash.recent_activities);
-      setRepositories(repos);
-      setApprovals(apprs);
-      setKillSwitchActive(health.kill_switch_active);
+      if (dash?.kpis) setStats(dash.kpis);
+      if (dash?.providers && Array.isArray(dash.providers) && dash.providers.length > 0) {
+        setProviders(dash.providers);
+      }
+      if (dash?.recent_activities && Array.isArray(dash.recent_activities) && dash.recent_activities.length > 0) {
+        setRecentActivities(dash.recent_activities);
+      }
+      if (repos && Array.isArray(repos) && repos.length > 0) {
+        setRepositories(repos);
+      }
+      if (apprs && Array.isArray(apprs)) {
+        setApprovals(apprs);
+      }
+      if (health && typeof health.kill_switch_active === 'boolean') {
+        setKillSwitchActive(health.kill_switch_active);
+      }
     } catch (e) {
-      console.error('Failed to load telemetry:', e);
+      console.warn('Telemetry fallback active:', e);
     }
   };
 

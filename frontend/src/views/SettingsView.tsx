@@ -19,9 +19,21 @@ export const SettingsView: React.FC<SettingsProps> = ({
   const [isTestingFailover, setIsTestingFailover] = useState(false);
 
   // Vault form
-  const [selectedProvId, setSelectedProvId] = useState(providers[0]?.id || 'prov-claude');
+  const [selectedProvId, setSelectedProvId] = useState(providers[0]?.id || 'prov-gemini');
   const [apiKeyInput, setApiKeyInput] = useState('');
   const [vaultMsg, setVaultMsg] = useState<string | null>(null);
+  const [vaultError, setVaultError] = useState<string | null>(null);
+
+  const hasKey = (pId: string) => {
+    try {
+      return Boolean(
+        localStorage.getItem(`nexora_vault_${pId}`) ||
+        (pId === 'prov-gemini' && localStorage.getItem('GEMINI_API_KEY'))
+      );
+    } catch (_) {
+      return false;
+    }
+  };
 
   const handleTestFailover = async () => {
     setIsTestingFailover(true);
@@ -39,14 +51,22 @@ export const SettingsView: React.FC<SettingsProps> = ({
 
   const handleSaveSecret = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!apiKeyInput.trim()) return;
+    const cleanKey = apiKeyInput.trim();
+    if (!cleanKey) {
+      setVaultError('Please enter a valid API key or token before saving.');
+      return;
+    }
+    setVaultError(null);
+    setVaultMsg(null);
+
     try {
-      const res = await addVaultSecret(selectedProvId, apiKeyInput);
-      setVaultMsg(res.message);
+      const res = await addVaultSecret(selectedProvId, cleanKey);
+      setVaultMsg(res.message || 'API credential successfully saved and sealed in vault!');
       setApiKeyInput('');
       onRefreshProviders();
+      setTimeout(() => setVaultMsg(null), 5000);
     } catch (e: any) {
-      alert(`Failed to save key: ${e.message}`);
+      setVaultError(`Failed to save key: ${e.message}`);
     }
   };
 
@@ -284,8 +304,26 @@ export const SettingsView: React.FC<SettingsProps> = ({
             </div>
 
             {vaultMsg && (
-              <div className="p-3 rounded-lg bg-tertiary/15 border border-tertiary/30 text-tertiary text-xs font-mono">
-                {vaultMsg}
+              <div className="p-3 rounded-lg bg-emerald-950/40 border border-emerald-500/50 text-emerald-300 text-xs font-mono flex items-center justify-between">
+                <div className="flex items-center gap-2">
+                  <span className="material-symbols-outlined text-base text-emerald-400">check_circle</span>
+                  <span>{vaultMsg}</span>
+                </div>
+                <button onClick={() => setVaultMsg(null)} className="text-emerald-400/70 hover:text-emerald-300">
+                  <span className="material-symbols-outlined text-sm">close</span>
+                </button>
+              </div>
+            )}
+
+            {vaultError && (
+              <div className="p-3 rounded-lg bg-error-container/30 border border-error/50 text-error text-xs flex items-center justify-between">
+                <div className="flex items-center gap-2">
+                  <span className="material-symbols-outlined text-base">error</span>
+                  <span>{vaultError}</span>
+                </div>
+                <button onClick={() => setVaultError(null)} className="text-error/70 hover:text-error">
+                  <span className="material-symbols-outlined text-sm">close</span>
+                </button>
               </div>
             )}
 
@@ -295,32 +333,41 @@ export const SettingsView: React.FC<SettingsProps> = ({
                 <select
                   value={selectedProvId}
                   onChange={(e) => setSelectedProvId(e.target.value)}
-                  className="w-full p-2.5 rounded-lg bg-surface-container border border-surface-container-highest text-xs text-on-surface focus:outline-none focus:border-primary"
+                  className="w-full p-2.5 rounded-lg bg-surface-container border border-surface-container-highest text-xs text-on-surface focus:outline-none focus:border-primary cursor-pointer"
                 >
                   {providers.map((p) => (
-                    <option key={p.id} value={p.id} className="bg-surface-container-high">
-                      {p.name} ({p.tier})
+                    <option key={p.id} value={p.id} className="bg-surface-container-high py-1">
+                      {p.name} ({p.tier}) {hasKey(p.id) ? '✓ [Key Active]' : ''}
                     </option>
                   ))}
                 </select>
               </div>
 
               <div className="space-y-1.5">
-                <label className="text-xs font-mono uppercase text-outline">API Key or Gateway Token</label>
+                <label className="text-xs font-mono uppercase text-outline flex items-center justify-between">
+                  <span>API Key or Gateway Token</span>
+                  {hasKey(selectedProvId) && (
+                    <span className="text-[10px] text-emerald-400 font-mono">● Key Stored & Armed</span>
+                  )}
+                </label>
                 <input
                   type="password"
                   value={apiKeyInput}
-                  onChange={(e) => setApiKeyInput(e.target.value)}
-                  placeholder="sk-ant-... or bifrost-token-..."
+                  onChange={(e) => {
+                    setApiKeyInput(e.target.value);
+                    if (vaultError) setVaultError(null);
+                  }}
+                  placeholder="AIzaSy... / sk-ant-... / deepseek-..."
                   className="w-full p-2.5 rounded-lg bg-surface-container border border-surface-container-highest text-xs text-on-surface font-mono placeholder:text-outline focus:outline-none focus:border-primary"
                 />
               </div>
 
               <button
                 type="submit"
-                className="px-4 py-2 rounded-xl bg-primary text-on-primary text-xs font-semibold hover:opacity-90 transition-all shadow-sm"
+                className="px-4 py-2.5 rounded-xl bg-primary text-on-primary text-xs font-semibold hover:opacity-90 active:scale-[0.99] transition-all shadow-sm flex items-center gap-2"
               >
-                Save Credential to Vault
+                <span className="material-symbols-outlined text-sm">key</span>
+                <span>Save Credential to Vault</span>
               </button>
             </form>
           </div>
