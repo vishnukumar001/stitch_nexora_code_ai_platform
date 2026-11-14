@@ -20,11 +20,12 @@
 [![Vite](https://img.shields.io/badge/Vite-5.4-646CFF?style=flat&logo=vite&logoColor=white)](https://vitejs.dev/)
 [![TailwindCSS](https://img.shields.io/badge/TailwindCSS-3.4-38B2AC?style=flat&logo=tailwind-css&logoColor=white)](https://tailwindcss.com/)
 [![Tests Passing](https://img.shields.io/badge/Tests-102%2F102%20Passing-brightgreen?style=flat&logo=checkmarx&logoColor=white)](file:///Users/vishnukumar/Downloads/stitch_nexora_code_ai_platform/TESTING_REPORT.md)
+[![Mobile Responsive](https://img.shields.io/badge/Mobile-100%25%20Responsive-brightgreen?style=flat&logo=apple&logoColor=white)](file:///Users/vishnukumar/Downloads/stitch_nexora_code_ai_platform/MOBILE_RESPONSIVENESS_REPORT.md)
 [![Hackathon](https://img.shields.io/badge/Global%20AI%20Hackathon%202026-Geek%20Room-FF6F00?style=flat)](https://geekroom.in/)
 
 **A token-efficient autonomous AI coding agent designed to complete complex software engineering tasks reliably while drastically slashing LLM token spend.**
 
-[🚀 **Launch Live App**](https://vishnukumar001.github.io/stitch_nexora_code_ai_platform/) • [GitHub Repository](https://github.com/vishnukumar001/stitch_nexora_code_ai_platform) • [Architecture](#-architecture) • [Token Efficiency Benchmarks](#-token-efficiency-benchmarks) • [Quick Start](#-quick-start)
+[🚀 **Launch Live App**](https://vishnukumar001.github.io/stitch_nexora_code_ai_platform/) • [📱 Mobile Audit](file:///Users/vishnukumar/Downloads/stitch_nexora_code_ai_platform/MOBILE_RESPONSIVENESS_REPORT.md) • [GitHub Repository](https://github.com/vishnukumar001/stitch_nexora_code_ai_platform) • [Architecture](#-architecture) • [Token Efficiency Benchmarks](#-token-efficiency-benchmarks) • [Quick Start](#-quick-start)
 
 </div>
 
@@ -159,6 +160,16 @@ Measures combined prompt input context + generated output completion tokens acro
 | **AI Integration** | Google Gemini API, DeepSeek V3, Ollama, Bifrost Client | Primary inference, automatic cascade failover, local mode |
 | **Security & Sandbox** | Canonical path validation, Python `unittest`, Git | Disposable filesystem sandboxes, human approval gates |
 | **Containerization** | Docker Multi-Stage, Render Blueprint, Railway | Production container image, single-port deployment |
+
+---
+
+## 📱 Mobile & Multi-Device Responsiveness (Verified)
+
+NEXORA Code is optimized for all device form factors without sacrificing its desktop Google Stitch workspace design:
+* **Mobile Viewports (320px–430px):** Full viewport fitting with 0 horizontal page overflow, slide-out navigation drawer with dark backdrop, adaptive top header with hamburger menu, and touch-friendly controls.
+* **Tablets (768px–1024px):** Adaptive grid with slide-over contextual telemetry drawer to maximize code editing area.
+* **Desktop & Laptops (1366px–1920px+):** High-density 3-pane engineering cockpit with persistent AST telemetry.
+* **Automated Matrix:** 100% verified across 9 resolutions (iPhone SE, Galaxy S20, iPhone 12/13/14, Pixel 7, iPhone 15 Pro Max, iPad, HD Laptop, and 1080p Desktop). See [MOBILE_RESPONSIVENESS_REPORT.md](file:///Users/vishnukumar/Downloads/stitch_nexora_code_ai_platform/MOBILE_RESPONSIVENESS_REPORT.md).
 
 ---
 

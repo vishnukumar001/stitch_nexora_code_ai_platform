@@ -32,6 +32,7 @@ export function App() {
   const [approvals, setApprovals] = useState<ActionApproval[]>([]);
   const [killSwitchActive, setKillSwitchActive] = useState<boolean>(false);
   const [selectedTask, setSelectedTask] = useState<TaskRecord | null>(null);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState<boolean>(false);
 
   useEffect(() => {
     loadAllData();
@@ -64,6 +65,7 @@ export function App() {
       setSelectedTask(null);
     }
     setCurrentView(view);
+    setIsMobileMenuOpen(false);
   };
 
   const handleToggleKillSwitch = async () => {
@@ -110,16 +112,19 @@ export function App() {
         onNavigate={handleNavigate}
         killSwitchActive={killSwitchActive}
         activeRepoName={activeRepo?.name || 'prod-core-monorepo'}
+        isMobileOpen={isMobileMenuOpen}
+        onClose={() => setIsMobileMenuOpen(false)}
       />
 
       {/* 2. Main Content Frame */}
-      <div className="pl-[250px] flex-1 flex flex-col min-w-0">
+      <div className="lg:pl-[250px] pl-0 flex-1 flex flex-col min-w-0 w-full overflow-x-hidden">
         <TopHeader
           onNavigate={handleNavigate}
           pendingApprovalsCount={approvals.length}
           killSwitchActive={killSwitchActive}
           onToggleKillSwitch={handleToggleKillSwitch}
           activeRepo={activeRepo?.name || 'prod-core-monorepo'}
+          onToggleMobileMenu={() => setIsMobileMenuOpen((prev) => !prev)}
         />
 
         <main className="w-full pt-16 min-h-[calc(100vh-4rem)] flex-1 overflow-x-hidden">

@@ -23,9 +23,9 @@ export const DashboardView: React.FC<DashboardProps> = ({
   const localProvider = providers.find((p) => p.is_local);
 
   return (
-    <div className="flex flex-col w-full max-w-6xl mx-auto p-6 md:p-8 space-y-8 text-on-surface">
+    <div className="flex flex-col w-full max-w-6xl mx-auto p-3 sm:p-6 md:p-8 space-y-6 sm:space-y-8 text-on-surface">
       {/* 1. WELCOME & ACTION COCKPIT */}
-      <div className="rounded-2xl bg-surface-container-low p-6 md:p-8 border border-surface-container-highest/40 shadow-sm flex flex-col md:flex-row md:items-center justify-between gap-6">
+      <div className="rounded-2xl bg-surface-container-low p-4 sm:p-6 md:p-8 border border-surface-container-highest/40 shadow-sm flex flex-col md:flex-row md:items-center justify-between gap-5 sm:gap-6">
         <div className="space-y-2">
           <div className="flex items-center gap-2">
             <span className="w-2 h-2 rounded-full bg-tertiary animate-pulse"></span>
@@ -209,8 +209,8 @@ export const DashboardView: React.FC<DashboardProps> = ({
             </button>
           </div>
         ) : (
-          <div className="overflow-x-auto">
-            <table className="w-full text-left border-collapse text-xs">
+          <div className="overflow-x-auto -mx-4 sm:mx-0 px-4 sm:px-0">
+            <table className="w-full text-left border-collapse text-xs min-w-[640px]">
               <thead>
                 <tr className="bg-surface-container text-outline font-mono uppercase tracking-wider border-b border-surface-container-highest/40">
                   <th className="py-3 px-5">Task Description</th>

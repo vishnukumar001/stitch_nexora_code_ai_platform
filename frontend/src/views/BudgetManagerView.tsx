@@ -49,7 +49,7 @@ export const BudgetManagerView: React.FC = () => {
   };
 
   return (
-    <div className="flex flex-col w-full text-on-surface p-space-lg gap-space-lg max-w-[1680px] mx-auto">
+    <div className="flex flex-col w-full text-on-surface p-3 sm:p-space-lg gap-space-lg max-w-[1680px] mx-auto overflow-x-hidden">
       {/* Header Bar */}
       <div className="flex flex-col xl:flex-row xl:items-center justify-between gap-space-md pb-space-xs border-b border-surface-container-highest/40">
         <div className="flex flex-col gap-1">

@@ -56,7 +56,7 @@ export const UsageTokensView: React.FC = () => {
   };
 
   return (
-    <div className="flex flex-col w-full max-w-6xl mx-auto p-6 md:p-8 space-y-8 text-on-surface">
+    <div className="flex flex-col w-full max-w-6xl mx-auto p-3 sm:p-6 md:p-8 space-y-6 sm:space-y-8 text-on-surface">
       {/* Header */}
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
         <div>
@@ -150,7 +150,7 @@ export const UsageTokensView: React.FC = () => {
       )}
 
       {/* Token Trajectory Chart */}
-      <div className="p-6 rounded-xl bg-surface-container-low border border-surface-container-highest/40 space-y-4">
+      <div className="p-4 sm:p-6 rounded-xl bg-surface-container-low border border-surface-container-highest/40 space-y-4">
         <div className="flex flex-wrap items-center justify-between gap-3 pb-3 border-b border-surface-container-highest/30">
           <div>
             <h2 className="text-base font-semibold text-on-surface">Token Consumption Trajectory</h2>

@@ -256,19 +256,19 @@ export const WorkspaceView: React.FC<WorkspaceProps> = ({
           ========================================================================= */}
       <div className="flex-1 flex flex-col min-w-0 overflow-y-auto">
         {/* Workflow Breadcrumb Header */}
-        <div className="h-12 px-6 bg-surface-container-low border-b border-surface-container-highest/40 flex items-center justify-between shrink-0 select-none">
-          <div className="flex items-center gap-3">
-            <span className="text-xs font-mono font-semibold uppercase text-tertiary flex items-center gap-1.5">
+        <div className="min-h-12 py-2 px-3 sm:px-6 bg-surface-container-low border-b border-surface-container-highest/40 flex flex-wrap items-center justify-between gap-2 shrink-0 select-none">
+          <div className="flex items-center gap-2 sm:gap-3 min-w-0">
+            <span className="text-xs font-mono font-semibold uppercase text-tertiary flex items-center gap-1.5 shrink-0">
               <span className="w-2 h-2 rounded-full bg-tertiary animate-pulse"></span>
               {step === 'draft' ? 'New Task Drafting' : step === 'analyzed' ? 'Task Analysis' : step === 'generating' ? 'Generating Patch' : 'Solution Review'}
             </span>
             <span className="text-outline text-xs">•</span>
-            <span className="text-xs text-outline font-mono truncate max-w-xs">
+            <span className="text-xs text-outline font-mono truncate max-w-[140px] sm:max-w-xs">
               {activeRepo?.name} {isConfidential ? '(🔒 Confidential Mode)' : '(Standard Mode)'}
             </span>
           </div>
 
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-2 shrink-0">
             {(step !== 'draft' || currentTask) && (
               <button
                 onClick={handleStartFresh}
@@ -296,7 +296,7 @@ export const WorkspaceView: React.FC<WorkspaceProps> = ({
         </div>
 
         {/* Content Body Based on Workflow State */}
-        <div className="flex-1 p-6 md:p-8 max-w-4xl mx-auto w-full space-y-6">
+        <div className="flex-1 p-3 sm:p-6 md:p-8 max-w-4xl mx-auto w-full space-y-6 overflow-x-hidden">
           {/* Active Error Banner */}
           {errorMessage && (
             <div className="p-4 rounded-xl bg-error-container/30 border border-error/50 text-error flex items-start justify-between gap-3 animate-fadeIn">
@@ -423,7 +423,7 @@ Examples:
                           setPrompt(ex);
                           if (errorMessage) setErrorMessage(null);
                         }}
-                        className="text-xs px-3 py-1.5 rounded-lg bg-surface-container-high text-on-surface-variant hover:text-on-surface hover:bg-surface-bright transition-colors text-left truncate max-w-md border border-surface-container-highest/40"
+                        className="text-xs px-3 py-1.5 rounded-lg bg-surface-container-high text-on-surface-variant hover:text-on-surface hover:bg-surface-bright transition-colors text-left truncate max-w-full sm:max-w-md border border-surface-container-highest/40"
                       >
                         {ex}
                       </button>
@@ -879,110 +879,118 @@ Examples:
       </div>
 
       {/* =========================================================================
-          RIGHT: CONTEXTUAL RIGHT PANEL (Collapsible)
+          RIGHT: CONTEXTUAL RIGHT PANEL (Responsive Drawer on Mobile/Tablet, Inline on Desktop)
           ========================================================================= */}
       {isRightPanelOpen && (
-        <aside className="w-80 h-full bg-surface-container-low border-l border-surface-container-highest/40 flex flex-col shrink-0 overflow-y-auto select-none transition-all">
-          <div className="h-12 px-4 bg-surface-container flex items-center justify-between border-b border-surface-container-highest/40">
-            <span className="text-xs font-mono uppercase text-outline font-bold">
-              Context & Telemetry
-            </span>
-            <button
-              onClick={() => setIsRightPanelOpen(false)}
-              className="text-outline hover:text-on-surface p-1"
-              title="Close panel"
-            >
-              <span className="material-symbols-outlined text-sm">close</span>
-            </button>
-          </div>
-
-          <div className="p-4 space-y-5 text-xs">
-            {/* Target Repository Scope */}
-            <div className="space-y-1.5">
-              <span className="text-[11px] font-mono uppercase text-outline font-bold">Project Scope</span>
-              <div className="p-3 rounded-xl bg-surface-container space-y-1 border border-surface-container-highest/30">
-                <div className="font-mono font-bold text-on-surface">{activeRepo?.name}</div>
-                <div className="text-outline font-mono text-[11px]">{activeRepo?.branch} · {activeRepo?.language}</div>
-                <div className="pt-1 flex items-center gap-1.5 text-tertiary text-[11px]">
-                  <span className="w-1.5 h-1.5 rounded-full bg-tertiary"></span>
-                  <span>{isConfidential ? 'Confidential (Local-Only Routing Enforced)' : 'Standard Cloud Cascade'}</span>
-                </div>
-              </div>
+        <>
+          {/* Mobile backdrop */}
+          <div
+            className="fixed inset-0 bg-black/60 backdrop-blur-xs z-40 xl:hidden"
+            onClick={() => setIsRightPanelOpen(false)}
+            aria-hidden="true"
+          />
+          <aside className="fixed inset-y-0 right-0 z-50 w-80 sm:w-88 max-w-[90vw] h-full bg-surface-container-low border-l border-surface-container-highest/40 flex flex-col shrink-0 overflow-y-auto select-none transition-all shadow-2xl xl:shadow-none xl:static xl:z-0 xl:h-full">
+            <div className="h-12 px-4 bg-surface-container flex items-center justify-between border-b border-surface-container-highest/40 shrink-0">
+              <span className="text-xs font-mono uppercase text-outline font-bold">
+                Context & Telemetry
+              </span>
+              <button
+                onClick={() => setIsRightPanelOpen(false)}
+                className="text-outline hover:text-on-surface p-1 rounded hover:bg-surface-container-high transition-colors"
+                title="Close panel"
+              >
+                <span className="material-symbols-outlined text-base">close</span>
+              </button>
             </div>
 
-            {/* Token Optimization Breakdown */}
-            <div className="space-y-1.5">
-              <span className="text-[11px] font-mono uppercase text-outline font-bold">Token Optimization</span>
-              <div className="p-3 rounded-xl bg-surface-container space-y-2 font-mono border border-surface-container-highest/30">
-                <div className="flex justify-between text-outline">
-                  <span>AST Compact Ratio:</span>
-                  <span className="text-tertiary font-bold">
-                    {activeTask?.compression_ratio ?? analysis?.token_savings_pct ?? 78.4}%
-                  </span>
-                </div>
-                <div className="flex justify-between text-outline">
-                  <span>Tokens Saved:</span>
-                  <span className="text-on-surface">
-                    {(activeTask?.tokens_saved ?? 8240).toLocaleString()}
-                  </span>
-                </div>
-                <div className="flex justify-between text-outline">
-                  <span>Cost Avoided:</span>
-                  <span className="text-primary font-bold">
-                    ${activeTask?.cost_saved_usd ?? '0.041'}
-                  </span>
-                </div>
-              </div>
-            </div>
-
-            {/* Execution Steps */}
-            <div className="space-y-1.5">
-              <span className="text-[11px] font-mono uppercase text-outline font-bold">Agent Execution Steps</span>
+            <div className="p-4 space-y-5 text-xs">
+              {/* Target Repository Scope */}
               <div className="space-y-1.5">
-                {(activeTask?.reasoning_steps || [
-                  { step_number: 1, title: 'Parse AST symbols', duration_s: 0.12 },
-                  { step_number: 2, title: 'Prune unused dependencies', duration_s: 0.28 },
-                  { step_number: 3, title: 'Synthesize code solution', duration_s: 0.94 },
-                  { step_number: 4, title: 'Verify unit test pass', duration_s: 0.45 },
-                ]).map((s) => (
-                  <div
-                    key={s.step_number}
-                    className="p-2.5 rounded-lg bg-surface-container flex items-center justify-between border border-surface-container-highest/30"
-                  >
-                    <div className="flex items-center gap-2 truncate">
-                      <span className="material-symbols-outlined text-xs text-tertiary">check_circle</span>
-                      <span className="text-on-surface truncate">{s.title}</span>
-                    </div>
-                    <span className="font-mono text-outline shrink-0">{s.duration_s}s</span>
+                <span className="text-[11px] font-mono uppercase text-outline font-bold">Project Scope</span>
+                <div className="p-3 rounded-xl bg-surface-container space-y-1 border border-surface-container-highest/30">
+                  <div className="font-mono font-bold text-on-surface">{activeRepo?.name}</div>
+                  <div className="text-outline font-mono text-[11px]">{activeRepo?.branch} · {activeRepo?.language}</div>
+                  <div className="pt-1 flex items-center gap-1.5 text-tertiary text-[11px]">
+                    <span className="w-1.5 h-1.5 rounded-full bg-tertiary"></span>
+                    <span>{isConfidential ? 'Confidential (Local-Only Routing Enforced)' : 'Standard Cloud Cascade'}</span>
                   </div>
-                ))}
+                </div>
               </div>
-            </div>
 
-            {/* Safety & Action Approval Status */}
-            <div className="space-y-1.5">
-              <span className="text-[11px] font-mono uppercase text-outline font-bold">Safety Enforcement</span>
-              <div className="p-3 rounded-xl bg-surface-container space-y-1.5 text-outline border border-surface-container-highest/30">
-                <div className="flex items-center gap-1.5 text-on-surface">
-                  <span className="material-symbols-outlined text-xs text-tertiary">check</span>
-                  <span>File write approval: Armed</span>
+              {/* Token Optimization Breakdown */}
+              <div className="space-y-1.5">
+                <span className="text-[11px] font-mono uppercase text-outline font-bold">Token Optimization</span>
+                <div className="p-3 rounded-xl bg-surface-container space-y-2 font-mono border border-surface-container-highest/30">
+                  <div className="flex justify-between text-outline">
+                    <span>AST Compact Ratio:</span>
+                    <span className="text-tertiary font-bold">
+                      {activeTask?.compression_ratio ?? analysis?.token_savings_pct ?? 78.4}%
+                    </span>
+                  </div>
+                  <div className="flex justify-between text-outline">
+                    <span>Tokens Saved:</span>
+                    <span className="text-on-surface">
+                      {(activeTask?.tokens_saved ?? 8240).toLocaleString()}
+                    </span>
+                  </div>
+                  <div className="flex justify-between text-outline">
+                    <span>Cost Avoided:</span>
+                    <span className="text-primary font-bold">
+                      ${activeTask?.cost_saved_usd ?? '0.041'}
+                    </span>
+                  </div>
                 </div>
-                <div className="flex items-center gap-1.5 text-on-surface">
-                  <span className="material-symbols-outlined text-xs text-tertiary">check</span>
-                  <span>Shell execution: Armed</span>
+              </div>
+
+              {/* Execution Steps */}
+              <div className="space-y-1.5">
+                <span className="text-[11px] font-mono uppercase text-outline font-bold">Agent Execution Steps</span>
+                <div className="space-y-1.5">
+                  {(activeTask?.reasoning_steps || [
+                    { step_number: 1, title: 'Parse AST symbols', duration_s: 0.12 },
+                    { step_number: 2, title: 'Prune unused dependencies', duration_s: 0.28 },
+                    { step_number: 3, title: 'Synthesize code solution', duration_s: 0.94 },
+                    { step_number: 4, title: 'Verify unit test pass', duration_s: 0.45 },
+                  ]).map((s) => (
+                    <div
+                      key={s.step_number}
+                      className="p-2.5 rounded-lg bg-surface-container flex items-center justify-between border border-surface-container-highest/30"
+                    >
+                      <div className="flex items-center gap-2 truncate">
+                        <span className="material-symbols-outlined text-xs text-tertiary">check_circle</span>
+                        <span className="text-on-surface truncate">{s.title}</span>
+                      </div>
+                      <span className="font-mono text-outline shrink-0">{s.duration_s}s</span>
+                    </div>
+                  ))}
                 </div>
-                <div className="flex items-center gap-1.5 text-on-surface">
-                  <span className="material-symbols-outlined text-xs text-tertiary">check</span>
-                  <span>Pre-flight budget limit: Enforced</span>
-                </div>
-                <div className="flex items-center gap-1.5 text-on-surface">
-                  <span className="material-symbols-outlined text-xs text-tertiary">check</span>
-                  <span>Local-only routing: Enforced (Fail-Closed)</span>
+              </div>
+
+              {/* Safety & Action Approval Status */}
+              <div className="space-y-1.5">
+                <span className="text-[11px] font-mono uppercase text-outline font-bold">Safety Enforcement</span>
+                <div className="p-3 rounded-xl bg-surface-container space-y-1.5 text-outline border border-surface-container-highest/30">
+                  <div className="flex items-center gap-1.5 text-on-surface">
+                    <span className="material-symbols-outlined text-xs text-tertiary">check</span>
+                    <span>File write approval: Armed</span>
+                  </div>
+                  <div className="flex items-center gap-1.5 text-on-surface">
+                    <span className="material-symbols-outlined text-xs text-tertiary">check</span>
+                    <span>Shell execution: Armed</span>
+                  </div>
+                  <div className="flex items-center gap-1.5 text-on-surface">
+                    <span className="material-symbols-outlined text-xs text-tertiary">check</span>
+                    <span>Pre-flight budget limit: Enforced</span>
+                  </div>
+                  <div className="flex items-center gap-1.5 text-on-surface">
+                    <span className="material-symbols-outlined text-xs text-tertiary">check</span>
+                    <span>Local-only routing: Enforced (Fail-Closed)</span>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
-        </aside>
+          </aside>
+        </>
       )}
     </div>
   );

@@ -40,7 +40,7 @@ export const ProjectsView: React.FC<ProjectsProps> = ({
   );
 
   return (
-    <div className="flex flex-col w-full max-w-6xl mx-auto p-6 md:p-8 space-y-6 text-on-surface">
+    <div className="flex flex-col w-full max-w-6xl mx-auto p-3 sm:p-6 md:p-8 space-y-6 text-on-surface">
       {/* Header */}
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
         <div>

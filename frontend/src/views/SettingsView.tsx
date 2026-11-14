@@ -51,7 +51,7 @@ export const SettingsView: React.FC<SettingsProps> = ({
   };
 
   return (
-    <div className="flex flex-col w-full max-w-5xl mx-auto p-6 md:p-8 space-y-6 text-on-surface">
+    <div className="flex flex-col w-full max-w-5xl mx-auto p-3 sm:p-6 md:p-8 space-y-6 text-on-surface">
       {/* Header */}
       <div>
         <h1 className="text-2xl font-bold tracking-tight text-on-surface">Platform Settings</h1>
@@ -61,7 +61,7 @@ export const SettingsView: React.FC<SettingsProps> = ({
       </div>
 
       {/* Tabs */}
-      <div className="flex items-center gap-2 border-b border-surface-container-highest/40 pb-1">
+      <div className="flex items-center gap-2 border-b border-surface-container-highest/40 pb-1 overflow-x-auto -mx-3 sm:mx-0 px-3 sm:px-0">
         <button
           onClick={() => setActiveTab('providers')}
           className={`flex items-center gap-2 px-4 py-2 rounded-lg text-xs font-semibold transition-colors ${

@@ -35,7 +35,7 @@ export const ModelRouterView: React.FC = () => {
   };
 
   return (
-    <div className="flex flex-col w-full text-on-surface p-space-lg gap-space-lg">
+    <div className="flex flex-col w-full text-on-surface p-3 sm:p-space-lg gap-space-lg overflow-x-hidden">
       {/* Header Bar */}
       <section className="flex flex-col xl:flex-row xl:items-end justify-between gap-space-md pb-space-xs border-b border-surface-container-highest/40">
         <div className="space-y-1.5 max-w-4xl">

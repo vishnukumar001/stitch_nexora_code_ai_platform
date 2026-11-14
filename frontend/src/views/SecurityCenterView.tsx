@@ -49,7 +49,7 @@ export const SecurityCenterView: React.FC<SecurityCenterProps> = ({
   });
 
   return (
-    <div className="flex flex-col w-full text-on-surface p-space-lg gap-space-lg">
+    <div className="flex flex-col w-full text-on-surface p-3 sm:p-space-lg gap-space-lg overflow-x-hidden">
       {/* Top Header */}
       <section className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-space-md pb-space-sm border-b border-surface-container-highest/40">
         <div className="flex flex-col max-w-3xl">
