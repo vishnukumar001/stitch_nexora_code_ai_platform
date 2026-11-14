@@ -61,7 +61,7 @@ export const TopHeader: React.FC<HeaderProps> = ({
         <button
           onClick={() => onNavigate('settings')}
           className="hidden md:flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg bg-emerald-500/10 border border-emerald-500/30 text-emerald-300 text-xs font-mono font-medium hover:bg-emerald-500/20 transition-all shrink-0"
-          title="Google Gemini 3.5 Flash API Key is Armed (Click to view Vault)"
+          title="Google Gemini 3.1 Flash Lite API Key is Armed (Click to view Vault)"
         >
           <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
           <span>Gemini Key Armed</span>

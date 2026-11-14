@@ -9,6 +9,8 @@ except Exception:
 # Pricing per million tokens (USD)
 # Standard pricing for pay-as-you-go tiers (prompts <= 128k)
 MODEL_PRICING: Dict[str, Dict[str, float]] = {
+    "gemini-3.1-flash-lite": {"input": 0.075, "output": 0.30},
+    "gemini-flash-lite-latest": {"input": 0.075, "output": 0.30},
     "gemini-3.5-flash": {"input": 0.075, "output": 0.30},
     "gemini": {"input": 0.075, "output": 0.30},
     "claude-3-7-sonnet": {"input": 3.00, "output": 15.00},

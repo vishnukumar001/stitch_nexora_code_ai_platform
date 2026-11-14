@@ -287,7 +287,13 @@ class ApprovalGuard:
             if decision == ApprovalStatus.APPROVED:
                 try:
                     from backend.app.services.sandbox_service import SandboxService
-                    file_target = target_res.split(":")[-1].strip() if ":" in target_res else "pkg/cache/cache_manager.go"
+                    if ":" in target_res:
+                        file_target = target_res.split(":")[-1].strip()
+                    elif target_res and target_res not in ["codebase", "terminal", "git"]:
+                        file_target = target_res.strip()
+                    else:
+                        file_target = "pkg/cache/cache_manager.go"
+
                     sandbox_result = SandboxService.apply_patch_and_test(
                         sandbox_id=sandbox_id,
                         repo_id="repo-core",

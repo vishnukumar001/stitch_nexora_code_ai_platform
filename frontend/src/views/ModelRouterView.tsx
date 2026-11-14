@@ -147,7 +147,7 @@ export const ModelRouterView: React.FC = () => {
             Primary Cloud Engine
           </span>
           <div className="flex items-baseline gap-2 mt-1">
-            <span className="font-headline-lg text-headline-lg font-bold text-tertiary">Gemini 3.5 Flash</span>
+            <span className="font-headline-lg text-headline-lg font-bold text-tertiary">Gemini 3.1 Flash Lite</span>
           </div>
           <div className="mt-3 flex items-center justify-between font-label-sm text-label-sm text-outline border-t border-surface-container-highest/30 pt-2">
             <span>Integration Mode</span>

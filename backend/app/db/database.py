@@ -206,6 +206,18 @@ def init_db():
 
     # Ensure Google Gemini Direct API provider exists in database with truthful attribution
     cursor.execute("SELECT id FROM providers WHERE id = 'prov-gemini'")
+    gemini_key_val = os.environ.get("GEMINI_API_KEY", "").strip()
+    if not gemini_key_val:
+        try:
+            from dotenv import load_dotenv
+            base_dir = os.path.dirname(os.path.abspath(__file__))
+            load_dotenv(os.path.join(base_dir, "../../.env"))
+            load_dotenv(os.path.join(base_dir, "../../../.env"))
+            gemini_key_val = os.environ.get("GEMINI_API_KEY", "").strip()
+        except Exception:
+            pass
+    gemini_key_present = bool(gemini_key_val)
+    gemini_status = "online" if gemini_key_present else "not_configured"
     if not cursor.fetchone():
         cursor.execute("""
         INSERT INTO providers (
@@ -213,19 +225,21 @@ def init_db():
             uptime_pct, cost_per_m_in, cost_per_m_out, is_local,
             circuit_breaker_tripped, failure_count, endpoint_url, has_api_key
         ) VALUES (
-            'prov-gemini', 'Google Gemini 3.5 Flash (Direct API)', 'Primary Cloud Provider (Direct)',
-            'gemini-3.5-flash', 'connected', 85, 110, 99.99, 0.075, 0.30, 0, 0, 0,
+            'prov-gemini', 'Google Gemini 3.1 Flash Lite (Direct API)', 'Primary Cloud Provider (Direct)',
+            'gemini-3.1-flash-lite', ?, 85, 110, 99.99, 0.075, 0.30, 0, 0, 0,
             'https://generativelanguage.googleapis.com', 1
         )
-        """)
+        """, (gemini_status,))
     else:
         cursor.execute("""
         UPDATE providers
-        SET name = 'Google Gemini 3.5 Flash (Direct API)',
+        SET name = 'Google Gemini 3.1 Flash Lite (Direct API)',
+            model_name = 'gemini-3.1-flash-lite',
+            status = ?,
             tier = 'Primary Cloud Provider (Direct)',
             endpoint_url = 'https://generativelanguage.googleapis.com'
         WHERE id = 'prov-gemini'
-        """)
+        """, (gemini_status,))
 
     # Ensure Bifrost Gateway provider exists with truthful partner attribution
     cursor.execute("SELECT id FROM providers WHERE id = 'prov-bifrost'")

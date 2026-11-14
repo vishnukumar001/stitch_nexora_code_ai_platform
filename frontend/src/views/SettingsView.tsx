@@ -323,7 +323,7 @@ export const SettingsView: React.FC<SettingsProps> = ({
       {/* TAB 3: API Keys & Secrets Vault */}
       {activeTab === 'vault' && (
         <div className="space-y-6 animate-fadeIn">
-          {/* PRIMARY CARD: Google Gemini 3.5 Flash API Key */}
+          {/* PRIMARY CARD: Google Gemini API Key */}
           <div className="p-6 rounded-2xl bg-surface-container-low border-2 border-primary/50 space-y-4 shadow-md">
             <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 pb-2 border-b border-surface-container-highest/40">
               <div className="flex items-center gap-2.5">
@@ -332,7 +332,7 @@ export const SettingsView: React.FC<SettingsProps> = ({
                 </div>
                 <div>
                   <h2 className="text-base font-bold text-on-surface">Google Gemini API Key</h2>
-                  <p className="text-xs text-outline">Primary Model Engine: Google Gemini 3.5 Flash (Direct API)</p>
+                  <p className="text-xs text-outline">Primary Model Engine: Google Gemini 3.1 Flash Lite (Direct API)</p>
                 </div>
               </div>
               <span className="self-start sm:self-auto text-xs font-mono uppercase px-2.5 py-1 rounded bg-emerald-500/20 text-emerald-400 font-bold border border-emerald-500/40 flex items-center gap-1.5">

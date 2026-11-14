@@ -376,7 +376,7 @@ export const WorkspaceView: React.FC<WorkspaceProps> = ({
                     <span className="w-5 h-5 rounded-full bg-primary text-on-primary flex items-center justify-center text-xs font-mono">2</span>
                     <span>Coding Task Instruction</span>
                     <span className="text-[10px] text-primary bg-primary/10 px-2 py-0.5 rounded font-normal font-sans">Required</span>
-                    <span className="text-[10px] text-emerald-400 bg-emerald-500/10 border border-emerald-500/30 px-2 py-0.5 rounded font-mono font-normal">● Gemini 3.5 Armed</span>
+                    <span className="text-[10px] text-emerald-400 bg-emerald-500/10 border border-emerald-500/30 px-2 py-0.5 rounded font-mono font-normal">● Gemini 3.1 Armed</span>
                   </label>
                   <div className="flex items-center gap-3">
                     {prompt.length > 0 && (
@@ -469,7 +469,7 @@ Examples:
                       Uses direct Google Gemini API with automatic provider failover.
                     </p>
                     <p className="text-[11px] text-outline mt-1 leading-relaxed">
-                      Optimized cloud cascade (Google Gemini 3.5 Flash + DeepSeek V3) with AST prompt compression to minimize tokens.
+                      Optimized cloud cascade (Google Gemini 3.1 Flash Lite + DeepSeek V3) with AST prompt compression to minimize tokens.
                     </p>
                     {activeRepo?.is_confidential && (
                       <span className="inline-block mt-2 text-[10px] font-mono text-error uppercase">

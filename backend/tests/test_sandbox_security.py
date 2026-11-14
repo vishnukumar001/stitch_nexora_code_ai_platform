@@ -29,7 +29,7 @@ class TestSandboxSecurity(unittest.TestCase):
     @classmethod
     def tearDownClass(cls):
         if os.path.exists(cls.test_dir):
-            shutil.rmtree(cls.test_dir)
+            shutil.rmtree(cls.test_dir, ignore_errors=True)
 
     def test_01_normal_relative_path(self):
         """Test Case 1: Normal relative path inside sandbox must be accepted and resolved."""
