@@ -1,5 +1,13 @@
 import React, { useState } from 'react';
-import { Provider, triggerFailoverTest, toggleKillSwitch, addVaultSecret } from '../api';
+import {
+  Provider,
+  triggerFailoverTest,
+  toggleKillSwitch,
+  addVaultSecret,
+  DEFAULT_PROVIDERS,
+  getActiveGeminiKey,
+  saveActiveGeminiKey,
+} from '../api';
 
 interface SettingsProps {
   providers: Provider[];
@@ -14,12 +22,18 @@ export const SettingsView: React.FC<SettingsProps> = ({
   killSwitchActive,
   onToggleKillSwitch,
 }) => {
-  const [activeTab, setActiveTab] = useState<'providers' | 'security' | 'vault'>('providers');
+  const activeProviders = providers && providers.length > 0 ? providers : DEFAULT_PROVIDERS;
+  const [activeTab, setActiveTab] = useState<'providers' | 'security' | 'vault'>('vault');
   const [failoverMsg, setFailoverMsg] = useState<string | null>(null);
   const [isTestingFailover, setIsTestingFailover] = useState(false);
 
-  // Vault form
-  const [selectedProvId, setSelectedProvId] = useState(providers[0]?.id || 'prov-gemini');
+  // Dedicated Google Gemini API Key State
+  const [geminiKeyInput, setGeminiKeyInput] = useState(getActiveGeminiKey());
+  const [showGeminiKey, setShowGeminiKey] = useState(false);
+  const [geminiSuccessMsg, setGeminiSuccessMsg] = useState<string | null>(null);
+
+  // Multi-Provider Vault form
+  const [selectedProvId, setSelectedProvId] = useState(activeProviders[0]?.id || 'prov-gemini');
   const [apiKeyInput, setApiKeyInput] = useState('');
   const [vaultMsg, setVaultMsg] = useState<string | null>(null);
   const [vaultError, setVaultError] = useState<string | null>(null);
@@ -28,11 +42,25 @@ export const SettingsView: React.FC<SettingsProps> = ({
     try {
       return Boolean(
         localStorage.getItem(`nexora_vault_${pId}`) ||
-        (pId === 'prov-gemini' && localStorage.getItem('GEMINI_API_KEY'))
+        (pId === 'prov-gemini' && (localStorage.getItem('GEMINI_API_KEY') || getActiveGeminiKey()))
       );
     } catch (_) {
       return false;
     }
+  };
+
+  const handleSaveGeminiKey = (e: React.FormEvent) => {
+    e.preventDefault();
+    const clean = geminiKeyInput.trim();
+    if (!clean) {
+      setVaultError('Gemini API key cannot be empty.');
+      return;
+    }
+    saveActiveGeminiKey(clean);
+    addVaultSecret('prov-gemini', clean);
+    setGeminiSuccessMsg('Google Gemini API Key successfully saved, sealed in vault & armed!');
+    onRefreshProviders();
+    setTimeout(() => setGeminiSuccessMsg(null), 5000);
   };
 
   const handleTestFailover = async () => {
@@ -295,11 +323,86 @@ export const SettingsView: React.FC<SettingsProps> = ({
       {/* TAB 3: API Keys & Secrets Vault */}
       {activeTab === 'vault' && (
         <div className="space-y-6 animate-fadeIn">
+          {/* PRIMARY CARD: Google Gemini 3.5 Flash API Key */}
+          <div className="p-6 rounded-2xl bg-surface-container-low border-2 border-primary/50 space-y-4 shadow-md">
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 pb-2 border-b border-surface-container-highest/40">
+              <div className="flex items-center gap-2.5">
+                <div className="w-9 h-9 rounded-xl bg-primary/20 text-primary flex items-center justify-center">
+                  <span className="material-symbols-outlined text-xl">key</span>
+                </div>
+                <div>
+                  <h2 className="text-base font-bold text-on-surface">Google Gemini API Key</h2>
+                  <p className="text-xs text-outline">Primary Model Engine: Google Gemini 3.5 Flash (Direct API)</p>
+                </div>
+              </div>
+              <span className="self-start sm:self-auto text-xs font-mono uppercase px-2.5 py-1 rounded bg-emerald-500/20 text-emerald-400 font-bold border border-emerald-500/40 flex items-center gap-1.5">
+                <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+                <span>Active & Ready</span>
+              </span>
+            </div>
+
+            <p className="text-xs text-on-surface-variant leading-relaxed">
+              Enter or update your Google Gemini API key below. NEXORA Code stores it securely in your client-side encrypted vault and uses it directly to synthesize code and AST token optimizations.
+            </p>
+
+            {geminiSuccessMsg && (
+              <div className="p-3 rounded-lg bg-emerald-950/40 border border-emerald-500/50 text-emerald-300 text-xs font-mono flex items-center justify-between animate-fadeIn">
+                <div className="flex items-center gap-2">
+                  <span className="material-symbols-outlined text-base text-emerald-400">check_circle</span>
+                  <span>{geminiSuccessMsg}</span>
+                </div>
+                <button onClick={() => setGeminiSuccessMsg(null)} className="text-emerald-400/70 hover:text-emerald-300">
+                  <span className="material-symbols-outlined text-sm">close</span>
+                </button>
+              </div>
+            )}
+
+            <form onSubmit={handleSaveGeminiKey} className="space-y-3 max-w-xl">
+              <div className="space-y-1">
+                <label className="text-xs font-mono uppercase text-outline flex items-center justify-between">
+                  <span>Gemini API Key</span>
+                  <span className="text-[10px] text-tertiary font-mono">Google Cloud / AI Studio</span>
+                </label>
+                <div className="relative flex items-center">
+                  <input
+                    type={showGeminiKey ? 'text' : 'password'}
+                    value={geminiKeyInput}
+                    onChange={(e) => {
+                      setGeminiKeyInput(e.target.value);
+                      if (geminiSuccessMsg) setGeminiSuccessMsg(null);
+                    }}
+                    placeholder="Enter your Gemini API key (AQ.Ab8... or AIza...)"
+                    className="w-full pr-10 pl-3.5 py-2.5 rounded-xl bg-surface-container border border-surface-container-highest text-xs text-on-surface font-mono placeholder:text-outline focus:outline-none focus:border-primary"
+                  />
+                  <button
+                    type="button"
+                    onClick={() => setShowGeminiKey(!showGeminiKey)}
+                    className="absolute right-3 text-outline hover:text-on-surface transition-colors"
+                    title={showGeminiKey ? 'Hide key' : 'Show key'}
+                  >
+                    <span className="material-symbols-outlined text-lg">
+                      {showGeminiKey ? 'visibility_off' : 'visibility'}
+                    </span>
+                  </button>
+                </div>
+              </div>
+
+              <button
+                type="submit"
+                className="px-5 py-2.5 rounded-xl bg-primary text-on-primary text-xs font-bold hover:brightness-110 active:scale-[0.99] transition-all shadow-md flex items-center gap-2"
+              >
+                <span className="material-symbols-outlined text-sm">save</span>
+                <span>Save & Arm Gemini Key</span>
+              </button>
+            </form>
+          </div>
+
+          {/* SECONDARY CARD: Additional Providers Vault */}
           <div className="p-6 rounded-2xl bg-surface-container-low border border-surface-container-highest/40 space-y-4">
             <div>
-              <h2 className="text-base font-semibold text-on-surface">Server-Side Credentials Vault</h2>
+              <h2 className="text-base font-semibold text-on-surface">Additional Model Providers Vault</h2>
               <p className="text-xs text-outline mt-1">
-                API keys and tokens are stored encrypted on the backend. They are never sent to the browser client.
+                Configure fallback cascade credentials (DeepSeek, Claude, GPT-4o, Bifrost, or Local Ollama).
               </p>
             </div>
 
@@ -335,7 +438,7 @@ export const SettingsView: React.FC<SettingsProps> = ({
                   onChange={(e) => setSelectedProvId(e.target.value)}
                   className="w-full p-2.5 rounded-lg bg-surface-container border border-surface-container-highest text-xs text-on-surface focus:outline-none focus:border-primary cursor-pointer"
                 >
-                  {providers.map((p) => (
+                  {activeProviders.map((p) => (
                     <option key={p.id} value={p.id} className="bg-surface-container-high py-1">
                       {p.name} ({p.tier}) {hasKey(p.id) ? '✓ [Key Active]' : ''}
                     </option>
@@ -357,17 +460,17 @@ export const SettingsView: React.FC<SettingsProps> = ({
                     setApiKeyInput(e.target.value);
                     if (vaultError) setVaultError(null);
                   }}
-                  placeholder="AIzaSy... / sk-ant-... / deepseek-..."
+                  placeholder="sk-ant-... / deepseek-... / bifrost-token-..."
                   className="w-full p-2.5 rounded-lg bg-surface-container border border-surface-container-highest text-xs text-on-surface font-mono placeholder:text-outline focus:outline-none focus:border-primary"
                 />
               </div>
 
               <button
                 type="submit"
-                className="px-4 py-2.5 rounded-xl bg-primary text-on-primary text-xs font-semibold hover:opacity-90 active:scale-[0.99] transition-all shadow-sm flex items-center gap-2"
+                className="px-4 py-2.5 rounded-xl bg-surface-container-high hover:bg-surface-bright text-on-surface text-xs font-semibold active:scale-[0.99] transition-all border border-surface-container-highest flex items-center gap-2"
               >
                 <span className="material-symbols-outlined text-sm">key</span>
-                <span>Save Credential to Vault</span>
+                <span>Save Provider Credential</span>
               </button>
             </form>
           </div>

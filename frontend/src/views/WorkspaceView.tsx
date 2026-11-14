@@ -376,6 +376,7 @@ export const WorkspaceView: React.FC<WorkspaceProps> = ({
                     <span className="w-5 h-5 rounded-full bg-primary text-on-primary flex items-center justify-center text-xs font-mono">2</span>
                     <span>Coding Task Instruction</span>
                     <span className="text-[10px] text-primary bg-primary/10 px-2 py-0.5 rounded font-normal font-sans">Required</span>
+                    <span className="text-[10px] text-emerald-400 bg-emerald-500/10 border border-emerald-500/30 px-2 py-0.5 rounded font-mono font-normal">● Gemini 3.5 Armed</span>
                   </label>
                   <div className="flex items-center gap-3">
                     {prompt.length > 0 && (

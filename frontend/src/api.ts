@@ -161,6 +161,29 @@ export const DEFAULT_KPIS: KPIStats = {
   spend_pct: 9.6,
 };
 
+export const DEFAULT_GEMINI_KEY = '';
+
+export function getActiveGeminiKey(): string {
+  try {
+    const key = localStorage.getItem('GEMINI_API_KEY') || localStorage.getItem('nexora_vault_prov-gemini');
+    if (key && key.trim()) return key.trim();
+  } catch (_) {}
+  return '';
+}
+
+export function saveActiveGeminiKey(key: string): void {
+  const clean = key.trim();
+  try {
+    localStorage.setItem('GEMINI_API_KEY', clean);
+    localStorage.setItem('nexora_vault_prov-gemini', clean);
+    const existing = JSON.parse(localStorage.getItem('nexora_configured_providers') || '[]');
+    if (!existing.includes('prov-gemini')) {
+      existing.push('prov-gemini');
+      localStorage.setItem('nexora_configured_providers', JSON.stringify(existing));
+    }
+  } catch (_) {}
+}
+
 export const DEFAULT_PROVIDERS: Provider[] = [
   {
     id: 'prov-gemini',
