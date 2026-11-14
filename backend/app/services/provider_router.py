@@ -10,6 +10,37 @@ from backend.app.services.privacy_guard import PrivacyGuard
 from backend.app.services.semantic_cache import semantic_cache
 from backend.app.services.tokenizer_service import count_tokens, calculate_cost, calculate_savings
 
+class CircuitBreaker:
+    """
+    Standard state-machine Circuit Breaker (CLOSED -> OPEN -> HALF-OPEN -> CLOSED).
+    Enforces automatic fail-fast protection and cooling recovery.
+    """
+    def __init__(self, provider_id: str, failure_threshold: int = 3, cooldown_seconds: float = 15.0):
+        self.provider_id = provider_id
+        self.failure_threshold = failure_threshold
+        self.cooldown_seconds = cooldown_seconds
+        self.failure_count = 0
+        self.state = "CLOSED"
+        self.last_failure_time = 0.0
+
+    def record_failure(self):
+        self.failure_count += 1
+        self.last_failure_time = time.time()
+        if self.failure_count >= self.failure_threshold:
+            self.state = "OPEN"
+
+    def record_success(self):
+        self.failure_count = 0
+        self.state = "CLOSED"
+
+    def is_open(self) -> bool:
+        if self.state == "OPEN":
+            if (time.time() - self.last_failure_time) >= self.cooldown_seconds:
+                self.state = "HALF-OPEN"
+                return False
+            return True
+        return False
+
 class ProviderRouter:
     """
     Intelligent Model Router, Cascade Engine, and Failover Orchestrator.
@@ -34,6 +65,17 @@ class ProviderRouter:
         row = cursor.fetchone()
         conn.close()
         return dict(row) if row else None
+
+    @classmethod
+    def select_provider(cls, strategy: str = "balanced", is_confidential: bool = False) -> Dict[str, Any]:
+        """Selects provider candidate according to privacy mode and strategy."""
+        if is_confidential:
+            return cls.get_provider_by_id("prov-ollama") or {}
+        providers = cls.get_all_providers()
+        for p in providers:
+            if not p.get("is_local") and not cls.is_circuit_open(p):
+                return p
+        return providers[0] if providers else {}
 
     @classmethod
     def probe_all_providers(cls) -> List[Dict[str, Any]]:

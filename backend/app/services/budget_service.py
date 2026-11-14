@@ -96,6 +96,54 @@ class BudgetService:
         }
 
     @classmethod
+    def update_budget_policy(
+        cls,
+        user_id: str,
+        monthly_budget_usd: Optional[float] = None,
+        current_spend_usd: Optional[float] = None,
+        monthly_token_cap: Optional[int] = None,
+        current_tokens_used: Optional[int] = None,
+        hard_limit_enforced: Optional[bool] = None,
+        auto_throttle_active: Optional[bool] = None,
+        alert_threshold_pct: Optional[float] = None
+    ) -> Dict[str, Any]:
+        """Provisions or updates a user-specific budget policy."""
+        cls.get_budget_policy(user_id)
+        updates = []
+        params = []
+        if monthly_budget_usd is not None:
+            updates.append("monthly_budget_usd = ?")
+            params.append(float(monthly_budget_usd))
+        if current_spend_usd is not None:
+            updates.append("current_spend_usd = ?")
+            params.append(float(current_spend_usd))
+        if monthly_token_cap is not None:
+            updates.append("monthly_token_cap = ?")
+            params.append(int(monthly_token_cap))
+        if current_tokens_used is not None:
+            updates.append("current_tokens_used = ?")
+            params.append(int(current_tokens_used))
+        if hard_limit_enforced is not None:
+            updates.append("hard_limit_enforced = ?")
+            params.append(1 if hard_limit_enforced else 0)
+        if auto_throttle_active is not None:
+            updates.append("auto_throttle_active = ?")
+            params.append(1 if auto_throttle_active else 0)
+        if alert_threshold_pct is not None:
+            updates.append("alert_threshold_pct = ?")
+            params.append(float(alert_threshold_pct))
+
+        if updates:
+            conn = get_connection()
+            cursor = conn.cursor()
+            params.append(user_id)
+            cursor.execute(f"UPDATE budget_policies SET {', '.join(updates)} WHERE user_id = ?", tuple(params))
+            conn.commit()
+            conn.close()
+
+        return cls.get_budget_policy(user_id)
+
+    @classmethod
     def validate_pre_flight_budget(
         cls,
         user_id: str,
@@ -164,10 +212,12 @@ class BudgetService:
     def reserve_budget(
         cls,
         user_id: str,
-        target_model: str,
-        estimated_input_tokens: int,
+        target_model: str = "gemini-2.5-flash",
+        estimated_input_tokens: Optional[int] = None,
         estimated_output_tokens: int = 500,
-        reservation_id: Optional[str] = None
+        reservation_id: Optional[str] = None,
+        estimated_tokens: Optional[int] = None,
+        estimated_cost_usd: Optional[float] = None
     ) -> Tuple[str, float]:
         """
         Thread-safe, atomic budget reservation.
@@ -175,11 +225,21 @@ class BudgetService:
         Prevents concurrent requests from blowing past the hard ceiling.
         Returns: (reservation_id, estimated_cost_usd)
         """
+        if estimated_input_tokens is None:
+            if estimated_tokens is not None:
+                estimated_input_tokens = int(estimated_tokens)
+                estimated_output_tokens = 0
+            else:
+                estimated_input_tokens = 1000
+
         with _budget_lock:
             # 1. Validate policy and compute cost using Decimal
             budget = cls.get_budget_policy(user_id)
-            est_cost_raw = calculate_cost(target_model, estimated_input_tokens, estimated_output_tokens)
-            est_cost = quantize_usd(est_cost_raw)
+            if estimated_cost_usd is not None:
+                est_cost = quantize_usd(estimated_cost_usd)
+            else:
+                est_cost_raw = calculate_cost(target_model, estimated_input_tokens, estimated_output_tokens)
+                est_cost = quantize_usd(est_cost_raw)
             total_est_tokens = estimated_input_tokens + estimated_output_tokens
 
             if budget["hard_limit_enforced"]:
@@ -396,3 +456,27 @@ class BudgetService:
             conn.close()
 
             return cls.get_budget_policy(user_id)
+
+    @classmethod
+    def reconcile_budget(cls, reservation_id: str, actual_tokens: int = 0, actual_cost_usd: float = 0.0, user_id: Optional[str] = None) -> Dict[str, Any]:
+        """Convenience alias for reconcile_reservation with automatic user resolution."""
+        if not user_id:
+            conn = get_connection()
+            cursor = conn.cursor()
+            cursor.execute("SELECT user_id FROM budget_reservations WHERE id = ?", (reservation_id,))
+            row = cursor.fetchone()
+            conn.close()
+            user_id = row["user_id"] if row else "usr_team_arise_01"
+        return cls.reconcile_reservation(reservation_id, user_id, actual_cost_usd, actual_tokens)
+
+    @classmethod
+    def release_budget(cls, reservation_id: str, user_id: Optional[str] = None) -> Dict[str, Any]:
+        """Convenience alias for release_reservation with automatic user resolution."""
+        if not user_id:
+            conn = get_connection()
+            cursor = conn.cursor()
+            cursor.execute("SELECT user_id FROM budget_reservations WHERE id = ?", (reservation_id,))
+            row = cursor.fetchone()
+            conn.close()
+            user_id = row["user_id"] if row else "usr_team_arise_01"
+        return cls.release_reservation(reservation_id, user_id)

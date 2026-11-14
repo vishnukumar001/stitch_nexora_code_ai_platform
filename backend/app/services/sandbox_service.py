@@ -4,13 +4,7 @@ import subprocess
 import hashlib
 import time
 from typing import Dict, Any, Optional
-
-import os
-import shutil
-import subprocess
-import hashlib
-import time
-from typing import Dict, Any, Optional
+from fastapi import HTTPException
 
 class SandboxSecurityException(ValueError):
     """Raised when a file path or sandbox identifier violates sandbox boundaries or security rules."""
@@ -20,6 +14,27 @@ class SandboxService:
     BASE_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), "../../../"))
     SANDBOXES_DIR = os.path.join(BASE_DIR, "backend/sandboxes")
     DISPOSABLE_REPOS_DIR = os.path.join(BASE_DIR, "backend/disposable_repos")
+
+    @classmethod
+    def resolve_safe_sandbox_path(cls, sandbox_id: str, target_file: str) -> str:
+        """
+        Validates that sandbox_id and target_file contain no traversal and
+        resolves safely inside the sandbox. Raises HTTPException 400 on violations.
+        """
+        if ".." in sandbox_id or "/" in sandbox_id or "\\" in sandbox_id:
+            raise HTTPException(status_code=400, detail="Invalid sandbox identifier: path traversal blocked")
+        sbx_path = cls.get_or_create_sandbox(sandbox_id)
+        try:
+            return cls.validate_safe_path(sbx_path, target_file)
+        except (SandboxSecurityException, ValueError) as e:
+            raise HTTPException(status_code=400, detail=str(e))
+
+    @classmethod
+    def reset_sandbox(cls, sandbox_id: str, repo_id: str = "repo-core") -> str:
+        """Resets disposable sandbox environment."""
+        if ".." in sandbox_id or "/" in sandbox_id or "\\" in sandbox_id:
+            raise HTTPException(status_code=400, detail="Invalid sandbox identifier: path traversal blocked")
+        return cls.get_or_create_sandbox(sandbox_id, repo_id)
 
     @classmethod
     def validate_safe_path(cls, sandbox_path: str, target_file: str) -> str:

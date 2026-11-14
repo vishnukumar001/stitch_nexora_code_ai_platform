@@ -58,6 +58,21 @@ class ApprovalGuard:
         return cls._emergency_kill_switch_engaged
 
     @classmethod
+    def get_pending_approvals(cls) -> List[Dict[str, Any]]:
+        """Retrieves all currently pending human approval gates."""
+        conn = get_connection()
+        cursor = conn.cursor()
+        cursor.execute("SELECT * FROM action_approvals WHERE status = 'pending' ORDER BY created_at DESC")
+        rows = cursor.fetchall()
+        conn.close()
+        return [dict(r) for r in rows]
+
+    @classmethod
+    def create_approval_request(cls, *args, **kwargs) -> ActionApproval:
+        """Alias for create_approval_gate."""
+        return cls.create_approval_gate(*args, **kwargs)
+
+    @classmethod
     def create_approval_gate(
         cls,
         task_id: str,
@@ -65,15 +80,17 @@ class ApprovalGuard:
         title: str,
         description: str,
         command_or_diff: str,
-        target_resource: str,
+        target_resource: str = "",
         severity: SeverityLevel = SeverityLevel.MEDIUM,
         risk_analysis: str = "",
         user_id: Optional[str] = "usr_team_arise_01",
-        repo_id: Optional[str] = "repo-core"
+        repo_id: Optional[str] = "repo-core",
+        target_path: Optional[str] = None
     ) -> ActionApproval:
         """
         Creates a pending action gate. Execution is halted until approved.
         """
+        actual_target = target_path or target_resource or "codebase"
         if cls.is_kill_switch_engaged():
             raise HTTPException(
                 status_code=423,
@@ -95,7 +112,7 @@ class ApprovalGuard:
         ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, 'pending', ?, ?, ?, ?, ?, ?)
         """, (
             appr_id, task_id, action_type.value, title, description, command_or_diff,
-            target_resource, severity.value, now, risk_analysis,
+            actual_target, severity.value, now, risk_analysis,
             diff_hash, expires_at, user_id or "usr_team_arise_01", repo_id or "repo-core"
         ))
         conn.commit()
@@ -108,7 +125,7 @@ class ApprovalGuard:
             title=title,
             description=description,
             command_or_diff=command_or_diff,
-            target_resource=target_resource,
+            target_resource=actual_target,
             severity=severity,
             status=ApprovalStatus.PENDING,
             created_at=now,

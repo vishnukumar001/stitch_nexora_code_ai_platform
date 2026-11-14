@@ -26,6 +26,7 @@ router = APIRouter()
 def get_system_health():
     return {
         "status": "healthy",
+        "version": "3.4.0",
         "cluster_node": "us-east-aurora-9",
         "ast_engine": "v3.12-production",
         "airgap_enforced": True,
