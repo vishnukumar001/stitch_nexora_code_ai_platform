@@ -1,6 +1,15 @@
-# NEXORA Code — Code Smarter. Spend Fewer Tokens.
+# 🌐 Live Application: [OPEN NEXORA CODE](https://vishnukumar001.github.io/stitch_nexora_code_ai_platform/)
 
 <div align="center">
+
+# 🚀 **[CLICK HERE TO LAUNCH LIVE APPLICATION](https://vishnukumar001.github.io/stitch_nexora_code_ai_platform/)** 🚀
+
+[![Live Website](https://img.shields.io/badge/🌐%20LIVE%20DEMO-OPEN%20NEXORA%20CODE-00E676?style=for-the-badge&logo=google-chrome&logoColor=black)](https://vishnukumar001.github.io/stitch_nexora_code_ai_platform/)
+[![GitHub Repo](https://img.shields.io/badge/GitHub-Repository-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/vishnukumar001/stitch_nexora_code_ai_platform)
+
+---
+
+# NEXORA Code — Code Smarter. Spend Fewer Tokens.
 
 ![NEXORA Code Banner](screen_1_landing_page/screen.png)
 
@@ -15,7 +24,7 @@
 
 **A token-efficient autonomous AI coding agent designed to complete complex software engineering tasks reliably while drastically slashing LLM token spend.**
 
-[Live Application](#-running-locally--live-cockpit) • [GitHub Repository](https://github.com/vishnukumar001/stitch_nexora_code_ai_platform) • [Architecture](#-architecture) • [Token Efficiency Benchmarks](#-token-efficiency-benchmarks) • [Quick Start](#-quick-start)
+[🚀 **Launch Live App**](https://vishnukumar001.github.io/stitch_nexora_code_ai_platform/) • [GitHub Repository](https://github.com/vishnukumar001/stitch_nexora_code_ai_platform) • [Architecture](#-architecture) • [Token Efficiency Benchmarks](#-token-efficiency-benchmarks) • [Quick Start](#-quick-start)
 
 </div>
 
