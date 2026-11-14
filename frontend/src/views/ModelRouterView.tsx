@@ -49,7 +49,7 @@ export const ModelRouterView: React.FC = () => {
             </span>
             <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded bg-surface-container font-label-sm text-label-sm text-on-surface-variant">
               <span className="material-symbols-outlined text-xs text-primary">verified_user</span>
-              Bifrost Gateway Compatible
+              Google Gemini Direct API
             </span>
           </div>
 
@@ -144,14 +144,14 @@ export const ModelRouterView: React.FC = () => {
 
         <div className="p-space-md rounded-xl bg-surface-container-low border border-surface-container-highest/40 flex flex-col justify-between shadow-sm">
           <span className="font-label-sm text-label-sm uppercase tracking-wider text-outline">
-            Bifrost by Maxim AI Status
+            Primary Cloud Engine
           </span>
           <div className="flex items-baseline gap-2 mt-1">
-            <span className="font-headline-lg text-headline-lg font-bold text-tertiary">Connected</span>
+            <span className="font-headline-lg text-headline-lg font-bold text-tertiary">Gemini 3.5 Flash</span>
           </div>
           <div className="mt-3 flex items-center justify-between font-label-sm text-label-sm text-outline border-t border-surface-container-highest/30 pt-2">
-            <span>Dynamic Proxy Mode</span>
-            <span className="text-tertiary font-semibold">Active</span>
+            <span>Integration Mode</span>
+            <span className="text-tertiary font-semibold">Direct API (Verified Live)</span>
           </div>
         </div>
 

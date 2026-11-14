@@ -1,0 +1,16 @@
+services:
+  - type: web
+    name: nexora-code
+    env: docker
+    dockerfilePath: Dockerfile
+    plan: starter
+    healthCheckPath: /api/health
+    envVars:
+      - key: GEMINI_MODEL
+        value: gemini-3.5-flash
+      - key: BIFROST_BASE_URL
+        value: https://api.maxim.ai/bifrost/v1
+    disk:
+      name: nexora-data
+      mountPath: /app/backend/app/db
+      sizeGB: 1

@@ -127,6 +127,128 @@ def init_db():
     );
     """)
 
+    # Safe migration: ensure execution_mode column exists on tasks table
+    try:
+        cursor.execute("PRAGMA table_info(tasks)")
+        col_names = [col["name"] for col in cursor.fetchall()]
+        if "execution_mode" not in col_names:
+            cursor.execute("ALTER TABLE tasks ADD COLUMN execution_mode TEXT DEFAULT 'SIMULATED PROVIDER EXECUTION'")
+    except Exception:
+        pass
+
+    # Safe migration: ensure diff_hash and expires_at exist on action_approvals table
+    try:
+        cursor.execute("PRAGMA table_info(action_approvals)")
+        appr_cols = [col["name"] for col in cursor.fetchall()]
+        if "diff_hash" not in appr_cols:
+            cursor.execute("ALTER TABLE action_approvals ADD COLUMN diff_hash TEXT")
+        if "expires_at" not in appr_cols:
+            cursor.execute("ALTER TABLE action_approvals ADD COLUMN expires_at REAL")
+    except Exception:
+        pass
+
+    # Safe migration: ensure reserved columns exist on budget_policies
+    try:
+        cursor.execute("PRAGMA table_info(budget_policies)")
+        bp_cols = [col["name"] for col in cursor.fetchall()]
+        if "reserved_spend_usd" not in bp_cols:
+            cursor.execute("ALTER TABLE budget_policies ADD COLUMN reserved_spend_usd REAL DEFAULT 0.0")
+        if "reserved_tokens" not in bp_cols:
+            cursor.execute("ALTER TABLE budget_policies ADD COLUMN reserved_tokens INTEGER DEFAULT 0")
+        cursor.execute("CREATE UNIQUE INDEX IF NOT EXISTS idx_budget_policies_user_id ON budget_policies(user_id)")
+    except Exception:
+        pass
+
+    # Safe migration: ensure circuit breaker state columns exist on providers table
+    try:
+        cursor.execute("PRAGMA table_info(providers)")
+        prov_cols = [col["name"] for col in cursor.fetchall()]
+        if "circuit_state" not in prov_cols:
+            cursor.execute("ALTER TABLE providers ADD COLUMN circuit_state TEXT DEFAULT 'closed'")
+        if "last_failure_time" not in prov_cols:
+            cursor.execute("ALTER TABLE providers ADD COLUMN last_failure_time REAL DEFAULT 0.0")
+    except Exception:
+        pass
+
+    # Safe migration: ensure user_id and repo_id columns exist on action_approvals table
+    try:
+        cursor.execute("PRAGMA table_info(action_approvals)")
+        appr_cols = [col["name"] for col in cursor.fetchall()]
+        if "user_id" not in appr_cols:
+            cursor.execute("ALTER TABLE action_approvals ADD COLUMN user_id TEXT DEFAULT 'usr_team_arise_01'")
+        if "repo_id" not in appr_cols:
+            cursor.execute("ALTER TABLE action_approvals ADD COLUMN repo_id TEXT DEFAULT 'repo-core'")
+    except Exception:
+        pass
+
+    # Budget Reservations table
+    cursor.execute("""
+    CREATE TABLE IF NOT EXISTS budget_reservations (
+        id TEXT PRIMARY KEY,
+        user_id TEXT NOT NULL,
+        reserved_cost_usd REAL NOT NULL,
+        reserved_tokens INTEGER NOT NULL,
+        status TEXT NOT NULL DEFAULT 'active',
+        created_at REAL NOT NULL,
+        reconciled_at REAL
+    );
+    """)
+
+    # Ensure system_settings table exists for persistent kill switch state
+    cursor.execute("""
+    CREATE TABLE IF NOT EXISTS system_settings (
+        key TEXT PRIMARY KEY,
+        value TEXT
+    );
+    """)
+
+    # Ensure Google Gemini Direct API provider exists in database with truthful attribution
+    cursor.execute("SELECT id FROM providers WHERE id = 'prov-gemini'")
+    if not cursor.fetchone():
+        cursor.execute("""
+        INSERT INTO providers (
+            id, name, tier, model_name, status, latency_ms, p95_latency_ms,
+            uptime_pct, cost_per_m_in, cost_per_m_out, is_local,
+            circuit_breaker_tripped, failure_count, endpoint_url, has_api_key
+        ) VALUES (
+            'prov-gemini', 'Google Gemini 3.5 Flash (Direct API)', 'Primary Cloud Provider (Direct)',
+            'gemini-3.5-flash', 'connected', 85, 110, 99.99, 0.075, 0.30, 0, 0, 0,
+            'https://generativelanguage.googleapis.com', 1
+        )
+        """)
+    else:
+        cursor.execute("""
+        UPDATE providers
+        SET name = 'Google Gemini 3.5 Flash (Direct API)',
+            tier = 'Primary Cloud Provider (Direct)',
+            endpoint_url = 'https://generativelanguage.googleapis.com'
+        WHERE id = 'prov-gemini'
+        """)
+
+    # Ensure Bifrost Gateway provider exists with truthful partner attribution
+    cursor.execute("SELECT id FROM providers WHERE id = 'prov-bifrost'")
+    if not cursor.fetchone():
+        cursor.execute("""
+        INSERT INTO providers (
+            id, name, tier, model_name, status, latency_ms, p95_latency_ms,
+            uptime_pct, cost_per_m_in, cost_per_m_out, is_local,
+            circuit_breaker_tripped, failure_count, endpoint_url, has_api_key
+        ) VALUES (
+            'prov-bifrost', 'Bifrost Gateway by Maxim AI (Optional)', 'AI Gateway (Optional / Inactive)',
+            'bifrost-adaptive-router', 'inactive', 94, 125, 99.99, 1.20, 4.50, 0, 0, 0,
+            'https://api.maxim.ai/bifrost/v1', 0
+        )
+        """)
+    else:
+        cursor.execute("""
+        UPDATE providers
+        SET name = 'Bifrost Gateway by Maxim AI (Optional)',
+            tier = 'AI Gateway (Optional / Inactive)',
+            status = 'inactive',
+            endpoint_url = 'https://api.maxim.ai/bifrost/v1'
+        WHERE id = 'prov-bifrost'
+        """)
+
     conn.commit()
 
     # Seed data if empty

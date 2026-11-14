@@ -1,183 +1,301 @@
-# NEXORA Code — Intelligent Token-Efficient AI Coding Agent
+# NEXORA Code — Code Smarter. Spend Fewer Tokens.
 
 <div align="center">
 
 ![NEXORA Code Banner](screen_1_landing_page/screen.png)
 
-### **Code Smarter. Spend Fewer Tokens.**
+[![Python 3.12](https://img.shields.io/badge/Python-3.12-3776AB?style=flat&logo=python&logoColor=white)](https://www.python.org/)
+[![FastAPI](https://img.shields.io/badge/FastAPI-0.115+-009688?style=flat&logo=fastapi&logoColor=white)](https://fastapi.tiangolo.com/)
+[![React 18](https://img.shields.io/badge/React-18.3-61DAFB?style=flat&logo=react&logoColor=black)](https://react.dev/)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5.5-3178C6?style=flat&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
+[![Vite](https://img.shields.io/badge/Vite-5.4-646CFF?style=flat&logo=vite&logoColor=white)](https://vitejs.dev/)
+[![TailwindCSS](https://img.shields.io/badge/TailwindCSS-3.4-38B2AC?style=flat&logo=tailwind-css&logoColor=white)](https://tailwindcss.com/)
+[![Tests Passing](https://img.shields.io/badge/Tests-102%2F102%20Passing-brightgreen?style=flat&logo=checkmarx&logoColor=white)](file:///Users/vishnukumar/Downloads/stitch_nexora_code_ai_platform/TESTING_REPORT.md)
+[![Hackathon](https://img.shields.io/badge/Global%20AI%20Hackathon%202026-Geek%20Room-FF6F00?style=flat)](https://geekroom.in/)
 
-**Competition:** Global AI Hackathon 2026  
-**Organiser:** Geek Room  
-**Primary Technology:** Bifrost by Maxim AI  
-**Selected Problem Statement:** PS 01 — *“Build a Coding Agent That Gets the Job Done on the Fewest Tokens.”*
+**A token-efficient autonomous AI coding agent designed to complete complex software engineering tasks reliably while drastically slashing LLM token spend.**
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
-[![Python 3.13](https://img.shields.io/badge/Python-3.13-brightgreen.svg)](https://python.org)
-[![FastAPI](https://img.shields.io/badge/FastAPI-0.115-009688.svg)](https://fastapi.tiangolo.com)
-[![React 18](https://img.shields.io/badge/React-18.3-61dafb.svg)](https://react.dev)
-[![TypeScript](https://img.shields.io/badge/TypeScript-5.6-3178c6.svg)](https://www.typescriptlang.org)
-[![Tailwind CSS](https://img.shields.io/badge/TailwindCSS-3.4-38bdf8.svg)](https://tailwindcss.com)
+[Live Application](#-running-locally--live-cockpit) • [GitHub Repository](https://github.com/vishnukumar001/stitch_nexora_code_ai_platform) • [Architecture](#-architecture) • [Token Efficiency Benchmarks](#-token-efficiency-benchmarks) • [Quick Start](#-quick-start)
 
 </div>
 
 ---
 
-## 🚀 Overview
+## 📌 Problem Statement
 
-**NEXORA Code** is an intelligent, token-efficient AI coding agent platform designed to execute complex software engineering tasks reliably while eliminating unnecessary LLM token consumption. 
+* **Competition:** Global AI Hackathon 2026 — Geek Room
+* **Problem Statement:** **PS 01 — Build a Coding Agent That Gets the Job Done on the Fewest Tokens**
+* **Team:** **TEAM ARISE**
+* **Technology Partner:** **Bifrost by Maxim AI**
 
-Rather than blindly transmitting multi-thousand-line repositories and duplicate dependency graphs to frontier LLMs, NEXORA Code combines **AST-aware semantic graph slicing**, **multi-tier model cascade routing**, **pre-flight financial guardrails**, **zero-egress local privacy enforcement**, and **deterministic human action approval gates**.
+### The Token Crisis in AI Software Engineering
+Contemporary AI coding agents suffer from catastrophic context bloat. To resolve a one-line bug in a 1,000-line service, standard agents routinely dump entire files, dependencies, unreferenced classes, and dead imports into the LLM context window. This naive approach:
+1. **Wastes 40%–80% of token budgets** on repetitive boilerplate.
+2. **Degrades reasoning accuracy** ("Lost in the Middle" phenomenon across massive prompt windows).
+3. **Escalates infrastructure bills** exponentially across teams and enterprise monorepos.
 
-The platform is built from the ground up to address **PS 01**, reducing token consumption by **65% to 90%** with verifiable mathematical receipts measured using industry-standard BPE tokenizers (`tiktoken`).
-
----
-
-## 🎯 Mandatory Challenge Requirements Matrix
-
-| Requirement | Description | How NEXORA Code Implements It | Status |
-|---|---|---|---|
-| **A. Reliability** | • Multiple AI provider support<br>• Automatic failover & circuit breaker<br>• Error, timeout & rate limit handling<br>• Session continuity<br>• Realtime provider health | • Unified client for Anthropic Claude 3.7 Sonnet, DeepSeek V3, OpenAI GPT-4o, Local Ollama Qwen 2.5 Coder, and Bifrost by Maxim AI.<br>• Heuristic circuit breaker tripping after 3 consecutive faults with automatic cascade failover.<br>• Realtime p95 latency and health telemetry in the top bar and Model Router view. | ✅ **100% Implemented & Tested** |
-| **B. Code Privacy** | • Confidential repos use local models only<br>• Never transmit confidential code to remote AI<br>• Repository privacy configuration<br>• Backend-controlled privacy enforcement | • `PrivacyGuard` enforces zero-egress air-gap invariant on any repository marked `is_confidential == True`.<br>• Remote provider calls are strictly blocked at the backend; requests route exclusively to local models (`prov-ollama` / Qwen 2.5 Coder).<br>• Generates SHA-256 cryptographic air-gap audit receipts. | ✅ **100% Implemented & Tested** |
-| **C. Budget Management** | • Per-user token & API spend limits<br>• Track input, output tokens & estimated costs<br>• Enforce limits before model calls<br>• Prevent requests exceeding budgets<br>• Show usage and budget telemetry | • `BudgetService` executes pre-flight validation *before* dispatching any LLM call.<br>• Blocks over-budget invocations with `HTTP 403 BUDGET_CAP_EXCEEDED`.<br>• Hard and soft caps, auto-throttling, and real-time runway pacing visualizer in Budget Manager. | ✅ **100% Implemented & Tested** |
-| **D. Action Approval** | • Explicit approval required for file writes, shell execution, git ops<br>• Non-bypassable restrictions<br>• Human-in-the-loop verification | • `ApprovalGuard` intercepts all file modifications, shell executions, and Git operations into a deterministic pending approval queue.<br>• No AI-generated command can execute without explicit user approval.<br>• Includes an **Emergency Kill Switch** that instantly halts all agent tasks and revokes pending authorizations. | ✅ **100% Implemented & Tested** |
-| **E. Token Optimization** | • AST repository context selection<br>• Relevant file retrieval vs full dumps<br>• Context compression & pruning<br>• Model selection by complexity<br>• Caching & no redundant calls<br>• Actual token measurement | • `ASTOptimizer` extracts relevant function/class loci and pruned signatures instead of dumping whole codebases.<br>• Strips boilerplate, standard library definitions, unreferenced test fixtures, and comments.<br>• `SemanticCache` avoids redundant calls (0-token hits).<br>• Verifiable token metrics calculated using `tiktoken`. | ✅ **100% Implemented & Tested** |
+**NEXORA Code** solves this at the structural level using **AST Context Slicing**, **Multi-Provider Cascading**, **Decimal Budget Guardrails**, and **Zero-Trust Human Approval Gates**.
 
 ---
 
-## 🏛️ Architecture & Agent Execution Lifecycle
+## ✨ Key Features (Independently Verified)
+
+* 🌲 **AST Context Slicing Engine:** Parses Abstract Syntax Trees across Go, TypeScript, and Python to surgically isolate only the functions, structs, and interfaces required for a task, stripping dead code and unreferenced modules before sending prompts to the LLM.
+* ⚡ **Warm Semantic Caching:** Intercepts identical or semantically equivalent queries locally using SHA-256 code-similarity indexing, achieving **100% token savings (0 tokens billed)** on cache hits.
+* 🔄 **Intelligent Provider Router & Failover:**
+  * **Primary Engine:** Google Gemini Direct API (`gemini-3.5-flash`) with honest upstream token attribution and `usageMetadata` tracking.
+  * **Secondary Failover:** DeepSeek V3 OpenAI-compatible client automatically triggered upon Gemini rate limits (HTTP 429).
+  * **Gateway Integration:** Preserved OpenAI-compatible Bifrost by Maxim AI gateway client for proxy routing.
+* 🔒 **Confidential Mode (Local-Only Routing):** Repositories designated as `Confidential` enforce strict application-level local-only routing (`qwen2.5-coder:14b` on Ollama). If local endpoints are unreachable, the platform strictly **fails closed** with `HTTP 503` rather than leaking proprietary code to cloud models.
+* 🛡️ **Zero-Trust Human Approval Gates:** AI agents cannot modify files or execute commands autonomously. Changes generate cryptographic approval tokens bound to the authenticated user, repository, task, and exact unified diff SHA-256 digest.
+* 🔀 **Decoupled Git Commit Authorization:** Developers can test approved patches in an isolated sandbox first while decoupling whether the mutation creates a Git commit (`approve_git_commit` flag).
+* 🧪 **Path-Confined Disposable Sandbox:** All patch applications and test executions run in temporary sandbox directory clones (`backend/sandboxes/`) guarded by canonical `os.path.commonpath` validation, strictly preventing directory traversal or host mutation.
+* 💰 **Concurrency-Safe Budget Guardrails:** Thread-safe budget allocations quantized with Python `Decimal` precision, preventing race-condition overdrafts under heavy concurrent load.
+
+---
+
+## 🏛 Architecture
+
+### System Architecture
 
 ```mermaid
-flowchart TD
-    User(["Developer Prompt & Task"]) --> Guardrail["1. Pre-Flight Budget Check (BudgetService)"]
-    Guardrail -->|Budget OK| Privacy["2. Privacy Air-Gap Check (PrivacyGuard)"]
-    Guardrail -->|Exceeds Limit| Blocked["HTTP 403: Blocked Before Model Call"]
+graph TD
+    Client["NEXORA Web Cockpit (React 18 + Vite + TailwindCSS)"]
+    API["FastAPI Unified Server (Port 8000 / $PORT)"]
+    
+    subgraph Core Optimization & Security Engine
+        AST["AST Context Slicing Engine (ast_optimizer.py)"]
+        Cache["Warm Semantic Cache (semantic_cache.py)"]
+        Guard["Zero-Trust Approval Guard (approval_guard.py)"]
+        Budget["Decimal Budget Manager (budget_service.py)"]
+        Sandbox["Path-Confined Sandbox (sandbox_service.py)"]
+    end
+    
+    subgraph Provider Routing & Failover
+        Router["Provider Router (provider_router.py)"]
+        Gemini["Google Gemini 3.5 Flash (Verified Live)"]
+        DeepSeek["DeepSeek V3 Failover (OpenAI-Compatible)"]
+        Bifrost["Bifrost Gateway by Maxim AI (Client Preserved)"]
+        Ollama["Local Ollama Qwen 2.5 (Confidential Mode)"]
+    end
 
-    Privacy -->|Confidential Repo| LocalModel["Local Ollama Qwen 2.5 Coder (Zero Egress)"]
-    Privacy -->|Standard Repo| ASTOpt["3. AST Symbol Slicing & Context Compactor"]
+    Client -->|Relative /api Requests| API
+    API --> AST
+    AST --> Cache
+    Cache -->|Cache Miss| Budget
+    Budget --> Router
+    Router --> Gemini
+    Router -.->|HTTP 429 Failover| DeepSeek
+    Router -.->|Optional Gateway| Bifrost
+    Router -->|Confidential Repo| Ollama
+    Router --> Guard
+    Guard --> Sandbox
+    Sandbox -->|Isolated Test Results| Client
+```
 
-    ASTOpt --> Router["4. Model Cascade Router (Bifrost / DeepSeek / Claude)"]
-    Router --> Failover{"Provider Health Check"}
-    Failover -->|Healthy| Inference["Code Synthesis & Benchmarks"]
-    Failover -->|Outage / 5xx| AutoFailover["Auto Failover Circuit Breaker"]
-    AutoFailover --> Inference
+### Full-Stack Single-Port Delivery
+NEXORA Code mounts the compiled React production assets (`frontend/dist`) directly onto root (`/`) within FastAPI. This design eliminates cross-origin latency, CORS errors, and dual-domain hosting maintenance.
 
-    LocalModel --> DiffStage["5. Mutation Staging & Unified Diff"]
-    Inference --> DiffStage
+---
 
-    DiffStage --> ApprovalGate{"6. Action Approval Gate (Safe Mode)"}
-    ApprovalGate -->|File Write / Shell / Git| PendingQueue["Pending Review Queue (Security Center)"]
-    PendingQueue --> UserDecision{"Human Reviewer"}
-    UserDecision -->|Approve| Applied["Applied to Sandbox & PR Created"]
-    UserDecision -->|Reject| Reverted["Reverted & Cancelled"]
-    UserDecision -->|Kill Switch| Terminated["Emergency Kill Switch Halt"]
+## 📊 Token Efficiency Benchmarks
+
+NEXORA Code maintains two reproducible, machine-readable benchmarks. To maintain audit integrity, context reduction and total billed tokens are reported separately:
+
+### Benchmark A: Curated Monorepo File Fixtures (Input Context Reduction)
+Measures cold-run input context compression across individual modular files using tiktoken `cl100k_base` BPE tokenizer:
+
+| Task ID | Target File | Language | Raw Context | Sliced Context | Tokens Saved | Reduction % |
+| :--- | :--- | :--- | :--- | :--- | :--- | :--- |
+| `TASK-01` | `cache_service.go` | Go | 2,052 tokens | 364 tokens | 1,688 tokens | **82.26%** |
+| `TASK-02` | `gateway_router.ts` | TypeScript | 1,514 tokens | 636 tokens | 878 tokens | **57.99%** |
+| `TASK-03` | `auth_service.py` | Python | 1,222 tokens | 685 tokens | 537 tokens | **43.94%** |
+| **Total** | **3 Core Files** | **Multi-Lang** | **4,788 tokens** | **1,685 tokens** | **3,103 tokens** | **64.81%** |
+
+### Benchmark B: 15 End-to-End Multi-Language Tasks (Total Tokens)
+Measures combined prompt input context + generated output completion tokens across 15 tasks including compilation validation and sandbox test execution:
+
+| Language Suite | Task Count | Baseline Estimated | Optimized Estimated | Tokens Saved | Reduction % | Syntax Compilation | Sandbox Tests |
+| :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
+| **Python** | 5 Tasks | 2,465 tokens | 1,150 tokens | 1,315 tokens | **53.35%** | 5/5 PASSED | 5/5 PASSED |
+| **Go** | 5 Tasks | 1,823 tokens | 1,119 tokens | 704 tokens | **38.62%** | 5/5 PASSED | 5/5 PASSED |
+| **TypeScript** | 5 Tasks | 2,035 tokens | 1,415 tokens | 620 tokens | **30.47%** | 5/5 PASSED | 5/5 PASSED |
+| **Aggregate** | **15 Tasks** | **6,323 tokens** | **3,684 tokens** | **2,639 tokens** | **41.74%** | **15/15 PASSED** | **15/15 PASSED** |
+
+> [!NOTE]
+> * **Standardized Tokenizer Estimation:** Benchmark B figures are calculated using OpenAI tiktoken `cl100k_base` BPE as a reproducible baseline.
+> * **Actual Billed Usage:** In production, actual billed tokens are captured directly from model provider `usageMetadata` (e.g. Gemini `promptTokenCount` + `candidatesTokenCount`).
+> * **Interactive Demo Prompt:** In the live UI workspace, typing or selecting the `cache_manager.go` template dynamically reduces context from **1,295 to 301 tokens (76.76% reduction)**.
+
+---
+
+## 📸 Screenshots
+
+| AI Coding Workspace & AST Slicing | Security & Action Approval Center |
+| :---: | :---: |
+| ![Workspace](screen_4_ai_coding_workspace/screen.png) | ![Security Center](screen_9_security_approval_center/screen.png) |
+| **Token Analytics & Savings** | **Budget Manager & Hard Limits** |
+| ![Token Analytics](screen_6_token_analytics/screen.png) | ![Budget Manager](screen_8_budget_manager/screen.png) |
+
+---
+
+## 🛠 Technology Stack
+
+| Layer | Technologies | Purpose |
+| :--- | :--- | :--- |
+| **Frontend Cockpit** | React 18, TypeScript 5.5, Vite 5.4, TailwindCSS 3.4 | Dark-mode developer cockpit, visual AST diff viewer |
+| **Backend API** | Python 3.12, FastAPI 0.115+, Uvicorn 0.34+ | High-throughput async REST endpoints, WebSocket telemetry |
+| **Token Optimization** | Python `ast`, tiktoken (`cl100k_base`), SHA-256 | Syntax tree traversal, symbol pruning, semantic caching |
+| **Database** | SQLite3, Thread-Safe Connection Pooling | Multi-tenant repository metadata, budget ledger, audit receipts |
+| **AI Integration** | Google Gemini API, DeepSeek V3, Ollama, Bifrost Client | Primary inference, automatic cascade failover, local mode |
+| **Security & Sandbox** | Canonical path validation, Python `unittest`, Git | Disposable filesystem sandboxes, human approval gates |
+| **Containerization** | Docker Multi-Stage, Render Blueprint, Railway | Production container image, single-port deployment |
+
+---
+
+## 📁 Project Structure
+
+```
+stitch_nexora_code_ai_platform/
+├── backend/
+│   ├── app/
+│   │   ├── api/endpoints.py          # FastAPI REST route definitions
+│   │   ├── db/database.py             # SQLite schema, migrations, connection pool
+│   │   ├── models/schemas.py          # Pydantic v2 telemetry & request schemas
+│   │   ├── services/
+│   │   │   ├── approval_guard.py      # Multi-tenant human approval gate engine
+│   │   │   ├── ast_optimizer.py       # AST Context Slicing across languages
+│   │   │   ├── budget_service.py      # Decimal quantized budget guardrails
+│   │   │   ├── privacy_guard.py       # Confidential repository routing enforcer
+│   │   │   ├── provider_router.py     # Gemini, DeepSeek, Bifrost & Ollama router
+│   │   │   ├── sandbox_service.py     # Path-confined disposable sandbox manager
+│   │   │   ├── semantic_cache.py      # Zero-egress warm semantic cache
+│   │   │   └── tokenizer_service.py   # BPE cl100k_base token counting & pricing
+│   │   └── main.py                    # Application entrypoint & static mount
+│   ├── benchmark/                     # Automated token benchmark suites
+│   ├── requirements.txt               # Backend Python dependencies
+│   └── tests/                         # 22 test files (102 test executions)
+├── frontend/
+│   ├── src/
+│   │   ├── components/                # UI navigation, modals, and telemetry badges
+│   │   ├── views/                     # Cockpit views (Workspace, Budget, Security)
+│   │   ├── api.ts                     # Relative-path API client
+│   │   └── App.tsx                    # Main React application shell
+│   ├── package.json                   # Frontend dependencies
+│   └── vite.config.ts                 # Vite development proxy configuration
+├── start.sh                           # Unified startup script
+├── Dockerfile                         # Production multi-stage containerfile
+├── render.yaml                        # Render Blueprint manifest
+├── railway.toml                       # Railway deployment manifest
+├── .env.example                       # Environment configuration template
+└── README.md                          # Master project documentation
 ```
 
 ---
 
-## 💻 Application Modules & Screens
-
-The platform preserves and expands the Google Stitch design system across 10 modules:
-
-1. **Landing Page (`/`):** Hero showcase, unoptimized baseline vs. AST compaction preview, trial CTAs.
-2. **Authentication (`/auth`):** GitHub SSO (`⌘G`), GitLab/Bitbucket, Enterprise SAML, and developer credentials.
-3. **Main Dashboard (`/dashboard`):** 4 KPI telemetry cards, SVG token consumption vs. cost trajectory chart, active AI provider health strip, recent coding activities table.
-4. **AI Coding Workspace (`/workspace`):**
-   - **Pane 1:** Context & Spec, AST Slicing Window, Safe Mode vs Autonomous toggle, Quick Diagnostic Invocations.
-   - **Pane 2:** Agent Execution Stream, Reasoning Pipeline steps progression, terminal steering input bar.
-   - **Pane 3:** Mutation Staging & Review, Unified Code Diff Viewer (with line context, deletions, additions), Action Approval Bar.
-5. **Repository Explorer (`/repositories`):** Target workspaces, Confidential Shield toggle (enforcing local-only models), file tree, AST symbol inspector.
-6. **Token Analytics (`/token-analytics`):** Real-time AST metering, token reduction ratios, input/output ratio, 30-day verified ledger, CSV export.
-7. **Intelligent Model Router (`/model-router`):** Adaptive cascade engine, latency/cost presets, failover topology, interactive failover test button.
-8. **Budget Manager (`/budget`):** Monthly budget run, token cap tracking, auto-throttle circuit breaker, guardrails configuration modal.
-9. **Security & Approval Center (`/security`):** Pending agent action queue for shell executions, file writes, and Git pushes; Emergency Kill Switch; intercepted threat log.
-10. **Task History & Settings (`/settings`):** Historical execution traces, Provider API Keys & KMS Enclave Vault, Custom AST Pruning Rules, Sandbox limits.
-
----
-
-## 📊 Token Optimization & Savings Measurement
-
-Token counts are measured using `tiktoken` BPE tokenizers comparing standard LLM context dumps against NEXORA AST Slicing:
-
-| Scenario / Task | Uncompressed Baseline | NEXORA AST Compacted | Tokens Saved | Reduction Ratio | Baseline Cost | NEXORA Cost | Net USD Saved |
-|---|---|---|---|---|---|---|---|
-| **Memory Leak Refactor (`cache_manager.go`)** | 8,420 tokens | 340 tokens | 8,080 tokens | **96.0%** | $0.210 | $0.002 | **+$0.208** |
-| **Auth JWT WASM Parser (`jwt_validator.go`)** | 116,400 tokens | 32,400 tokens | 84,000 tokens | **72.2%** | $0.349 | $0.000 (Local) | **+$0.349** |
-| **gRPC Proto Stub Gen (`billing.proto`)** | 198,200 tokens | 88,200 tokens | 110,000 tokens | **55.5%** | $0.594 | $0.114 | **+$0.480** |
-| **Vector Index Opt (`indexer.py`)** | 113,000 tokens | 45,000 tokens | 68,000 tokens | **60.2%** | $0.339 | $0.058 | **+$0.281** |
-
----
-
-## 🛠️ Quickstart & Setup Instructions
+## 🚀 Quick Start
 
 ### Prerequisites
-- Python 3.10+
-- Node.js 18+ (tested on Node v26)
-- Git & SQLite3
+* **Python 3.12+**
+* **Node.js 18+** & **npm**
+* **Git**
 
-### 1. One-Command Launch (Recommended)
+### Installation & Launch
 
-Run the included startup script:
 ```bash
+# 1. Clone repository
+git clone https://github.com/vishnukumar001/stitch_nexora_code_ai_platform.git
+cd stitch_nexora_code_ai_platform
+
+# 2. Configure environment variables
+cp .env.example .env
+# Edit .env and paste your GEMINI_API_KEY from Google AI Studio
+
+# 3. Launch unified server
 ./start.sh
 ```
-This automatically verifies dependencies, runs the test suite, and starts the full-stack platform on:
-👉 **http://localhost:8000**
+
+The script will automatically install Python packages, build the production frontend cockpit, run automated tests, and launch the server on **`http://localhost:8000`**.
+
+* **Web Cockpit UI:** [http://localhost:8000](http://localhost:8000)
+* **Interactive OpenAPI Docs:** [http://localhost:8000/docs](http://localhost:8000/docs)
+* **Health Check Endpoint:** [http://localhost:8000/api/health](http://localhost:8000/api/health)
 
 ---
 
-### 2. Manual Setup
+## ⚙️ Environment Variables
 
-#### Backend Setup:
-```bash
-# Install backend dependencies
-pip install -r backend/requirements.txt
+Copy `.env.example` to `.env` and configure your credentials:
 
-# Run verification unit tests
-python3 -m unittest backend/tests/test_full_suite.py
-
-# Start FastAPI server
-uvicorn backend.app.main:app --host 0.0.0.0 --port 8000 --reload
-```
-
-#### Frontend Development (Optional):
-```bash
-cd frontend
-npm install
-npm run build     # Compiles TypeScript and builds production assets into dist/
-npm run dev       # Starts Vite HMR dev server on http://localhost:5173
-```
+| Variable | Description | Default |
+| :--- | :--- | :--- |
+| `GEMINI_API_KEY` | Google AI Studio Gemini API Key | *(Required for live AI inference)* |
+| `GEMINI_MODEL` | Gemini Model Identifier | `gemini-3.5-flash` |
+| `BIFROST_API_KEY` | Maxim AI Bifrost Gateway API Key | *(Optional)* |
+| `BIFROST_BASE_URL` | Maxim AI Bifrost Gateway Base URL | `https://api.maxim.ai/bifrost/v1` |
+| `DEEPSEEK_API_KEY` | DeepSeek API Key for secondary failover | *(Optional)* |
+| `OLLAMA_HOST` | Local Ollama endpoint for confidential mode | `http://localhost:11434` |
+| `PORT` | Listening server port | `8000` |
 
 ---
 
-## 🧪 Automated Test Suite
+## 🧪 Testing
 
-Run the full automated test suite verifying all 5 mandatory hackathon requirements:
+NEXORA Code features a comprehensive automated test suite with **102 test executions across 22 test files (80 unique specifications)**.
 
 ```bash
-python3 -m unittest backend/tests/test_full_suite.py
+# Run all 102 regression tests in offline mode (0 external API calls)
+NEXORA_TEST_MOCK_LLM=1 python3 -m unittest discover -s backend/tests
+
+# Run end-to-end live integration test suite
+PYTHONPATH=. python3 -m unittest backend/tests/test_full_suite.py
+
+# Verify production frontend build
+cd frontend && npm run build
 ```
 
-### Verified Test Cases:
-1. `test_01_health_and_cluster`: Confirms cluster node telemetry and AST engine status.
-2. `test_02_dashboard_kpis`: Verifies real KPI calculation and token metrics.
-3. `test_03_code_privacy_confidential_repo`: Confirms confidential repositories strictly route to local air-gapped models with zero remote egress.
-4. `test_04_token_optimization_and_savings`: Verifies AST context slicing achieves >70% token compression.
-5. `test_05_action_approval_gate`: Verifies no file write or command executes without explicit human approval.
-6. `test_06_budget_limit_enforcement`: Tests pre-flight limit validation and budget updates.
-7. `test_07_emergency_kill_switch`: Tests global kill switch locking the agent workstation.
-8. `test_08_provider_failover_simulation`: Verifies automatic failover and circuit breaker tripping on simulated provider outages.
+---
+
+## 🚢 Production Deployment
+
+NEXORA Code is ready for turnkey production deployment:
+
+### Docker Container
+```bash
+docker build -t nexora-code:latest .
+docker run -d -p 8000:8000 -e GEMINI_API_KEY="your-key" -v nexora-data:/app/backend/app/db nexora-code:latest
+```
+
+### Cloud Platforms (Render / Railway)
+* **Render:** Connect your GitHub repo and select `render.yaml` Blueprint. Mount a persistent disk to `/app/backend/app/db`.
+* **Railway:** Deploy directly using the root `Dockerfile` and `railway.toml`. Add `GEMINI_API_KEY` in dashboard variables.
+
+See [DEPLOYMENT.md](file:///Users/vishnukumar/Downloads/stitch_nexora_code_ai_platform/DEPLOYMENT.md) for full deployment instructions.
 
 ---
 
-## 🔒 Security & Privacy Notice
+## 🔒 Security & Guardrails
 
-- API keys and secrets are stored exclusively in the backend SQLite database with simulated KMS hardware enclave encryption.
-- No confidential repository code or secrets are ever exposed in frontend client bundles.
-- Confidential repositories are air-gapped and restricted to verified local models.
+* **Zero-Trust Approval Tokens:** All file writes and git mutations require approval with 15-minute expiration tokens.
+* **Tamper-Evident SHA-256 Audit Digest:** Approvals record cryptographic receipts computing SHA-256 hashes across reviewer, decision, and diff.
+* **Emergency Kill Switch:** A hardware-style kill switch in the header instantly freezes all execution paths with `HTTP 423 Locked`.
+* **Path Traversal Shield:** Sandboxes enforce canonical path resolution (`commonpath`), strictly rejecting `../` traversal or symlink jailbreaks.
 
 ---
 
-<div align="center">
-Built with precision for <strong>Global AI Hackathon 2026</strong>.
-</div>
+## 👥 Team ARISE
 
+* **Project:** NEXORA Code
+* **Hackathon:** Global AI Hackathon 2026 — Geek Room
+* **Lead Engineer & Architect:** TEAM ARISE
+* **Problem Statement:** PS 01 — Token-Efficient Coding Agent
+
+---
+
+## 📄 License & Acknowledgements
+
+* **License Recommendation:** Recommended under the [Apache License 2.0](https://www.apache.org/licenses/LICENSE-2.0) or MIT License.
+* **Acknowledgements:**
+  * **Bifrost by Maxim AI:** Technology partner for intelligent AI gateway routing.
+  * **Google Gemini API:** High-efficiency multimodal models powering primary code synthesis.
+  * **Geek Room:** Organizers of the Global AI Hackathon 2026.

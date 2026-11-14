@@ -84,7 +84,7 @@ export const DashboardView: React.FC<DashboardProps> = ({
                     : 'bg-surface-container text-outline border-surface-container-highest/60'
                 }`}
               >
-                {stats?.has_live_data ? 'Live Metrics' : 'Demo Seed'}
+                {stats?.has_live_data ? 'Live Metrics' : 'Demo Seed Data'}
               </span>
             </div>
             <div className="w-8 h-8 rounded-lg bg-tertiary/10 text-tertiary flex items-center justify-center">
@@ -113,7 +113,12 @@ export const DashboardView: React.FC<DashboardProps> = ({
           className="rounded-xl bg-surface-container-low p-5 border border-surface-container-highest/40 hover:border-primary/40 transition-all cursor-pointer space-y-3"
         >
           <div className="flex items-center justify-between">
-            <span className="text-xs font-mono uppercase text-outline">Budget & Spending</span>
+            <div className="flex items-center gap-2">
+              <span className="text-xs font-mono uppercase text-outline">Budget & Spending</span>
+              <span className="text-[9px] font-mono uppercase px-1.5 py-0.2 rounded border bg-surface-container text-outline border-surface-container-highest/60">
+                Demo Seed Data
+              </span>
+            </div>
             <div className="w-8 h-8 rounded-lg bg-primary/10 text-primary flex items-center justify-center">
               <span className="material-symbols-outlined text-lg">account_balance_wallet</span>
             </div>
@@ -151,23 +156,23 @@ export const DashboardView: React.FC<DashboardProps> = ({
             <div className="flex items-center justify-between">
               <span className="text-on-surface-variant flex items-center gap-1.5">
                 <span className="w-2 h-2 rounded-full bg-tertiary"></span>
-                <span>Bifrost AI Gateway</span>
+                <span>Google Gemini Direct API</span>
               </span>
-              <span className="font-mono text-tertiary font-medium">Connected</span>
+              <span className="font-mono text-tertiary font-medium">Verified Live</span>
             </div>
             <div className="flex items-center justify-between">
               <span className="text-on-surface-variant flex items-center gap-1.5">
                 <span className="w-2 h-2 rounded-full bg-primary"></span>
-                <span>Claude + DeepSeek Failover</span>
+                <span>DeepSeek V3 Failover</span>
               </span>
               <span className="font-mono text-primary font-medium">{onlineCount} Online</span>
             </div>
             <div className="flex items-center justify-between">
               <span className="text-on-surface-variant flex items-center gap-1.5">
                 <span className="w-2 h-2 rounded-full bg-outline"></span>
-                <span>Local Air-Gap Model</span>
+                <span>Local Routing (Confidential)</span>
               </span>
-              <span className="font-mono text-outline">{localProvider ? 'Ollama Ready' : 'Standby'}</span>
+              <span className="font-mono text-outline">{localProvider ? 'Ollama Online' : 'Offline / Standby'}</span>
             </div>
           </div>
           <div className="text-xs text-outline pt-1 border-t border-surface-container-highest/30 flex items-center justify-between">

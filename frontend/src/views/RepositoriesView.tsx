@@ -163,7 +163,7 @@ export const RepositoriesView: React.FC<RepositoriesProps> = ({
                   <div className="mt-2.5 pt-2 border-t border-surface-container-highest/30 flex items-center justify-between">
                     <span className="font-label-sm text-[11px] text-on-surface-variant flex items-center gap-1">
                       <span className="material-symbols-outlined text-xs text-primary">security</span>
-                      Air-Gap Shield:
+                      Local-Only Shield:
                     </span>
                     <button
                       type="button"

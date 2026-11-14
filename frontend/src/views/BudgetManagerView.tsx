@@ -66,8 +66,9 @@ export const BudgetManagerView: React.FC = () => {
                 AUTO-THROTTLE: {budget?.auto_throttle_active ? 'ARMED' : 'STANDBY'}
               </span>
             </div>
-            <div className="px-2.5 py-1 rounded-full bg-surface-container font-label-sm text-label-sm text-on-surface-variant border border-surface-container-highest">
-              BUDGET POOL: <span className="text-on-surface font-semibold">${budget?.monthly_budget_usd?.toFixed(2)} / MO</span>
+            <div className="px-2.5 py-1 rounded-full bg-surface-container font-label-sm text-label-sm text-on-surface-variant border border-surface-container-highest flex items-center gap-1.5">
+              <span>BUDGET POOL: <span className="text-on-surface font-semibold">${budget?.monthly_budget_usd?.toFixed(2)} / MO</span></span>
+              <span className="text-[10px] text-tertiary font-mono uppercase bg-tertiary/10 px-1.5 py-0.2 rounded border border-tertiary/20">DEMO SEED</span>
             </div>
           </div>
           <p className="font-body-md text-body-md text-outline max-w-3xl">
@@ -99,9 +100,14 @@ export const BudgetManagerView: React.FC = () => {
         <div className="p-space-md rounded-xl bg-surface-container-low border border-surface-container-highest/40 flex flex-col justify-between shadow-sm">
           <div className="flex items-start justify-between">
             <div className="flex flex-col">
-              <span className="font-label-sm text-label-sm uppercase text-outline tracking-wider">
-                Monthly Budget Run
-              </span>
+              <div className="flex items-center gap-1.5">
+                <span className="font-label-sm text-label-sm uppercase text-outline tracking-wider">
+                  Monthly Budget Run
+                </span>
+                <span className="text-[9px] font-mono uppercase px-1 py-0.2 rounded border bg-surface-container text-outline border-surface-container-highest/60">
+                  DEMO DATA
+                </span>
+              </div>
               <div className="flex items-baseline gap-2 mt-1">
                 <span className="font-headline-md text-headline-md font-semibold text-on-surface">
                   ${budget?.current_spend_usd?.toFixed(2) || '482.40'}

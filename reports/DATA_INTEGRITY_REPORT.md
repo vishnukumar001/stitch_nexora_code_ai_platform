@@ -48,3 +48,4 @@ Every numerical value displayed on the NEXORA Code dashboard and analytics views
 4. **Action Approval & Git Commit Truthfulness:**
    - A task is never marked as `Approved & Merged` until an explicit HTTP POST request to `/api/approvals/{id}/resolve` with `{"decision": "approved"}` is completed.
    - If an action is rejected, the status changes to `Rejected & Reverted`, and no code changes are staged.
+

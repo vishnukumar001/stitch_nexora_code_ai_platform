@@ -106,7 +106,7 @@ export const SettingsView: React.FC<SettingsProps> = ({
             <div>
               <h2 className="text-base font-semibold text-on-surface">Connected AI Providers</h2>
               <p className="text-xs text-outline">
-                Configured with Bifrost by Maxim AI and local Ollama air-gap support.
+                Configured with Google Gemini Direct API, multi-provider failover, and local Ollama confidential routing (Offline fail-closed).
               </p>
             </div>
 
@@ -171,7 +171,7 @@ export const SettingsView: React.FC<SettingsProps> = ({
                     }`}
                   >
                     {p.is_local && (p.status === 'connected' || p.status === 'online')
-                      ? 'Local Air-Gap'
+                      ? 'Local Routing'
                       : p.status.replace('_', ' ').toUpperCase()}
                   </span>
                 </div>

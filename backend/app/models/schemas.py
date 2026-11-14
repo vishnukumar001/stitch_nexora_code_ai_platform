@@ -90,11 +90,18 @@ class ActionApproval(BaseModel):
     resolved_by: Optional[str] = None
     risk_analysis: str = ""
     sandbox_id: Optional[str] = "nx-sandbox-849"
+    user_id: Optional[str] = "usr_team_arise_01"
+    repo_id: Optional[str] = "repo-core"
 
 class ApprovalDecision(BaseModel):
     decision: ApprovalStatus # APPROVED or REJECTED or REVISION_REQUESTED
     notes: Optional[str] = None
     reviewer: str = "TEAM ARISE"
+    reviewer_user_id: Optional[str] = None
+    target_repo_id: Optional[str] = None
+    target_task_id: Optional[str] = None
+    expected_diff_hash: Optional[str] = None
+    approve_git_commit: Optional[bool] = False
 
 # Budget Schema
 class BudgetPolicy(BaseModel):
@@ -102,8 +109,10 @@ class BudgetPolicy(BaseModel):
     user_id: str = "usr_team_arise_01"
     monthly_budget_usd: float = 1200.0
     current_spend_usd: float = 482.40
+    reserved_spend_usd: Optional[float] = 0.0
     monthly_token_cap: int = 45_000_000
     current_tokens_used: int = 14_820_000
+    reserved_tokens: Optional[int] = 0
     hard_limit_enforced: bool = True
     auto_throttle_active: bool = True
     alert_threshold_pct: float = 80.0
@@ -132,6 +141,7 @@ class TaskAnalyzeResponse(BaseModel):
     is_confidential: bool
     execution_plan: List[Dict[str, Any]]
     requires_approval: bool
+    cache_hit: Optional[bool] = False
 
 class AgentTaskRequest(BaseModel):
     prompt: str
@@ -139,6 +149,8 @@ class AgentTaskRequest(BaseModel):
     target_files: Optional[List[str]] = None
     strategy: str = "balanced" # "balanced", "max_thrift", "fast_path", "frontier"
     safe_mode: bool = True # When true, requires approval for writes, shell, git
+    is_confidential: Optional[bool] = None
+    user_id: Optional[str] = "usr_team_arise_01"
 
 class ReasoningStep(BaseModel):
     step_number: int
@@ -177,6 +189,11 @@ class AgentTaskResponse(BaseModel):
     approval_id: Optional[str] = None
     pending_approval: Optional[ActionApproval] = None
     created_at: float = Field(default_factory=time.time)
+    execution_mode: Optional[str] = "SIMULATED PROVIDER EXECUTION"
+    provider_input_tokens: Optional[int] = None
+    provider_output_tokens: Optional[int] = None
+    cache_hit: Optional[bool] = False
+    actual_tokens_billed: Optional[int] = None
 
 # Analytics Summary Schema
 class TokenAnalyticsSummary(BaseModel):

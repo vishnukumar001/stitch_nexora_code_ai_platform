@@ -1,5 +1,6 @@
 import hashlib
 import time
+import uuid
 from typing import Dict, Any, Tuple, Optional
 from fastapi import HTTPException
 from backend.app.db.database import get_connection
@@ -33,7 +34,12 @@ class PrivacyGuard:
         }
 
     @classmethod
-    def enforce_privacy(cls, repo_id: str, requested_model_id: Optional[str] = None) -> Tuple[str, bool, str]:
+    def enforce_privacy(
+        cls,
+        repo_id: str,
+        requested_model_id: Optional[str] = None,
+        override_confidential: Optional[bool] = None
+    ) -> Tuple[str, bool, str]:
         """
         Enforces privacy invariants.
         Returns:
@@ -42,7 +48,11 @@ class PrivacyGuard:
             HTTPException(403) if an unauthorized remote call to a confidential repo is detected.
         """
         repo_meta = cls.check_repository_privacy(repo_id)
-        is_confidential = repo_meta["is_confidential"] or repo_meta["privacy_mode"] == "confidential"
+        is_confidential = (
+            (override_confidential is True) or
+            repo_meta["is_confidential"] or
+            repo_meta["privacy_mode"] == "confidential"
+        )
 
         timestamp = time.time()
         receipt_raw = f"{repo_id}:{is_confidential}:{timestamp}:NEXORA_AIRGAP_VERIFIED"
@@ -65,7 +75,7 @@ class PrivacyGuard:
         INSERT INTO audit_logs (id, timestamp, event_type, details, signature)
         VALUES (?, ?, ?, ?, ?)
         """, (
-            f"audit-{int(time.time()*1000)}",
+            f"audit-{int(time.time()*1000)}-{uuid.uuid4().hex[:8]}",
             time.time(),
             event_type,
             f"Repository '{repo_id}' protected under strict Zero-Egress Airgap Policy.",

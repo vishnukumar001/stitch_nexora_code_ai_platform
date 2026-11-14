@@ -57,3 +57,4 @@ $$\text{Token Reduction (\%)} = \left(\frac{\text{Baseline Input Tokens} - \text
 
 4. **Complexity-Based Model Cascading (`provider_router.py`):**
    - Low-complexity tasks are routed to high-speed, cost-effective models (DeepSeek V3 @ \$0.14/M input), while reserving frontier reasoning models (Claude 3.7 Sonnet) strictly for complex verification.
+

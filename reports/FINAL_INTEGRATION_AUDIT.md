@@ -78,3 +78,4 @@
 16. `POST /api/approvals/{id}/resolve`: Developer signs off, requests revision, or rejects pending mutations.
 17. `POST /api/security/kill-switch`: Engages or disengages global Emergency Kill Switch.
 18. `POST /api/settings/vault`: Stores server-side API keys and Bifrost credentials securely in SQLite.
+

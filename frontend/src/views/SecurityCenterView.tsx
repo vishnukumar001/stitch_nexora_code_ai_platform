@@ -62,7 +62,7 @@ export const SecurityCenterView: React.FC<SecurityCenterProps> = ({
             </div>
             <div className="flex items-center gap-1 px-2 py-0.5 rounded-full bg-surface-container-low font-label-sm text-label-sm text-on-surface-variant border border-surface-container-highest">
               <span className="material-symbols-outlined text-xs text-primary">verified_user</span>
-              <span>Air-Gap Status: <strong className="text-on-surface font-semibold">ARMED</strong></span>
+              <span>Local-Only Routing: <strong className="text-on-surface font-semibold">ARMED</strong></span>
             </div>
             <span className="font-code-sm text-code-sm text-outline">v2.4-sec-hardened</span>
           </div>
@@ -149,7 +149,7 @@ export const SecurityCenterView: React.FC<SecurityCenterProps> = ({
           <div className="flex items-start justify-between">
             <div>
               <span className="font-label-sm text-label-sm uppercase text-outline tracking-wider">
-                Air-Gapped Repositories
+                Local-Only Repositories
               </span>
               <span className="font-headline-lg text-headline-lg text-on-surface font-semibold mt-1 block">
                 1 Enclave

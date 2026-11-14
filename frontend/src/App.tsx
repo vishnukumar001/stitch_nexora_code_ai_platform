@@ -54,12 +54,16 @@ export function App() {
       setRepositories(repos);
       setApprovals(apprs);
       setKillSwitchActive(health.kill_switch_active);
-      if (!selectedTask && dash.recent_activities?.length > 0) {
-        setSelectedTask(dash.recent_activities[0]);
-      }
     } catch (e) {
       console.error('Failed to load telemetry:', e);
     }
+  };
+
+  const handleNavigate = (view: string) => {
+    if (view === 'new-task') {
+      setSelectedTask(null);
+    }
+    setCurrentView(view);
   };
 
   const handleToggleKillSwitch = async () => {
@@ -103,7 +107,7 @@ export function App() {
       {/* 1. Left Sidebar Navigation */}
       <NavigationSidebar
         currentView={currentView}
-        onNavigate={setCurrentView}
+        onNavigate={handleNavigate}
         killSwitchActive={killSwitchActive}
         activeRepoName={activeRepo?.name || 'prod-core-monorepo'}
       />
@@ -111,7 +115,7 @@ export function App() {
       {/* 2. Main Content Frame */}
       <div className="pl-[250px] flex-1 flex flex-col min-w-0">
         <TopHeader
-          onNavigate={setCurrentView}
+          onNavigate={handleNavigate}
           pendingApprovalsCount={approvals.length}
           killSwitchActive={killSwitchActive}
           onToggleKillSwitch={handleToggleKillSwitch}
@@ -125,7 +129,7 @@ export function App() {
               providers={providers}
               recentActivities={recentActivities}
               activeRepoName={activeRepo?.name || 'prod-core-monorepo'}
-              onNavigate={setCurrentView}
+              onNavigate={handleNavigate}
               onInspectTask={handleInspectTask}
             />
           )}
@@ -140,7 +144,8 @@ export function App() {
                 setSelectedTask(task);
                 loadAllData();
               }}
-              onNavigate={setCurrentView}
+              onClearTask={() => setSelectedTask(null)}
+              onNavigate={handleNavigate}
             />
           )}
 
@@ -151,7 +156,7 @@ export function App() {
               onSelectRepo={(id) => {
                 setActiveRepoId(id);
               }}
-              onNavigate={setCurrentView}
+              onNavigate={handleNavigate}
             />
           )}
 
@@ -159,7 +164,7 @@ export function App() {
             <TaskHistoryView
               tasks={recentActivities}
               onInspectTask={handleInspectTask}
-              onNavigate={setCurrentView}
+              onNavigate={handleNavigate}
             />
           )}
 

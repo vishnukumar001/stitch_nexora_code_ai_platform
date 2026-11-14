@@ -37,3 +37,4 @@
    - Demonstrate the 9-step workflow starting from `http://localhost:8000`.
    - Show the simulated failover test in Settings to illustrate automatic circuit breaker protection.
    - Engage the Emergency Kill Switch live to demonstrate security containment.
+

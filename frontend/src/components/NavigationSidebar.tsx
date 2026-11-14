@@ -115,7 +115,7 @@ export const NavigationSidebar: React.FC<SidebarProps> = ({
         <div className="pt-2 border-t border-surface-container-highest/30 flex items-center justify-between text-[11px] text-outline">
           <span className="flex items-center gap-1.5">
             <span className="w-2 h-2 rounded-full bg-tertiary"></span>
-            <span>Bifrost & Local Ready</span>
+            <span>Gemini & Local Ready</span>
           </span>
           <span className="text-tertiary font-mono">v3.4</span>
         </div>

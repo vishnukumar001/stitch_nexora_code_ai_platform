@@ -71,6 +71,7 @@ export interface TaskRecord {
   approval_id?: string;
   created_at: number;
   is_demo?: boolean;
+  execution_mode?: string;
 }
 
 export interface Repository {
@@ -105,8 +106,10 @@ export interface BudgetPolicy {
   user_id: string;
   monthly_budget_usd: number;
   current_spend_usd: number;
+  reserved_spend_usd?: number;
   monthly_token_cap: number;
   current_tokens_used: number;
+  reserved_tokens?: number;
   hard_limit_enforced: boolean;
   auto_throttle_active: boolean;
   alert_threshold_pct: number;
@@ -180,6 +183,7 @@ export async function executeAgentTask(params: {
   repo_id: string;
   strategy?: string;
   safe_mode?: boolean;
+  is_confidential?: boolean;
 }): Promise<TaskRecord> {
   const res = await fetch(`${API_BASE}/tasks/execute`, {
     method: 'POST',
@@ -234,11 +238,23 @@ export async function fetchApprovals(): Promise<ActionApproval[]> {
   return res.json();
 }
 
-export async function resolveApproval(approvalId: string, decision: 'approved' | 'rejected' | 'revision_requested', notes?: string) {
+export async function resolveApproval(
+  approvalId: string,
+  decision: 'approved' | 'rejected' | 'revision_requested',
+  notes?: string,
+  expectedDiffHash?: string,
+  approveGitCommit?: boolean
+) {
   const res = await fetch(`${API_BASE}/approvals/${approvalId}/resolve`, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ decision, reviewer: 'TEAM ARISE', notes })
+    body: JSON.stringify({
+      decision,
+      reviewer: 'TEAM ARISE',
+      notes,
+      expected_diff_hash: expectedDiffHash,
+      approve_git_commit: approveGitCommit ?? true
+    })
   });
   return res.json();
 }

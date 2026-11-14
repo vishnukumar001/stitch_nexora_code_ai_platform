@@ -52,6 +52,11 @@ class SemanticCache:
             "hit_ratio_pct": round((self.hits / total) * 100, 1)
         }
 
+    def clear(self):
+        self._cache.clear()
+        self.hits = 0
+        self.misses = 0
+
 # Global singleton cache instance
 semantic_cache = SemanticCache()
 
